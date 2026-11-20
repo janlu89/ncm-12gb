@@ -133,6 +133,6 @@ Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.1, r
 
 [CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
 
-Built on [HazyResearch/ncm](https://github.com/HazyResearch/ncm) and the [NCM paper](https://arxiv.org/abs/2610.14162), with TinyStories data by Eldan and Li as pre-tokenised by the NCM authors. Upstream attribution and its pinned revision are in [third_party/README.md](third_party/README.md). Code is released under [MIT](LICENSE); see the upstream dataset card for data terms.
+Built on [HazyResearch/ncm](https://github.com/HazyResearch/ncm) and the [NCM paper](https://arxiv.org/abs/2610.14162), with TinyStories data by Eldan and Li as pre-tokenised by the NCM authors. Upstream attribution and its pinned revision are in [NOTICE](NOTICE) and [third_party/README.md](third_party/README.md). Code is released under [MIT](LICENSE); see the upstream dataset card for data terms.
 
 For replication questions, technical feedback or collaboration: **[gianluca.meola89@gmail.com](mailto:gianluca.meola89@gmail.com)**.

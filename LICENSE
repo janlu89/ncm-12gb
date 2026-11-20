@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
--------------------------------------------------------------------------------
-Third-party code
--------------------------------------------------------------------------------
-
-This project builds on the Next-Concept Model (NCM) code from
-https://github.com/HazyResearch/ncm, released under the MIT License,
-Copyright (c) 2025 hermann kumbong.
-
-The upstream repository itself is not included and must be obtained separately
-(see third_party/README.md). Two files here, tokenizer/quantizer.py and
-tokenizer/codifica64.py, contain code adapted from upstream models/quant.py;
-they are marked at the top, and the upstream licence text is reproduced in
-third_party/NCM_LICENSE.
