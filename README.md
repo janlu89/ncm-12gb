@@ -106,7 +106,7 @@ Start with [REPRODUCING.md](REPRODUCING.md) for the environment, dependencies, e
 
 ## Checkpoints
 
-The model package is prepared locally; Hugging Face publication is pending. Model weights are not included in this code repository. The planned package contains four checkpoints:
+The weights are on Hugging Face: **[huggingface.co/janlu89/ncm-12gb](https://huggingface.co/janlu89/ncm-12gb)** (1.16 GB, not included in this code repository). The folders there mirror `runs/` here, so downloading them into the root of this repository is enough to use them. The package contains four checkpoints:
 
 | Checkpoint | Intended use / measured result |
 |:---|:---|

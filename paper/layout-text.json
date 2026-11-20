@@ -1905,19 +1905,19 @@
     "page": 7,
     "x": 48,
     "y": 269.69,
-    "text": "The model package is prepared locally; public Hugging Face links are pending. Mean results in the figures must not be"
+    "text": "Weights: huggingface.co/janlu89/ncm-12gb. Mean results in the figures must not be confused with individual"
   },
   {
     "page": 7,
     "x": 48,
     "y": 256.19,
-    "text": "confused with individual checkpoint scores. Different tokenizer checkpoints learn different code spaces and are not"
+    "text": "checkpoint scores. Different tokenizer checkpoints learn different code spaces and are not interchangeable for a fixed"
   },
   {
     "page": 7,
     "x": 48,
     "y": 242.69,
-    "text": "interchangeable for a fixed generator."
+    "text": "generator."
   },
   {
     "page": 7,

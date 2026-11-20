@@ -449,7 +449,7 @@ with PdfPages(PDF, metadata=metadata) as pdf:
         ['Generator on R12, 409,600 stories, seed 42','42.76; pair only with the 2,400-step tokenizer.'],
         ['Generator on official tokenizer, same budget','26.04; official tokenizer is an upstream dependency.'],
     ],[236,CW-236],y,size=8.8,leading=12)
-    y=p.para('The model package is prepared locally; public Hugging Face links are pending. Mean results in the figures must not be confused with individual checkpoint scores. Different tokenizer checkpoints learn different code spaces and are not interchangeable for a fixed generator.',y,size=9.5,leading=13.5,gap=13)
+    y=p.para('Weights: huggingface.co/janlu89/ncm-12gb. Mean results in the figures must not be confused with individual checkpoint scores. Different tokenizer checkpoints learn different code spaces and are not interchangeable for a fixed generator.',y,size=9.5,leading=13.5,gap=13)
     y=p.head('Measured resource use',y,size=12)
     y=p.para('On an RTX 3080 Ti, a 51,200-story generator run takes roughly 10–12 minutes and peaks at 7.0 GiB allocated by PyTorch; 409,600 stories take 62–70 minutes. A 38,400-step tokenizer takes about 3 h 15 min. Host: Intel i5-6600K, Windows 10, PyTorch 2.14.1 / CUDA 12.6. These are local timings for the specified configurations, not a total project-cost estimate.',y,size=9.5,leading=13.5)
     p.save(pdf)
