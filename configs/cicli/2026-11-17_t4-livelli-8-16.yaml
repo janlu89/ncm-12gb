@@ -1,0 +1,24 @@
+# NON LANCIATO: sostituito da 2026-11-18_t4-livelli-8.yaml (scelti solo 8 livelli).
+# Ciclo T4 — meno livelli. Dopo T3 (40 livelli molto peggio del 12 a parità di passi): tokenizer nostri a 8 e 16
+# livelli (spaziatura lineare), stesso training del 12 (614.400 storie, 2.400 passi × 256), stesso generatore:
+# 400 passi × 128 storie = 51.200, ricetta del paper e nostra migliore, seed 42.
+# Domanda: a questo budget il generatore impara meglio con meno livelli? I due tokenizer vanno addestrati prima.
+# NON lanciato. Piano: docs/piani/tokenizer-operativo.md
+nome: 2026-11-17_t4-livelli-8-16
+riferimento: L12_paper42
+rumore: [L12_paper42, L12_paper43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: L12_paper42, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "12 livelli, ricetta del paper (T1)", overrides: [train.seed=42]}
+  - {id: L12_paper43, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43, descr: "12 livelli, ricetta del paper, seed 43 (T1)", overrides: [train.seed=43]}
+  - {id: L12_best42, run: gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "12 livelli, nostra migliore (T1)", overrides: [train.seed=42]}
+  - {id: L8_paper42, descr: "8 livelli, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-8lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: L8_best42, descr: "8 livelli, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-8lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: L16_paper42, descr: "16 livelli, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-16lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: L16_best42, descr: "16 livelli, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-16lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

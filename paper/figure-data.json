@@ -1,0 +1,192 @@
+{
+  "Random init \u00b7 2.4k": {
+    "mean_gen_ppl": "222.775",
+    "runs": [
+      "gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "219.24",
+      "226.31"
+    ]
+  },
+  "Data init \u00b7 2.4k": {
+    "mean_gen_ppl": "115.375",
+    "runs": [
+      "gen-mytok12std-dati-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-mytok12std-dati-2400x256_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "116.97",
+      "113.78"
+    ]
+  },
+  "+ Early restart \u00b7 2.4k": {
+    "mean_gen_ppl": "108.17",
+    "runs": [
+      "gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "106.54",
+      "109.8"
+    ]
+  },
+  "R12 \u00b7 4.8k steps": {
+    "mean_gen_ppl": "103.61",
+    "runs": [
+      "gen-mytok12std-dati-rv-4800x256_51200_400x128_c50_lr1e-3_flex_s42"
+    ],
+    "values": [
+      "103.61"
+    ]
+  },
+  "R12 \u00b7 38.4k steps": {
+    "mean_gen_ppl": "92.345",
+    "runs": [
+      "gen-mytok12std-dati-rv-38400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-mytok12std-dati-rv-38400x256-ts43_51200_400x128_c50_lr1e-3_flex_s42"
+    ],
+    "values": [
+      "91.46",
+      "93.23"
+    ]
+  },
+  "Official tokenizer": {
+    "mean_gen_ppl": "66.255",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "65.89",
+      "66.62"
+    ]
+  },
+  "recipe: Reconstructed recipe": {
+    "mean_gen_ppl": "150.67",
+    "runs": [
+      "gen-tokuff_51200_400x128_lin75-25_lr3e-4_s42",
+      "gen-tokuff_51200_400x128_lin75-25_lr3e-4_s43"
+    ],
+    "values": [
+      "149.42",
+      "151.92"
+    ]
+  },
+  "recipe: Constant corruption 0.5": {
+    "mean_gen_ppl": "137.82",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr3e-4_s42",
+      "gen-tokuff_51200_400x128_c50_lr3e-4_s43"
+    ],
+    "values": [
+      "134.72",
+      "140.92"
+    ]
+  },
+  "recipe: + FlexAttention": {
+    "mean_gen_ppl": "133.11",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr3e-4_flex_s42",
+      "gen-tokuff_51200_400x128_c50_lr3e-4_flex_s43"
+    ],
+    "values": [
+      "131.48",
+      "134.74"
+    ]
+  },
+  "recipe: + Learning rate 1e-3": {
+    "mean_gen_ppl": "66.255",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "65.89",
+      "66.62"
+    ]
+  },
+  "budget official 51200": {
+    "mean_gen_ppl": "66.255",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "65.89",
+      "66.62"
+    ]
+  },
+  "budget own 51200": {
+    "mean_gen_ppl": "108.17",
+    "runs": [
+      "gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "106.54",
+      "109.8"
+    ]
+  },
+  "budget official 102400": {
+    "mean_gen_ppl": "43.84",
+    "runs": [
+      "gen-tokuff_102400_800x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_102400_800x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "43.35",
+      "44.33"
+    ]
+  },
+  "budget own 102400": {
+    "mean_gen_ppl": "65.68",
+    "runs": [
+      "gen-mytok12std-dati-rv-2400x256_102400_800x128_c50_lr1e-3_flex_s42"
+    ],
+    "values": [
+      "65.68"
+    ]
+  },
+  "budget official 409600": {
+    "mean_gen_ppl": "25.875",
+    "runs": [
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "26.04",
+      "25.71"
+    ]
+  },
+  "budget own 409600": {
+    "mean_gen_ppl": "42.00",
+    "runs": [
+      "gen-mytok12std-dati-rv-2400x256_409600_3200x128_c50_lr1e-3_flex_s42",
+      "gen-mytok12std-dati-rv-2400x256_409600_3200x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "42.76",
+      "41.24"
+    ]
+  },
+  "long tokenizer snapshot 9600": {
+    "mean_gen_ppl": "95.15",
+    "runs": [
+      "gen-mytok12std-dati-rv-38400x256-p9600_51200_400x128_c50_lr1e-3_flex_s42"
+    ],
+    "values": [
+      "95.15"
+    ]
+  },
+  "long tokenizer snapshot 19200": {
+    "mean_gen_ppl": "90.27",
+    "runs": [
+      "gen-mytok12std-dati-rv-38400x256-p19200_51200_400x128_c50_lr1e-3_flex_s42"
+    ],
+    "values": [
+      "90.27"
+    ]
+  }
+}

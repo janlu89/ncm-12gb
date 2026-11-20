@@ -1,0 +1,319 @@
+{
+  "storie": 4096,
+  "context_length": 128,
+  "levels": [
+    1,
+    8,
+    16,
+    24,
+    32,
+    40,
+    52,
+    64,
+    76,
+    92,
+    108,
+    128
+  ],
+  "seed": 0,
+  "torch": "2.14.1+cu126",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "tokenizer": [
+    {
+      "livelli_usati": 1,
+      "acc_token": 0.09595,
+      "acc_token_senza_pad": 0.0963,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 2,
+      "acc_token": 0.11591,
+      "acc_token_senza_pad": 0.11633,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 3,
+      "acc_token": 0.218,
+      "acc_token_senza_pad": 0.2188,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 4,
+      "acc_token": 0.35816,
+      "acc_token_senza_pad": 0.35946,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 5,
+      "acc_token": 0.55117,
+      "acc_token_senza_pad": 0.55317,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 6,
+      "acc_token": 0.68719,
+      "acc_token_senza_pad": 0.68969,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 7,
+      "acc_token": 0.81807,
+      "acc_token_senza_pad": 0.82104,
+      "sequenze_perfette": 0.0
+    },
+    {
+      "livelli_usati": 8,
+      "acc_token": 0.93709,
+      "acc_token_senza_pad": 0.9405,
+      "sequenze_perfette": 0.00415
+    },
+    {
+      "livelli_usati": 9,
+      "acc_token": 0.96356,
+      "acc_token_senza_pad": 0.96706,
+      "sequenze_perfette": 0.05249
+    },
+    {
+      "livelli_usati": 10,
+      "acc_token": 0.97826,
+      "acc_token_senza_pad": 0.98182,
+      "sequenze_perfette": 0.17651
+    },
+    {
+      "livelli_usati": 11,
+      "acc_token": 0.98605,
+      "acc_token_senza_pad": 0.98963,
+      "sequenze_perfette": 0.35034
+    },
+    {
+      "livelli_usati": 12,
+      "acc_token": 0.99616,
+      "acc_token_senza_pad": 0.99979,
+      "sequenze_perfette": 0.93335
+    }
+  ],
+  "generatore": {
+    "ufficiale": {
+      "loss_media_per_codice": 1.3597,
+      "per_livello": [
+        {
+          "livello": 1,
+          "posizioni": 8,
+          "loss": 6.6425,
+          "acc": 0.0524
+        },
+        {
+          "livello": 2,
+          "posizioni": 16,
+          "loss": 5.1048,
+          "acc": 0.1783
+        },
+        {
+          "livello": 3,
+          "posizioni": 24,
+          "loss": 3.5665,
+          "acc": 0.3192
+        },
+        {
+          "livello": 4,
+          "posizioni": 32,
+          "loss": 2.477,
+          "acc": 0.4633
+        },
+        {
+          "livello": 5,
+          "posizioni": 40,
+          "loss": 1.6684,
+          "acc": 0.5887
+        },
+        {
+          "livello": 6,
+          "posizioni": 52,
+          "loss": 1.2449,
+          "acc": 0.6545
+        },
+        {
+          "livello": 7,
+          "posizioni": 64,
+          "loss": 0.4743,
+          "acc": 0.8512
+        },
+        {
+          "livello": 8,
+          "posizioni": 76,
+          "loss": 1.1051,
+          "acc": 0.6758
+        },
+        {
+          "livello": 9,
+          "posizioni": 92,
+          "loss": 1.4102,
+          "acc": 0.6099
+        },
+        {
+          "livello": 10,
+          "posizioni": 108,
+          "loss": 1.4836,
+          "acc": 0.5876
+        },
+        {
+          "livello": 11,
+          "posizioni": 128,
+          "loss": 0.2713,
+          "acc": 0.908
+        }
+      ]
+    },
+    "input_mescolato": {
+      "loss_media_per_codice": 16.316,
+      "per_livello": [
+        {
+          "livello": 1,
+          "posizioni": 8,
+          "loss": 7.116,
+          "acc": 0.0271
+        },
+        {
+          "livello": 2,
+          "posizioni": 16,
+          "loss": 9.1827,
+          "acc": 0.0126
+        },
+        {
+          "livello": 3,
+          "posizioni": 24,
+          "loss": 11.0593,
+          "acc": 0.0128
+        },
+        {
+          "livello": 4,
+          "posizioni": 32,
+          "loss": 12.7475,
+          "acc": 0.0159
+        },
+        {
+          "livello": 5,
+          "posizioni": 40,
+          "loss": 14.1601,
+          "acc": 0.0147
+        },
+        {
+          "livello": 6,
+          "posizioni": 52,
+          "loss": 15.5361,
+          "acc": 0.0204
+        },
+        {
+          "livello": 7,
+          "posizioni": 64,
+          "loss": 19.5774,
+          "acc": 0.0224
+        },
+        {
+          "livello": 8,
+          "posizioni": 76,
+          "loss": 15.6494,
+          "acc": 0.0178
+        },
+        {
+          "livello": 9,
+          "posizioni": 92,
+          "loss": 14.8076,
+          "acc": 0.0164
+        },
+        {
+          "livello": 10,
+          "posizioni": 108,
+          "loss": 14.6586,
+          "acc": 0.0203
+        },
+        {
+          "livello": 11,
+          "posizioni": 128,
+          "loss": 21.8987,
+          "acc": 0.0253
+        }
+      ]
+    },
+    "pesi_casuali": {
+      "loss_media_per_codice": 8.168,
+      "per_livello": [
+        {
+          "livello": 1,
+          "posizioni": 8,
+          "loss": 8.441,
+          "acc": 0.0
+        },
+        {
+          "livello": 2,
+          "posizioni": 16,
+          "loss": 8.3498,
+          "acc": 0.0023
+        },
+        {
+          "livello": 3,
+          "posizioni": 24,
+          "loss": 8.3113,
+          "acc": 0.0021
+        },
+        {
+          "livello": 4,
+          "posizioni": 32,
+          "loss": 8.2357,
+          "acc": 0.0022
+        },
+        {
+          "livello": 5,
+          "posizioni": 40,
+          "loss": 8.1763,
+          "acc": 0.0002
+        },
+        {
+          "livello": 6,
+          "posizioni": 52,
+          "loss": 8.1634,
+          "acc": 0.0004
+        },
+        {
+          "livello": 7,
+          "posizioni": 64,
+          "loss": 8.1929,
+          "acc": 0.0034
+        },
+        {
+          "livello": 8,
+          "posizioni": 76,
+          "loss": 8.1556,
+          "acc": 0.0008
+        },
+        {
+          "livello": 9,
+          "posizioni": 92,
+          "loss": 8.2498,
+          "acc": 0.0002
+        },
+        {
+          "livello": 10,
+          "posizioni": 108,
+          "loss": 8.2384,
+          "acc": 0.0002
+        },
+        {
+          "livello": 11,
+          "posizioni": 128,
+          "loss": 7.9604,
+          "acc": 0.0057
+        }
+      ]
+    },
+    "loss_uniforme_ln4096": 8.3178
+  },
+  "livello0": {
+    "codici_usati_validation": 1632,
+    "codici_nonzero_unigramma_checkpoint": 2558,
+    "unigramma_min_nonzero": 1.52587890625e-05,
+    "unigramma_min_nonzero_x65536": 1.0,
+    "jensen_shannon_validation_vs_checkpoint": 0.10319
+  },
+  "secondi": 146.2
+}

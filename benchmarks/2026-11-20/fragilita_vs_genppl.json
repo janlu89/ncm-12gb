@@ -1,0 +1,198 @@
+{
+  "data": "2026-11-20 12:32:46",
+  "storie": 4096,
+  "seed": 1234,
+  "casi": [
+    {
+      "tokenizer": "ufficiale",
+      "base_config": "artifacts/tinystories/config.yaml",
+      "generatore": "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 65.89,
+      "entropia": 3.9389,
+      "pulito": 0.00021,
+      "codici_usati_livello0": 1632,
+      "tutti_5%": 0.00271,
+      "tutti_5%_senza_livello0": 0.00259,
+      "tutti_10%": 0.01086,
+      "tutti_10%_senza_livello0": 0.01037,
+      "livello0_scambiato": 0.00073,
+      "livello0_quota_cambiata": 0.998
+    },
+    {
+      "tokenizer": "codici casuali, 2.400 passi",
+      "base_config": "runs/mytok-12std_614400_2400x256_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 219.24,
+      "entropia": 3.8574,
+      "pulito": 0.00734,
+      "codici_usati_livello0": 14,
+      "tutti_5%": 0.00993,
+      "tutti_5%_senza_livello0": 0.00847,
+      "tutti_10%": 0.02834,
+      "tutti_10%_senza_livello0": 0.0252,
+      "livello0_scambiato": 0.02642,
+      "livello0_quota_cambiata": 0.894
+    },
+    {
+      "tokenizer": "dati, 2.400 passi",
+      "base_config": "runs/mytok-12std-dati_614400_2400x256_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 116.97,
+      "entropia": 3.901,
+      "pulito": 0.00971,
+      "codici_usati_livello0": 17,
+      "tutti_5%": 0.00661,
+      "tutti_5%_senza_livello0": 0.00562,
+      "tutti_10%": 0.01974,
+      "tutti_10%_senza_livello0": 0.01757,
+      "livello0_scambiato": 0.0176,
+      "livello0_quota_cambiata": 0.9167
+    },
+    {
+      "tokenizer": "R12, 2.400 passi",
+      "base_config": "runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 106.54,
+      "entropia": 3.8729,
+      "pulito": 0.01439,
+      "codici_usati_livello0": 22,
+      "tutti_5%": 0.0071,
+      "tutti_5%_senza_livello0": 0.00545,
+      "tutti_10%": 0.02025,
+      "tutti_10%_senza_livello0": 0.01676,
+      "livello0_scambiato": 0.03017,
+      "livello0_quota_cambiata": 0.9397
+    },
+    {
+      "tokenizer": "R12, 4.800 passi",
+      "base_config": "runs/mytok-12std-dati-rv_1228800_4800x256_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-4800x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 103.61,
+      "entropia": 3.9097,
+      "pulito": 0.00732,
+      "codici_usati_livello0": 91,
+      "tutti_5%": 0.00668,
+      "tutti_5%_senza_livello0": 0.00455,
+      "tutti_10%": 0.01921,
+      "tutti_10%_senza_livello0": 0.01442,
+      "livello0_scambiato": 0.03976,
+      "livello0_quota_cambiata": 0.9849
+    },
+    {
+      "tokenizer": "R12, 4.800 passi, senza norma L0",
+      "base_config": "runs/mytok-12std-dati-rv-nonorm_1228800_4800x256_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-nonorm-4800x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 115.28,
+      "entropia": 3.913,
+      "pulito": 0.00737,
+      "codici_usati_livello0": 305,
+      "tutti_5%": 0.00626,
+      "tutti_5%_senza_livello0": 0.00467,
+      "tutti_10%": 0.01848,
+      "tutti_10%_senza_livello0": 0.01499,
+      "livello0_scambiato": 0.02963,
+      "livello0_quota_cambiata": 0.9912
+    },
+    {
+      "tokenizer": "R12, batch 1.024",
+      "base_config": "runs/mytok-12std-dati-rv_1228800_1200x1024_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-1200x1024_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 98.29,
+      "entropia": 3.9089,
+      "pulito": 0.01828,
+      "codici_usati_livello0": 55,
+      "tutti_5%": 0.00635,
+      "tutti_5%_senza_livello0": 0.00565,
+      "tutti_10%": 0.01914,
+      "tutti_10%_senza_livello0": 0.01741,
+      "livello0_scambiato": 0.01145,
+      "livello0_quota_cambiata": 0.9551
+    },
+    {
+      "tokenizer": "R12, batch 4.096",
+      "base_config": "runs/mytok-12std-dati-rv_1228800_300x4096_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-300x4096_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 100.36,
+      "entropia": 3.8633,
+      "pulito": 0.06163,
+      "codici_usati_livello0": 58,
+      "tutti_5%": 0.00912,
+      "tutti_5%_senza_livello0": 0.00906,
+      "tutti_10%": 0.02455,
+      "tutti_10%_senza_livello0": 0.02443,
+      "livello0_scambiato": 0.0005,
+      "livello0_quota_cambiata": 0.9705
+    },
+    {
+      "tokenizer": "R12, lungo: copia passo 9.600",
+      "base_config": "runs/mytok-12std-dati-rv_9830400_38400x256_s42/export/passo_00009600/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-38400x256-p9600_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 95.15,
+      "entropia": 3.9016,
+      "pulito": 0.00425,
+      "codici_usati_livello0": 186,
+      "tutti_5%": 0.00664,
+      "tutti_5%_senza_livello0": 0.004,
+      "tutti_10%": 0.01968,
+      "tutti_10%_senza_livello0": 0.01386,
+      "livello0_scambiato": 0.04777,
+      "livello0_quota_cambiata": 0.9905
+    },
+    {
+      "tokenizer": "R12, lungo: copia passo 19.200",
+      "base_config": "runs/mytok-12std-dati-rv_9830400_38400x256_s42/export/passo_00019200/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-38400x256-p19200_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 90.27,
+      "entropia": 3.9253,
+      "pulito": 0.00267,
+      "codici_usati_livello0": 361,
+      "tutti_5%": 0.00622,
+      "tutti_5%_senza_livello0": 0.00323,
+      "tutti_10%": 0.01812,
+      "tutti_10%_senza_livello0": 0.01156,
+      "livello0_scambiato": 0.05348,
+      "livello0_quota_cambiata": 0.9929
+    },
+    {
+      "tokenizer": "R12, 38.400 passi",
+      "base_config": "runs/mytok-12std-dati-rv_9830400_38400x256_s42/export/config.yaml",
+      "generatore": "gen-mytok12std-dati-rv-38400x256_51200_400x128_c50_lr1e-3_flex_s42",
+      "genppl": 91.46,
+      "entropia": 3.9339,
+      "pulito": 0.00228,
+      "codici_usati_livello0": 500,
+      "tutti_5%": 0.00618,
+      "tutti_5%_senza_livello0": 0.00309,
+      "tutti_10%": 0.01801,
+      "tutti_10%_senza_livello0": 0.01139,
+      "livello0_scambiato": 0.05527,
+      "livello0_quota_cambiata": 0.9961
+    }
+  ],
+  "spearman": {
+    "pulito": {
+      "tutti": 0.591,
+      "solo_nostri": 0.455
+    },
+    "tutti_5%": {
+      "tutti": 0.682,
+      "solo_nostri": 0.576
+    },
+    "tutti_5%_senza_livello0": {
+      "tutti": 0.718,
+      "solo_nostri": 0.624
+    },
+    "tutti_10%": {
+      "tutti": 0.736,
+      "solo_nostri": 0.648
+    },
+    "tutti_10%_senza_livello0": {
+      "tutti": 0.809,
+      "solo_nostri": 0.745
+    },
+    "livello0_scambiato": {
+      "tutti": -0.209,
+      "solo_nostri": -0.552
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Weights, tensors and caches
+*.pt
+*.pkl
+*.bin
+*.npy
+*.u16
+*.safetensors
+
+# Large local data (not part of the repository)
+/data/raw/
+/data/processed/
+/artifacts/
+/third_party/ncm/
+/runs/
+evaluation/ref_models/
+
+*.pid
+pid.txt
+
+# Page previews written by paper/build_paper.py
+publication-preview/

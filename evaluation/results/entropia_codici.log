@@ -1,0 +1,31 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+ufficiale (12): 12 livelli, entropia media 7.482 nat (6s)
+    paper                                         loss 4.444  imparato oltre le frequenze +3.039 nat (+40.6%)
+    migliore                                      loss 3.302  imparato oltre le frequenze +4.180 nat (+55.9%)
+    ufficiale addestrato (50.000 passi × 2.048)   loss 1.360  imparato oltre le frequenze +6.123 nat (+81.8%)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+nostro 12: 12 livelli, entropia media 6.072 nat (5s)
+    paper                                         loss 5.364  imparato oltre le frequenze +0.709 nat (+11.7%)
+    migliore                                      loss 4.615  imparato oltre le frequenze +1.457 nat (+24.0%)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+nostro 12 dati: 12 livelli, entropia media 7.172 nat (5s)
+    paper                                         loss 4.899  imparato oltre le frequenze +2.274 nat (+31.7%)
+    migliore                                      loss 3.838  imparato oltre le frequenze +3.334 nat (+46.5%)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+nostro 12 dati+rv: 12 livelli, entropia media 7.226 nat (4s)
+    paper                                         loss 4.869  imparato oltre le frequenze +2.357 nat (+32.6%)
+    migliore                                      loss 3.875  imparato oltre le frequenze +3.351 nat (+46.4%)
+VQVAE, Total parameter count: 64.65M
+VQVAE, Non embedding parameter count: 61.46M
+nostro 26: 26 livelli, entropia media 5.795 nat (10s)
+    paper                                         loss 6.540  imparato oltre le frequenze -0.745 nat (-12.9%)
+    migliore                                      loss 5.831  imparato oltre le frequenze -0.036 nat (-0.6%)
+VQVAE, Total parameter count: 92.87M
+VQVAE, Non embedding parameter count: 89.68M
+nostro 40: 40 livelli, entropia media 5.617 nat (16s)
+    paper                                         loss 6.801  imparato oltre le frequenze -1.184 nat (-21.1%)
+    migliore                                      loss 6.119  imparato oltre le frequenze -0.501 nat (-8.9%)

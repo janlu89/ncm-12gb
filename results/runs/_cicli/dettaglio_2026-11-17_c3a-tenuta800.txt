@@ -1,0 +1,11 @@
+loss di validazione per livello (più bassa = meglio)
+                 L1     L2     L3     L4     L5     L6     L7     L8     L9    L10    L11
+ufficiale      6.64   5.10   3.57   2.48   1.67   1.24   0.47   1.11   1.41   1.48   0.27
+A42            6.70   6.87   5.47   4.93   4.68   4.30   2.28   3.58   3.76   3.61   0.70
+V3             6.70   6.09   4.94   4.53   4.34   4.03   2.12   3.61   3.88   3.78   0.80
+V4             6.69   6.96   5.47   4.91   4.67   4.27   2.25   3.54   3.74   3.59   0.70
+
+dettaglio
+A42   val 3.842@400 -> 3.292@800 | train 4.647 | GenPPL 73.52 per seed [73.16, 71.67, 75.27, 73.22, 74.27] | entropia 3.923 | 87 seq/s | picco 5.83 GB | temp max 76 °C | generazione 23 s
+V3    val 3.808@400 -> 3.242@800 | train 4.617 | GenPPL 70.02 per seed [70.04, 70.39, 69.36, 71.21, 69.09] | entropia 3.909 | 87 seq/s | picco 5.83 GB | temp max 76 °C | generazione 23 s
+V4    val 3.829@400 -> 3.277@800 | train 4.612 | GenPPL 74.51 per seed [75.21, 73.1, 77.02, 74.72, 72.5] | entropia 3.955 | 115 seq/s | picco 7.03 GB | temp max 76 °C | generazione 24 s

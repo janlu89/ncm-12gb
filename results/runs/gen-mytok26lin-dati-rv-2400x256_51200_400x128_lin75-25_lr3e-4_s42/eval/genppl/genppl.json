@@ -1,0 +1,45 @@
+{
+  "genppl_mean": 418.63,
+  "genppl_std": 5.85,
+  "entropy_mean": 3.7098,
+  "per_seed": [
+    {
+      "seed": 42,
+      "genppl": 415.5,
+      "entropy": 3.7071
+    },
+    {
+      "seed": 0,
+      "genppl": 427.72,
+      "entropy": 3.7063
+    },
+    {
+      "seed": 1,
+      "genppl": 412.63,
+      "entropy": 3.7154
+    },
+    {
+      "seed": 2,
+      "genppl": 416.61,
+      "entropy": 3.704
+    },
+    {
+      "seed": 3,
+      "genppl": 420.68,
+      "entropy": 3.7165
+    }
+  ],
+  "n_samples": 1280,
+  "samples_per_seed": 256,
+  "ref_model": ".\\evaluation\\ref_models\\gpt2-large",
+  "checkpoint_dir": ".\\runs\\gen-mytok26lin-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s42\\export",
+  "secondi_generazione": 59.3,
+  "secondi_totali": 94.9,
+  "comando": [
+    ".\\.venv\\Scripts\\python.exe",
+    ".\\evaluation\\gen_ppl_run.py",
+    "--run",
+    "gen-mytok26lin-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s42"
+  ],
+  "data": "2026-11-18 22:01:36"
+}

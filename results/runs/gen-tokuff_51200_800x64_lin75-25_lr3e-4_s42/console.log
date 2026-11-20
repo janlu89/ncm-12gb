@@ -1,0 +1,90 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] lineare, tasso per livello: [0.0, 0.75, 0.694, 0.639, 0.583, 0.528, 0.472, 0.417, 0.361, 0.306, 0.25, 0.0]
+passo 10/800 loss 7.9265 lr 7.50e-05 gnorm 0.18 53 seq/s GPU 68°C 321.48W
+passo 20/800 loss 7.8862 lr 1.50e-04 gnorm 0.12 81 seq/s GPU 71°C 318.11W
+passo 30/800 loss 7.8495 lr 2.25e-04 gnorm 0.09 80 seq/s GPU 72°C 325.07W
+passo 40/800 loss 7.8172 lr 3.00e-04 gnorm 0.28 80 seq/s GPU 73°C 323.09W
+passo 50/800 loss 7.6906 lr 3.00e-04 gnorm 0.22 80 seq/s GPU 73°C 312.44W
+passo 60/800 loss 7.5604 lr 3.00e-04 gnorm 0.20 80 seq/s GPU 73°C 307.89W
+passo 70/800 loss 7.4338 lr 2.99e-04 gnorm 0.23 79 seq/s GPU 75°C 324.39W
+passo 80/800 loss 7.3394 lr 2.98e-04 gnorm 0.30 79 seq/s GPU 74°C 322.21W
+passo 90/800 loss 7.2186 lr 2.97e-04 gnorm 0.31 81 seq/s GPU 75°C 325.0W
+passo 100/800 loss 7.1177 lr 2.96e-04 gnorm 0.34 84 seq/s GPU 76°C 331.94W
+passo 110/800 loss 6.9834 lr 2.95e-04 gnorm 0.36 84 seq/s GPU 76°C 331.36W
+passo 120/800 loss 6.8586 lr 2.93e-04 gnorm 0.38 84 seq/s GPU 75°C 330.56W
+passo 130/800 loss 6.7660 lr 2.91e-04 gnorm 0.43 84 seq/s GPU 75°C 326.84W
+passo 140/800 loss 6.7063 lr 2.89e-04 gnorm 0.43 84 seq/s GPU 75°C 331.1W
+passo 150/800 loss 6.5915 lr 2.87e-04 gnorm 0.45 84 seq/s GPU 75°C 326.17W
+passo 160/800 loss 6.5092 lr 2.84e-04 gnorm 0.45 84 seq/s GPU 75°C 326.32W
+passo 170/800 loss 6.3971 lr 2.81e-04 gnorm 0.55 84 seq/s GPU 76°C 331.35W
+passo 180/800 loss 6.2916 lr 2.78e-04 gnorm 0.53 84 seq/s GPU 75°C 329.97W
+passo 190/800 loss 6.2932 lr 2.75e-04 gnorm 0.54 84 seq/s GPU 75°C 329.34W
+passo 200/800 loss 6.2306 lr 2.72e-04 gnorm 0.53 84 seq/s GPU 75°C 329.42W
+passo 210/800 loss 6.1210 lr 2.68e-04 gnorm 0.55 84 seq/s GPU 75°C 328.61W
+passo 220/800 loss 6.0800 lr 2.65e-04 gnorm 0.58 84 seq/s GPU 75°C 328.07W
+passo 230/800 loss 6.0102 lr 2.61e-04 gnorm 0.62 84 seq/s GPU 75°C 332.89W
+passo 240/800 loss 5.8107 lr 2.57e-04 gnorm 0.60 84 seq/s GPU 75°C 331.2W
+passo 250/800 loss 5.9166 lr 2.53e-04 gnorm 0.65 84 seq/s GPU 75°C 330.92W
+passo 260/800 loss 5.7752 lr 2.48e-04 gnorm 0.64 84 seq/s GPU 75°C 332.38W
+passo 270/800 loss 5.8018 lr 2.44e-04 gnorm 0.67 84 seq/s GPU 75°C 332.48W
+passo 280/800 loss 5.7199 lr 2.39e-04 gnorm 0.64 84 seq/s GPU 75°C 331.76W
+passo 290/800 loss 5.7160 lr 2.35e-04 gnorm 0.65 84 seq/s GPU 75°C 327.27W
+passo 300/800 loss 5.6992 lr 2.30e-04 gnorm 0.64 84 seq/s GPU 76°C 330.27W
+passo 310/800 loss 5.6391 lr 2.25e-04 gnorm 0.66 84 seq/s GPU 75°C 331.17W
+passo 320/800 loss 5.6160 lr 2.20e-04 gnorm 0.71 84 seq/s GPU 75°C 329.87W
+passo 330/800 loss 5.5492 lr 2.15e-04 gnorm 0.72 84 seq/s GPU 75°C 326.71W
+passo 340/800 loss 5.5738 lr 2.09e-04 gnorm 0.74 84 seq/s GPU 75°C 329.68W
+passo 350/800 loss 5.5057 lr 2.04e-04 gnorm 0.71 84 seq/s GPU 75°C 328.16W
+passo 360/800 loss 5.5402 lr 1.99e-04 gnorm 0.74 84 seq/s GPU 75°C 330.51W
+passo 370/800 loss 5.4542 lr 1.93e-04 gnorm 0.74 84 seq/s GPU 74°C 327.92W
+passo 380/800 loss 5.4618 lr 1.88e-04 gnorm 0.72 84 seq/s GPU 75°C 328.94W
+passo 390/800 loss 5.2985 lr 1.82e-04 gnorm 0.72 84 seq/s GPU 75°C 328.15W
+passo 400/800 loss 5.3448 lr 1.77e-04 gnorm 0.72 84 seq/s GPU 75°C 327.95W
+[eval] passo 400: val_loss=4.16 val_L1=6.774 val_acc_L1=0.03137 val_L6=4.979 val_acc_L6=0.1825 val_L11=1.151 val_acc_L11=0.7698 val_per_livello=[6.7741, 7.4015, 6.0075, 5.4731, 5.33, 4.9788, 3.1458, 4.8464, 5.0248, 4.8039, 1.1512]
+passo 410/800 loss 5.3900 lr 1.71e-04 gnorm 0.75 12 seq/s GPU 75°C 332.04W
+passo 420/800 loss 5.3396 lr 1.66e-04 gnorm 0.74 84 seq/s GPU 74°C 329.7W
+passo 430/800 loss 5.2949 lr 1.60e-04 gnorm 0.73 84 seq/s GPU 75°C 331.9W
+passo 440/800 loss 5.2944 lr 1.54e-04 gnorm 0.80 84 seq/s GPU 75°C 332.12W
+passo 450/800 loss 5.2025 lr 1.49e-04 gnorm 0.78 84 seq/s GPU 75°C 329.62W
+passo 460/800 loss 5.2899 lr 1.43e-04 gnorm 0.77 84 seq/s GPU 75°C 331.67W
+passo 470/800 loss 5.1667 lr 1.38e-04 gnorm 0.78 84 seq/s GPU 75°C 330.2W
+passo 480/800 loss 5.1914 lr 1.32e-04 gnorm 0.99 84 seq/s GPU 75°C 332.77W
+passo 490/800 loss 5.1667 lr 1.27e-04 gnorm 0.79 84 seq/s GPU 75°C 328.69W
+passo 500/800 loss 5.1307 lr 1.22e-04 gnorm 0.78 84 seq/s GPU 75°C 332.84W
+passo 510/800 loss 5.1503 lr 1.16e-04 gnorm 0.82 84 seq/s GPU 75°C 328.05W
+passo 520/800 loss 5.1235 lr 1.11e-04 gnorm 0.77 84 seq/s GPU 75°C 330.63W
+passo 530/800 loss 5.2012 lr 1.06e-04 gnorm 0.80 84 seq/s GPU 75°C 334.48W
+passo 540/800 loss 5.0965 lr 1.01e-04 gnorm 0.83 84 seq/s GPU 75°C 332.08W
+passo 550/800 loss 5.1147 lr 9.64e-05 gnorm 0.80 84 seq/s GPU 75°C 331.83W
+passo 560/800 loss 5.0090 lr 9.16e-05 gnorm 0.84 84 seq/s GPU 75°C 328.79W
+passo 570/800 loss 4.9923 lr 8.70e-05 gnorm 0.82 84 seq/s GPU 75°C 333.07W
+passo 580/800 loss 5.1718 lr 8.25e-05 gnorm 0.81 84 seq/s GPU 75°C 328.47W
+passo 590/800 loss 4.8924 lr 7.82e-05 gnorm 0.85 84 seq/s GPU 75°C 328.81W
+passo 600/800 loss 5.1017 lr 7.40e-05 gnorm 0.86 84 seq/s GPU 75°C 328.6W
+passo 610/800 loss 5.1224 lr 6.99e-05 gnorm 0.83 84 seq/s GPU 75°C 330.02W
+passo 620/800 loss 5.0043 lr 6.61e-05 gnorm 0.79 84 seq/s GPU 75°C 332.26W
+passo 630/800 loss 4.9785 lr 6.23e-05 gnorm 0.83 84 seq/s GPU 75°C 332.45W
+passo 640/800 loss 5.0584 lr 5.88e-05 gnorm 0.87 84 seq/s GPU 75°C 333.11W
+passo 650/800 loss 5.0594 lr 5.55e-05 gnorm 0.82 84 seq/s GPU 75°C 329.62W
+passo 660/800 loss 5.0228 lr 5.23e-05 gnorm 0.82 84 seq/s GPU 75°C 332.1W
+passo 670/800 loss 4.9243 lr 4.93e-05 gnorm 0.84 84 seq/s GPU 75°C 331.14W
+passo 680/800 loss 4.9929 lr 4.65e-05 gnorm 0.82 84 seq/s GPU 75°C 327.67W
+passo 690/800 loss 4.9545 lr 4.40e-05 gnorm 0.83 84 seq/s GPU 75°C 328.97W
+passo 700/800 loss 4.9460 lr 4.16e-05 gnorm 0.88 84 seq/s GPU 75°C 327.13W
+passo 710/800 loss 4.9616 lr 3.94e-05 gnorm 0.85 84 seq/s GPU 75°C 326.57W
+passo 720/800 loss 5.0162 lr 3.75e-05 gnorm 0.82 84 seq/s GPU 75°C 327.94W
+passo 730/800 loss 4.9894 lr 3.58e-05 gnorm 0.84 84 seq/s GPU 74°C 328.3W
+passo 740/800 loss 4.9392 lr 3.43e-05 gnorm 0.84 84 seq/s GPU 75°C 329.95W
+passo 750/800 loss 4.9594 lr 3.30e-05 gnorm 0.88 84 seq/s GPU 75°C 330.41W
+passo 760/800 loss 4.9414 lr 3.19e-05 gnorm 0.84 84 seq/s GPU 75°C 333.86W
+passo 770/800 loss 5.0410 lr 3.11e-05 gnorm 0.86 84 seq/s GPU 75°C 326.17W
+passo 780/800 loss 5.0192 lr 3.05e-05 gnorm 0.85 84 seq/s GPU 75°C 332.26W
+passo 790/800 loss 4.9400 lr 3.01e-05 gnorm 0.89 84 seq/s GPU 75°C 325.69W
+passo 800/800 loss 4.7839 lr 3.00e-05 gnorm 0.84 84 seq/s GPU 75°C 329.01W
+[eval] passo 800: val_loss=3.572 val_L1=6.719 val_acc_L1=0.04129 val_L6=4.558 val_acc_L6=0.2177 val_L11=0.8007 val_acc_L11=0.822 val_per_livello=[6.7186, 7.149, 5.6385, 5.117, 4.9268, 4.558, 2.5773, 4.0035, 4.1674, 3.9762, 0.8007]
+[checkpoint] passo 800 salvato (fine, 1.2s)
+[export] .\runs\2026-11-17_c4c-800passi-51k_A42\export: generator.pt, storie_di_prova.txt
+done

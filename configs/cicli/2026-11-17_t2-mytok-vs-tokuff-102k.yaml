@@ -1,0 +1,24 @@
+# Ciclo T2 — come T1 ma a 800 passi × 128 storie = 102.400 storie viste (il doppio), per il confronto con le run
+# del tokenizer originale già fatte a quel budget. Stesso tokenizer nostro di T1 (mytok-12std_614400_2400x256_s42).
+# Domanda: la differenza tra i tokenizer cresce, resta o si riduce con il doppio del training del generatore?
+# Da lanciare solo dopo i risultati di T1. Piano: docs/piani/tokenizer-operativo.md
+nome: 2026-11-17_t2-mytok-vs-tokuff-102k
+riferimento: UFF_paper42
+rumore: [UFF_paper42, UFF_paper43]
+base_overrides:
+  - train.steps=800
+  - train.accum=8
+  - train.warmup=40
+  - train.eval_every=400
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: UFF_paper42, run: gen-tokuff_102400_800x128_lin75-25_lr3e-4_s42, descr: "tokenizer ufficiale, ricetta del paper (ciclo 3)", overrides: [train.seed=42]}
+  - {id: UFF_paper43, run: gen-tokuff_102400_800x128_lin75-25_lr3e-4_s43, descr: "tokenizer ufficiale, ricetta del paper, seed 43 (ciclo 3)", overrides: [train.seed=43]}
+  - {id: UFF_best42, run: gen-tokuff_102400_800x128_c50_lr1e-3_flex_s42, descr: "tokenizer ufficiale, costante 0,5 + Flex + lr 1e-3 (ciclo 4a)", overrides: [train.seed=42]}
+  - {id: UFF_best43, run: gen-tokuff_102400_800x128_c50_lr1e-3_flex_s43, descr: "tokenizer ufficiale, costante 0,5 + Flex + lr 1e-3, seed 43 (ciclo 4a)", overrides: [train.seed=43]}
+  - {id: MY_paper42, descr: "tokenizer nostro, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: MY_best42, descr: "tokenizer nostro, costante 0,5 + Flex + lr 1e-3", overrides: [train.seed=42, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: MY_paper43, descr: "tokenizer nostro, ricetta del paper, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: MY_best43, descr: "tokenizer nostro, costante 0,5 + Flex + lr 1e-3, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

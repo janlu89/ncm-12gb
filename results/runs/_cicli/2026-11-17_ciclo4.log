@@ -1,0 +1,23 @@
+[ciclo] 15:01 training LR1e-3 (2026-11-17_c4a-ricetta800_LR1e-3)
+[ciclo] 15:21 valutazione Gen. PPL di LR1e-3
+ckpoint-dir .\runs\2026-11-17_c4a-ricetta800_LR1e-3\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c4a-ricetta800_LR1e-3\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 43.35 ± 0.79 | entropia 3.9513 | 1280 campioni | 79s -> .\runs\2026-11-17_c4a-ricetta800_LR1e-3\eval\genppl
+ 
+[ciclo] 15:22 training LR1e-3s43 (2026-11-17_c4a-ricetta800_LR1e-3s43)
+[ciclo] 15:41 valutazione Gen. PPL di LR1e-3s43
+ir .\runs\2026-11-17_c4a-ricetta800_LR1e-3s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c4a-ricetta800_LR1e-3s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 44.33 ± 0.42 | entropia 3.9537 | 1280 campioni | 62s -> .\runs\2026-11-17_c4a-ricetta800_LR1e-3s43\eval\genppl
+ 
+[ciclo] 15:42 training V3V4 (2026-11-17_c4a-ricetta800_V3V4)
+[ciclo] 15:46 fermato: V3V4 non completato (codice 0, evento paused)
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c4a-ricetta800.md
+[ciclo] 15:47 training A42 (2026-11-17_c4c-800passi-51k_A42)
+[ciclo] 16:00 valutazione Gen. PPL di A42
+checkpoint-dir .\runs\2026-11-17_c4c-800passi-51k_A42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c4c-800passi-51k_A42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 83.16 ± 2.60 | entropia 3.9265 | 1280 campioni | 76s -> .\runs\2026-11-17_c4c-800passi-51k_A42\eval\genppl
+ 
+[ciclo] 16:01 fermato (file STOP)
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c4c-800passi-51k.md

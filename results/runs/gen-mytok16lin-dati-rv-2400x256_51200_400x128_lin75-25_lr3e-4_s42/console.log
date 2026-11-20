@@ -1,0 +1,51 @@
+VQVAE, Total parameter count: 44.50M
+VQVAE, Non embedding parameter count: 41.30M
+NCP Transformer, Total parameter count: 89.79M
+NCP Transformer, Non embedding parameter count: 89.48M
+[corruzione] lineare, tasso per livello: [0.0, 0.75, 0.712, 0.673, 0.635, 0.596, 0.558, 0.519, 0.481, 0.442, 0.404, 0.365, 0.327, 0.288, 0.25, 0.0]
+passo 10/400 loss 7.7658 lr 1.50e-04 gnorm 0.09 34 seq/s GPU 74°C 325.29W
+passo 20/400 loss 7.7405 lr 3.00e-04 gnorm 0.11 43 seq/s GPU 75°C 322.07W
+passo 30/400 loss 7.7099 lr 3.00e-04 gnorm 0.14 43 seq/s GPU 75°C 331.29W
+passo 40/400 loss 7.6759 lr 2.98e-04 gnorm 0.12 43 seq/s GPU 76°C 331.97W
+passo 50/400 loss 7.6350 lr 2.96e-04 gnorm 0.12 43 seq/s GPU 76°C 332.37W
+passo 60/400 loss 7.5950 lr 2.93e-04 gnorm 0.14 43 seq/s GPU 75°C 333.57W
+passo 70/400 loss 7.5371 lr 2.89e-04 gnorm 0.15 43 seq/s GPU 75°C 331.89W
+passo 80/400 loss 7.4695 lr 2.84e-04 gnorm 0.16 43 seq/s GPU 75°C 330.96W
+passo 90/400 loss 7.3732 lr 2.79e-04 gnorm 0.18 43 seq/s GPU 75°C 330.12W
+passo 100/400 loss 7.2976 lr 2.72e-04 gnorm 0.19 43 seq/s GPU 75°C 331.83W
+passo 110/400 loss 7.2317 lr 2.65e-04 gnorm 0.20 41 seq/s GPU 75°C 326.92W
+passo 120/400 loss 7.1680 lr 2.57e-04 gnorm 0.21 43 seq/s GPU 75°C 329.04W
+passo 130/400 loss 7.1229 lr 2.49e-04 gnorm 0.23 43 seq/s GPU 75°C 331.61W
+passo 140/400 loss 7.0818 lr 2.40e-04 gnorm 0.22 43 seq/s GPU 75°C 332.03W
+passo 150/400 loss 7.0174 lr 2.30e-04 gnorm 0.24 43 seq/s GPU 75°C 330.12W
+passo 160/400 loss 6.9876 lr 2.20e-04 gnorm 0.25 43 seq/s GPU 75°C 332.34W
+passo 170/400 loss 6.9291 lr 2.10e-04 gnorm 0.25 43 seq/s GPU 75°C 331.6W
+passo 180/400 loss 6.9089 lr 1.99e-04 gnorm 0.26 43 seq/s GPU 75°C 331.62W
+passo 190/400 loss 6.8493 lr 1.88e-04 gnorm 0.27 42 seq/s GPU 74°C 318.19W
+passo 200/400 loss 6.8030 lr 1.77e-04 gnorm 0.27 43 seq/s GPU 74°C 317.14W
+[eval] passo 200: val_loss=6.248 val_L1=6.86 val_acc_L1=0.02458 val_L6=6.586 val_acc_L6=0.07525 val_L15=3.023 val_acc_L15=0.4748 val_per_livello=[6.8601, 6.9353, 6.6043, 6.552, 6.7648, 6.5858, 6.7121, 6.8425, 6.7339, 6.6728, 6.8291, 6.7157, 6.7169, 6.5585, 3.0226]
+passo 210/400 loss 6.7620 lr 1.66e-04 gnorm 0.28 11 seq/s GPU 75°C 332.18W
+passo 220/400 loss 6.7221 lr 1.55e-04 gnorm 0.29 43 seq/s GPU 75°C 331.33W
+passo 230/400 loss 6.6887 lr 1.44e-04 gnorm 0.30 43 seq/s GPU 74°C 317.25W
+passo 240/400 loss 6.6429 lr 1.33e-04 gnorm 0.31 43 seq/s GPU 75°C 331.46W
+passo 250/400 loss 6.6173 lr 1.22e-04 gnorm 0.30 43 seq/s GPU 74°C 317.64W
+passo 260/400 loss 6.6320 lr 1.12e-04 gnorm 0.31 43 seq/s GPU 75°C 332.2W
+passo 270/400 loss 6.5701 lr 1.02e-04 gnorm 0.32 43 seq/s GPU 75°C 330.77W
+[checkpoint] passo 271 salvato (periodico, 1.2s)
+passo 280/400 loss 6.5603 lr 9.21e-05 gnorm 0.31 41 seq/s GPU 75°C 331.69W
+passo 290/400 loss 6.5738 lr 8.30e-05 gnorm 0.31 43 seq/s GPU 75°C 328.35W
+passo 300/400 loss 6.5400 lr 7.44e-05 gnorm 0.33 43 seq/s GPU 74°C 327.16W
+passo 310/400 loss 6.5164 lr 6.64e-05 gnorm 0.32 43 seq/s GPU 75°C 331.3W
+passo 320/400 loss 6.5122 lr 5.92e-05 gnorm 0.33 43 seq/s GPU 74°C 317.05W
+passo 330/400 loss 6.5202 lr 5.26e-05 gnorm 0.33 43 seq/s GPU 75°C 331.36W
+passo 340/400 loss 6.4756 lr 4.68e-05 gnorm 0.33 43 seq/s GPU 75°C 331.09W
+passo 350/400 loss 6.4719 lr 4.18e-05 gnorm 0.33 43 seq/s GPU 75°C 329.92W
+passo 360/400 loss 6.4636 lr 3.77e-05 gnorm 0.34 43 seq/s GPU 74°C 316.87W
+passo 370/400 loss 6.4566 lr 3.44e-05 gnorm 0.34 43 seq/s GPU 75°C 330.89W
+passo 380/400 loss 6.4607 lr 3.20e-05 gnorm 0.34 43 seq/s GPU 75°C 331.68W
+passo 390/400 loss 6.4514 lr 3.06e-05 gnorm 0.34 43 seq/s GPU 75°C 330.91W
+passo 400/400 loss 6.4141 lr 3.00e-05 gnorm 0.34 43 seq/s GPU 74°C 317.06W
+[eval] passo 400: val_loss=5.734 val_L1=6.759 val_acc_L1=0.03811 val_L6=6.272 val_acc_L6=0.09881 val_L15=2.173 val_acc_L15=0.6228 val_per_livello=[6.7594, 6.7865, 6.2431, 6.2536, 6.4764, 6.2724, 6.331, 6.3997, 6.179, 6.069, 6.2604, 6.0886, 6.2732, 6.1154, 2.1729]
+[checkpoint] passo 400 salvato (fine, 1.7s)
+[export] .\runs\gen-mytok16lin-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s42\export: generator.pt, storie_di_prova.txt
+done

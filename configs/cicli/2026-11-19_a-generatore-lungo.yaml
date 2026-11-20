@@ -1,0 +1,26 @@
+# Prova A (2026-11-19): il divario con l'ufficiale viene dal tokenizer o dal generatore troppo breve?
+# Due tokenizer congelati, non modificati: ufficiale e nostro R12 (12 livelli, codici dai dati + riavvio iniziale,
+# 2.400 passi x 256). Sopra ciascuno un generatore nuovo con identica ricetta (la nostra migliore), stesso seed,
+# budget 4 volte l'ultimo confronto: 409.600 storie = 3.200 passi x 128, warmup 5% (160), valutazione ogni 1.600.
+# Checkpoint ogni 5 minuti (run da ~75 minuti). Regola di lettura in docs/esperimenti/2026-11-19_a-generatore-lungo.md.
+nome: 2026-11-19_a-generatore-lungo
+riferimento: UFF_409k_s42
+rumore: [UFF_best42, UFF_best43]
+base_overrides:
+  - train.steps=3200
+  - train.accum=8
+  - train.warmup=160
+  - train.eval_every=1600
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - train.ckpt_every_minutes=5
+runs:
+  - {id: UFF_best42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "ufficiale, 51.200 storie (gia fatto)", overrides: [train.seed=42]}
+  - {id: UFF_best43, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43, descr: "ufficiale, 51.200 storie, seed 43 (gia fatto)", overrides: [train.seed=43]}
+  # Codici dell'ufficiale dal file pre-calcolato, come in tutti i riferimenti (il default e' null = calcolo al volo).
+  # Primo lancio 13:09 senza questa riga: fermato dopo 2 minuti, conservato in .\runs\gen-tokuff_409600_ANNULLATA-codici-al-volo_s42.
+  - {id: UFF_409k_s42, descr: "ufficiale, generatore a 409.600 storie", overrides: [train.seed=42, data.codes_file=data/processed/tinystories_codes_official_L128.u16, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: R12_409k_s42, descr: "nostro R12 2.400 passi, generatore a 409.600 storie", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  # Passo 3 del 2026-11-20: conferma con il seed 43 del generatore, stessi tokenizer congelati.
+  - {id: UFF_409k_s43, descr: "ufficiale, generatore a 409.600 storie, seed 43", overrides: [train.seed=43, data.codes_file=data/processed/tinystories_codes_official_L128.u16, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: R12_409k_s43, descr: "nostro R12 2.400 passi, generatore a 409.600 storie, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

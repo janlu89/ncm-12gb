@@ -1,0 +1,34 @@
+# T6 — primo ciclo di micro-training (docs/piani/fase1-operativo.md).
+# Una sola differenza per run rispetto alla base A; stessi dati (data.seed fisso), stessa durata e schedule.
+# Micro-training: 400 passi × 128 sequenze = 51.200 storie (~11 min di training + ~7 min di compilazione, export e Gen. PPL).
+nome: 2026-11-16_ciclo-corruzione
+riferimento: A42
+rumore: [A42, A43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - id: A42
+    descr: "base: corruzione lineare 0,75→0,25, livello 0 escluso"
+    overrides: [train.seed=42]
+  - id: A43
+    descr: "base, seed diverso (misura del rumore)"
+    overrides: [train.seed=43]
+  - id: V1
+    descr: "livello 0 incluso nella corruzione"
+    overrides: [train.seed=42, corruption.skip_level0=false]
+  - id: V2
+    descr: "tasso per esempio ~ U[0,1], livello 0 escluso"
+    overrides: [train.seed=42, corruption.mode=per_example_uniform]
+  - id: V3
+    descr: "tasso costante 0,5"
+    overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5]
+  - id: V4
+    descr: "FlexAttention blocchi 64 (più veloce; senza dropout dell'attenzione)"
+    overrides: [train.seed=42, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]
+attendi: data/processed/tinystories_codes_official_L128.verificato.json

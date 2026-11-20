@@ -1,0 +1,55 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+ufficiale            livello  0 (  1 codici, 1632 usati): scambio cambiati 0.261 danno/codice 0.0778 | vicino danno/codice 0.0059
+ufficiale            livello  1 (  8 codici, 3059 usati): scambio cambiati 0.244 danno/codice 0.0 | vicino danno/codice 0.0004
+ufficiale            livello  2 ( 16 codici, 3874 usati): scambio cambiati 0.249 danno/codice 0.0 | vicino danno/codice -0.0001
+ufficiale            livello  3 ( 24 codici, 3956 usati): scambio cambiati 0.246 danno/codice 0.0009 | vicino danno/codice 0.0002
+ufficiale            livello  4 ( 32 codici, 3922 usati): scambio cambiati 0.249 danno/codice 0.0034 | vicino danno/codice 0.0021
+ufficiale            livello  5 ( 40 codici, 3776 usati): scambio cambiati 0.248 danno/codice 0.0016 | vicino danno/codice 0.0012
+ufficiale            livello  6 ( 52 codici, 3730 usati): scambio cambiati 0.247 danno/codice 0.0028 | vicino danno/codice 0.0012
+ufficiale            livello  7 ( 64 codici, 3949 usati): scambio cambiati 0.247 danno/codice 0.0094 | vicino danno/codice 0.0031
+ufficiale            livello  8 ( 76 codici, 3765 usati): scambio cambiati 0.246 danno/codice 0.0015 | vicino danno/codice 0.0004
+ufficiale            livello  9 ( 92 codici, 3846 usati): scambio cambiati 0.248 danno/codice 0.0008 | vicino danno/codice 0.0004
+ufficiale            livello 10 (108 codici, 3921 usati): scambio cambiati 0.247 danno/codice 0.0005 | vicino danno/codice 0.0001
+ufficiale            livello 11 (128 codici, 3845 usati): scambio cambiati 0.246 danno/codice 0.0166 | vicino danno/codice 0.0094
+ufficiale            tutti i livelli 5%: token sbagliati 0.0028, storie perfette 0.7151
+ufficiale            tutti i livelli 10%: token sbagliati 0.0114, storie perfette 0.2744
+ufficiale            tutti i livelli 25%: token sbagliati 0.1029, storie perfette 0.0000
+ufficiale            tutti i livelli 50%: token sbagliati 0.5018, storie perfette 0.0007
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+nostro 4.800 passi   livello  0 (  1 codici,   91 usati): scambio cambiati 0.258 danno/codice 5.0899 | vicino danno/codice 0.9496
+nostro 4.800 passi   livello  1 (  8 codici,  551 usati): scambio cambiati 0.243 danno/codice 0.0035 | vicino danno/codice 0.0005
+nostro 4.800 passi   livello  2 ( 16 codici, 1103 usati): scambio cambiati 0.246 danno/codice 0.0004 | vicino danno/codice 0.0006
+nostro 4.800 passi   livello  3 ( 24 codici, 1588 usati): scambio cambiati 0.244 danno/codice 0.002 | vicino danno/codice 0.0007
+nostro 4.800 passi   livello  4 ( 32 codici, 2399 usati): scambio cambiati 0.249 danno/codice 0.0044 | vicino danno/codice 0.0011
+nostro 4.800 passi   livello  5 ( 40 codici, 2500 usati): scambio cambiati 0.248 danno/codice 0.0042 | vicino danno/codice 0.0018
+nostro 4.800 passi   livello  6 ( 52 codici, 2808 usati): scambio cambiati 0.248 danno/codice 0.008 | vicino danno/codice 0.0054
+nostro 4.800 passi   livello  7 ( 64 codici, 3647 usati): scambio cambiati 0.245 danno/codice 0.0192 | vicino danno/codice 0.0089
+nostro 4.800 passi   livello  8 ( 76 codici, 3020 usati): scambio cambiati 0.246 danno/codice 0.0076 | vicino danno/codice 0.0054
+nostro 4.800 passi   livello  9 ( 92 codici, 3085 usati): scambio cambiati 0.248 danno/codice 0.0047 | vicino danno/codice 0.0035
+nostro 4.800 passi   livello 10 (108 codici, 3013 usati): scambio cambiati 0.247 danno/codice 0.0033 | vicino danno/codice 0.0022
+nostro 4.800 passi   livello 11 (128 codici, 3967 usati): scambio cambiati 0.246 danno/codice 0.0391 | vicino danno/codice 0.0071
+nostro 4.800 passi   tutti i livelli 5%: token sbagliati 0.0140, storie perfette 0.3447
+nostro 4.800 passi   tutti i livelli 10%: token sbagliati 0.0262, storie perfette 0.1108
+nostro 4.800 passi   tutti i livelli 25%: token sbagliati 0.1224, storie perfette 0.0000
+nostro 4.800 passi   tutti i livelli 50%: token sbagliati 0.4985, storie perfette 0.0007
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+nostro 38.400 passi  livello  0 (  1 codici,  500 usati): scambio cambiati 0.260 danno/codice 7.2017 | vicino danno/codice 0.633
+nostro 38.400 passi  livello  1 (  8 codici, 1447 usati): scambio cambiati 0.244 danno/codice 0.001 | vicino danno/codice -0.0004
+nostro 38.400 passi  livello  2 ( 16 codici, 2389 usati): scambio cambiati 0.249 danno/codice 0.0008 | vicino danno/codice 0.0004
+nostro 38.400 passi  livello  3 ( 24 codici, 2942 usati): scambio cambiati 0.246 danno/codice 0.0009 | vicino danno/codice 0.0002
+nostro 38.400 passi  livello  4 ( 32 codici, 3860 usati): scambio cambiati 0.250 danno/codice 0.0049 | vicino danno/codice 0.0012
+nostro 38.400 passi  livello  5 ( 40 codici, 3582 usati): scambio cambiati 0.247 danno/codice 0.0037 | vicino danno/codice 0.002
+nostro 38.400 passi  livello  6 ( 52 codici, 3219 usati): scambio cambiati 0.247 danno/codice 0.0055 | vicino danno/codice 0.0031
+nostro 38.400 passi  livello  7 ( 64 codici, 3987 usati): scambio cambiati 0.246 danno/codice 0.0151 | vicino danno/codice 0.0027
+nostro 38.400 passi  livello  8 ( 76 codici, 3342 usati): scambio cambiati 0.245 danno/codice 0.0036 | vicino danno/codice 0.0018
+nostro 38.400 passi  livello  9 ( 92 codici, 3495 usati): scambio cambiati 0.247 danno/codice 0.0029 | vicino danno/codice 0.0018
+nostro 38.400 passi  livello 10 (108 codici, 3483 usati): scambio cambiati 0.246 danno/codice 0.0017 | vicino danno/codice 0.0008
+nostro 38.400 passi  livello 11 (128 codici, 4030 usati): scambio cambiati 0.245 danno/codice 0.0201 | vicino danno/codice 0.0035
+nostro 38.400 passi  tutti i livelli 5%: token sbagliati 0.0083, storie perfette 0.5569
+nostro 38.400 passi  tutti i livelli 10%: token sbagliati 0.0196, storie perfette 0.2180
+nostro 38.400 passi  tutti i livelli 25%: token sbagliati 0.1164, storie perfette 0.0000
+nostro 38.400 passi  tutti i livelli 50%: token sbagliati 0.5035, storie perfette 0.0007
+scritto .\benchmarks\2026-11-20\fragilita_codici.json

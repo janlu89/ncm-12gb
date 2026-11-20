@@ -1,0 +1,15 @@
+# Ciclo 3e — secondi seed, budget misti: la colonna delle differenze NON va letta.
+# I parametri del budget stanno negli override di ogni run. Piano: docs/piani/ciclo3-operativo.md
+nome: 2026-11-17_c3e-conferme
+rumore: []
+base_overrides:
+  - train.accum=8
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: A43_800, descr: "base, seed 43, 800 passi (rumore a 800)", overrides: [train.steps=800, train.warmup=40, train.eval_every=400, train.seed=43]}
+  - {id: V3s43_800, descr: "costante 0,5, seed 43, 800 passi (tenuta di V3)", overrides: [train.steps=800, train.warmup=40, train.eval_every=400, train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: A43_200, descr: "base, seed 43, 200 passi (rumore a 200)", overrides: [train.steps=200, train.warmup=10, train.eval_every=100, train.seed=43]}
+  - {id: C35s43, descr: "costante 0,35, seed 43, 400 passi (0,35 contro 0,5)", overrides: [train.steps=400, train.warmup=20, train.eval_every=200, train.seed=43, corruption.rate_first=0.35, corruption.rate_last=0.35]}
+  - {id: V3V4s43, descr: "costante 0,5 + Flex, seed 43, 400 passi (conferma di V3V4)", overrides: [train.steps=400, train.warmup=20, train.eval_every=200, train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}

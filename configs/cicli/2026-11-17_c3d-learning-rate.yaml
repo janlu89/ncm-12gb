@@ -1,0 +1,18 @@
+# Ciclo 3d — learning rate con V3V4 (costante 0,5 + FlexAttention), 400 passi × 128 storie. Min lr = picco/10.
+# Ordine voluto: se LR1e-3 diverge il ciclo si ferma e LR3e-3 non serve. Piano: docs/piani/ciclo3-operativo.md
+nome: 2026-11-17_c3d-learning-rate
+riferimento: LR3e-4
+rumore: []
+base_overrides:
+  - train.steps=400
+  - train.warmup=20
+  - train.eval_every=200
+  - train.accum=8
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: LR3e-4, run: gen-tokuff_51200_400x128_c50_lr3e-4_flex_s42, descr: "V3V4, lr 3e-4 (ciclo 2)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: LR1e-4, descr: "V3V4, lr 1e-4", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-4, train.min_lr=1.0e-5]}
+  - {id: LR1e-3, descr: "V3V4, lr 1e-3", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: LR3e-3, descr: "V3V4, lr 3e-3", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=3.0e-3, train.min_lr=3.0e-4]}

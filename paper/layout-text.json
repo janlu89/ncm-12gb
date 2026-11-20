@@ -1,0 +1,2204 @@
+[
+  {
+    "page": 1,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 1,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "RESEARCH NOTE"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 1,
+    "x": 547.28,
+    "y": 29,
+    "text": "01 / 08"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 767.89,
+    "text": "Training a Next-Concept Model"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 732.89,
+    "text": "on a single 12 GB GPU"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 683.89,
+    "text": "Practical gains at small budgets, and a tokenizer gap that remains"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 650.89,
+    "text": "Gianluca Meola"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 631.89,
+    "text": "gianluca.meola89@gmail.com"
+  },
+  {
+    "page": 1,
+    "x": 547.28,
+    "y": 631.89,
+    "text": "20 November 2026  ·  v0.1  ·  Work in progress"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 602.89,
+    "text": "Abstract"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 577.89,
+    "text": "Next-Concept Models generate text through a hierarchy of discrete codes. I train both the tokenizer and"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 563.49,
+    "text": "generator on one RTX 3080 Ti (12 GB), using TinyStories and budgets far below the original paper. Data-based"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 549.09,
+    "text": "codebook initialisation lowers generative perplexity by 48% in the tested tokenizer comparison. A retuned"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 534.69,
+    "text": "generator recipe lowers it by 56% on the official tokenizer, with most of the gain coming from the learning rate."
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 520.29,
+    "text": "Longer tokenizer training helps, but a 1.39× gap to the official tokenizer remains. The study reports reproducible"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 505.89,
+    "text": "runs, unsuccessful interventions and limits on causal interpretation."
+  },
+  {
+    "page": 1,
+    "x": 59.0,
+    "y": 464.49,
+    "text": "−48%"
+  },
+  {
+    "page": 1,
+    "x": 59.0,
+    "y": 430.49,
+    "text": "Data-based codebook init"
+  },
+  {
+    "page": 1,
+    "x": 59.0,
+    "y": 414.49,
+    "text": "222.78 → 115.38"
+  },
+  {
+    "page": 1,
+    "x": 228.09,
+    "y": 464.49,
+    "text": "−56%"
+  },
+  {
+    "page": 1,
+    "x": 228.09,
+    "y": 430.49,
+    "text": "Short-budget recipe"
+  },
+  {
+    "page": 1,
+    "x": 228.09,
+    "y": 414.49,
+    "text": "150.67 → 66.26"
+  },
+  {
+    "page": 1,
+    "x": 397.19,
+    "y": 464.49,
+    "text": "1.39×"
+  },
+  {
+    "page": 1,
+    "x": 397.19,
+    "y": 430.49,
+    "text": "Remaining tokenizer gap"
+  },
+  {
+    "page": 1,
+    "x": 397.19,
+    "y": 414.49,
+    "text": "92.35 / 66.26"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 376.49,
+    "text": "A large gain, with an unfinished gap"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 139.49,
+    "text": "Figure 1. Same generator recipe and 51,200-story budget, different tokenizers. Bars show means; white markers are individual"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 127.79,
+    "text": "training runs. The 38.4k row varies tokenizer seed with generator seed fixed; other paired rows vary generator seed. Gen. PPL is"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 116.09,
+    "text": "lower-is-better, not a percentage measure of general text quality."
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 94.39,
+    "text": "This is a study of constrained training, not a full reproduction: the longest tokenizer sees 9.83M stories versus 122.88M in the"
+  },
+  {
+    "page": 1,
+    "x": 48,
+    "y": 81.59,
+    "text": "paper; the longest generator sees 0.41M versus 102.4M."
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 2,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "PROTOCOL"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 2,
+    "x": 547.28,
+    "y": 29,
+    "text": "02 / 08"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 767.89,
+    "text": "1 Experimental setup"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 726.89,
+    "text": "The unit of comparison is a training recipe at a stated data exposure, with tokenizer and generator budgets kept"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 712.89,
+    "text": "separate."
+  },
+  {
+    "page": 2,
+    "x": 56.0,
+    "y": 667.89,
+    "text": "128 BPE tokens"
+  },
+  {
+    "page": 2,
+    "x": 56.0,
+    "y": 642.89,
+    "text": "TinyStories input"
+  },
+  {
+    "page": 2,
+    "x": 165.82,
+    "y": 655.89,
+    "text": "→"
+  },
+  {
+    "page": 2,
+    "x": 183.82,
+    "y": 667.89,
+    "text": "VQ-VAE tokenizer"
+  },
+  {
+    "page": 2,
+    "x": 183.82,
+    "y": 642.89,
+    "text": "12 code levels"
+  },
+  {
+    "page": 2,
+    "x": 293.64,
+    "y": 655.89,
+    "text": "→"
+  },
+  {
+    "page": 2,
+    "x": 311.64,
+    "y": 667.89,
+    "text": "Level-wise generator"
+  },
+  {
+    "page": 2,
+    "x": 311.64,
+    "y": 642.89,
+    "text": "Predict levels 1–11"
+  },
+  {
+    "page": 2,
+    "x": 421.46,
+    "y": 655.89,
+    "text": "→"
+  },
+  {
+    "page": 2,
+    "x": 439.46,
+    "y": 667.89,
+    "text": "Tokenizer decoder"
+  },
+  {
+    "page": 2,
+    "x": 439.46,
+    "y": 642.89,
+    "text": "Output text"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 603.89,
+    "text": "At generation time, level 0 is sampled from stored empirical frequencies. Eleven generator passes produce levels 1–11 for a"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 592.19,
+    "text": "128-token story [1, 2]. The pass count is not a measured wall-clock speedup in this study."
+  },
+  {
+    "page": 2,
+    "x": 55,
+    "y": 560.49,
+    "text": "Quantity"
+  },
+  {
+    "page": 2,
+    "x": 219,
+    "y": 560.49,
+    "text": "This study"
+  },
+  {
+    "page": 2,
+    "x": 387,
+    "y": 560.49,
+    "text": "Original paper"
+  },
+  {
+    "page": 2,
+    "x": 55,
+    "y": 531.49,
+    "text": "Tokenizer parameters"
+  },
+  {
+    "page": 2,
+    "x": 219,
+    "y": 531.49,
+    "text": "36.4M"
+  },
+  {
+    "page": 2,
+    "x": 387,
+    "y": 531.49,
+    "text": "Same base architecture"
+  },
+  {
+    "page": 2,
+    "x": 55,
+    "y": 501.49,
+    "text": "Generator parameters"
+  },
+  {
+    "page": 2,
+    "x": 219,
+    "y": 501.49,
+    "text": "88.6M at 12 levels"
+  },
+  {
+    "page": 2,
+    "x": 387,
+    "y": 501.49,
+    "text": "Same base architecture"
+  },
+  {
+    "page": 2,
+    "x": 55,
+    "y": 471.49,
+    "text": "Longest tokenizer exposure"
+  },
+  {
+    "page": 2,
+    "x": 219,
+    "y": 471.49,
+    "text": "9,830,400 stories"
+  },
+  {
+    "page": 2,
+    "x": 387,
+    "y": 471.49,
+    "text": "122,880,000 stories"
+  },
+  {
+    "page": 2,
+    "x": 55,
+    "y": 441.49,
+    "text": "Longest generator exposure"
+  },
+  {
+    "page": 2,
+    "x": 219,
+    "y": 441.49,
+    "text": "409,600 stories"
+  },
+  {
+    "page": 2,
+    "x": 387,
+    "y": 441.49,
+    "text": "102,400,000 stories"
+  },
+  {
+    "page": 2,
+    "x": 55,
+    "y": 411.49,
+    "text": "Main generator comparison"
+  },
+  {
+    "page": 2,
+    "x": 219,
+    "y": 411.49,
+    "text": "400 updates × 128 stories"
+  },
+  {
+    "page": 2,
+    "x": 387,
+    "y": 411.49,
+    "text": "Not budget-matched"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 376.49,
+    "text": "Evaluation protocol"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 351.49,
+    "text": "Each trained generator produces 1,280 unconditional"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 336.89,
+    "text": "stories: 256 samples for each sampling seed 42, 0, 1,"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 322.29,
+    "text": "2 and 3. Temperature is 1, with no top-k or top-p"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 307.69,
+    "text": "truncation. The authors’ evaluation scripts score the"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 293.09,
+    "text": "samples with GPT-2 large."
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 268.49,
+    "text": "Generative perplexity (Gen. PPL) is the primary"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 253.89,
+    "text": "metric. Generated-text entropy must not fall more"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 239.29,
+    "text": "than 0.1 below the comparison reference; this guards"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 224.69,
+    "text": "against some repetitive outputs. Validation uses the"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 210.09,
+    "text": "first 4,096 held-out stories."
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 185.49,
+    "text": "Two different kinds of seeds"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 160.49,
+    "text": "Training seeds vary initialisation while data order is"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 146.49,
+    "text": "fixed. Sampling seeds vary the outputs of one trained"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 132.49,
+    "text": "model. Standard deviations across sampling seeds in"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 118.49,
+    "text": "the run report are not confidence intervals across"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 104.49,
+    "text": "training runs."
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 376.49,
+    "text": "Decision rules and scope"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 351.49,
+    "text": "Decision rules were written before the corresponding"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 336.89,
+    "text": "experiments. Later cycles used 6.7% between single"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 322.29,
+    "text": "runs and 4.7% between two-seed means, based on"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 307.69,
+    "text": "2.4% training-seed noise measured over five pairs at"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 293.09,
+    "text": "51,200 stories. Early cycles used a fixed"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 278.49,
+    "text": "five-PPL-point threshold."
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 253.89,
+    "text": "These are operational thresholds, not formal"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 239.29,
+    "text": "confidence intervals or corrections for a search over"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 224.69,
+    "text": "many recipes. Most tokenizers were trained once;"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 210.09,
+    "text": "only the longest setting has two tokenizer seeds."
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 185.49,
+    "text": "Compute and data exposure"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 160.49,
+    "text": "Stories seen count examples processed, including"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 146.49,
+    "text": "repeats. Equal exposure does not mean equal optimiser"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 132.49,
+    "text": "updates or FLOPs. All results concern TinyStories,"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 118.49,
+    "text": "128-token sequences and the tested model sizes; no"
+  },
+  {
+    "page": 2,
+    "x": 309.64,
+    "y": 104.49,
+    "text": "larger-language-model distillation is used in this study."
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 3,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "GENERATOR"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 3,
+    "x": 547.28,
+    "y": 29,
+    "text": "03 / 08"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 767.89,
+    "text": "2 The short-budget recipe"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 726.89,
+    "text": "A higher learning rate provides most of the measured improvement on the frozen official tokenizer."
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 494.89,
+    "text": "Figure 2. Successive changes at 51,200 stories, 400 updates × 128 stories. Bars are means of generator seeds 42 and 43; markers"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 483.19,
+    "text": "show individual runs. Percentages are relative to the reconstructed baseline, not the preceding row."
+  },
+  {
+    "page": 3,
+    "x": 55,
+    "y": 451.49,
+    "text": "Generator setting"
+  },
+  {
+    "page": 3,
+    "x": 321,
+    "y": 451.49,
+    "text": "51,200 stories"
+  },
+  {
+    "page": 3,
+    "x": 437,
+    "y": 451.49,
+    "text": "102,400 stories"
+  },
+  {
+    "page": 3,
+    "x": 55,
+    "y": 422.49,
+    "text": "Reconstructed paper recipe"
+  },
+  {
+    "page": 3,
+    "x": 321,
+    "y": 422.49,
+    "text": "150.67"
+  },
+  {
+    "page": 3,
+    "x": 437,
+    "y": 422.49,
+    "text": "74.82"
+  },
+  {
+    "page": 3,
+    "x": 55,
+    "y": 392.49,
+    "text": "Constant corruption + Flex + lr 1e-3"
+  },
+  {
+    "page": 3,
+    "x": 321,
+    "y": 392.49,
+    "text": "66.26"
+  },
+  {
+    "page": 3,
+    "x": 437,
+    "y": 392.49,
+    "text": "43.84"
+  },
+  {
+    "page": 3,
+    "x": 55,
+    "y": 362.49,
+    "text": "Relative Gen. PPL reduction"
+  },
+  {
+    "page": 3,
+    "x": 321,
+    "y": 362.49,
+    "text": "56.0%"
+  },
+  {
+    "page": 3,
+    "x": 437,
+    "y": 362.49,
+    "text": "41.4%"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 327.49,
+    "text": "What changes"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 302.49,
+    "text": "The baseline uses corruption decreasing from 0.75 to"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 287.89,
+    "text": "0.25 across levels and lr 3e-4. Constant corruption at"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 273.29,
+    "text": "0.5 lowers PPL by 8.5%; adding FlexAttention gives"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 258.69,
+    "text": "an 11.7% reduction from baseline. Raising lr to 1e-3"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 244.09,
+    "text": "produces the largest change."
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 219.49,
+    "text": "The combined recipe retains a substantial gain at"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 204.89,
+    "text": "102,400 stories on two generator seeds. Its"
+  },
+  {
+    "page": 3,
+    "x": 48,
+    "y": 190.29,
+    "text": "performance at the full paper budget is untested."
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 327.49,
+    "text": "What this does not isolate"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 302.49,
+    "text": "The FlexAttention path omits attention dropout used"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 287.89,
+    "text": "by the baseline. Its effect mixes implementation and"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 273.29,
+    "text": "regularisation changes. The improvement belongs to"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 258.69,
+    "text": "the combined recipe, not to the attention kernel"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 244.09,
+    "text": "alone."
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 219.49,
+    "text": "Official training code was unavailable in the checked"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 204.89,
+    "text": "sources, and the paper omits some training details."
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 190.29,
+    "text": "The baseline is a reconstruction, not a verified"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 175.69,
+    "text": "reproduction of the authors’ run."
+  },
+  {
+    "page": 3,
+    "x": 61,
+    "y": 137.09,
+    "text": "Equal stories do not imply equal optimisation"
+  },
+  {
+    "page": 3,
+    "x": 61,
+    "y": 118.09,
+    "text": "At the same 51,200 stories, 800 updates × 64 give 83.16 for the baseline, versus 150.67 at 400 × 128. The"
+  },
+  {
+    "page": 3,
+    "x": 61,
+    "y": 104.59,
+    "text": "alternative has one seed: the 56% result belongs to the stated short-budget comparison."
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 4,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "TOKENIZER"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 4,
+    "x": 547.28,
+    "y": 29,
+    "text": "04 / 08"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 767.89,
+    "text": "3 Initialisation, then training"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 726.89,
+    "text": "A tokenizer is evaluated by the text generated from its codes, not by reconstruction loss alone."
+  },
+  {
+    "page": 4,
+    "x": 55,
+    "y": 682.89,
+    "text": "Tokenizer at 2,400 steps"
+  },
+  {
+    "page": 4,
+    "x": 289,
+    "y": 682.89,
+    "text": "Gen. PPL"
+  },
+  {
+    "page": 4,
+    "x": 365,
+    "y": 682.89,
+    "text": "Perfect stories"
+  },
+  {
+    "page": 4,
+    "x": 464,
+    "y": 682.89,
+    "text": "L0 codes used"
+  },
+  {
+    "page": 4,
+    "x": 55,
+    "y": 653.89,
+    "text": "Random codebook initialisation"
+  },
+  {
+    "page": 4,
+    "x": 289,
+    "y": 653.89,
+    "text": "222.78"
+  },
+  {
+    "page": 4,
+    "x": 365,
+    "y": 653.89,
+    "text": "59.6%"
+  },
+  {
+    "page": 4,
+    "x": 464,
+    "y": 653.89,
+    "text": "14"
+  },
+  {
+    "page": 4,
+    "x": 55,
+    "y": 623.89,
+    "text": "Initialisation from data (R1)"
+  },
+  {
+    "page": 4,
+    "x": 289,
+    "y": 623.89,
+    "text": "115.38"
+  },
+  {
+    "page": 4,
+    "x": 365,
+    "y": 623.89,
+    "text": "51.8%"
+  },
+  {
+    "page": 4,
+    "x": 464,
+    "y": 623.89,
+    "text": "17"
+  },
+  {
+    "page": 4,
+    "x": 55,
+    "y": 593.89,
+    "text": "R1 + early dead-code restart (R12)"
+  },
+  {
+    "page": 4,
+    "x": 289,
+    "y": 593.89,
+    "text": "108.17"
+  },
+  {
+    "page": 4,
+    "x": 365,
+    "y": 593.89,
+    "text": "39.9%"
+  },
+  {
+    "page": 4,
+    "x": 464,
+    "y": 593.89,
+    "text": "22"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 558.89,
+    "text": "PPL means use two generator seeds per frozen tokenizer; each tokenizer has one training seed. Reconstruction and distinct level-0"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 547.19,
+    "text": "code counts use 4,096 validation stories. Early restarts stop after step 1,200."
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 525.49,
+    "text": "Data initialisation produces the clearest tokenizer gain: −48.2% PPL with the same generator recipe. Early"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 510.89,
+    "text": "restart adds −6.2%, but the isolated restart effect still needs a second tokenizer training seed. Early-only restart is"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 496.29,
+    "text": "not a new proposal: upstream PR #27 and issue #16 predate this study [3, 4]."
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 251.69,
+    "text": "Figure 3. Generator budget fixed at 51,200 stories. The 9,600- and 19,200-step points are snapshots on one long, decaying"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 239.99,
+    "text": "learning-rate schedule. The unconnected 4,800-step point is a separate run; the second long-run tokenizer scores 93.23 with"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 228.29,
+    "text": "generator seed 42."
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 206.59,
+    "text": "Longer training helps"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 181.59,
+    "text": "At 38,400 steps, two tokenizer seeds give 91.46 and"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 168.09,
+    "text": "93.23 (mean 92.35), 10.9% below the single 4,800-step"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 154.59,
+    "text": "baseline of 103.61. Relative to 66.26 on the official"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 141.09,
+    "text": "tokenizer, the ratio remains 1.39×. The official tokenizer"
+  },
+  {
+    "page": 4,
+    "x": 48,
+    "y": 127.59,
+    "text": "saw 12.5× more stories."
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 206.59,
+    "text": "Reconstruction is an imperfect guide"
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 181.59,
+    "text": "Generation improves even as perfect reconstruction"
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 168.09,
+    "text": "falls. Across ten own tokenizer evaluations, code usage"
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 154.59,
+    "text": "has Spearman correlation −0.90 with PPL (−0.83"
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 141.09,
+    "text": "without two snapshots), versus −0.48 for perfect-story"
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 127.59,
+    "text": "reconstruction. This small, post-hoc association has"
+  },
+  {
+    "page": 4,
+    "x": 309.64,
+    "y": 114.09,
+    "text": "exceptions and does not replace a generator evaluation."
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 5,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "REMAINING GAP"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 5,
+    "x": 547.28,
+    "y": 29,
+    "text": "05 / 08"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 767.89,
+    "text": "4 A gap under longer generator training"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 726.89,
+    "text": "This sweep uses the 2,400-step R12 tokenizer. It is a separate experiment from the 38,400-step result on the"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 712.89,
+    "text": "previous page."
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 429.89,
+    "text": "Figure 4. Both tokenizers are frozen. Two generator seeds at 51,200 and 409,600 stories; at 102,400, two on the official tokenizer and"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 418.19,
+    "text": "one on R12. Separately, the authors’ full-budget model scores 16.58 here versus 15.41 in the paper (+7.6%, unexplained); those are"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 406.49,
+    "text": "not matched-budget results."
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 384.79,
+    "text": "Increasing generator exposure eightfold improves both models: 66.26 to 25.88 on the official tokenizer and"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 370.19,
+    "text": "108.17 to 42.00 on R12. The ratio is 1.63×, 1.50× and 1.62× across the three budgets. This recipe and exposure"
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 355.59,
+    "text": "range do not close the gap for this tokenizer pair."
+  },
+  {
+    "page": 5,
+    "x": 55,
+    "y": 317.99,
+    "text": "Intervention"
+  },
+  {
+    "page": 5,
+    "x": 211,
+    "y": 317.99,
+    "text": "Observed Gen. PPL"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 317.99,
+    "text": "What remains uncertain"
+  },
+  {
+    "page": 5,
+    "x": 55,
+    "y": 288.99,
+    "text": "Tokenizer batch, equal 1.23M stories"
+  },
+  {
+    "page": 5,
+    "x": 211,
+    "y": 288.99,
+    "text": "256: 103.61; 1,024: 98.29; 4,096:"
+  },
+  {
+    "page": 5,
+    "x": 211,
+    "y": 277.39,
+    "text": "100.36"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 288.99,
+    "text": "One seed each; long training with a large batch"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 277.39,
+    "text": "untested."
+  },
+  {
+    "page": 5,
+    "x": 55,
+    "y": 247.79,
+    "text": "Remove level-0 normalisation"
+  },
+  {
+    "page": 5,
+    "x": 211,
+    "y": 247.79,
+    "text": "115.28 vs 103.61"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 247.79,
+    "text": "Worse in this setting; other normalisation"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 236.19,
+    "text": "designs untested."
+  },
+  {
+    "page": 5,
+    "x": 55,
+    "y": 206.59,
+    "text": "Official encoding in fp64"
+  },
+  {
+    "page": 5,
+    "x": 211,
+    "y": 206.59,
+    "text": "66.53 vs 66.26"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 206.59,
+    "text": "No material effect detected on two seeds at"
+  },
+  {
+    "page": 5,
+    "x": 361,
+    "y": 194.99,
+    "text": "this budget."
+  },
+  {
+    "page": 5,
+    "x": 61,
+    "y": 148.39,
+    "text": "Evidence narrows the search; it does not exclude whole causes"
+  },
+  {
+    "page": 5,
+    "x": 61,
+    "y": 129.39,
+    "text": "The 1.39× gap from the longer tokenizer has not received the same generator-budget sweep. Similar validation"
+  },
+  {
+    "page": 5,
+    "x": 61,
+    "y": 115.89,
+    "text": "cross-entropies across different tokenizers do not establish equal prediction quality, because their target code"
+  },
+  {
+    "page": 5,
+    "x": 61,
+    "y": 102.39,
+    "text": "distributions differ."
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 6,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "DIAGNOSTICS"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 6,
+    "x": 547.28,
+    "y": 29,
+    "text": "06 / 08"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 767.89,
+    "text": "5 Level 0: an observation, not a cause"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 726.89,
+    "text": "The coarsest code plays different roles in reconstruction and in the generator’s conditioning."
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 682.89,
+    "text": "Diagnostic"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 682.89,
+    "text": "Official tokenizer"
+  },
+  {
+    "page": 6,
+    "x": 389,
+    "y": 682.89,
+    "text": "Tokenizer trained here"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 653.89,
+    "text": "Decoded tokens changed by an L0 swap"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 653.89,
+    "text": "0.07%"
+  },
+  {
+    "page": 6,
+    "x": 389,
+    "y": 653.89,
+    "text": "4.0–5.5% in R12 batch-256 tokenizers"
+  },
+  {
+    "page": 6,
+    "x": 389,
+    "y": 641.89,
+    "text": "at 4,800+ steps"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 611.89,
+    "text": "Generator loss rise after an L0 swap"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 611.89,
+    "text": "+0.34 to +0.53 nats"
+  },
+  {
+    "page": 6,
+    "x": 389,
+    "y": 611.89,
+    "text": "About +0.25 to +0.29 nats in tested"
+  },
+  {
+    "page": 6,
+    "x": 389,
+    "y": 599.89,
+    "text": "models"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 569.89,
+    "text": "Extra token errors: 10% corruption, levels 1–11"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 569.89,
+    "text": "1.04%"
+  },
+  {
+    "page": 6,
+    "x": 389,
+    "y": 569.89,
+    "text": "1.14% at 38,400 steps"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 534.89,
+    "text": "The official decoder is nearly insensitive to swapping level 0, yet the generator relies on that code: its loss rises"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 520.29,
+    "text": "when level 0 comes from a different story. In several tokenizers trained here, the decoder is more sensitive. This"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 505.69,
+    "text": "makes the role of level 0 a useful open question, not a demonstrated explanation of the PPL gap."
+  },
+  {
+    "page": 6,
+    "x": 61,
+    "y": 466.09,
+    "text": "A counterexample matters"
+  },
+  {
+    "page": 6,
+    "x": 61,
+    "y": 447.09,
+    "text": "The tokenizer trained at batch 4,096 also has an almost inert level 0: only 0.05% of decoded tokens change when"
+  },
+  {
+    "page": 6,
+    "x": 61,
+    "y": 433.59,
+    "text": "it is swapped. Its Gen. PPL is still 100.36. An inert level 0 alone is therefore insufficient to reproduce the official"
+  },
+  {
+    "page": 6,
+    "x": 61,
+    "y": 420.09,
+    "text": "tokenizer’s result."
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 378.59,
+    "text": "One held-out story, decoded from progressively more levels"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 353.59,
+    "text": "Official tokenizer"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 353.59,
+    "text": "R12 · 38,400 steps"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 330.59,
+    "text": "LEVEL 0 ONLY  ·  8% tokens correct"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 315.59,
+    "text": ".. was. the.. Tim. to...... the said.... the it.... the... . day. the.."
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 303.59,
+    "text": "the.... ..... the.... the..... the...…"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 330.59,
+    "text": "LEVEL 0 ONLY  ·  16% tokens correct"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 315.59,
+    "text": "Once upon a time, in a big, big forest, there was a little bird."
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 303.59,
+    "text": "The. loved to to to…"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 277.59,
+    "text": "LEVELS 0–5  ·  78% tokens correct"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 262.59,
+    "text": "Once upon a time, in a a warm place was there there was a big"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 250.59,
+    "text": "pit. A boy named named Tom liked to play near…"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 277.59,
+    "text": "LEVELS 0–5  ·  83% tokens correct"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 262.59,
+    "text": "Once upon a time, in a warm and and place, there was a big"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 250.59,
+    "text": "pit. A little boy named Tom Tom to play near the…"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 224.59,
+    "text": "LEVELS 0–11  ·  100% tokens correct"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 209.59,
+    "text": "Once upon a time, in a warm and sunny place, there was a big"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 197.59,
+    "text": "pit. A little boy named Tom liked to play near…"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 224.59,
+    "text": "LEVELS 0–11  ·  100% tokens correct"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 209.59,
+    "text": "Once upon a time, in a warm and sunny place, there was a big"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 197.59,
+    "text": "pit. A little boy named Tom liked to play near…"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 171.59,
+    "text": "Illustration: validation story index 1, from figures/coarse_to_fine.json. Text excerpts are truncated. This is reconstruction from encoded"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 159.89,
+    "text": "reference text, not free generation. Accuracy describes this one example, not an aggregate."
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 138.19,
+    "text": "Random code substitutions probe decoder sensitivity; they do not reproduce the generator’s actual error distribution. Similar"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 125.69,
+    "text": "aggregate damage at levels 1–11 cannot rule out per-level effects or correlated prediction errors."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 7,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "DISCUSSION & ARTIFACTS"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 7,
+    "x": 547.28,
+    "y": 29,
+    "text": "07 / 08"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 767.89,
+    "text": "6 What the study supports"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 726.89,
+    "text": "A practical training record with measurable gains; the full-budget explanation remains open."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 692.89,
+    "text": "Supported conclusions"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 667.89,
+    "text": "Data-based codebook initialisation is a strong"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 653.29,
+    "text": "improvement in the tested short-budget comparison."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 638.69,
+    "text": "The generator learns substantially faster with the"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 624.09,
+    "text": "retuned short-run recipe. Extending tokenizer"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 609.49,
+    "text": "training improves downstream PPL, but does not"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 594.89,
+    "text": "match the official tokenizer."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 570.29,
+    "text": "Short generator runs can reveal a large difference"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 555.69,
+    "text": "between a fixed pair of tokenizers. They are less"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 541.09,
+    "text": "reliable for nearby choices: the 4,800- versus"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 526.49,
+    "text": "2,400-step ranking reverses when generator exposure"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 511.89,
+    "text": "increases from 51,200 to 102,400 stories, with"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 497.29,
+    "text": "differences within the study’s noise thresholds."
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 692.89,
+    "text": "Limits and next discriminating tests"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 667.89,
+    "text": "The evidence covers one small English dataset, short"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 653.29,
+    "text": "sequences, few training seeds and one automatic"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 638.69,
+    "text": "text-quality metric. It does not establish competitive"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 624.09,
+    "text": "general language ability, a new state of the art, or full"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 609.49,
+    "text": "reproduction of the original NCM result."
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 584.89,
+    "text": "The next useful controls are a generator-budget"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 570.29,
+    "text": "sweep on the 38,400-step tokenizer, an independent"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 555.69,
+    "text": "tokenizer seed for the isolated restart effect, and"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 541.09,
+    "text": "longer tokenizer training with matched batch and"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 526.49,
+    "text": "schedule choices. A decoder-inert level 0 is a possible"
+  },
+  {
+    "page": 7,
+    "x": 309.64,
+    "y": 511.89,
+    "text": "experiment, not a validated remedy."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 470.69,
+    "text": "Prepared checkpoints and required pairings"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 435.69,
+    "text": "Checkpoint"
+  },
+  {
+    "page": 7,
+    "x": 291,
+    "y": 435.69,
+    "text": "Result / pairing"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 406.69,
+    "text": "R12 tokenizer, 38,400 steps, seed 42"
+  },
+  {
+    "page": 7,
+    "x": 291,
+    "y": 406.69,
+    "text": "91.46 with a 51,200-story generator; that generator is not in the"
+  },
+  {
+    "page": 7,
+    "x": 291,
+    "y": 394.69,
+    "text": "prepared model package."
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 364.69,
+    "text": "R12 tokenizer, 2,400 steps, seed 42"
+  },
+  {
+    "page": 7,
+    "x": 291,
+    "y": 364.69,
+    "text": "Required by the packaged generator on our tokenizer."
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 334.69,
+    "text": "Generator on R12, 409,600 stories, seed 42"
+  },
+  {
+    "page": 7,
+    "x": 291,
+    "y": 334.69,
+    "text": "42.76; pair only with the 2,400-step tokenizer."
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 304.69,
+    "text": "Generator on official tokenizer, same budget"
+  },
+  {
+    "page": 7,
+    "x": 291,
+    "y": 304.69,
+    "text": "26.04; official tokenizer is an upstream dependency."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 269.69,
+    "text": "The model package is prepared locally; public Hugging Face links are pending. Mean results in the figures must not be"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 256.19,
+    "text": "confused with individual checkpoint scores. Different tokenizer checkpoints learn different code spaces and are not"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 242.69,
+    "text": "interchangeable for a fixed generator."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 216.19,
+    "text": "Measured resource use"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 191.19,
+    "text": "On an RTX 3080 Ti, a 51,200-story generator run takes roughly 10–12 minutes and peaks at 7.0 GiB allocated by"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 177.69,
+    "text": "PyTorch; 409,600 stories take 62–70 minutes. A 38,400-step tokenizer takes about 3 h 15 min. Host: Intel i5-6600K,"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 164.19,
+    "text": "Windows 10, PyTorch 2.14.1 / CUDA 12.6. These are local timings for the specified configurations, not a total"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 150.69,
+    "text": "project-cost estimate."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 8,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "REFERENCES & REPRODUCIBILITY"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+  },
+  {
+    "page": 8,
+    "x": 547.28,
+    "y": 29,
+    "text": "08 / 08"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 767.89,
+    "text": "7 Reproducibility and references"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 726.89,
+    "text": "The narrative is a guide to the evidence; configurations, logs and evaluation outputs remain the detailed record."
+  },
+  {
+    "page": 8,
+    "x": 55,
+    "y": 682.89,
+    "text": "Repository artifact"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 682.89,
+    "text": "Purpose"
+  },
+  {
+    "page": 8,
+    "x": 55,
+    "y": 653.89,
+    "text": "README.md / REPRODUCING.md"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 653.89,
+    "text": "Research overview; environment, upstream assets and exact"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 641.89,
+    "text": "training/evaluation commands."
+  },
+  {
+    "page": 8,
+    "x": 55,
+    "y": 611.89,
+    "text": "EXPERIMENTS.md"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 611.89,
+    "text": "Chronological questions, decision rules, results and limitations for"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 599.89,
+    "text": "16 experiments."
+  },
+  {
+    "page": 8,
+    "x": 55,
+    "y": 569.89,
+    "text": "results/RUNS.md / results/runs_index.csv"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 569.89,
+    "text": "18 tokenizer runs, 77 evaluated generator runs, 5 interrupted or"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 557.89,
+    "text": "cancelled runs."
+  },
+  {
+    "page": 8,
+    "x": 55,
+    "y": 527.89,
+    "text": "results/runs/<run>/"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 527.89,
+    "text": "Per-run configuration, logs, evaluation seeds and generated"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 515.89,
+    "text": "sample text."
+  },
+  {
+    "page": 8,
+    "x": 55,
+    "y": 485.89,
+    "text": "paper/build_paper.py / figure-data.json"
+  },
+  {
+    "page": 8,
+    "x": 281,
+    "y": 485.89,
+    "text": "Editable PDF source and exact run IDs behind the principal plots."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 450.89,
+    "text": "Training checkpoints support pause and resume. A deterministic short test matches uninterrupted training exactly; the"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 437.39,
+    "text": "reported research runs use the faster non-deterministic mode. Interrupted run folders are retained. The study does not"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 423.89,
+    "text": "rerun or overwrite model weights when building this document."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 396.39,
+    "text": "Primary references"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 371.39,
+    "text": "[1] Kumbong, H., et al. (2026). Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation. arXiv:2610.14162."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 355.89,
+    "text": "arxiv.org/abs/2610.14162"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 334.89,
+    "text": "[2] Hazy Research. NCM: architecture code, evaluation scripts and released checkpoint references. Upstream revision is pinned"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 322.39,
+    "text": "in third_party/README.md."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 306.89,
+    "text": "github.com/HazyResearch/ncm"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 285.89,
+    "text": "[3] HazyResearch/ncm, pull request #27. Prior early-restart stopping proposal and related codebook changes."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 270.39,
+    "text": "github.com/HazyResearch/ncm/pull/27"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 249.39,
+    "text": "[4] HazyResearch/ncm, issue #16. Discussion of code restarts and reconstruction versus generation."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 233.89,
+    "text": "github.com/HazyResearch/ncm/issues/16"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 212.89,
+    "text": "[5] Eldan, R., and Li, Y. (2023). TinyStories: How Small Can Language Models Be and Still Speak Coherent English? Dataset used"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 200.39,
+    "text": "here through the NCM authors’ pre-tokenised release."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 184.89,
+    "text": "huggingface.co/datasets/roneneldan/TinyStories"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 163.89,
+    "text": "Author and publication status"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 138.89,
+    "text": "Gianluca Meola · Independent research note · v0.1, 20 November 2026. Repository: github.com/janlu89/ncm-12gb. Code"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 126.39,
+    "text": "licensing and upstream attribution are recorded in LICENSE and third_party/."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 105.89,
+    "text": "Contact: gianluca.meola89@gmail.com"
+  }
+]

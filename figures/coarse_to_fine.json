@@ -1,0 +1,130 @@
+{
+  "story_index": 1,
+  "original": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,",
+  "frames": {
+    "official": [
+      {
+        "levels": 1,
+        "token_accuracy": 0.0781,
+        "text": ".. was. the.. Tim. to...... the said.... the it.... the...\n. day.\n the.. the....\n..... the.... the..... the...\n the Tim. The, the... it. the.. the...... the..\n. the... the... the..\n... the day.\n. the was.....\n... the,."
+      },
+      {
+        "levels": 2,
+        "token_accuracy": 0.0938,
+        "text": ", was a a forest. there was there big a a.. was a big. a.. the pond.. pond. his the.. his. He. his was sad. He sad He sad. He. He. He. him.. and. he. his... the.,.\n the Tim.., the he,. it.\n. the the.. the.\n's the.. They asked. help. to they., but was.. they were sad but the,. Tim. the was... Tim the\n was Soon the was was."
+      },
+      {
+        "levels": 3,
+        "token_accuracy": 0.2266,
+        "text": "a in a time, a in a there warm a warm... a A boy named boy boy named lived near. play. the the.. his. ball his his red ball. very was very sad.\nTim\n to friend. friend to. friend. They looked They. looked looked the. looked, but looked not. they find, Tom,. Tom, \", the the. into into. water.\n.\n\n went\nTim, but were, were but were they but they wanted They. to wanted. ball. it,,,,, but but was too,. too. \""
+      },
+      {
+        "levels": 4,
+        "token_accuracy": 0.4766,
+        "text": "Once upon a time, a warm was there was, there was there a. little. little boy named named Tom to to play near the pit.. Tom. Tom his his red ball his He was very sad.\n.\n his his his Sam, Sam friend to search for the ball ball. They looked looked,, but they could not find... Tom Tom, \"I the the ball into into.\".\".\"\n and and went close to close. They They They scared,,, but they wanted to the red ball. ball. the pit,, but it was too dark dark. Tom.. Tom"
+      },
+      {
+        "levels": 5,
+        "token_accuracy": 0.6953,
+        "text": "Once upon a time, in a, warm place, there there was a big big. A boy boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his his his Sam, to help to search for the ball ball They They looked high,, but they could not find the ball. Tom said, \"I think think the the into the water.\"\n\n and Tom went to the the. They They scared scared, but they they to to the red ball. They. went pit the but but but it was dark dark.. said,,"
+      },
+      {
+        "levels": 6,
+        "token_accuracy": 0.7812,
+        "text": "Once upon a time, in a a warm place was there there was a big pit. A boy named named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend his Sam, to help him search for the ball ball They They high high,, but they could not find the ball. Tom said, \"I think my into into into the pit.\"\n\n and Tom went close close the the. They scared scared, but they wanted to find the red ball. They They back pit the pit but but was was dark dark Tom. Tom Tom,"
+      },
+      {
+        "levels": 7,
+        "token_accuracy": 0.8906,
+        "text": "Once upon a time, in a warm warm place sunny, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high high,, but they could not find the ball. Tom said, \"I think my ball into into the pit.\"\n\n and went went close close the pit. They were scared, but they wanted to find the red ball. They into into the pit pit but it was too dark dark see Tom Tom Tom,"
+      },
+      {
+        "levels": 8,
+        "token_accuracy": 0.9688,
+        "text": "Once upon a time, in a warm and sunny sunny, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend,,, to help him search for the ball. They looked high and,, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see Tom Tom said,"
+      },
+      {
+        "levels": 9,
+        "token_accuracy": 0.9844,
+        "text": "Once upon a time, in a warm and sunny sunny, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see Tom Tom said,"
+      },
+      {
+        "levels": 10,
+        "token_accuracy": 0.9844,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high low low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see Tom Tom said,"
+      },
+      {
+        "levels": 11,
+        "token_accuracy": 1.0,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,"
+      },
+      {
+        "levels": 12,
+        "token_accuracy": 1.0,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,"
+      }
+    ],
+    "ours (38,400 steps)": [
+      {
+        "levels": 1,
+        "token_accuracy": 0.1641,
+        "text": "Once upon a time, in a big, big forest, there was a little bird. The. loved to to to play..................................................................................................."
+      },
+      {
+        "levels": 2,
+        "token_accuracy": 0.1797,
+        "text": "Once upon a time, in a warm, warm forest, there was a little bird named The near lived near to near near near near the the the the.........\n\n\n his his his his to\n. for for for for for for for for for for for for the,,,,,,,,,,,,,,,,, the the the the the the the the the the the the the the the they they they they were were were they they they they they they they they they they the, the, the the the the the the the the the the the"
+      },
+      {
+        "levels": 3,
+        "token_accuracy": 0.3125,
+        "text": "Once upon a time, in a warm and warm warm, there was a little little named A named. named lived near near near near near near near near near near ball ball ball ball ball ball was was sad sad sadTimTimTim his friend friend friend,,, the for for for for for looked looked looked ball,,, could could... said,, \" \"II the into into into into into into went\n went went went went went went the were were were were they they they they red red red red red red ball ball to the,,, but it too too too to to to to to too"
+      },
+      {
+        "levels": 4,
+        "token_accuracy": 0.4453,
+        "text": "Once upon a time, in a warm and sunny warm, there was a big little named A named. named liked to play near near the the.. He his his his his ball ball.. was was sad sad.\nTom his friend,,,, for for the the the They They looked looked high high,, they they could not find her.. Tom said, \" \"I into into into into into.\".\"Tom and and went went to to the. were were scared scared scared, they they wanted red red ball. They They into into into into,, it it was too high.. Tom Tom \""
+      },
+      {
+        "levels": 5,
+        "token_accuracy": 0.7188,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A boy boy named Tom Tom to play near near pit pit pit One day Tom lost his red ball. He was very sad.\nTim asked his friend,,, to help help search search search.. They looked high high low, but they could not find the the. Tom said, \"I fell my into into pit pit pit.\"\n\n and and went to to the pit pit. were scared,, they they to the the red ball. He the pit pit pit, it it was too see the.. Tom said,"
+      },
+      {
+        "levels": 6,
+        "token_accuracy": 0.8281,
+        "text": "Once upon a time, in a warm and and place, there was a big pit. A little boy named Tom Tom to play near the pit pit. One, Tom lost his red ball. He was very sad.\nTom asked his friend,,, help help him for search the ball. They looked high high low, but they could not find the ball. Tom said, \"II my into into fell pit pit.\"\nSam and Tom went close to the the. They were scared scared but they wanted to find the red ball. They looked at the pit, but it was too to dark dark. Tom said said"
+      },
+      {
+        "levels": 7,
+        "token_accuracy": 0.8906,
+        "text": "Once upon a time, in a warm and and place, there was a big pit. A little little boy Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend,, to to help help for the ball ball. They looked high high low, but they could not find the ball. Tom said, \"II my ball fell into the pit.\"\n and and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too see see see. Tom said,"
+      },
+      {
+        "levels": 8,
+        "token_accuracy": 0.9688,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend,, to to help him search for the ball. They looked high low low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too too to see. Tom said,"
+      },
+      {
+        "levels": 9,
+        "token_accuracy": 0.9922,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him for for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,"
+      },
+      {
+        "levels": 10,
+        "token_accuracy": 0.9922,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him for for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,"
+      },
+      {
+        "levels": 11,
+        "token_accuracy": 0.9922,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him for for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,"
+      },
+      {
+        "levels": 12,
+        "token_accuracy": 1.0,
+        "text": "Once upon a time, in a warm and sunny place, there was a big pit. A little boy named Tom liked to play near the pit. One day, Tom lost his red ball. He was very sad.\nTom asked his friend, Sam, to help him search for the ball. They looked high and low, but they could not find the ball. Tom said, \"I think my ball fell into the pit.\"\nSam and Tom went close to the pit. They were scared, but they wanted to find the red ball. They looked into the pit, but it was too dark to see. Tom said,"
+      }
+    ]
+  }
+}

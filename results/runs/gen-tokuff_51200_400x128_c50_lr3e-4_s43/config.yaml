@@ -1,0 +1,46 @@
+base_config: artifacts/tinystories/config.yaml
+tokenizer_checkpoint: official
+data:
+  dir: data/raw/tinystories
+  length: 128
+  seed: 1234
+  codes_file: data/processed/tinystories_codes_official_L128.u16
+model_overrides: {}
+loss:
+  alpha: 0.0
+corruption:
+  enabled: true
+  mode: linear
+  rate_first: 0.5
+  rate_last: 0.5
+  rate_max: 1.0
+  skip_level0: true
+eval:
+  n_stories: 4096
+  batch: 64
+export:
+  level0_sequences: 65536
+  samples: 8
+train:
+  steps: 400
+  micro_batch: 16
+  accum: 8
+  lr: 0.0003
+  min_lr: 3.0e-05
+  warmup: 20
+  weight_decay: 0.1
+  betas:
+  - 0.9
+  - 0.95
+  grad_clip: 1.0
+  bf16: true
+  seed: 43
+  log_every: 10
+  eval_every: 200
+  ckpt_every_steps: 0
+  ckpt_every_minutes: 15
+  keep_ckpts: 1
+  deterministic: false
+  compile: true
+  compile_mode: default
+  debug_stop_at_step: null

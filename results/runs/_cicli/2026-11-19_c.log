@@ -1,0 +1,14 @@
+[ciclo] 11:58 training UFF64_s42 (gen-tokuff64_51200_400x128_c50_lr1e-3_flex_s42)
+[ciclo] 12:29 valutazione Gen. PPL di UFF64_s42
+n-tokuff64_51200_400x128_c50_lr1e-3_flex_s42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-tokuff64_51200_400x128_c50_lr1e-3_flex_s42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 66.42 ± 1.09 | entropia 3.9498 | 1280 campioni | 64s -> .\runs\gen-tokuff64_51200_400x128_c50_lr1e-3_flex_s42\eval\genppl
+ 
+[ciclo] 12:30 training UFF64_s43 (gen-tokuff64_51200_400x128_c50_lr1e-3_flex_s43)
+[ciclo] 13:02 valutazione Gen. PPL di UFF64_s43
+n-tokuff64_51200_400x128_c50_lr1e-3_flex_s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-tokuff64_51200_400x128_c50_lr1e-3_flex_s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 66.63 ± 0.66 | entropia 3.9245 | 1280 campioni | 62s -> .\runs\gen-tokuff64_51200_400x128_c50_lr1e-3_flex_s43\eval\genppl
+ 
+[ciclo] 13:03 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-19_c-ufficiale-64bit.md

@@ -1,0 +1,40 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+ufficiale                          Gen.PPL   65.89 | pulito 0.0002 | tutti 5% 0.0027 (senza L0 0.0026) | tutti 10% 0.0109 | L0 scambiato 0.0007 (cambiati 1.00, usati 1632)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+codici casuali, 2.400 passi        Gen.PPL  219.24 | pulito 0.0073 | tutti 5% 0.0099 (senza L0 0.0085) | tutti 10% 0.0283 | L0 scambiato 0.0264 (cambiati 0.89, usati 14)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+dati, 2.400 passi                  Gen.PPL  116.97 | pulito 0.0097 | tutti 5% 0.0066 (senza L0 0.0056) | tutti 10% 0.0197 | L0 scambiato 0.0176 (cambiati 0.92, usati 17)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, 2.400 passi                   Gen.PPL  106.54 | pulito 0.0144 | tutti 5% 0.0071 (senza L0 0.0054) | tutti 10% 0.0203 | L0 scambiato 0.0302 (cambiati 0.94, usati 22)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, 4.800 passi                   Gen.PPL  103.61 | pulito 0.0073 | tutti 5% 0.0067 (senza L0 0.0046) | tutti 10% 0.0192 | L0 scambiato 0.0398 (cambiati 0.98, usati 91)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, 4.800 passi, senza norma L0   Gen.PPL  115.28 | pulito 0.0074 | tutti 5% 0.0063 (senza L0 0.0047) | tutti 10% 0.0185 | L0 scambiato 0.0296 (cambiati 0.99, usati 305)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, batch 1.024                   Gen.PPL   98.29 | pulito 0.0183 | tutti 5% 0.0063 (senza L0 0.0056) | tutti 10% 0.0191 | L0 scambiato 0.0115 (cambiati 0.96, usati 55)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, batch 4.096                   Gen.PPL  100.36 | pulito 0.0616 | tutti 5% 0.0091 (senza L0 0.0091) | tutti 10% 0.0245 | L0 scambiato 0.0005 (cambiati 0.97, usati 58)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, lungo: copia passo 9.600      Gen.PPL   95.15 | pulito 0.0043 | tutti 5% 0.0066 (senza L0 0.0040) | tutti 10% 0.0197 | L0 scambiato 0.0478 (cambiati 0.99, usati 186)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, lungo: copia passo 19.200     Gen.PPL   90.27 | pulito 0.0027 | tutti 5% 0.0062 (senza L0 0.0032) | tutti 10% 0.0181 | L0 scambiato 0.0535 (cambiati 0.99, usati 361)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+R12, 38.400 passi                  Gen.PPL   91.46 | pulito 0.0023 | tutti 5% 0.0062 (senza L0 0.0031) | tutti 10% 0.0180 | L0 scambiato 0.0553 (cambiati 1.00, usati 500)
+Spearman con la Gen. PPL, pulito                    : tutti +0.591, solo nostri +0.455
+Spearman con la Gen. PPL, tutti_5%                  : tutti +0.682, solo nostri +0.576
+Spearman con la Gen. PPL, tutti_5%_senza_livello0   : tutti +0.718, solo nostri +0.624
+Spearman con la Gen. PPL, tutti_10%                 : tutti +0.736, solo nostri +0.648
+Spearman con la Gen. PPL, tutti_10%_senza_livello0  : tutti +0.809, solo nostri +0.745
+Spearman con la Gen. PPL, livello0_scambiato        : tutti -0.209, solo nostri -0.552
+scritto .\benchmarks\2026-11-20\fragilita_vs_genppl.json

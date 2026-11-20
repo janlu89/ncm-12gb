@@ -1,0 +1,86 @@
+[ciclo] 22:49 training A42 (2026-11-16_ciclo-corruzione_A42)
+[ciclo] 23:01 valutazione Gen. PPL di A42
+Exception in thread Thread-1 (_readerthread):
+Traceback (most recent call last):
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "~\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1494, in _readerthread
+    buffer.append(fh.read())
+  File "~\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 513: invalid start byte
+ 
+[ciclo] 23:02 training A43 (2026-11-16_ciclo-corruzione_A43)
+[ciclo] 23:15 valutazione Gen. PPL di A43
+Exception in thread Thread-3 (_readerthread):
+Traceback (most recent call last):
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "~\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1494, in _readerthread
+    buffer.append(fh.read())
+  File "~\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 513: invalid start byte
+ 
+[ciclo] 23:16 training V1 (2026-11-16_ciclo-corruzione_V1)
+[ciclo] 23:29 valutazione Gen. PPL di V1
+Exception in thread Thread-5 (_readerthread):
+Traceback (most recent call last):
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "~\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1494, in _readerthread
+    buffer.append(fh.read())
+  File "~\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 510: invalid start byte
+ 
+[ciclo] 23:30 training V2 (2026-11-16_ciclo-corruzione_V2)
+[ciclo] 23:42 valutazione Gen. PPL di V2
+Exception in thread Thread-7 (_readerthread):
+Traceback (most recent call last):
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "~\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1494, in _readerthread
+    buffer.append(fh.read())
+  File "~\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 510: invalid start byte
+ 
+[ciclo] 23:44 training V3 (2026-11-16_ciclo-corruzione_V3)
+[ciclo] 23:56 valutazione Gen. PPL di V3
+Exception in thread Thread-9 (_readerthread):
+Traceback (most recent call last):
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "~\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1494, in _readerthread
+    buffer.append(fh.read())
+  File "~\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 510: invalid start byte
+ 
+[ciclo] 23:57 training V4 (2026-11-16_ciclo-corruzione_V4)
+[ciclo] 00:09 valutazione Gen. PPL di V4
+Exception in thread Thread-11 (_readerthread):
+Traceback (most recent call last):
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "~\AppData\Local\Programs\Python\Python310\lib\threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "~\AppData\Local\Programs\Python\Python310\lib\subprocess.py", line 1494, in _readerthread
+    buffer.append(fh.read())
+  File "~\AppData\Local\Programs\Python\Python310\lib\codecs.py", line 322, in decode
+    (result, consumed) = self._buffer_decode(data, self.errors, final)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb1 in position 510: invalid start byte
+ 
+[ciclo] 00:10 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-16_ciclo-corruzione.md

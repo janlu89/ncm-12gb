@@ -1,0 +1,20 @@
+# Prova B, coppia 1 (2026-11-19): la normalizzazione del livello 0 ostacola l'apprendimento?
+# Due tokenizer identici (12 livelli, R12: codici dai dati + riavvio fino al passo 1.200, 4.800 passi x 256, seed 42),
+# cambia solo tokenizer.norma_livello0: true (gia fatto il 18/11) contro false (nuovo).
+# Sopra ciascuno il generatore standard: 51.200 storie, nostra ricetta migliore, seed 42.
+# Regola di lettura in docs/esperimenti/2026-11-19_b-estremi-tokenizer.md.
+nome: 2026-11-19_b1-norma-l0
+riferimento: NORM_4800
+rumore: [UFF_best42, UFF_best43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: UFF_best42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "tokenizer ufficiale", overrides: [train.seed=42]}
+  - {id: UFF_best43, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43, descr: "tokenizer ufficiale, seed 43", overrides: [train.seed=43]}
+  - {id: NORM_4800, run: gen-mytok12std-dati-rv-4800x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "nostro 4.800 passi, normalizzazione L0 attiva (gia fatto)", overrides: [train.seed=42]}
+  - {id: NONORM_4800, descr: "nostro 4.800 passi, normalizzazione L0 disattiva", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv-nonorm_1228800_4800x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

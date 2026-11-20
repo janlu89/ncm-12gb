@@ -1,0 +1,23 @@
+# Ciclo 4c — sostituisce il 4a (annullato: 800 passi × 128 = 102.400 storie, il doppio delle altre run).
+# 800 passi × 64 storie (micro-batch 16 × accumulo 4) = 51.200 storie: stesse storie viste dei cicli a 400 passi × 128.
+# Piano: docs/piani/ciclo4-operativo.md
+nome: 2026-11-17_c4c-800passi-51k
+riferimento: A42
+rumore: [A42, A43]
+base_overrides:
+  - train.steps=800
+  - train.warmup=40
+  - train.eval_every=400
+  - train.accum=4
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: A42, descr: "ricetta del paper: lineare 0,75→0,25, lr 3e-4", overrides: [train.seed=42]}
+  - {id: LR1e-3, descr: "costante 0,5 + Flex, lr 1e-3", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: A43, descr: "ricetta del paper, seed 43", overrides: [train.seed=43]}
+  - {id: LR1e-3s43, descr: "costante 0,5 + Flex, lr 1e-3, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: V3V4, descr: "costante 0,5 + Flex, lr 3e-4", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: V3V4s43, descr: "costante 0,5 + Flex, lr 3e-4, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: C40LR, descr: "costante 0,4 + Flex, lr 1e-3", overrides: [train.seed=42, corruption.rate_first=0.4, corruption.rate_last=0.4, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: C40LRs43, descr: "costante 0,4 + Flex, lr 1e-3, seed 43", overrides: [train.seed=43, corruption.rate_first=0.4, corruption.rate_last=0.4, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

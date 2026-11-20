@@ -1,0 +1,30 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] lineare, tasso per livello: [0.0, 0.75, 0.694, 0.639, 0.583, 0.528, 0.472, 0.417, 0.361, 0.306, 0.25, 0.0]
+passo 10/200 loss 7.9002 lr 3.00e-04 gnorm 0.11 65 seq/s GPU 73°C 328.07W
+passo 20/200 loss 7.8645 lr 2.99e-04 gnorm 0.08 87 seq/s GPU 75°C 330.45W
+passo 30/200 loss 7.7968 lr 2.93e-04 gnorm 0.19 86 seq/s GPU 75°C 328.87W
+passo 40/200 loss 7.7159 lr 2.85e-04 gnorm 0.18 87 seq/s GPU 76°C 328.32W
+passo 50/200 loss 7.6167 lr 2.73e-04 gnorm 0.18 87 seq/s GPU 75°C 328.2W
+passo 60/200 loss 7.4916 lr 2.58e-04 gnorm 0.22 87 seq/s GPU 76°C 330.54W
+passo 70/200 loss 7.3957 lr 2.41e-04 gnorm 0.23 85 seq/s GPU 76°C 329.95W
+passo 80/200 loss 7.2842 lr 2.21e-04 gnorm 0.26 84 seq/s GPU 75°C 329.39W
+passo 90/200 loss 7.1578 lr 2.00e-04 gnorm 0.31 87 seq/s GPU 76°C 330.65W
+passo 100/200 loss 7.0653 lr 1.78e-04 gnorm 0.33 88 seq/s GPU 75°C 331.1W
+[eval] passo 100: val_loss=6.585 val_L1=6.95 val_acc_L1=0.01779 val_L6=6.334 val_acc_L6=0.08005 val_L11=5.358 val_acc_L11=0.1306 val_per_livello=[6.9503, 7.56, 6.9367, 6.4724, 6.3737, 6.3335, 5.6143, 7.3143, 7.3719, 7.414, 5.3575]
+passo 110/200 loss 6.9698 lr 1.56e-04 gnorm 0.35 22 seq/s GPU 76°C 328.18W
+passo 120/200 loss 6.8679 lr 1.34e-04 gnorm 0.39 87 seq/s GPU 75°C 328.63W
+passo 130/200 loss 6.8086 lr 1.13e-04 gnorm 0.40 87 seq/s GPU 75°C 330.77W
+passo 140/200 loss 6.7852 lr 9.30e-05 gnorm 0.41 87 seq/s GPU 75°C 327.38W
+passo 150/200 loss 6.7372 lr 7.52e-05 gnorm 0.41 88 seq/s GPU 75°C 329.85W
+passo 160/200 loss 6.7379 lr 5.99e-05 gnorm 0.41 87 seq/s GPU 75°C 328.93W
+passo 170/200 loss 6.6727 lr 4.73e-05 gnorm 0.43 87 seq/s GPU 75°C 328.19W
+passo 180/200 loss 6.6677 lr 3.81e-05 gnorm 0.44 87 seq/s GPU 75°C 329.36W
+passo 190/200 loss 6.6589 lr 3.22e-05 gnorm 0.43 87 seq/s GPU 75°C 328.0W
+passo 200/200 loss 6.6274 lr 3.00e-05 gnorm 0.48 87 seq/s GPU 75°C 326.3W
+[eval] passo 200: val_loss=5.967 val_L1=6.877 val_acc_L1=0.01694 val_L6=5.857 val_acc_L6=0.1106 val_L11=4.227 val_acc_L11=0.2674 val_per_livello=[6.8773, 7.4973, 6.4865, 6.0631, 6.0049, 5.8568, 4.7924, 6.9065, 6.943, 6.8315, 4.2269]
+[checkpoint] passo 200 salvato (fine, 4.8s)
+[export] .\runs\2026-11-17_c3b-tenuta200_A42\export: generator.pt, storie_di_prova.txt
+done

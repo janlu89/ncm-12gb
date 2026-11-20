@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Training a Next-Concept Model on a single 12 GB GPU"
+version: 0.1.0
+authors:
+  - family-names: Meola
+    given-names: Gianluca
+    email: gianluca.meola89@gmail.com
+license: MIT
+repository-code: "https://github.com/janlu89/ncm-12gb"

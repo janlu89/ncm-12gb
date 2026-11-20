@@ -1,0 +1,32 @@
+[ciclo] 16:27 training MY_paper42 (gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42)
+[ciclo] 16:40 valutazione Gen. PPL di MY_paper42
+_lin75-25_lr3e-4_s42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 474.54 ± 13.20 | entropia 3.8341 | 1280 campioni | 63s -> .\runs\gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42\eval\genppl
+ 
+[ciclo] 16:41 training MY_best42 (gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42)
+[ciclo] 16:53 valutazione Gen. PPL di MY_best42
+8_c50_lr1e-3_flex_s42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 219.24 ± 5.39 | entropia 3.8574 | 1280 campioni | 60s -> .\runs\gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42\eval\genppl
+ 
+[ciclo] 16:54 training MY_paper43 (gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43)
+[ciclo] 17:07 valutazione Gen. PPL di MY_paper43
+8_lin75-25_lr3e-4_s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 463.36 ± 7.05 | entropia 3.8334 | 1280 campioni | 78s -> .\runs\gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43\eval\genppl
+ 
+[ciclo] 17:08 training UFF_best43 (gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43)
+[ciclo] 17:20 valutazione Gen. PPL di UFF_best43
+uns\gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 66.62 ± 1.60 | entropia 3.9270 | 1280 campioni | 62s -> .\runs\gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43\eval\genppl
+ 
+[ciclo] 17:21 training MY_best43 (gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s43)
+[ciclo] 17:32 valutazione Gen. PPL di MY_best43
+8_c50_lr1e-3_flex_s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 226.31 ± 4.69 | entropia 3.8693 | 1280 campioni | 62s -> .\runs\gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s43\eval\genppl
+ 
+[ciclo] 17:33 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_t1-mytok-vs-tokuff.md

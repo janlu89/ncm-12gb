@@ -1,0 +1,31 @@
+{
+  "micro_batch": 24,
+  "steps": 100,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "torch": "2.14.1+cu126",
+  "data": "2026-11-16 21:50:16",
+  "compile_primo_passo_s": 93.7,
+  "ab": {
+    "base": {
+      "ms_micro_passo": 428.01,
+      "seq_s": 56.1,
+      "picco_gb": 9.43,
+      "guadagno_pct": 0.0,
+      "accelerazione": 1.0
+    },
+    "compile": {
+      "ms_micro_passo": 300.49,
+      "seq_s": 79.9,
+      "picco_gb": 7.15,
+      "guadagno_pct": 29.8,
+      "accelerazione": 1.424
+    },
+    "compile_codici_pronti": {
+      "ms_micro_passo": 280.53,
+      "seq_s": 85.6,
+      "picco_gb": 7.15,
+      "guadagno_pct": 34.5,
+      "accelerazione": 1.526
+    }
+  }
+}

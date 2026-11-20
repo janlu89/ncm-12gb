@@ -1,0 +1,19 @@
+[ciclo] 13:09 training UFF_409k_s42 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42)
+[ciclo] 13:11 fermato: UFF_409k_s42 non completato (codice 0, evento paused)
+[ciclo] tabella: .\runs\_cicli\2026-11-19_a-generatore-lungo.md
+[ciclo] 13:11 training UFF_409k_s42 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42)
+[ciclo] 13:31 interrotto da mancanza di corrente (ultimo checkpoint passo 760); ripresa 16:40
+[ciclo] 16:40 training UFF_409k_s42 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42)
+[ciclo] 17:29 valutazione Gen. PPL di UFF_409k_s42
+n-tokuff_409600_3200x128_c50_lr1e-3_flex_s42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 26.04 ± 0.48 | entropia 3.9522 | 1280 campioni | 79s -> .\runs\gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42\eval\genppl
+ 
+[ciclo] 17:30 training R12_409k_s42 (gen-mytok12std-dati-rv-2400x256_409600_3200x128_c50_lr1e-3_flex_s42)
+[ciclo] 18:41 valutazione Gen. PPL di R12_409k_s42
+42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\gen-mytok12std-dati-rv-2400x256_409600_3200x128_c50_lr1e-3_flex_s42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 42.76 ± 1.05 | entropia 3.9653 | 1280 campioni | 64s -> .\runs\gen-mytok12std-dati-rv-2400x256_409600_3200x128_c50_lr1e-3_flex_s42\eval\genppl
+ 
+[ciclo] 18:42 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-19_a-generatore-lungo.md

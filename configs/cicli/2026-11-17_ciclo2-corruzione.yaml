@@ -1,0 +1,40 @@
+# Ciclo 2 — forma della corruzione e conferme (micro-training da 400 passi × 128 storie, ~13 min a run).
+# Stessa base del ciclo 1: i run A42, A43, V3, V4 sono riusati (campo `run:`), non rifatti.
+# Domande:
+#   1. Il guadagno di V3 (tasso costante 0,5) e di V4 (FlexAttention) si ripete con un altro seed?
+#   2. Qual è il tasso migliore, e conta DOVE si corrompe (livelli grossolani o fini)?
+#   3. V3 e V4 si sommano?
+nome: 2026-11-17_ciclo2-corruzione
+riferimento: A42
+rumore: [A42, A43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: A42, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_s42, descr: "base (ciclo 1): lineare 0,75→0,25", overrides: [train.seed=42]}
+  - {id: A43, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_s43, descr: "base, seed 43 (ciclo 1)", overrides: [train.seed=43]}
+  - {id: V3, run: gen-tokuff_51200_400x128_c50_lr3e-4_s42, descr: "costante 0,5 (ciclo 1)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: V4, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_flex_s42, descr: "FlexAttention (ciclo 1)", overrides: [train.seed=42, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - id: V3s43
+    descr: "costante 0,5, seed 43 (conferma di V3; da confrontare con A43)"
+    overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5]
+  - id: V4s43
+    descr: "FlexAttention, seed 43 (conferma di V4; da confrontare con A43)"
+    overrides: [train.seed=43, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]
+  - id: C35
+    descr: "costante 0,35"
+    overrides: [train.seed=42, corruption.rate_first=0.35, corruption.rate_last=0.35]
+  - id: C65
+    descr: "costante 0,65"
+    overrides: [train.seed=42, corruption.rate_first=0.65, corruption.rate_last=0.65]
+  - id: R
+    descr: "lineare rovesciata 0,25→0,75 (più corruzione sui livelli fini)"
+    overrides: [train.seed=42, corruption.rate_first=0.25, corruption.rate_last=0.75]
+  - id: V3V4
+    descr: "costante 0,5 + FlexAttention (si sommano?)"
+    overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]

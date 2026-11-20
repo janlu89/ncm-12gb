@@ -1,0 +1,67 @@
+# Stadio 2: generatore NCM, addestrato da zero sopra un tokenizer VQ-VAE congelato.
+# Valori del paper (Tab. 6) dove noti; le scelte nostre sono annotate. Vedi docs/riferimenti/ricetta-training-ncm.md
+
+# Architettura e tokenizer presi dal config ufficiale TinyStories (stessa architettura del generatore ufficiale).
+base_config: artifacts/tinystories/config.yaml
+# Tokenizer congelato: "official" = artifacts/tinystories/tokenizer.pt; più avanti il percorso di una nostra VQ-VAE.
+tokenizer_checkpoint: official
+
+# true = codici calcolati a 64 bit (esatti, indipendenti dal batch); richiede data.codes_file: null.
+encode_fp64: false
+
+data:
+  dir: data/raw/tinystories
+  length: 128
+  seed: 1234
+  # Codici VQ pre-calcolati (data/build_codes.py). null = codifica a ogni passo.
+  codes_file: null
+
+# Modifiche all'architettura del generatore rispetto a base_config.model (es. {use_flex_attention: true,
+# flex_block_size: 64}). Vuoto = architettura ufficiale.
+model_overrides: {}
+
+loss:
+  # Peso per livello w_k ∝ ℓ_k^(-alpha) (Eq. 10). alpha=0 = media semplice su tutti i codici,
+  # cioè la stessa metrica del bersaglio (1,360). Il valore del paper non è pubblicato.
+  alpha: 0.0
+
+corruption:
+  # Codici di input sostituiti con codici uniformi dello stesso codebook; target puliti.
+  # Tasso lineare decrescente dal primo all'ultimo livello corrotto (media 0,50). Valori per livello
+  # non pubblicati: scelta nostra.
+  enabled: true
+  mode: linear        # linear: tasso per livello da rate_first a rate_last; per_example_uniform: tasso ~ U[0, rate_max] per esempio
+  rate_first: 0.75
+  rate_last: 0.25
+  rate_max: 1.0       # solo per per_example_uniform
+  skip_level0: true   # il livello 0 non viene corrotto (indizio dai config LM1B upstream)
+
+eval:
+  n_stories: 4096     # stesse storie del riferimento (prime 4.096 del validation)
+  batch: 64
+
+export:
+  level0_sequences: 65536   # come l'unigramma del checkpoint ufficiale (minimo 1/65.536)
+  samples: 8
+
+train:
+  steps: 10000        # ricetta ridotta del paper (ablazioni): 10k passi
+  micro_batch: 16     # massimo che sta in 12 GB senza ottimizzazioni (misurato)
+  accum: 64           # 16 x 64 = 1.024 sequenze per passo (ricetta ridotta)
+  lr: 3.0e-4
+  min_lr: 3.0e-5
+  warmup: 500
+  weight_decay: 0.1
+  betas: [0.9, 0.95]
+  grad_clip: 1.0
+  bf16: true
+  seed: 42
+  log_every: 10
+  eval_every: 500
+  ckpt_every_steps: 0
+  ckpt_every_minutes: 15
+  keep_ckpts: 2
+  deterministic: false
+  compile: true         # torch.compile del forward (triton-windows 3.8.0.post29): x1,42 misurato, vedi docs/riferimenti/misure-hardware.md
+  compile_mode: default
+  debug_stop_at_step: null

@@ -1,0 +1,22 @@
+# Ciclo 3c — coda bassa della corruzione, 400 passi × 128 storie (51.200 storie). Piano: docs/piani/ciclo3-operativo.md
+nome: 2026-11-17_c3c-coda-corruzione
+riferimento: A42
+rumore: [A42, A43]
+base_overrides:
+  - train.steps=400
+  - train.warmup=20
+  - train.eval_every=200
+  - train.accum=8
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: A42, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_s42, descr: "base (ciclo 1): lineare 0,75→0,25", overrides: [train.seed=42]}
+  - {id: A43, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_s43, descr: "base, seed 43 (ciclo 1)", overrides: [train.seed=43]}
+  - {id: C65, run: gen-tokuff_51200_400x128_c65_lr3e-4_s42, descr: "costante 0,65 (ciclo 2)", overrides: [train.seed=42, corruption.rate_first=0.65, corruption.rate_last=0.65]}
+  - {id: C50, run: gen-tokuff_51200_400x128_c50_lr3e-4_s42, descr: "costante 0,5 (ciclo 1, V3)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: C50s43, run: gen-tokuff_51200_400x128_c50_lr3e-4_s43, descr: "costante 0,5, seed 43 (ciclo 2, V3s43)", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: C35, run: gen-tokuff_51200_400x128_c35_lr3e-4_s42, descr: "costante 0,35 (ciclo 2)", overrides: [train.seed=42, corruption.rate_first=0.35, corruption.rate_last=0.35]}
+  - {id: C20, descr: "costante 0,20", overrides: [train.seed=42, corruption.rate_first=0.2, corruption.rate_last=0.2]}
+  - {id: C10, descr: "costante 0,10", overrides: [train.seed=42, corruption.rate_first=0.1, corruption.rate_last=0.1]}
+  - {id: C00, descr: "costante 0,00 (nessuna corruzione)", overrides: [train.seed=42, corruption.rate_first=0.0, corruption.rate_last=0.0]}

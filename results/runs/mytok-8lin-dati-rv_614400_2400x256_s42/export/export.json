@@ -1,0 +1,46 @@
+{
+  "passo": 2400,
+  "data": "2026-11-18 17:38:47",
+  "livelli": [
+    1,
+    19,
+    37,
+    55,
+    74,
+    92,
+    110,
+    128
+  ],
+  "schema": "lineare",
+  "codici_per_storia": 516,
+  "posizioni_generatore": 516,
+  "codici_uguali_a_upstream": 1.0,
+  "codici_instabili_batch256_vs_16": 0.00021575218124780804,
+  "val_loss": 0.11485436046496034,
+  "acc_token": 0.9853668212890625,
+  "acc_token_senza_pad": 0.9853135983215541,
+  "sequenze_perfette": 0.391357421875,
+  "norma_codebook_max": 19.59360694885254,
+  "norma_codebook_l0_mediana": 7.689915058806374e-22,
+  "codici_usati_media": 0.546112060546875,
+  "acc_per_livello": [
+    0.14284,
+    0.23032,
+    0.4044,
+    0.56998,
+    0.73189,
+    0.84529,
+    0.91357,
+    0.98537
+  ],
+  "codici_usati_per_livello": [
+    0.0073,
+    0.2117,
+    0.3743,
+    0.553,
+    0.7756,
+    0.7566,
+    0.7446,
+    0.9458
+  ]
+}

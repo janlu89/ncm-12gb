@@ -1,0 +1,19 @@
+# Prova C (2026-11-19): il difetto di precisione del tokenizer ufficiale lo aiuta o lo penalizza nella generazione?
+# Stesso tokenizer ufficiale, stesso generatore standard (51.200 storie, nostra ricetta migliore). Cambia solo come
+# si calcolano i codici: a 32 bit (come sempre, 13,3% dei codici diverso da quello esatto) oppure a 64 bit (esatti).
+# Input del generatore e decodifica restano a 32 bit in entrambi i casi.
+nome: 2026-11-19_c-ufficiale-64bit
+riferimento: UFF32_s42
+rumore: [UFF32_s42, UFF32_s43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: UFF32_s42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "ufficiale, codici a 32 bit", overrides: [train.seed=42]}
+  - {id: UFF32_s43, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43, descr: "ufficiale, codici a 32 bit, seed 43", overrides: [train.seed=43]}
+  - {id: UFF64_s42, descr: "ufficiale, codici a 64 bit (esatti)", overrides: [train.seed=42, encode_fp64=true, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: UFF64_s43, descr: "ufficiale, codici a 64 bit (esatti), seed 43", overrides: [train.seed=43, encode_fp64=true, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

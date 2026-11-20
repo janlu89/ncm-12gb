@@ -1,0 +1,23 @@
+# Ciclo 4b — raffinamento del learning rate attorno a 1e-3, 400 passi × 128 storie, costante 0,5 + Flex.
+# Regola fissata prima dei dati (piani/ciclo3-operativo.md): migliore a 1e-3 → si raffina a 6e-4 e 1,5e-3 con due seed.
+nome: 2026-11-17_c4b-lr400
+riferimento: LR1e-3
+rumore: [LR1e-3, LR1e-3s43]
+base_overrides:
+  - train.steps=400
+  - train.warmup=20
+  - train.eval_every=200
+  - train.accum=8
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: LR3e-4, run: gen-tokuff_51200_400x128_c50_lr3e-4_flex_s42, descr: "lr 3e-4 (ciclo 2)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: LR3e-4s43, run: gen-tokuff_51200_400x128_c50_lr3e-4_flex_s43, descr: "lr 3e-4, seed 43 (ciclo 3e)", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: LR1e-3, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "lr 1e-3 (ciclo 3d)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: LR3e-3, run: gen-tokuff_51200_400x128_c50_lr3e-3_flex_s42, descr: "lr 3e-3 (ciclo 3d)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=3.0e-3, train.min_lr=3.0e-4]}
+  - {id: LR1e-3s43, descr: "lr 1e-3, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: LR6e-4, descr: "lr 6e-4", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=6.0e-4, train.min_lr=6.0e-5]}
+  - {id: LR6e-4s43, descr: "lr 6e-4, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=6.0e-4, train.min_lr=6.0e-5]}
+  - {id: LR1.5e-3, descr: "lr 1,5e-3", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.5e-3, train.min_lr=1.5e-4]}
+  - {id: LR1.5e-3s43, descr: "lr 1,5e-3, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.5e-3, train.min_lr=1.5e-4]}

@@ -1,0 +1,53 @@
+{
+  "32bit_batch256+dec32": {
+    "token": 0.99616,
+    "token_senza_pad": 0.99979,
+    "storie_perfette": 0.9338
+  },
+  "32bit_batch256+dec64": {
+    "token": 0.99616,
+    "token_senza_pad": 0.99979,
+    "storie_perfette": 0.9338
+  },
+  "32bit_batch16+dec32": {
+    "token": 0.99618,
+    "token_senza_pad": 0.9998,
+    "storie_perfette": 0.936
+  },
+  "32bit_batch16+dec64": {
+    "token": 0.99617,
+    "token_senza_pad": 0.9998,
+    "storie_perfette": 0.9351
+  },
+  "64bit+dec32": {
+    "token": 0.99619,
+    "token_senza_pad": 0.99981,
+    "storie_perfette": 0.9355
+  },
+  "64bit+dec64": {
+    "token": 0.99619,
+    "token_senza_pad": 0.99981,
+    "storie_perfette": 0.9353
+  },
+  "codici_diversi_64_vs_32_batch256": 0.1332,
+  "codici_distinti_livelli_0_3": {
+    "32bit_batch256": [
+      1632,
+      3059,
+      3874,
+      3956
+    ],
+    "32bit_batch16": [
+      1632,
+      3061,
+      3872,
+      3955
+    ],
+    "64bit": [
+      1633,
+      3077,
+      3872,
+      3956
+    ]
+  }
+}

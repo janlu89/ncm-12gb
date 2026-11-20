@@ -1,0 +1,102 @@
+{
+  "variante": "R2",
+  "norma_livello0": true,
+  "ema_iniziale_1": true,
+  "init_dati": false,
+  "riavvio_fino_al_passo": 300,
+  "passi": 600,
+  "secondi": 216.2,
+  "misure": [
+    {
+      "passo": 0,
+      "acc_token": 0.0002,
+      "sequenze_perfette": 0.0,
+      "norma_input_l0": 19.5899658203125,
+      "norma_z": 19.582918167114258,
+      "norma_codici_l0_usati": 18.608625411987305,
+      "norma_codici_l0_max": 21.99704933166504,
+      "codici_l0_distinti_su_1024_storie": 100,
+      "codici_l1_distinti": 259,
+      "instabili_256_vs_16": 0.0,
+      "norma_codebook_max_tutti": 22.81
+    },
+    {
+      "passo": 100,
+      "acc_token": 0.6956,
+      "sequenze_perfette": 0.0,
+      "norma_input_l0": 19.595916748046875,
+      "norma_z": 19.583145141601562,
+      "norma_codici_l0_usati": 19.588764190673828,
+      "norma_codici_l0_max": 19.599016189575195,
+      "codici_l0_distinti_su_1024_storie": 2,
+      "codici_l1_distinti": 31,
+      "instabili_256_vs_16": 0.00046,
+      "norma_codebook_max_tutti": 19.6
+    },
+    {
+      "passo": 200,
+      "acc_token": 0.8738,
+      "sequenze_perfette": 0.0,
+      "norma_input_l0": 19.595844268798828,
+      "norma_z": 19.583345413208008,
+      "norma_codici_l0_usati": 19.540834426879883,
+      "norma_codici_l0_max": 19.599519729614258,
+      "codici_l0_distinti_su_1024_storie": 26,
+      "codici_l1_distinti": 25,
+      "instabili_256_vs_16": 0.00038,
+      "norma_codebook_max_tutti": 19.6
+    },
+    {
+      "passo": 300,
+      "acc_token": 0.9135,
+      "sequenze_perfette": 0.002,
+      "norma_input_l0": 19.594844818115234,
+      "norma_z": 19.583454132080078,
+      "norma_codici_l0_usati": 18.31078338623047,
+      "norma_codici_l0_max": 19.599205017089844,
+      "codici_l0_distinti_su_1024_storie": 91,
+      "codici_l1_distinti": 26,
+      "instabili_256_vs_16": 0.00033,
+      "norma_codebook_max_tutti": 19.6
+    },
+    {
+      "passo": 400,
+      "acc_token": 0.9287,
+      "sequenze_perfette": 0.002,
+      "norma_input_l0": 19.594100952148438,
+      "norma_z": 19.583486557006836,
+      "norma_codici_l0_usati": 16.136520385742188,
+      "norma_codici_l0_max": 19.565204620361328,
+      "codici_l0_distinti_su_1024_storie": 46,
+      "codici_l1_distinti": 26,
+      "instabili_256_vs_16": 0.00034,
+      "norma_codebook_max_tutti": 19.57
+    },
+    {
+      "passo": 500,
+      "acc_token": 0.9375,
+      "sequenze_perfette": 0.0078,
+      "norma_input_l0": 19.591793060302734,
+      "norma_z": 19.583473205566406,
+      "norma_codici_l0_usati": 11.680704116821289,
+      "norma_codici_l0_max": 19.590221405029297,
+      "codici_l0_distinti_su_1024_storie": 87,
+      "codici_l1_distinti": 468,
+      "instabili_256_vs_16": 0.0002,
+      "norma_codebook_max_tutti": 19.59
+    },
+    {
+      "passo": 600,
+      "acc_token": 0.9408,
+      "sequenze_perfette": 0.0117,
+      "norma_input_l0": 19.590158462524414,
+      "norma_z": 19.583465576171875,
+      "norma_codici_l0_usati": 9.819894790649414,
+      "norma_codici_l0_max": 19.58990478515625,
+      "codici_l0_distinti_su_1024_storie": 70,
+      "codici_l1_distinti": 74,
+      "instabili_256_vs_16": 0.00024,
+      "norma_codebook_max_tutti": 19.59
+    }
+  ]
+}

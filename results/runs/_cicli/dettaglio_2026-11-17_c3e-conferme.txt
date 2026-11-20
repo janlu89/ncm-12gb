@@ -1,0 +1,15 @@
+loss di validazione per livello (più bassa = meglio)
+                 L1     L2     L3     L4     L5     L6     L7     L8     L9    L10    L11
+ufficiale      6.64   5.10   3.57   2.48   1.67   1.24   0.47   1.11   1.41   1.48   0.27
+A43_800        6.70   6.88   5.45   4.93   4.68   4.31   2.29   3.59   3.78   3.61   0.71
+V3s43_800      6.70   6.09   4.92   4.52   4.33   4.01   2.12   3.59   3.89   3.78   0.80
+A43_200        6.88   7.50   6.46   6.05   5.99   5.85   4.76   6.90   6.92   6.82   4.15
+C35s43         6.80   6.21   5.08   4.79   4.74   4.45   2.59   4.46   4.80   4.62   1.49
+V3V4s43        6.77   6.45   5.32   5.05   5.02   4.81   3.11   5.11   5.47   5.31   1.95
+
+dettaglio
+A43_800 val 3.837@400 -> 3.300@800 | train 4.684 | GenPPL 76.11 per seed [77.08, 76.85, 77.74, 74.19, 74.69] | entropia 3.939 | 84 seq/s | picco 5.83 GB | temp max 76 °C | generazione 28 s
+V3s43_800 val 3.787@400 -> 3.238@800 | train 4.646 | GenPPL 71.67 per seed [70.64, 71.92, 70.76, 71.33, 73.67] | entropia 3.917 | 81 seq/s | picco 5.83 GB | temp max 76 °C | generazione 26 s
+A43_200 val 6.535@100 -> 5.941@200 | train 6.620 | GenPPL 350.15 per seed [357.51, 346.65, 351.47, 343.39, 351.73] | entropia 3.839 | 79 seq/s | picco 5.83 GB | temp max 76 °C | generazione 27 s
+C35s43 val 4.731@200 -> 3.883@400 | train 4.812 | GenPPL 138.28 per seed [136.2, 136.22, 140.31, 138.45, 140.24] | entropia 3.932 | 80 seq/s | picco 5.83 GB | temp max 76 °C | generazione 27 s
+V3V4s43 val 5.220@200 -> 4.394@400 | train 5.510 | GenPPL 134.74 per seed [132.26, 132.0, 137.57, 134.12, 137.76] | entropia 3.893 | 104 seq/s | picco 7.03 GB | temp max 76 °C | generazione 30 s

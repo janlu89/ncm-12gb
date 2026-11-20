@@ -1,0 +1,54 @@
+budget 51,200 storie — 20 run
+
+variante                                                   seed  GenPPL  ±sem   entr   val    train  seq/s util%  W   °C  GB   min  compil.
+rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a   42   65.89  0.57  3.939  3.302  4.559   107    99  332  76  7.03  10.4    0.4
+rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a   42   76.87  0.44  3.971  4.084  5.124   106    99  333  76  7.03  10.3    0.4
+rate_first=0.35 rate_last=0.35                               42  131.31  0.80  3.923  3.886  4.795    84    99  329  76  5.83  11.6    0.3
+rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a   42  131.48  1.15  3.888  4.383  5.481   113    99  335  76  7.03   9.7    0.4
+rate_first=0.5 rate_last=0.5                                 42  134.72  1.13  3.871  4.402  5.536    85    99  326  76  5.83  11.4    0.3
+rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a   43  134.74  1.25  3.893  4.394  5.510   107    99  334  76  7.03  10.4    0.5
+rate_first=0.35 rate_last=0.35                               43  138.28  0.91  3.932  3.883  4.812    81    99  328  76  5.83  12.1    0.3
+rate_first=0.5 rate_last=0.5                                 43  140.92  1.44  3.895  4.417  5.570    85    99  329  75  5.83  11.7    0.6
+flex_block_size=64 use_flex_attention=True                   42  142.64  2.10  3.899  4.397  5.457   113    95  328  76  7.03  10.8    1.4
+flex_block_size=64 use_flex_attention=True                   43  143.01  1.78  3.892  4.413  5.505   113    99  334  76  7.03   9.7    0.4
+rate_first=0.2 rate_last=0.2                                 42  144.61  0.88  3.931  3.477  4.144    83   100  328  76  5.83  11.9    0.4
+rate_first=0.25 rate_last=0.75                               42  144.71  1.57  3.889  4.422  5.532    84    99  329  76  5.83  11.6    0.3
+base                                                         42  149.42  2.08  3.897  4.444  5.527    85   100  327  75  5.83  11.4    0.3
+skip_level0=False                                            42  150.65  1.15  3.906  4.563  5.618    85    99  329  76  5.83  11.4    0.3
+base                                                         43  151.92  1.36  3.913  4.445  5.546    85    96  328  76  5.83  11.5    0.3
+mode=per_example_uniform                                     42  169.47  1.39  3.904  4.189  5.905    85    99  329  76  5.83  11.7    0.6
+rate_first=0.65 rate_last=0.65                               42  170.56  1.15  3.850  5.139  6.369    84    99  329  76  5.83  11.6    0.3
+rate_first=0.1 rate_last=0.1                                 42  173.86  2.55  3.957  3.264  3.737    81   100  328  76  5.83  12.0    0.4
+rate_first=0.0 rate_last=0.0                                 42  224.80  2.23  3.965  3.124  3.237    79    96  326  76  5.83  12.2    0.4
+rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a   42  358.09  4.61  3.803  6.096  6.728   111    99  334  76  7.03  10.1    0.4
+
+coppie con due seed (stessa configurazione):
+  base                                                       [149.42, 151.92]  differenza -2.50
+  rate_first=0.5 rate_last=0.5                               [134.72, 140.92]  differenza -6.20
+  flex_block_size=64 use_flex_attention=True                 [142.64, 143.01]  differenza -0.37
+  rate_first=0.35 rate_last=0.35                             [131.31, 138.28]  differenza -6.97
+  rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a [131.48, 134.74]  differenza -3.26
+
+deviazione standard tra seed di training (stima da 5 coppie): 3.23 punti di Gen. PPL
+-> differenza tra due run singole: sd 4.56; soglia a 2 sd: 9.1
+
+differenze appaiate rispetto alla base (stesso seed):
+  rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a seed 42: -83.53  | media -83.53 = -18.3 errori standard (1 seed)
+  rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a seed 42: -72.55  | media -72.55 = -15.9 errori standard (1 seed)
+  rate_first=0.35 rate_last=0.35                             seed 42: -18.11  seed 43: -13.64  | media -15.87 = -4.9 errori standard (2 seed)
+  rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a seed 42: -17.94  seed 43: -17.18  | media -17.56 = -5.4 errori standard (2 seed)
+  rate_first=0.5 rate_last=0.5                               seed 42: -14.70  seed 43: -11.00  | media -12.85 = -4.0 errori standard (2 seed)
+  flex_block_size=64 use_flex_attention=True                 seed 42: -6.78  seed 43: -8.91  | media -7.84 = -2.4 errori standard (2 seed)
+  rate_first=0.2 rate_last=0.2                               seed 42: -4.81  | media -4.81 = -1.1 errori standard (1 seed)
+  rate_first=0.25 rate_last=0.75                             seed 42: -4.71  | media -4.71 = -1.0 errori standard (1 seed)
+  skip_level0=False                                          seed 42: +1.23  | media +1.23 = +0.3 errori standard (1 seed)
+  mode=per_example_uniform                                   seed 42: +20.05  | media +20.05 = +4.4 errori standard (1 seed)
+  rate_first=0.65 rate_last=0.65                             seed 42: +21.14  | media +21.14 = +4.6 errori standard (1 seed)
+  rate_first=0.1 rate_last=0.1                               seed 42: +24.44  | media +24.44 = +5.4 errori standard (1 seed)
+  rate_first=0.0 rate_last=0.0                               seed 42: +75.38  | media +75.38 = +16.5 errori standard (1 seed)
+  rate_first=0.5 rate_last=0.5 flex_block_size=64 use_flex_a seed 42: +208.67  | media +208.67 = +45.7 errori standard (1 seed)
+
+correlazione con la Gen. PPL su tutte le run (1 = stessa classifica):
+  val loss                   r = +0.53
+  loss di training finale    r = +0.25
+  entropia                   r = -0.55

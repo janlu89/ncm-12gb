@@ -1,0 +1,16 @@
+# Ciclo 3b — tenuta a 200 passi × 128 storie (25.600 storie). Piano: docs/piani/ciclo3-operativo.md
+nome: 2026-11-17_c3b-tenuta200
+riferimento: A42
+rumore: []
+base_overrides:
+  - train.steps=200
+  - train.warmup=10
+  - train.eval_every=100
+  - train.accum=8
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: A42, descr: "base: lineare 0,75→0,25", overrides: [train.seed=42]}
+  - {id: V3, descr: "costante 0,5", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: V4, descr: "FlexAttention", overrides: [train.seed=42, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}

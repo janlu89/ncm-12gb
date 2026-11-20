@@ -1,0 +1,28 @@
+# Prova B, coppia 2 (2026-11-19): serve molto piu training del tokenizer?
+# Stessa configurazione (12 livelli, R12, normalizzazione L0 attiva, batch 256, seed 42), cambia solo la durata:
+# 4.800 passi (gia fatto il 18/11) contro 38.400 passi (nuovo, 8 volte).
+# Regola per lr e riavvii: lr 5e-4 -> 5e-5 a coseno steso su tutta la durata, warmup 5% dei passi (240 / 1.920);
+# riavvio dei codici inutilizzati fino al passo 1.200 in entrambi (le stesse prime 307.200 storie).
+# Punti lungo il percorso: copie del tokenizer lungo ai passi 9.600 e 19.200 (non equivalgono a training completi
+# di quella durata: il learning rate e' ancora alto). Sopra ciascuno il generatore standard a 51.200 storie, seed 42.
+# Regola di lettura in docs/esperimenti/2026-11-19_b-estremi-tokenizer.md.
+nome: 2026-11-19_b2-training-lungo
+riferimento: T4800
+rumore: [UFF_best42, UFF_best43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: UFF_best42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "tokenizer ufficiale", overrides: [train.seed=42]}
+  - {id: UFF_best43, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43, descr: "tokenizer ufficiale, seed 43", overrides: [train.seed=43]}
+  - {id: T4800, run: gen-mytok12std-dati-rv-4800x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "nostro, 4.800 passi (gia fatto)", overrides: [train.seed=42]}
+  - {id: T38400, descr: "nostro, 38.400 passi", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_9830400_38400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: T38400_p9600, descr: "copia del tokenizer lungo al passo 9.600", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_9830400_38400x256_s42/export/passo_00009600/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: T38400_p19200, descr: "copia del tokenizer lungo al passo 19.200", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_9830400_38400x256_s42/export/passo_00019200/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  # Passo 2 del 2026-11-20: secondo seed del TOKENIZER lungo (train.seed=43; ordine dei dati invariato,
+  # data.seed=1234, come per i seed dei generatori). Generatore sopra con seed 42, per isolare il seed del tokenizer.
+  - {id: T38400_ts43, descr: "nostro, 38.400 passi, tokenizer seed 43", overrides: [train.seed=42, train.ckpt_every_minutes=5, base_config=runs/mytok-12std-dati-rv_9830400_38400x256_s43/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

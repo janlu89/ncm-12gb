@@ -1,0 +1,56 @@
+VQVAE, Total parameter count: 92.87M
+VQVAE, Non embedding parameter count: 89.68M
+NCP Transformer, Total parameter count: 96.88M
+NCP Transformer, Non embedding parameter count: 96.56M
+[corruzione] lineare, tasso per livello: [0.0, 0.75, 0.736, 0.723, 0.709, 0.696, 0.682, 0.669, 0.655, 0.642, 0.628, 0.615, 0.601, 0.588, 0.574, 0.561, 0.547, 0.534, 0.52, 0.507, 0.493, 0.48, 0.466, 0.453, 0.439, 0.426, 0.412, 0.399, 0.385, 0.372, 0.358, 0.345, 0.331, 0.318, 0.304, 0.291, 0.277, 0.264, 0.25, 0.0]
+passo 10/400 loss 7.4611 lr 1.50e-04 gnorm 0.13 9 seq/s GPU 75°C 322.81W
+passo 20/400 loss 7.4168 lr 3.00e-04 gnorm 0.13 12 seq/s GPU 75°C 324.39W
+passo 30/400 loss 7.3943 lr 3.00e-04 gnorm 0.12 12 seq/s GPU 75°C 321.58W
+passo 40/400 loss 7.3895 lr 2.98e-04 gnorm 0.12 12 seq/s GPU 75°C 319.97W
+passo 50/400 loss 7.3828 lr 2.96e-04 gnorm 0.12 11 seq/s GPU 74°C 316.68W
+passo 60/400 loss 7.3785 lr 2.93e-04 gnorm 0.12 11 seq/s GPU 74°C 319.37W
+passo 70/400 loss 7.3741 lr 2.89e-04 gnorm 0.12 12 seq/s GPU 75°C 321.88W
+[checkpoint] passo 79 salvato (periodico, 1.7s)
+passo 80/400 loss 7.3704 lr 2.84e-04 gnorm 0.12 11 seq/s GPU 74°C 320.24W
+passo 90/400 loss 7.3607 lr 2.79e-04 gnorm 0.12 11 seq/s GPU 74°C 316.95W
+passo 100/400 loss 7.3562 lr 2.72e-04 gnorm 0.12 12 seq/s GPU 75°C 322.23W
+passo 110/400 loss 7.3472 lr 2.65e-04 gnorm 0.12 12 seq/s GPU 75°C 321.44W
+passo 120/400 loss 7.3373 lr 2.57e-04 gnorm 0.13 12 seq/s GPU 75°C 318.45W
+passo 130/400 loss 7.3286 lr 2.49e-04 gnorm 0.12 11 seq/s GPU 74°C 318.22W
+passo 140/400 loss 7.3174 lr 2.40e-04 gnorm 0.13 11 seq/s GPU 75°C 319.99W
+passo 150/400 loss 7.3022 lr 2.30e-04 gnorm 0.13 12 seq/s GPU 75°C 321.02W
+passo 160/400 loss 7.2921 lr 2.20e-04 gnorm 0.13 11 seq/s GPU 74°C 322.34W
+[checkpoint] passo 160 salvato (periodico, 1.6s)
+passo 170/400 loss 7.2735 lr 2.10e-04 gnorm 0.13 11 seq/s GPU 75°C 317.72W
+passo 180/400 loss 7.2646 lr 1.99e-04 gnorm 0.13 11 seq/s GPU 74°C 318.92W
+passo 190/400 loss 7.2484 lr 1.88e-04 gnorm 0.14 11 seq/s GPU 74°C 318.99W
+passo 200/400 loss 7.2291 lr 1.77e-04 gnorm 0.14 11 seq/s GPU 74°C 318.49W
+[eval] passo 200: val_loss=7.114 val_L1=6.783 val_acc_L1=0.05017 val_L6=6.876 val_acc_L6=0.03002 val_L39=4.482 val_acc_L39=0.2885 val_per_livello=[6.7829, 6.7981, 6.7955, 6.8275, 6.8119, 6.8764, 6.9579, 7.0528, 7.1, 7.1569, 7.2706, 7.196, 7.2956, 7.2672, 7.2642, 7.3167, 7.2894, 7.3056, 7.3118, 7.3672, 7.3639, 7.3496, 7.3477, 7.333, 7.3401, 7.3244, 7.313, 7.2868, 7.2933, 7.2732, 7.2128, 7.2248, 7.1834, 7.1149, 7.2646, 7.2635, 7.2667, 7.2405, 4.4821]
+passo 210/400 loss 7.2140 lr 1.66e-04 gnorm 0.14 3 seq/s GPU 74°C 322.47W
+[checkpoint] passo 213 salvato (periodico, 1.9s)
+passo 220/400 loss 7.1978 lr 1.55e-04 gnorm 0.14 11 seq/s GPU 74°C 315.71W
+passo 230/400 loss 7.1864 lr 1.44e-04 gnorm 0.14 11 seq/s GPU 74°C 315.03W
+passo 240/400 loss 7.1679 lr 1.33e-04 gnorm 0.15 11 seq/s GPU 75°C 317.66W
+passo 250/400 loss 7.1522 lr 1.22e-04 gnorm 0.15 11 seq/s GPU 75°C 320.6W
+passo 260/400 loss 7.1511 lr 1.12e-04 gnorm 0.15 11 seq/s GPU 75°C 319.66W
+passo 270/400 loss 7.1316 lr 1.02e-04 gnorm 0.15 11 seq/s GPU 75°C 319.4W
+passo 280/400 loss 7.1244 lr 9.21e-05 gnorm 0.15 11 seq/s GPU 75°C 317.85W
+passo 290/400 loss 7.1217 lr 8.30e-05 gnorm 0.16 11 seq/s GPU 75°C 323.46W
+[checkpoint] passo 291 salvato (periodico, 2.0s)
+passo 300/400 loss 7.1153 lr 7.44e-05 gnorm 0.15 11 seq/s GPU 75°C 320.43W
+passo 310/400 loss 7.1009 lr 6.64e-05 gnorm 0.16 11 seq/s GPU 74°C 317.97W
+passo 320/400 loss 7.0999 lr 5.92e-05 gnorm 0.16 11 seq/s GPU 74°C 318.73W
+passo 330/400 loss 7.0936 lr 5.26e-05 gnorm 0.16 11 seq/s GPU 75°C 318.66W
+passo 340/400 loss 7.0842 lr 4.68e-05 gnorm 0.16 11 seq/s GPU 75°C 321.73W
+passo 350/400 loss 7.0770 lr 4.18e-05 gnorm 0.16 11 seq/s GPU 74°C 319.02W
+passo 360/400 loss 7.0731 lr 3.77e-05 gnorm 0.16 11 seq/s GPU 75°C 320.87W
+passo 370/400 loss 7.0687 lr 3.44e-05 gnorm 0.16 11 seq/s GPU 75°C 320.41W
+[checkpoint] passo 370 salvato (periodico, 2.0s)
+passo 380/400 loss 7.0699 lr 3.20e-05 gnorm 0.16 11 seq/s GPU 74°C 320.48W
+passo 390/400 loss 7.0618 lr 3.06e-05 gnorm 0.16 11 seq/s GPU 75°C 320.28W
+passo 400/400 loss 7.0488 lr 3.00e-05 gnorm 0.17 11 seq/s GPU 74°C 317.54W
+[eval] passo 400: val_loss=6.801 val_L1=6.658 val_acc_L1=0.06689 val_L6=6.69 val_acc_L6=0.04364 val_L39=3.602 val_acc_L39=0.4452 val_per_livello=[6.6582, 6.7261, 6.6358, 6.6218, 6.6158, 6.6901, 6.821, 6.9376, 6.9988, 7.0425, 7.1419, 7.0377, 7.0815, 7.0923, 7.078, 7.1355, 7.0993, 7.0701, 7.0903, 7.1984, 7.1659, 7.1546, 7.1082, 7.1044, 7.0105, 6.9675, 6.9576, 6.8773, 6.8348, 6.7809, 6.8127, 6.8128, 6.819, 6.8153, 6.9472, 6.9913, 6.991, 7.0074, 3.602]
+[checkpoint] passo 400 salvato (fine, 1.8s)
+[W1117 20:54:28.000000000 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 220200960 bytes (free: 0, total: 12884246528).
+[export] .\runs\gen-mytok40lin-2400x256_51200_400x128_lin75-25_lr3e-4_s42\export: generator.pt, storie_di_prova.txt
+done

@@ -1,0 +1,30 @@
+# Ciclo T3 — scrematura dei livelli. Tokenizer nostri a 40 e 26 livelli (spaziatura lineare),
+# addestrati come quello a 12 (614.400 storie, 2.400 passi × 256), poi lo stesso generatore di T1 sopra ciascuno:
+# 400 passi × 128 storie = 51.200 storie viste, ricetta del paper e nostra migliore, seed 42 e 43.
+# Riferimento: il tokenizer nostro a 12 livelli (T1). Più livelli = sequenze più lunghe: micro-batch più piccolo,
+# accumulo più grande, stesse 128 storie per passo. Run di controllo: 12 livelli con micro-batch 4 × 32.
+# Regola di lettura in docs/piani/tokenizer-operativo.md. I due tokenizer si addestrano prima, nella stessa catena.
+nome: 2026-11-17_t3-livelli-12-26-40
+riferimento: L12_paper42
+rumore: [L12_paper42, L12_paper43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: L12_paper42, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "12 livelli, ricetta del paper (T1)", overrides: [train.seed=42]}
+  - {id: L12_best42, run: gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "12 livelli, nostra migliore (T1)", overrides: [train.seed=42]}
+  - {id: L12_paper43, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43, descr: "12 livelli, ricetta del paper, seed 43 (T1)", overrides: [train.seed=43]}
+  - {id: L12_best43, run: gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s43, descr: "12 livelli, nostra migliore, seed 43 (T1)", overrides: [train.seed=43]}
+  - {id: L40_paper42, descr: "40 livelli, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-40lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=4, train.accum=32, eval.batch=4, eval.encode_batch=64]}
+  - {id: L40_best42, descr: "40 livelli, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-40lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=4, train.accum=32, eval.batch=4, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: L26_paper42, descr: "26 livelli, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-26lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=8, eval.encode_batch=64]}
+  - {id: L26_best42, descr: "26 livelli, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-26lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=8, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: L12_paper42_mb4, descr: "controllo: 12 livelli, ricetta del paper, micro-batch 4 × 32", overrides: [train.seed=42, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=4, train.accum=32, nome_extra=mb4]}
+  # tolta dalla coda il 2026-11-17 22:05 (40 livelli saltato; 26 seed 43 solo se il seed 42 è vicino al 12): {id: L40_paper43, descr: "40 livelli, ricetta del paper, seed 43", overrides: [train.seed=43, base_config=runs/mytok-40lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=4, train.accum=32, eval.batch=4, eval.encode_batch=64]}
+  # tolta dalla coda il 2026-11-17 22:05 (40 livelli saltato; 26 seed 43 solo se il seed 42 è vicino al 12): {id: L40_best43, descr: "40 livelli, nostra migliore, seed 43", overrides: [train.seed=43, base_config=runs/mytok-40lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=4, train.accum=32, eval.batch=4, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  # tolta dalla coda il 2026-11-17 22:05 (40 livelli saltato; 26 seed 43 solo se il seed 42 è vicino al 12): {id: L26_paper43, descr: "26 livelli, ricetta del paper, seed 43", overrides: [train.seed=43, base_config=runs/mytok-26lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=8, eval.encode_batch=64]}
+  # tolta dalla coda il 2026-11-17 22:05 (40 livelli saltato; 26 seed 43 solo se il seed 42 è vicino al 12): {id: L26_best43, descr: "26 livelli, nostra migliore, seed 43", overrides: [train.seed=43, base_config=runs/mytok-26lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=8, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

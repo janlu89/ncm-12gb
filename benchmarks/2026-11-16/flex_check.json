@@ -1,0 +1,18 @@
+{
+  "block": 64,
+  "torch": "2.14.1+cu126",
+  "eq_max_diff_logits_fp32": 0.00067138671875,
+  "eq_argmax_uguali_pct": 100.0,
+  "maschera_compile": {
+    "compilazione_s": 10.4,
+    "ms_micro_passo": 211.98,
+    "seq_s": 75.5,
+    "picco_gb": 6.45
+  },
+  "flex_compile": {
+    "compilazione_s": 154.8,
+    "ms_micro_passo": 195.81,
+    "seq_s": 81.7,
+    "picco_gb": 6.45
+  }
+}

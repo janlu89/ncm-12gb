@@ -1,0 +1,45 @@
+{
+  "genppl_mean": 214.07,
+  "genppl_std": 5.24,
+  "entropy_mean": 3.8903,
+  "per_seed": [
+    {
+      "seed": 42,
+      "genppl": 215.26,
+      "entropy": 3.9018
+    },
+    {
+      "seed": 0,
+      "genppl": 210.16,
+      "entropy": 3.8982
+    },
+    {
+      "seed": 1,
+      "genppl": 216.12,
+      "entropy": 3.872
+    },
+    {
+      "seed": 2,
+      "genppl": 207.75,
+      "entropy": 3.8524
+    },
+    {
+      "seed": 3,
+      "genppl": 221.06,
+      "entropy": 3.9269
+    }
+  ],
+  "n_samples": 1280,
+  "samples_per_seed": 256,
+  "ref_model": ".\\evaluation\\ref_models\\gpt2-large",
+  "checkpoint_dir": ".\\runs\\2026-11-16_gen-tokuff_prova300\\export",
+  "secondi_generazione": 52.9,
+  "secondi_totali": 164.1,
+  "comando": [
+    ".\\.venv\\Scripts\\python.exe",
+    "evaluation\\gen_ppl_run.py",
+    "--run",
+    "2026-11-16_gen-tokuff_prova300"
+  ],
+  "data": "2026-11-16 21:20:45"
+}

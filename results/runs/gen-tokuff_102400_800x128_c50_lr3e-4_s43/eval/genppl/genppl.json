@@ -1,0 +1,45 @@
+{
+  "genppl_mean": 71.67,
+  "genppl_std": 1.23,
+  "entropy_mean": 3.9171,
+  "per_seed": [
+    {
+      "seed": 42,
+      "genppl": 70.64,
+      "entropy": 3.9385
+    },
+    {
+      "seed": 0,
+      "genppl": 71.92,
+      "entropy": 3.9278
+    },
+    {
+      "seed": 1,
+      "genppl": 70.76,
+      "entropy": 3.9116
+    },
+    {
+      "seed": 2,
+      "genppl": 71.33,
+      "entropy": 3.9247
+    },
+    {
+      "seed": 3,
+      "genppl": 73.67,
+      "entropy": 3.883
+    }
+  ],
+  "n_samples": 1280,
+  "samples_per_seed": 256,
+  "ref_model": ".\\evaluation\\ref_models\\gpt2-large",
+  "checkpoint_dir": ".\\runs\\2026-11-17_c3e-conferme_V3s43_800\\export",
+  "secondi_generazione": 26.1,
+  "secondi_totali": 64.0,
+  "comando": [
+    ".\\.venv\\Scripts\\python.exe",
+    ".\\evaluation\\gen_ppl_run.py",
+    "--run",
+    "2026-11-17_c3e-conferme_V3s43_800"
+  ],
+  "data": "2026-11-17 13:10:43"
+}

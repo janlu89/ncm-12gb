@@ -1,0 +1,851 @@
+{
+  "storie": 4096,
+  "quota_per_livello": 0.25,
+  "seed": 1234,
+  "data": "2026-11-20 12:14:49",
+  "tokenizer": {
+    "ufficiale": {
+      "livelli": [
+        1,
+        8,
+        16,
+        24,
+        32,
+        40,
+        52,
+        64,
+        76,
+        92,
+        108,
+        128
+      ],
+      "pulito": {
+        "token_sbagliati": 0.00021,
+        "storie_perfette": 0.9763
+      },
+      "per_livello": [
+        {
+          "livello": 0,
+          "codici_per_storia": 1,
+          "codici_usati": 1632,
+          "scambio": {
+            "codici_cambiati": 1067,
+            "quota_cambiata": 0.2605,
+            "token_sbagliati": 0.00037,
+            "storie_perfette": 0.9585,
+            "danno_per_codice": 0.0778
+          },
+          "vicino": {
+            "codici_cambiati": 1011,
+            "quota_cambiata": 0.2468,
+            "token_sbagliati": 0.00023,
+            "storie_perfette": 0.9749,
+            "danno_per_codice": 0.0059
+          }
+        },
+        {
+          "livello": 1,
+          "codici_per_storia": 8,
+          "codici_usati": 3059,
+          "scambio": {
+            "codici_cambiati": 7986,
+            "quota_cambiata": 0.2437,
+            "token_sbagliati": 0.00021,
+            "storie_perfette": 0.9758,
+            "danno_per_codice": 0.0
+          },
+          "vicino": {
+            "codici_cambiati": 8321,
+            "quota_cambiata": 0.2539,
+            "token_sbagliati": 0.00022,
+            "storie_perfette": 0.9756,
+            "danno_per_codice": 0.0004
+          }
+        },
+        {
+          "livello": 2,
+          "codici_per_storia": 16,
+          "codici_usati": 3874,
+          "scambio": {
+            "codici_cambiati": 16338,
+            "quota_cambiata": 0.2493,
+            "token_sbagliati": 0.00021,
+            "storie_perfette": 0.9763,
+            "danno_per_codice": 0.0
+          },
+          "vicino": {
+            "codici_cambiati": 16294,
+            "quota_cambiata": 0.2486,
+            "token_sbagliati": 0.00021,
+            "storie_perfette": 0.9766,
+            "danno_per_codice": -0.0001
+          }
+        },
+        {
+          "livello": 3,
+          "codici_per_storia": 24,
+          "codici_usati": 3956,
+          "scambio": {
+            "codici_cambiati": 24230,
+            "quota_cambiata": 0.2465,
+            "token_sbagliati": 0.00026,
+            "storie_perfette": 0.9714,
+            "danno_per_codice": 0.0009
+          },
+          "vicino": {
+            "codici_cambiati": 24662,
+            "quota_cambiata": 0.2509,
+            "token_sbagliati": 0.00022,
+            "storie_perfette": 0.9751,
+            "danno_per_codice": 0.0002
+          }
+        },
+        {
+          "livello": 4,
+          "codici_per_storia": 32,
+          "codici_usati": 3922,
+          "scambio": {
+            "codici_cambiati": 32611,
+            "quota_cambiata": 0.2488,
+            "token_sbagliati": 0.00043,
+            "storie_perfette": 0.9497,
+            "danno_per_codice": 0.0034
+          },
+          "vicino": {
+            "codici_cambiati": 32759,
+            "quota_cambiata": 0.2499,
+            "token_sbagliati": 0.00034,
+            "storie_perfette": 0.9607,
+            "danno_per_codice": 0.0021
+          }
+        },
+        {
+          "livello": 5,
+          "codici_per_storia": 40,
+          "codici_usati": 3776,
+          "scambio": {
+            "codici_cambiati": 40646,
+            "quota_cambiata": 0.2481,
+            "token_sbagliati": 0.00034,
+            "storie_perfette": 0.9619,
+            "danno_per_codice": 0.0016
+          },
+          "vicino": {
+            "codici_cambiati": 41005,
+            "quota_cambiata": 0.2503,
+            "token_sbagliati": 0.00031,
+            "storie_perfette": 0.9651,
+            "danno_per_codice": 0.0012
+          }
+        },
+        {
+          "livello": 6,
+          "codici_per_storia": 52,
+          "codici_usati": 3730,
+          "scambio": {
+            "codici_cambiati": 52725,
+            "quota_cambiata": 0.2475,
+            "token_sbagliati": 0.00049,
+            "storie_perfette": 0.9434,
+            "danno_per_codice": 0.0028
+          },
+          "vicino": {
+            "codici_cambiati": 53449,
+            "quota_cambiata": 0.2509,
+            "token_sbagliati": 0.00034,
+            "storie_perfette": 0.9629,
+            "danno_per_codice": 0.0012
+          }
+        },
+        {
+          "livello": 7,
+          "codici_per_storia": 64,
+          "codici_usati": 3949,
+          "scambio": {
+            "codici_cambiati": 64643,
+            "quota_cambiata": 0.2466,
+            "token_sbagliati": 0.00138,
+            "storie_perfette": 0.843,
+            "danno_per_codice": 0.0094
+          },
+          "vicino": {
+            "codici_cambiati": 65880,
+            "quota_cambiata": 0.2513,
+            "token_sbagliati": 0.0006,
+            "storie_perfette": 0.9329,
+            "danno_per_codice": 0.0031
+          }
+        },
+        {
+          "livello": 8,
+          "codici_per_storia": 76,
+          "codici_usati": 3765,
+          "scambio": {
+            "codici_cambiati": 76706,
+            "quota_cambiata": 0.2464,
+            "token_sbagliati": 0.00043,
+            "storie_perfette": 0.9497,
+            "danno_per_codice": 0.0015
+          },
+          "vicino": {
+            "codici_cambiati": 78176,
+            "quota_cambiata": 0.2511,
+            "token_sbagliati": 0.00027,
+            "storie_perfette": 0.9692,
+            "danno_per_codice": 0.0004
+          }
+        },
+        {
+          "livello": 9,
+          "codici_per_storia": 92,
+          "codici_usati": 3846,
+          "scambio": {
+            "codici_cambiati": 93511,
+            "quota_cambiata": 0.2482,
+            "token_sbagliati": 0.00036,
+            "storie_perfette": 0.9585,
+            "danno_per_codice": 0.0008
+          },
+          "vicino": {
+            "codici_cambiati": 94005,
+            "quota_cambiata": 0.2495,
+            "token_sbagliati": 0.00028,
+            "storie_perfette": 0.9692,
+            "danno_per_codice": 0.0004
+          }
+        },
+        {
+          "livello": 10,
+          "codici_per_storia": 108,
+          "codici_usati": 3921,
+          "scambio": {
+            "codici_cambiati": 109306,
+            "quota_cambiata": 0.2471,
+            "token_sbagliati": 0.00032,
+            "storie_perfette": 0.9648,
+            "danno_per_codice": 0.0005
+          },
+          "vicino": {
+            "codici_cambiati": 110119,
+            "quota_cambiata": 0.2489,
+            "token_sbagliati": 0.00024,
+            "storie_perfette": 0.9727,
+            "danno_per_codice": 0.0001
+          }
+        },
+        {
+          "livello": 11,
+          "codici_per_storia": 128,
+          "codici_usati": 3845,
+          "scambio": {
+            "codici_cambiati": 128995,
+            "quota_cambiata": 0.246,
+            "token_sbagliati": 0.00432,
+            "storie_perfette": 0.6094,
+            "danno_per_codice": 0.0166
+          },
+          "vicino": {
+            "codici_cambiati": 131514,
+            "quota_cambiata": 0.2508,
+            "token_sbagliati": 0.00258,
+            "storie_perfette": 0.7307,
+            "danno_per_codice": 0.0094
+          }
+        }
+      ],
+      "tutti_i_livelli_scambio": [
+        {
+          "quota": 0.05,
+          "quota_cambiata": 0.0496,
+          "token_sbagliati": 0.00279,
+          "storie_perfette": 0.7151,
+          "danno_per_codice": 0.0104
+        },
+        {
+          "quota": 0.1,
+          "quota_cambiata": 0.099,
+          "token_sbagliati": 0.01137,
+          "storie_perfette": 0.2744,
+          "danno_per_codice": 0.0224
+        },
+        {
+          "quota": 0.25,
+          "quota_cambiata": 0.247,
+          "token_sbagliati": 0.10289,
+          "storie_perfette": 0.0,
+          "danno_per_codice": 0.0827
+        },
+        {
+          "quota": 0.5,
+          "quota_cambiata": 0.4953,
+          "token_sbagliati": 0.50182,
+          "storie_perfette": 0.0007,
+          "danno_per_codice": 0.2015
+        }
+      ],
+      "secondi": 74.8
+    },
+    "nostro 4.800 passi": {
+      "livelli": [
+        1,
+        8,
+        16,
+        24,
+        32,
+        40,
+        52,
+        64,
+        76,
+        92,
+        108,
+        128
+      ],
+      "pulito": {
+        "token_sbagliati": 0.00732,
+        "storie_perfette": 0.5986
+      },
+      "per_livello": [
+        {
+          "livello": 0,
+          "codici_per_storia": 1,
+          "codici_usati": 91,
+          "scambio": {
+            "codici_cambiati": 1057,
+            "quota_cambiata": 0.2581,
+            "token_sbagliati": 0.01762,
+            "storie_perfette": 0.4641,
+            "danno_per_codice": 5.0899
+          },
+          "vicino": {
+            "codici_cambiati": 1011,
+            "quota_cambiata": 0.2468,
+            "token_sbagliati": 0.00915,
+            "storie_perfette": 0.5618,
+            "danno_per_codice": 0.9496
+          }
+        },
+        {
+          "livello": 1,
+          "codici_per_storia": 8,
+          "codici_usati": 551,
+          "scambio": {
+            "codici_cambiati": 7980,
+            "quota_cambiata": 0.2435,
+            "token_sbagliati": 0.00737,
+            "storie_perfette": 0.5972,
+            "danno_per_codice": 0.0035
+          },
+          "vicino": {
+            "codici_cambiati": 8321,
+            "quota_cambiata": 0.2539,
+            "token_sbagliati": 0.00732,
+            "storie_perfette": 0.5984,
+            "danno_per_codice": 0.0005
+          }
+        },
+        {
+          "livello": 2,
+          "codici_per_storia": 16,
+          "codici_usati": 1103,
+          "scambio": {
+            "codici_cambiati": 16103,
+            "quota_cambiata": 0.2457,
+            "token_sbagliati": 0.00733,
+            "storie_perfette": 0.5986,
+            "danno_per_codice": 0.0004
+          },
+          "vicino": {
+            "codici_cambiati": 16294,
+            "quota_cambiata": 0.2486,
+            "token_sbagliati": 0.00733,
+            "storie_perfette": 0.5981,
+            "danno_per_codice": 0.0006
+          }
+        },
+        {
+          "livello": 3,
+          "codici_per_storia": 24,
+          "codici_usati": 1588,
+          "scambio": {
+            "codici_cambiati": 24034,
+            "quota_cambiata": 0.2445,
+            "token_sbagliati": 0.00741,
+            "storie_perfette": 0.5962,
+            "danno_per_codice": 0.002
+          },
+          "vicino": {
+            "codici_cambiati": 24662,
+            "quota_cambiata": 0.2509,
+            "token_sbagliati": 0.00735,
+            "storie_perfette": 0.5986,
+            "danno_per_codice": 0.0007
+          }
+        },
+        {
+          "livello": 4,
+          "codici_per_storia": 32,
+          "codici_usati": 2399,
+          "scambio": {
+            "codici_cambiati": 32597,
+            "quota_cambiata": 0.2487,
+            "token_sbagliati": 0.00759,
+            "storie_perfette": 0.5854,
+            "danno_per_codice": 0.0044
+          },
+          "vicino": {
+            "codici_cambiati": 32759,
+            "quota_cambiata": 0.2499,
+            "token_sbagliati": 0.00739,
+            "storie_perfette": 0.5938,
+            "danno_per_codice": 0.0011
+          }
+        },
+        {
+          "livello": 5,
+          "codici_per_storia": 40,
+          "codici_usati": 2500,
+          "scambio": {
+            "codici_cambiati": 40609,
+            "quota_cambiata": 0.2479,
+            "token_sbagliati": 0.00764,
+            "storie_perfette": 0.5808,
+            "danno_per_codice": 0.0042
+          },
+          "vicino": {
+            "codici_cambiati": 41005,
+            "quota_cambiata": 0.2503,
+            "token_sbagliati": 0.00746,
+            "storie_perfette": 0.5901,
+            "danno_per_codice": 0.0018
+          }
+        },
+        {
+          "livello": 6,
+          "codici_per_storia": 52,
+          "codici_usati": 2808,
+          "scambio": {
+            "codici_cambiati": 52749,
+            "quota_cambiata": 0.2477,
+            "token_sbagliati": 0.00812,
+            "storie_perfette": 0.5571,
+            "danno_per_codice": 0.008
+          },
+          "vicino": {
+            "codici_cambiati": 53449,
+            "quota_cambiata": 0.2509,
+            "token_sbagliati": 0.00787,
+            "storie_perfette": 0.5703,
+            "danno_per_codice": 0.0054
+          }
+        },
+        {
+          "livello": 7,
+          "codici_per_storia": 64,
+          "codici_usati": 3647,
+          "scambio": {
+            "codici_cambiati": 64223,
+            "quota_cambiata": 0.245,
+            "token_sbagliati": 0.00968,
+            "storie_perfette": 0.479,
+            "danno_per_codice": 0.0192
+          },
+          "vicino": {
+            "codici_cambiati": 65880,
+            "quota_cambiata": 0.2513,
+            "token_sbagliati": 0.00844,
+            "storie_perfette": 0.5488,
+            "danno_per_codice": 0.0089
+          }
+        },
+        {
+          "livello": 8,
+          "codici_per_storia": 76,
+          "codici_usati": 3020,
+          "scambio": {
+            "codici_cambiati": 76475,
+            "quota_cambiata": 0.2457,
+            "token_sbagliati": 0.00844,
+            "storie_perfette": 0.5449,
+            "danno_per_codice": 0.0076
+          },
+          "vicino": {
+            "codici_cambiati": 78176,
+            "quota_cambiata": 0.2511,
+            "token_sbagliati": 0.00812,
+            "storie_perfette": 0.561,
+            "danno_per_codice": 0.0054
+          }
+        },
+        {
+          "livello": 9,
+          "codici_per_storia": 92,
+          "codici_usati": 3085,
+          "scambio": {
+            "codici_cambiati": 93432,
+            "quota_cambiata": 0.2479,
+            "token_sbagliati": 0.00816,
+            "storie_perfette": 0.5596,
+            "danno_per_codice": 0.0047
+          },
+          "vicino": {
+            "codici_cambiati": 94005,
+            "quota_cambiata": 0.2495,
+            "token_sbagliati": 0.00794,
+            "storie_perfette": 0.5691,
+            "danno_per_codice": 0.0035
+          }
+        },
+        {
+          "livello": 10,
+          "codici_per_storia": 108,
+          "codici_usati": 3013,
+          "scambio": {
+            "codici_cambiati": 109355,
+            "quota_cambiata": 0.2472,
+            "token_sbagliati": 0.00801,
+            "storie_perfette": 0.5708,
+            "danno_per_codice": 0.0033
+          },
+          "vicino": {
+            "codici_cambiati": 110119,
+            "quota_cambiata": 0.2489,
+            "token_sbagliati": 0.00778,
+            "storie_perfette": 0.5811,
+            "danno_per_codice": 0.0022
+          }
+        },
+        {
+          "livello": 11,
+          "codici_per_storia": 128,
+          "codici_usati": 3967,
+          "scambio": {
+            "codici_cambiati": 128784,
+            "quota_cambiata": 0.2456,
+            "token_sbagliati": 0.01696,
+            "storie_perfette": 0.2375,
+            "danno_per_codice": 0.0391
+          },
+          "vicino": {
+            "codici_cambiati": 131514,
+            "quota_cambiata": 0.2508,
+            "token_sbagliati": 0.00911,
+            "storie_perfette": 0.5085,
+            "danno_per_codice": 0.0071
+          }
+        }
+      ],
+      "tutti_i_livelli_scambio": [
+        {
+          "quota": 0.05,
+          "quota_cambiata": 0.0495,
+          "token_sbagliati": 0.01396,
+          "storie_perfette": 0.3447,
+          "danno_per_codice": 0.0267
+        },
+        {
+          "quota": 0.1,
+          "quota_cambiata": 0.0988,
+          "token_sbagliati": 0.02622,
+          "storie_perfette": 0.1108,
+          "danno_per_codice": 0.038
+        },
+        {
+          "quota": 0.25,
+          "quota_cambiata": 0.2465,
+          "token_sbagliati": 0.12242,
+          "storie_perfette": 0.0,
+          "danno_per_codice": 0.0929
+        },
+        {
+          "quota": 0.5,
+          "quota_cambiata": 0.4943,
+          "token_sbagliati": 0.49847,
+          "storie_perfette": 0.0007,
+          "danno_per_codice": 0.1977
+        }
+      ],
+      "secondi": 77.7
+    },
+    "nostro 38.400 passi": {
+      "livelli": [
+        1,
+        8,
+        16,
+        24,
+        32,
+        40,
+        52,
+        64,
+        76,
+        92,
+        108,
+        128
+      ],
+      "pulito": {
+        "token_sbagliati": 0.00228,
+        "storie_perfette": 0.8274
+      },
+      "per_livello": [
+        {
+          "livello": 0,
+          "codici_per_storia": 1,
+          "codici_usati": 500,
+          "scambio": {
+            "codici_cambiati": 1066,
+            "quota_cambiata": 0.2603,
+            "token_sbagliati": 0.01698,
+            "storie_perfette": 0.6206,
+            "danno_per_codice": 7.2017
+          },
+          "vicino": {
+            "codici_cambiati": 1011,
+            "quota_cambiata": 0.2468,
+            "token_sbagliati": 0.00351,
+            "storie_perfette": 0.7554,
+            "danno_per_codice": 0.633
+          }
+        },
+        {
+          "livello": 1,
+          "codici_per_storia": 8,
+          "codici_usati": 1447,
+          "scambio": {
+            "codici_cambiati": 8013,
+            "quota_cambiata": 0.2445,
+            "token_sbagliati": 0.0023,
+            "storie_perfette": 0.8267,
+            "danno_per_codice": 0.001
+          },
+          "vicino": {
+            "codici_cambiati": 8321,
+            "quota_cambiata": 0.2539,
+            "token_sbagliati": 0.00227,
+            "storie_perfette": 0.8281,
+            "danno_per_codice": -0.0004
+          }
+        },
+        {
+          "livello": 2,
+          "codici_per_storia": 16,
+          "codici_usati": 2389,
+          "scambio": {
+            "codici_cambiati": 16320,
+            "quota_cambiata": 0.249,
+            "token_sbagliati": 0.0023,
+            "storie_perfette": 0.8252,
+            "danno_per_codice": 0.0008
+          },
+          "vicino": {
+            "codici_cambiati": 16294,
+            "quota_cambiata": 0.2486,
+            "token_sbagliati": 0.00229,
+            "storie_perfette": 0.8264,
+            "danno_per_codice": 0.0004
+          }
+        },
+        {
+          "livello": 3,
+          "codici_per_storia": 24,
+          "codici_usati": 2942,
+          "scambio": {
+            "codici_cambiati": 24154,
+            "quota_cambiata": 0.2457,
+            "token_sbagliati": 0.00232,
+            "storie_perfette": 0.8237,
+            "danno_per_codice": 0.0009
+          },
+          "vicino": {
+            "codici_cambiati": 24662,
+            "quota_cambiata": 0.2509,
+            "token_sbagliati": 0.00229,
+            "storie_perfette": 0.8254,
+            "danno_per_codice": 0.0002
+          }
+        },
+        {
+          "livello": 4,
+          "codici_per_storia": 32,
+          "codici_usati": 3860,
+          "scambio": {
+            "codici_cambiati": 32746,
+            "quota_cambiata": 0.2498,
+            "token_sbagliati": 0.00259,
+            "storie_perfette": 0.8032,
+            "danno_per_codice": 0.0049
+          },
+          "vicino": {
+            "codici_cambiati": 32759,
+            "quota_cambiata": 0.2499,
+            "token_sbagliati": 0.00236,
+            "storie_perfette": 0.8208,
+            "danno_per_codice": 0.0012
+          }
+        },
+        {
+          "livello": 5,
+          "codici_per_storia": 40,
+          "codici_usati": 3582,
+          "scambio": {
+            "codici_cambiati": 40541,
+            "quota_cambiata": 0.2474,
+            "token_sbagliati": 0.00256,
+            "storie_perfette": 0.8032,
+            "danno_per_codice": 0.0037
+          },
+          "vicino": {
+            "codici_cambiati": 41005,
+            "quota_cambiata": 0.2503,
+            "token_sbagliati": 0.00244,
+            "storie_perfette": 0.8145,
+            "danno_per_codice": 0.002
+          }
+        },
+        {
+          "livello": 6,
+          "codici_per_storia": 52,
+          "codici_usati": 3219,
+          "scambio": {
+            "codici_cambiati": 52679,
+            "quota_cambiata": 0.2473,
+            "token_sbagliati": 0.00283,
+            "storie_perfette": 0.7856,
+            "danno_per_codice": 0.0055
+          },
+          "vicino": {
+            "codici_cambiati": 53449,
+            "quota_cambiata": 0.2509,
+            "token_sbagliati": 0.00259,
+            "storie_perfette": 0.8054,
+            "danno_per_codice": 0.0031
+          }
+        },
+        {
+          "livello": 7,
+          "codici_per_storia": 64,
+          "codici_usati": 3987,
+          "scambio": {
+            "codici_cambiati": 64430,
+            "quota_cambiata": 0.2458,
+            "token_sbagliati": 0.00415,
+            "storie_perfette": 0.6792,
+            "danno_per_codice": 0.0151
+          },
+          "vicino": {
+            "codici_cambiati": 65880,
+            "quota_cambiata": 0.2513,
+            "token_sbagliati": 0.00262,
+            "storie_perfette": 0.7957,
+            "danno_per_codice": 0.0027
+          }
+        },
+        {
+          "livello": 8,
+          "codici_per_storia": 76,
+          "codici_usati": 3342,
+          "scambio": {
+            "codici_cambiati": 76128,
+            "quota_cambiata": 0.2446,
+            "token_sbagliati": 0.0028,
+            "storie_perfette": 0.7827,
+            "danno_per_codice": 0.0036
+          },
+          "vicino": {
+            "codici_cambiati": 78176,
+            "quota_cambiata": 0.2511,
+            "token_sbagliati": 0.00255,
+            "storie_perfette": 0.8081,
+            "danno_per_codice": 0.0018
+          }
+        },
+        {
+          "livello": 9,
+          "codici_per_storia": 92,
+          "codici_usati": 3495,
+          "scambio": {
+            "codici_cambiati": 93172,
+            "quota_cambiata": 0.2473,
+            "token_sbagliati": 0.00279,
+            "storie_perfette": 0.7844,
+            "danno_per_codice": 0.0029
+          },
+          "vicino": {
+            "codici_cambiati": 94005,
+            "quota_cambiata": 0.2495,
+            "token_sbagliati": 0.0026,
+            "storie_perfette": 0.8013,
+            "danno_per_codice": 0.0018
+          }
+        },
+        {
+          "livello": 10,
+          "codici_per_storia": 108,
+          "codici_usati": 3483,
+          "scambio": {
+            "codici_cambiati": 109026,
+            "quota_cambiata": 0.2465,
+            "token_sbagliati": 0.00263,
+            "storie_perfette": 0.8054,
+            "danno_per_codice": 0.0017
+          },
+          "vicino": {
+            "codici_cambiati": 110119,
+            "quota_cambiata": 0.2489,
+            "token_sbagliati": 0.00245,
+            "storie_perfette": 0.8164,
+            "danno_per_codice": 0.0008
+          }
+        },
+        {
+          "livello": 11,
+          "codici_per_storia": 128,
+          "codici_usati": 4030,
+          "scambio": {
+            "codici_cambiati": 128232,
+            "quota_cambiata": 0.2446,
+            "token_sbagliati": 0.00721,
+            "storie_perfette": 0.4968,
+            "danno_per_codice": 0.0201
+          },
+          "vicino": {
+            "codici_cambiati": 131514,
+            "quota_cambiata": 0.2508,
+            "token_sbagliati": 0.00315,
+            "storie_perfette": 0.761,
+            "danno_per_codice": 0.0035
+          }
+        }
+      ],
+      "tutti_i_livelli_scambio": [
+        {
+          "quota": 0.05,
+          "quota_cambiata": 0.0494,
+          "token_sbagliati": 0.00829,
+          "storie_perfette": 0.5569,
+          "danno_per_codice": 0.0242
+        },
+        {
+          "quota": 0.1,
+          "quota_cambiata": 0.0987,
+          "token_sbagliati": 0.01955,
+          "storie_perfette": 0.218,
+          "danno_per_codice": 0.0348
+        },
+        {
+          "quota": 0.25,
+          "quota_cambiata": 0.2462,
+          "token_sbagliati": 0.11637,
+          "storie_perfette": 0.0,
+          "danno_per_codice": 0.0922
+        },
+        {
+          "quota": 0.5,
+          "quota_cambiata": 0.4938,
+          "token_sbagliati": 0.5035,
+          "storie_perfette": 0.0007,
+          "danno_per_codice": 0.202
+        }
+      ],
+      "secondi": 73.6
+    }
+  }
+}

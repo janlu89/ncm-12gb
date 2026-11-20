@@ -1,0 +1,26 @@
+# Fase 2 dello studio A — tokenizer calibrato, a raddoppi. Tokenizer a 12 livelli con i rimedi R12 (codici iniziali
+# dai dati + riavvio dei codici inutilizzati fino al passo 1.200), addestrato per 2.400 (già fatto), 4.800, 9.600,
+# 19.200, 38.400 passi × 256 storie. Sopra ciascuno il generatore standard: 51.200 storie (400 passi × 128),
+# nostra ricetta migliore, seed 42. Ci si ferma quando raddoppiare non dà più guadagno oltre la soglia (6,7% tra run
+# singole). Ogni pezzo si lancia a mano: le righe dei pezzi successivi si aggiungono allora.
+nome: 2026-11-18_f2-calibrazione
+riferimento: UFF_best42
+rumore: [UFF_best42, UFF_best43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: UFF_best42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "tokenizer ufficiale (~30.000 passi × 4.096)", overrides: [train.seed=42]}
+  - {id: UFF_best43, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43, descr: "tokenizer ufficiale, seed 43", overrides: [train.seed=43]}
+  - {id: T2400, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "nostro, 2.400 passi (614.400 storie)", overrides: [train.seed=42]}
+  - {id: T2400s43, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s43, descr: "nostro, 2.400 passi, seed 43", overrides: [train.seed=43]}
+  - {id: T4800, descr: "nostro, 4.800 passi (1.228.800 storie)", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_1228800_4800x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  # Verifica con il generatore addestrato il doppio: 102.400 storie (800 passi × 128), warmup 40, valutazione ogni 400.
+  # Aggiunte il 2026-11-18 23:50. Controparte sull'ufficiale già fatta: gen-tokuff_102400_800x128_c50_lr1e-3_flex_s42 (43,35).
+  - {id: UFF_102k, run: gen-tokuff_102400_800x128_c50_lr1e-3_flex_s42, descr: "ufficiale, generatore a 102.400 storie", overrides: [train.seed=42]}
+  - {id: T2400_102k, descr: "nostro 2.400 passi, generatore a 102.400 storie", overrides: [train.seed=42, train.steps=800, train.warmup=40, train.eval_every=400, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: T4800_102k, descr: "nostro 4.800 passi, generatore a 102.400 storie", overrides: [train.seed=42, train.steps=800, train.warmup=40, train.eval_every=400, base_config=runs/mytok-12std-dati-rv_1228800_4800x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

@@ -1,0 +1,10 @@
+VQVAE, Total parameter count: 64.65M
+VQVAE, Non embedding parameter count: 61.46M
+NCP Transformer, Total parameter count: 92.75M
+NCP Transformer, Non embedding parameter count: 92.43M
+  shard0 seed 42: 256 samples
+  shard0 seed 0: 256 samples
+  shard0 seed 1: 256 samples
+  shard0 seed 2: 256 samples
+  shard0 seed 3: 256 samples
+shard 0: 1280 -> .\runs\gen-mytok26lin-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s42\eval\genppl\shard_0.pkl

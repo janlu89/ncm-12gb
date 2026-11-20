@@ -1,0 +1,35 @@
+# Ciclo T1 — primo confronto tra tokenizer, impostazione standard: 400 passi × 128 storie = 51.200 storie viste.
+# Stesso generatore (88,6M), stesse storie, stessi seed: cambia solo il tokenizer.
+#   tokuff = tokenizer ufficiale (righe già fatte nei cicli 1–3)
+#   mytok  = tokenizer nostro mytok-12std_614400_2400x256_s42 (12 livelli, 12 minuti di training: non ancora calibrato)
+# Due ricette: quella del paper e la nostra migliore (costante 0,5 + Flex + lr 1e-3). Piano: docs/piani/tokenizer-operativo.md
+nome: 2026-11-17_t1-mytok-vs-tokuff
+riferimento: UFF_paper42
+rumore: [UFF_paper42, UFF_paper43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: UFF_paper42, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_s42, descr: "tokenizer ufficiale, ricetta del paper", overrides: [train.seed=42]}
+  - {id: UFF_paper43, run: gen-tokuff_51200_400x128_lin75-25_lr3e-4_s43, descr: "tokenizer ufficiale, ricetta del paper, seed 43", overrides: [train.seed=43]}
+  - {id: UFF_best42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "tokenizer ufficiale, costante 0,5 + Flex + lr 1e-3", overrides: [train.seed=42]}
+  - id: MY_paper42
+    descr: "tokenizer nostro, ricetta del paper"
+    overrides: [train.seed=42, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null]
+  - id: MY_best42
+    descr: "tokenizer nostro, costante 0,5 + Flex + lr 1e-3"
+    overrides: [train.seed=42, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]
+  - id: MY_paper43
+    descr: "tokenizer nostro, ricetta del paper, seed 43"
+    overrides: [train.seed=43, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null]
+  - id: UFF_best43
+    descr: "tokenizer ufficiale, costante 0,5 + Flex + lr 1e-3, seed 43"
+    overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]
+  - id: MY_best43
+    descr: "tokenizer nostro, costante 0,5 + Flex + lr 1e-3, seed 43"
+    overrides: [train.seed=43, base_config=runs/mytok-12std_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]

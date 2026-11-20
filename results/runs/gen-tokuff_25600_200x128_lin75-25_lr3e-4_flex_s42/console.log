@@ -1,0 +1,40 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] lineare, tasso per livello: [0.0, 0.75, 0.694, 0.639, 0.583, 0.528, 0.472, 0.417, 0.361, 0.306, 0.25, 0.0]
+passo 10/200 loss 7.9001 lr 3.00e-04 gnorm 0.11 61 seq/s GPU 72°C 337.12W
+passo 20/200 loss 7.8645 lr 2.99e-04 gnorm 0.08 117 seq/s GPU 74°C 333.22W
+passo 30/200 loss 7.7969 lr 2.93e-04 gnorm 0.19 117 seq/s GPU 74°C 333.17W
+passo 40/200 loss 7.7169 lr 2.85e-04 gnorm 0.22 116 seq/s GPU 76°C 334.04W
+passo 50/200 loss 7.6157 lr 2.73e-04 gnorm 0.17 116 seq/s GPU 76°C 332.37W
+passo 60/200 loss 7.4851 lr 2.58e-04 gnorm 0.21 117 seq/s GPU 76°C 331.75W
+passo 70/200 loss 7.3968 lr 2.41e-04 gnorm 0.25 116 seq/s GPU 76°C 331.45W
+passo 80/200 loss 7.2835 lr 2.21e-04 gnorm 0.27 106 seq/s GPU 75°C 332.43W
+passo 90/200 loss 7.1512 lr 2.00e-04 gnorm 0.37 111 seq/s GPU 76°C 331.66W
+passo 100/200 loss 7.0517 lr 1.78e-04 gnorm 0.33 111 seq/s GPU 76°C 331.26W
+.\.venv\lib\site-packages\torch\nn\attention\flex_attention.py:2596: UserWarning: flex_attention called without torch.compile() - this will use an unfused implementation that materializes the full scores matrix instead of generating a fused kernel.
+
+SOLUTION: Use torch.compile(flex_attention)(...)
+
+If you want to debug your score_mod/mask_mod, you can set:
+torch.nn.attention.flex_attention._FLEX_ATTENTION_DISABLE_COMPILE_DEBUG = True
+
+This will allow you to use print statements or breakpoints. Note: This doesn't work with the backwards pass and may produce incorrect results.
+  _warn_once(
+[W1117 10:52:55.000000000 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1262485504 bytes (free: 0, total: 12884246528).
+[eval] passo 100: val_loss=6.576 val_L1=6.948 val_acc_L1=0.01581 val_L6=6.327 val_acc_L6=0.08244 val_L11=5.343 val_acc_L11=0.1249 val_per_livello=[6.9477, 7.5551, 6.9427, 6.5, 6.3641, 6.3265, 5.6033, 7.3051, 7.3608, 7.3994, 5.3433]
+passo 110/200 loss 6.9538 lr 1.56e-04 gnorm 0.35 17 seq/s GPU 75°C 331.19W
+passo 120/200 loss 6.8499 lr 1.34e-04 gnorm 0.38 113 seq/s GPU 75°C 335.2W
+passo 130/200 loss 6.8140 lr 1.13e-04 gnorm 0.38 110 seq/s GPU 75°C 333.83W
+passo 140/200 loss 6.7716 lr 9.30e-05 gnorm 0.42 111 seq/s GPU 75°C 331.65W
+passo 150/200 loss 6.7144 lr 7.52e-05 gnorm 0.45 114 seq/s GPU 76°C 333.15W
+passo 160/200 loss 6.7061 lr 5.99e-05 gnorm 0.44 113 seq/s GPU 76°C 335.33W
+passo 170/200 loss 6.6495 lr 4.73e-05 gnorm 0.43 115 seq/s GPU 76°C 336.39W
+passo 180/200 loss 6.6499 lr 3.81e-05 gnorm 0.43 113 seq/s GPU 76°C 334.86W
+passo 190/200 loss 6.6241 lr 3.22e-05 gnorm 0.45 115 seq/s GPU 76°C 336.45W
+passo 200/200 loss 6.6078 lr 3.00e-05 gnorm 0.47 116 seq/s GPU 76°C 336.89W
+[eval] passo 200: val_loss=5.944 val_L1=6.872 val_acc_L1=0.01758 val_L6=5.84 val_acc_L6=0.1116 val_L11=4.212 val_acc_L11=0.2726 val_per_livello=[6.872, 7.4869, 6.4945, 6.066, 5.9904, 5.8397, 4.7747, 6.8586, 6.9185, 6.7915, 4.2121]
+[checkpoint] passo 200 salvato (fine, 6.2s)
+[export] .\runs\2026-11-17_c3b-tenuta200_V4\export: generator.pt, storie_di_prova.txt
+done

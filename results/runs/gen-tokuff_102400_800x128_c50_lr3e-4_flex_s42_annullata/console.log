@@ -1,0 +1,24 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] lineare, tasso per livello: [0.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0]
+passo 10/800 loss 7.9347 lr 7.50e-05 gnorm 0.16 53 seq/s GPU 72°C 333.05W
+passo 20/800 loss 7.8941 lr 1.50e-04 gnorm 0.11 116 seq/s GPU 73°C 332.09W
+passo 30/800 loss 7.8407 lr 2.25e-04 gnorm 0.08 116 seq/s GPU 74°C 332.12W
+passo 40/800 loss 7.7611 lr 3.00e-04 gnorm 0.26 106 seq/s GPU 75°C 334.53W
+passo 50/800 loss 7.6480 lr 3.00e-04 gnorm 0.23 102 seq/s GPU 75°C 327.11W
+passo 60/800 loss 7.5117 lr 3.00e-04 gnorm 0.24 111 seq/s GPU 75°C 332.45W
+passo 70/800 loss 7.4070 lr 2.99e-04 gnorm 0.23 111 seq/s GPU 75°C 331.64W
+passo 80/800 loss 7.2876 lr 2.98e-04 gnorm 0.32 111 seq/s GPU 75°C 330.95W
+passo 90/800 loss 7.1311 lr 2.97e-04 gnorm 0.40 111 seq/s GPU 76°C 335.6W
+passo 100/800 loss 7.0081 lr 2.96e-04 gnorm 0.38 115 seq/s GPU 76°C 335.83W
+passo 110/800 loss 6.8779 lr 2.95e-04 gnorm 0.40 115 seq/s GPU 76°C 337.25W
+passo 120/800 loss 6.7216 lr 2.93e-04 gnorm 0.42 114 seq/s GPU 76°C 334.53W
+passo 130/800 loss 6.6332 lr 2.91e-04 gnorm 0.46 113 seq/s GPU 76°C 333.24W
+passo 140/800 loss 6.5531 lr 2.89e-04 gnorm 0.50 111 seq/s GPU 76°C 335.89W
+passo 150/800 loss 6.4238 lr 2.87e-04 gnorm 0.49 111 seq/s GPU 75°C 330.88W
+passo 160/800 loss 6.3703 lr 2.84e-04 gnorm 0.53 110 seq/s GPU 76°C 337.59W
+[checkpoint] passo 167 salvato (pausa (file STOP), 1.1s)
+[pausa] fermato al passo 167. Per riprendere rilancia lo stesso comando.
+paused

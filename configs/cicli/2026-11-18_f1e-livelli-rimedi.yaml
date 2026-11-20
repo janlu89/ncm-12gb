@@ -1,0 +1,26 @@
+# Fase 1e dello studio A. Il confronto tra livelli (8, 12, 16) rifatto con i rimedi R12 (codici iniziali dai dati +
+# riavvio dei codici inutilizzati fino al passo 1.200), perché quello del 2026-11-18 usava codici casuali.
+# Tokenizer a 8 e 16 livelli (spaziatura lineare), stesso training (614.400 storie, 2.400 × 256, seed 42); generatore
+# standard (51.200 storie), ricetta del paper e nostra migliore, seed 42. Riferimento: 12 livelli R12 (Fase 1d).
+nome: 2026-11-18_f1e-livelli-rimedi
+riferimento: L12_paper42
+rumore: [L12_paper42, L12_paper43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: L12_paper42, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "12 livelli R12, ricetta del paper", overrides: [train.seed=42]}
+  - {id: L12_paper43, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s43, descr: "12 livelli R12, ricetta del paper, seed 43", overrides: [train.seed=43]}
+  - {id: L12_best42, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "12 livelli R12, nostra migliore", overrides: [train.seed=42]}
+  - {id: L12_best43, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s43, descr: "12 livelli R12, nostra migliore, seed 43", overrides: [train.seed=43]}
+  - {id: L8_paper42, descr: "8 livelli R12, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-8lin-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: L8_best42, descr: "8 livelli R12, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-8lin-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: L16_paper42, descr: "16 livelli R12, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-16lin-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=16, eval.encode_batch=64]}
+  - {id: L16_best42, descr: "16 livelli R12, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-16lin-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=16, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  # 26 livelli con i rimedi (aggiunte il 2026-11-18 20:20: validare se l'aiuto dei rimedi cresce con i livelli).
+  - {id: L26_paper42, descr: "26 livelli R12, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-26lin-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=8, eval.encode_batch=64]}
+  - {id: L26_best42, descr: "26 livelli R12, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-26lin-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=8, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

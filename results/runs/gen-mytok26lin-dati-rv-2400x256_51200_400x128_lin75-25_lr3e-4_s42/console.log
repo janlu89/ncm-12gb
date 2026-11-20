@@ -1,0 +1,52 @@
+VQVAE, Total parameter count: 64.65M
+VQVAE, Non embedding parameter count: 61.46M
+NCP Transformer, Total parameter count: 92.75M
+NCP Transformer, Non embedding parameter count: 92.43M
+[corruzione] lineare, tasso per livello: [0.0, 0.75, 0.728, 0.707, 0.685, 0.663, 0.641, 0.62, 0.598, 0.576, 0.554, 0.533, 0.511, 0.489, 0.467, 0.446, 0.424, 0.402, 0.38, 0.359, 0.337, 0.315, 0.293, 0.272, 0.25, 0.0]
+passo 10/400 loss 7.6876 lr 1.50e-04 gnorm 0.09 16 seq/s GPU 75°C 326.93W
+passo 20/400 loss 7.6634 lr 3.00e-04 gnorm 0.09 22 seq/s GPU 75°C 329.24W
+passo 30/400 loss 7.6434 lr 3.00e-04 gnorm 0.09 22 seq/s GPU 75°C 326.44W
+passo 40/400 loss 7.6315 lr 2.98e-04 gnorm 0.12 22 seq/s GPU 75°C 328.35W
+passo 50/400 loss 7.6102 lr 2.96e-04 gnorm 0.09 22 seq/s GPU 75°C 325.29W
+passo 60/400 loss 7.5916 lr 2.93e-04 gnorm 0.10 22 seq/s GPU 75°C 329.27W
+passo 70/400 loss 7.5660 lr 2.89e-04 gnorm 0.10 22 seq/s GPU 75°C 326.91W
+passo 80/400 loss 7.5361 lr 2.84e-04 gnorm 0.11 22 seq/s GPU 76°C 329.86W
+passo 90/400 loss 7.4870 lr 2.79e-04 gnorm 0.12 22 seq/s GPU 75°C 329.52W
+passo 100/400 loss 7.4262 lr 2.72e-04 gnorm 0.14 22 seq/s GPU 75°C 326.48W
+passo 110/400 loss 7.3613 lr 2.65e-04 gnorm 0.14 22 seq/s GPU 75°C 325.29W
+passo 120/400 loss 7.3090 lr 2.57e-04 gnorm 0.15 22 seq/s GPU 75°C 330.38W
+passo 130/400 loss 7.2645 lr 2.49e-04 gnorm 0.16 22 seq/s GPU 75°C 327.54W
+passo 140/400 loss 7.2275 lr 2.40e-04 gnorm 0.17 22 seq/s GPU 75°C 329.61W
+passo 150/400 loss 7.1779 lr 2.30e-04 gnorm 0.17 22 seq/s GPU 75°C 321.42W
+[checkpoint] passo 152 salvato (periodico, 1.3s)
+passo 160/400 loss 7.1429 lr 2.20e-04 gnorm 0.18 22 seq/s GPU 75°C 331.77W
+passo 170/400 loss 7.0940 lr 2.10e-04 gnorm 0.19 22 seq/s GPU 75°C 330.33W
+passo 180/400 loss 7.0583 lr 1.99e-04 gnorm 0.20 22 seq/s GPU 75°C 330.3W
+passo 190/400 loss 7.0063 lr 1.88e-04 gnorm 0.20 22 seq/s GPU 75°C 322.53W
+passo 200/400 loss 6.9935 lr 1.77e-04 gnorm 0.21 22 seq/s GPU 75°C 328.33W
+[eval] passo 200: val_loss=6.573 val_L1=6.47 val_acc_L1=0.03349 val_L6=6.932 val_acc_L6=0.0219 val_L25=3.425 val_acc_L25=0.3773 val_per_livello=[6.4705, 6.6994, 6.8676, 6.805, 6.8092, 6.9316, 6.9774, 7.0824, 7.0293, 6.9755, 6.9838, 6.9515, 7.0772, 6.9289, 6.9827, 6.937, 6.6938, 6.7376, 6.7465, 6.6837, 6.6571, 6.6834, 6.7327, 6.8585, 3.4248]
+passo 210/400 loss 6.9508 lr 1.66e-04 gnorm 0.21 6 seq/s GPU 75°C 320.47W
+passo 220/400 loss 6.9225 lr 1.55e-04 gnorm 0.23 22 seq/s GPU 75°C 330.25W
+passo 230/400 loss 6.8952 lr 1.44e-04 gnorm 0.23 22 seq/s GPU 75°C 326.9W
+passo 240/400 loss 6.8568 lr 1.33e-04 gnorm 0.23 22 seq/s GPU 74°C 319.21W
+passo 250/400 loss 6.8094 lr 1.22e-04 gnorm 0.24 22 seq/s GPU 75°C 326.46W
+passo 260/400 loss 6.8165 lr 1.12e-04 gnorm 0.23 22 seq/s GPU 75°C 330.65W
+passo 270/400 loss 6.7890 lr 1.02e-04 gnorm 0.25 22 seq/s GPU 75°C 326.26W
+passo 280/400 loss 6.7772 lr 9.21e-05 gnorm 0.24 22 seq/s GPU 75°C 329.14W
+[checkpoint] passo 280 salvato (periodico, 1.4s)
+passo 290/400 loss 6.7725 lr 8.30e-05 gnorm 0.24 22 seq/s GPU 74°C 323.48W
+passo 300/400 loss 6.7560 lr 7.44e-05 gnorm 0.24 22 seq/s GPU 75°C 328.55W
+passo 310/400 loss 6.7220 lr 6.64e-05 gnorm 0.24 22 seq/s GPU 75°C 325.29W
+passo 320/400 loss 6.7138 lr 5.92e-05 gnorm 0.26 22 seq/s GPU 75°C 330.45W
+passo 330/400 loss 6.7168 lr 5.26e-05 gnorm 0.25 22 seq/s GPU 75°C 332.11W
+passo 340/400 loss 6.6921 lr 4.68e-05 gnorm 0.25 22 seq/s GPU 75°C 327.05W
+passo 350/400 loss 6.6969 lr 4.18e-05 gnorm 0.26 22 seq/s GPU 76°C 328.98W
+passo 360/400 loss 6.6877 lr 3.77e-05 gnorm 0.26 22 seq/s GPU 75°C 325.61W
+passo 370/400 loss 6.6863 lr 3.44e-05 gnorm 0.26 22 seq/s GPU 75°C 332.67W
+passo 380/400 loss 6.6688 lr 3.20e-05 gnorm 0.26 22 seq/s GPU 75°C 326.06W
+passo 390/400 loss 6.6758 lr 3.06e-05 gnorm 0.25 22 seq/s GPU 75°C 330.19W
+passo 400/400 loss 6.6394 lr 3.00e-05 gnorm 0.26 22 seq/s GPU 76°C 328.37W
+[eval] passo 400: val_loss=6.151 val_L1=6.412 val_acc_L1=0.03992 val_L6=6.661 val_acc_L6=0.03604 val_L25=2.586 val_acc_L25=0.5257 val_per_livello=[6.4124, 6.6121, 6.6606, 6.4955, 6.4773, 6.6607, 6.7069, 6.8335, 6.7375, 6.6487, 6.5784, 6.5387, 6.6884, 6.4609, 6.5082, 6.5202, 6.0756, 6.2195, 6.3164, 6.2687, 6.2275, 6.3278, 6.4169, 6.602, 2.5864]
+[checkpoint] passo 400 salvato (fine, 1.4s)
+[export] .\runs\gen-mytok26lin-dati-rv-2400x256_51200_400x128_lin75-25_lr3e-4_s42\export: generator.pt, storie_di_prova.txt
+done

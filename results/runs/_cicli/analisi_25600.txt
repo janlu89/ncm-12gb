@@ -1,0 +1,22 @@
+budget 25,600 storie — 4 run
+
+variante                                                   seed  GenPPL  ±sem   entr   val    train  seq/s util%  W   °C  GB   min  compil.
+rate_first=0.5 rate_last=0.5                                 42  318.07  2.47  3.846  5.939  6.613    83    99  329  76  5.83   6.5    0.3
+flex_block_size=64 use_flex_attention=True                   42  343.81  3.85  3.822  5.944  6.608   107    99  334  76  7.03   6.1    0.3
+base                                                         43  350.15  2.41  3.839  5.941  6.620    79    99  330  76  5.83   6.9    0.3
+base                                                         42  353.78  4.04  3.813  5.967  6.627    83    99  329  76  5.83   6.5    0.3
+
+coppie con due seed (stessa configurazione):
+  base                                                       [353.78, 350.15]  differenza +3.63
+
+deviazione standard tra seed di training (stima da 1 coppie): 2.57 punti di Gen. PPL
+-> differenza tra due run singole: sd 3.63; soglia a 2 sd: 7.3
+
+differenze appaiate rispetto alla base (stesso seed):
+  rate_first=0.5 rate_last=0.5                               seed 42: -35.71  | media -35.71 = -9.8 errori standard (1 seed)
+  flex_block_size=64 use_flex_attention=True                 seed 42: -9.97  | media -9.97 = -2.7 errori standard (1 seed)
+
+correlazione con la Gen. PPL su tutte le run (1 = stessa classifica):
+  val loss                   r = +0.62
+  loss di training finale    r = +0.56
+  entropia                   r = -0.72

@@ -1,0 +1,60 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] lineare, tasso per livello: [0.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0]
+passo 10/400 loss 7.8753 lr 1.50e-03 gnorm 0.10 57 seq/s GPU 72°C 335.63W
+passo 20/400 loss 7.8885 lr 3.00e-03 gnorm 0.19 104 seq/s GPU 73°C 331.75W
+passo 30/400 loss 7.8586 lr 3.00e-03 gnorm 0.13 111 seq/s GPU 74°C 335.46W
+passo 40/400 loss 7.8371 lr 2.98e-03 gnorm 0.20 110 seq/s GPU 75°C 332.61W
+passo 50/400 loss 7.7941 lr 2.96e-03 gnorm 0.08 110 seq/s GPU 76°C 333.77W
+passo 60/400 loss 7.7281 lr 2.93e-03 gnorm 0.08 110 seq/s GPU 76°C 335.22W
+passo 70/400 loss 7.6713 lr 2.89e-03 gnorm 0.08 110 seq/s GPU 76°C 331.63W
+passo 80/400 loss 7.5906 lr 2.84e-03 gnorm 0.07 110 seq/s GPU 75°C 329.86W
+passo 90/400 loss 7.4612 lr 2.79e-03 gnorm 0.09 110 seq/s GPU 75°C 330.63W
+passo 100/400 loss 7.3715 lr 2.72e-03 gnorm 0.18 110 seq/s GPU 75°C 330.89W
+passo 110/400 loss 7.1958 lr 2.65e-03 gnorm 0.09 110 seq/s GPU 76°C 332.52W
+passo 120/400 loss 7.0433 lr 2.57e-03 gnorm 0.10 110 seq/s GPU 76°C 334.71W
+passo 130/400 loss 6.9549 lr 2.49e-03 gnorm 0.11 110 seq/s GPU 75°C 331.57W
+passo 140/400 loss 6.8767 lr 2.40e-03 gnorm 0.12 110 seq/s GPU 75°C 331.27W
+passo 150/400 loss 6.7386 lr 2.30e-03 gnorm 0.11 110 seq/s GPU 76°C 333.02W
+passo 160/400 loss 6.6760 lr 2.20e-03 gnorm 0.11 110 seq/s GPU 75°C 332.89W
+passo 170/400 loss 6.5607 lr 2.10e-03 gnorm 0.14 110 seq/s GPU 75°C 333.01W
+passo 180/400 loss 6.4861 lr 1.99e-03 gnorm 0.15 110 seq/s GPU 75°C 333.48W
+passo 190/400 loss 6.4078 lr 1.88e-03 gnorm 0.15 110 seq/s GPU 75°C 333.59W
+passo 200/400 loss 6.3085 lr 1.77e-03 gnorm 0.22 110 seq/s GPU 75°C 334.07W
+.\.venv\lib\site-packages\torch\nn\attention\flex_attention.py:2596: UserWarning: flex_attention called without torch.compile() - this will use an unfused implementation that materializes the full scores matrix instead of generating a fused kernel.
+
+SOLUTION: Use torch.compile(flex_attention)(...)
+
+If you want to debug your score_mod/mask_mod, you can set:
+torch.nn.attention.flex_attention._FLEX_ATTENTION_DISABLE_COMPILE_DEBUG = True
+
+This will allow you to use print statements or breakpoints. Note: This doesn't work with the backwards pass and may produce incorrect results.
+  _warn_once(
+[W1117 12:12:11.000000000 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1262485504 bytes (free: 0, total: 12884246528).
+[eval] passo 200: val_loss=5.56 val_L1=6.772 val_acc_L1=0.03485 val_L6=5.901 val_acc_L6=0.1064 val_L11=3.114 val_acc_L11=0.3559 val_per_livello=[6.7716, 7.0456, 6.3027, 5.957, 5.9323, 5.901, 4.8074, 6.5509, 6.5592, 6.4644, 3.1137]
+passo 210/400 loss 6.2641 lr 1.66e-03 gnorm 0.18 16 seq/s GPU 75°C 334.98W
+passo 220/400 loss 6.1174 lr 1.55e-03 gnorm 0.21 110 seq/s GPU 75°C 332.37W
+passo 230/400 loss 6.0624 lr 1.44e-03 gnorm 0.20 110 seq/s GPU 75°C 332.17W
+passo 240/400 loss 5.9587 lr 1.33e-03 gnorm 0.23 110 seq/s GPU 75°C 335.79W
+passo 250/400 loss 5.8385 lr 1.22e-03 gnorm 0.25 110 seq/s GPU 76°C 331.64W
+passo 260/400 loss 5.8061 lr 1.12e-03 gnorm 0.22 110 seq/s GPU 75°C 331.62W
+passo 270/400 loss 5.6941 lr 1.02e-03 gnorm 0.26 110 seq/s GPU 76°C 334.43W
+passo 280/400 loss 5.6364 lr 9.21e-04 gnorm 0.26 110 seq/s GPU 75°C 331.26W
+passo 290/400 loss 5.6841 lr 8.30e-04 gnorm 0.25 108 seq/s GPU 76°C 337.05W
+passo 300/400 loss 5.5591 lr 7.44e-04 gnorm 0.29 108 seq/s GPU 76°C 330.59W
+passo 310/400 loss 5.4802 lr 6.64e-04 gnorm 0.26 108 seq/s GPU 75°C 332.63W
+passo 320/400 loss 5.4606 lr 5.92e-04 gnorm 0.28 108 seq/s GPU 76°C 330.66W
+passo 330/400 loss 5.4680 lr 5.26e-04 gnorm 0.26 108 seq/s GPU 75°C 332.18W
+passo 340/400 loss 5.3805 lr 4.68e-04 gnorm 0.26 108 seq/s GPU 75°C 337.0W
+passo 350/400 loss 5.2922 lr 4.18e-04 gnorm 0.27 108 seq/s GPU 76°C 330.08W
+passo 360/400 loss 5.2768 lr 3.77e-04 gnorm 0.31 110 seq/s GPU 75°C 330.11W
+passo 370/400 loss 5.3001 lr 3.44e-04 gnorm 0.26 110 seq/s GPU 75°C 332.4W
+passo 380/400 loss 5.2207 lr 3.20e-04 gnorm 0.28 110 seq/s GPU 75°C 335.97W
+passo 390/400 loss 5.2329 lr 3.06e-04 gnorm 0.31 110 seq/s GPU 75°C 337.17W
+passo 400/400 loss 5.1242 lr 3.00e-04 gnorm 0.32 110 seq/s GPU 75°C 334.46W
+[eval] passo 400: val_loss=4.084 val_L1=6.674 val_acc_L1=0.04657 val_L6=4.832 val_acc_L6=0.1917 val_L11=1.305 val_acc_L11=0.7023 val_per_livello=[6.674, 6.5123, 5.417, 5.0204, 4.963, 4.8318, 3.1372, 4.6353, 5.0374, 4.9283, 1.3047]
+[checkpoint] passo 400 salvato (fine, 4.6s)
+[export] .\runs\2026-11-17_c3d-learning-rate_LR3e-3\export: generator.pt, storie_di_prova.txt
+done

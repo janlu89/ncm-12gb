@@ -1,0 +1,24 @@
+# Ciclo T5 — 16 livelli (2026-11-18). Tokenizer nostro a 16 livelli (spaziatura lineare),
+# stesso training di 8/12/26/40 (614.400 storie, 2.400 passi × 256), poi lo stesso generatore: 400 passi × 128 storie
+# = 51.200, ricetta del paper e nostra migliore, seed 42 (2 test, come per 8 e 26). Micro-batch 8 × 16 per la memoria
+# (il controllo di T3 ha mostrato che il micro-batch non sposta i risultati).
+nome: 2026-11-18_t5-livelli-16
+riferimento: L12_paper42
+rumore: [L12_paper42, L12_paper43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: L12_paper42, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "12 livelli, ricetta del paper", overrides: [train.seed=42]}
+  - {id: L12_paper43, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43, descr: "12 livelli, ricetta del paper, seed 43", overrides: [train.seed=43]}
+  - {id: L12_best42, run: gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "12 livelli, nostra migliore", overrides: [train.seed=42]}
+  - {id: L8_paper42, run: gen-mytok8lin-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "8 livelli, ricetta del paper", overrides: [train.seed=42]}
+  - {id: L8_best42, run: gen-mytok8lin-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "8 livelli, nostra migliore", overrides: [train.seed=42]}
+  - {id: L26_paper42, run: gen-mytok26lin-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "26 livelli, ricetta del paper", overrides: [train.seed=42]}
+  - {id: L26_best42, run: gen-mytok26lin-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "26 livelli, nostra migliore", overrides: [train.seed=42]}
+  - {id: L16_paper42, descr: "16 livelli, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-16lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=16, eval.encode_batch=64]}
+  - {id: L16_best42, descr: "16 livelli, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-16lin_614400_2400x256_s42/export/config.yaml, data.codes_file=null, train.micro_batch=8, train.accum=16, eval.batch=16, eval.encode_batch=64, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

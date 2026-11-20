@@ -1,0 +1,27 @@
+# ANNULLATO il 2026-11-17 alle 15:46: 800 passi x 128 = 102.400 storie, il doppio delle altre run.
+# Sostituito da 2026-11-17_c4c-800passi-51k.yaml. Run fatte: LR1e-3 e LR1e-3s43 completate, V3V4 in pausa al passo 167.
+# Ciclo 4a — ricetta combinata a 800 passi × 128 storie (102.400 storie). Piano: docs/piani/ciclo4-operativo.md
+# Domanda: il guadagno del learning rate 1e-3 (−50% a 400 passi) regge a 800? Quanto guadagna la ricetta combinata
+# rispetto alla base del paper allo stesso budget? Due seed per ogni variante nuova.
+nome: 2026-11-17_c4a-ricetta800
+riferimento: A42
+rumore: [A42, A43]
+base_overrides:
+  - train.steps=800
+  - train.warmup=40
+  - train.eval_every=400
+  - train.accum=8
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - data.codes_file=data/processed/tinystories_codes_official_L128.u16
+runs:
+  - {id: A42, run: gen-tokuff_102400_800x128_lin75-25_lr3e-4_s42, descr: "base del paper: lineare 0,75→0,25, lr 3e-4 (ciclo 3a)", overrides: [train.seed=42]}
+  - {id: A43, run: gen-tokuff_102400_800x128_lin75-25_lr3e-4_s43, descr: "base, seed 43 (ciclo 3e)", overrides: [train.seed=43]}
+  - {id: V3, run: gen-tokuff_102400_800x128_c50_lr3e-4_s42, descr: "costante 0,5 (ciclo 3a)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: V3s43, run: gen-tokuff_102400_800x128_c50_lr3e-4_s43, descr: "costante 0,5, seed 43 (ciclo 3e)", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5]}
+  - {id: LR1e-3, descr: "costante 0,5 + Flex, lr 1e-3", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: LR1e-3s43, descr: "costante 0,5 + Flex, lr 1e-3, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: V3V4, descr: "costante 0,5 + Flex, lr 3e-4 (riferimento del learning rate a 800)", overrides: [train.seed=42, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: V3V4s43, descr: "costante 0,5 + Flex, lr 3e-4, seed 43", overrides: [train.seed=43, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64]}
+  - {id: C40LR, descr: "costante 0,4 + Flex, lr 1e-3 (ricetta combinata)", overrides: [train.seed=42, corruption.rate_first=0.4, corruption.rate_last=0.4, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: C40LRs43, descr: "costante 0,4 + Flex, lr 1e-3, seed 43", overrides: [train.seed=43, corruption.rate_first=0.4, corruption.rate_last=0.4, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

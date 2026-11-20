@@ -1,0 +1,67 @@
+
+merged 1 shards -> 1280 tinystories outputs
+
+ seed   genPPL  entropy
+   42    16.19   3.9611
+    0    16.24   3.9697
+    1    16.44   3.9708
+    2    17.35   3.9787
+    3    16.68   3.9656
+
+ mean    16.58   3.9692   (+/- 0.47 over 5 seeds, 1280 samples)
+
+--- stderr ---
+
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/436 [00:00<01:53,  3.84it/s]
+Loading weights:   0%|          | 2/436 [00:00<01:15,  5.73it/s]
+Loading weights:   1%|          | 5/436 [00:00<00:37, 11.35it/s]
+Loading weights:   2%|▏         | 8/436 [00:00<00:35, 12.05it/s]
+Loading weights:   3%|▎         | 13/436 [00:00<00:24, 16.98it/s]
+Loading weights:   3%|▎         | 15/436 [00:01<00:35, 11.74it/s]
+Loading weights:   4%|▍         | 19/436 [00:01<00:26, 15.84it/s]
+Loading weights:   5%|▍         | 21/436 [00:01<00:28, 14.78it/s]
+Loading weights:   6%|▋         | 28/436 [00:01<00:18, 21.50it/s]
+Loading weights:   7%|▋         | 31/436 [00:01<00:20, 20.10it/s]
+Loading weights:   8%|▊         | 34/436 [00:02<00:24, 16.74it/s]
+Loading weights:   8%|▊         | 36/436 [00:02<00:26, 14.86it/s]
+Loading weights:   9%|▊         | 38/436 [00:02<00:34, 11.70it/s]
+Loading weights:   9%|▉         | 40/436 [00:02<00:37, 10.50it/s]
+Loading weights:  10%|▉         | 42/436 [00:03<00:33, 11.80it/s]
+Loading weights:  10%|█         | 44/436 [00:03<00:41,  9.40it/s]
+Loading weights:  11%|█         | 46/436 [00:03<00:35, 10.84it/s]
+Loading weights:  11%|█         | 48/436 [00:03<00:37, 10.32it/s]
+Loading weights:  11%|█▏        | 50/436 [00:03<00:38, 10.13it/s]
+Loading weights:  12%|█▏        | 52/436 [00:04<00:37, 10.32it/s]
+Loading weights:  12%|█▏        | 54/436 [00:04<00:36, 10.39it/s]
+Loading weights:  13%|█▎        | 57/436 [00:04<00:31, 12.05it/s]
+Loading weights:  14%|█▍        | 60/436 [00:04<00:28, 13.23it/s]
+Loading weights:  14%|█▍        | 62/436 [00:05<00:39,  9.52it/s]
+Loading weights:  15%|█▍        | 64/436 [00:05<00:34, 10.91it/s]
+Loading weights:  15%|█▌        | 66/436 [00:05<00:38,  9.64it/s]
+Loading weights:  16%|█▌        | 68/436 [00:05<00:52,  6.97it/s]
+Loading weights:  16%|█▌        | 69/436 [00:06<00:56,  6.44it/s]
+Loading weights:  16%|█▌        | 70/436 [00:06<01:03,  5.79it/s]
+Loading weights:  17%|█▋        | 73/436 [00:06<00:40,  8.95it/s]
+Loading weights:  18%|█▊        | 78/436 [00:06<00:25, 13.85it/s]
+Loading weights:  19%|█▊        | 81/436 [00:06<00:24, 14.68it/s]
+Loading weights:  19%|█▉        | 84/436 [00:07<00:23, 15.26it/s]
+Loading weights:  20%|█▉        | 86/436 [00:07<00:24, 14.18it/s]
+Loading weights:  20%|██        | 89/436 [00:07<00:23, 15.04it/s]
+Loading weights:  22%|██▏       | 94/436 [00:07<00:17, 19.22it/s]
+Loading weights:  22%|██▏       | 97/436 [00:07<00:17, 19.42it/s]
+Loading weights:  23%|██▎       | 100/436 [00:08<00:21, 15.62it/s]
+Loading weights:  24%|██▎       | 103/436 [00:08<00:19, 17.28it/s]
+Loading weights:  24%|██▍       | 105/436 [00:08<00:20, 16.14it/s]
+Loading weights:  26%|██▌       | 114/436 [00:08<00:10, 30.71it/s]
+Loading weights:  27%|██▋       | 118/436 [00:08<00:13, 23.75it/s]
+Loading weights:  28%|██▊       | 122/436 [00:08<00:16, 19.61it/s]
+Loading weights:  29%|██▉       | 126/436 [00:09<00:17, 17.30it/s]
+Loading weights:  30%|██▉       | 129/436 [00:09<00:17, 17.22it/s]
+Loading weights:  31%|███       | 134/436 [00:09<00:15, 20.09it/s]
+Loading weights:  31%|███▏      | 137/436 [00:09<00:15, 19.78it/s]
+Loading weights:  32%|███▏      | 140/436 [00:10<00:17, 17.34it/s]
+Loading weights:  33%|███▎      | 142/436 [00:10<00:39,  7.51it/s]
+Loading weights: 100%|██████████| 436/436 [00:10<00:00, 39.87it/s]
+[W1116 21:17:21.000000000 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 920649728 bytes (free: 0, total: 12884246528).
+[W1116 21:17:40.000000000 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 952107008 bytes (free: 0, total: 12884246528).

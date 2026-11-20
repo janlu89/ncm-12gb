@@ -1,0 +1,29 @@
+# Fase 1d dello studio A. Tokenizer a 12 livelli con i rimedi contro il collasso dei codici, addestrati come quello
+# attuale (614.400 storie, 2.400 passi × 256): R1 = codici iniziali dai dati (mytok-12std-dati), R12 = dai dati +
+# riavvio dei codici inutilizzati fino al passo 1.200 (mytok-12std-dati-rv). Sopra, il generatore standard:
+# 400 passi × 128 storie = 51.200, ricetta del paper e nostra migliore, seed 42. Riferimento: tokenizer attuale (V3).
+# I due tokenizer si addestrano prima, nella stessa catena. Piano: docs/piani/studio-A-operativo.md
+nome: 2026-11-18_f1d-rimedi
+riferimento: V3_paper42
+rumore: [V3_paper42, V3_paper43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: V3_paper42, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s42, descr: "tokenizer attuale, ricetta del paper", overrides: [train.seed=42]}
+  - {id: V3_paper43, run: gen-mytok12std-2400x256_51200_400x128_lin75-25_lr3e-4_s43, descr: "tokenizer attuale, ricetta del paper, seed 43", overrides: [train.seed=43]}
+  - {id: V3_best42, run: gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "tokenizer attuale, nostra migliore", overrides: [train.seed=42]}
+  - {id: R1_paper42, descr: "codici dai dati, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-12std-dati_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: R1_best42, descr: "codici dai dati, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-12std-dati_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: R12_paper42, descr: "dati + riavvio, ricetta del paper", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: R12_best42, descr: "dati + riavvio, nostra migliore", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  # Conferma con il secondo seed del generatore (aggiunte il 2026-11-18 14:35). Tokenizer invariati.
+  - {id: V3_best43, run: gen-mytok12std-2400x256_51200_400x128_c50_lr1e-3_flex_s43, descr: "tokenizer attuale, nostra migliore, seed 43", overrides: [train.seed=43]}
+  - {id: R1_paper43, descr: "codici dai dati, ricetta del paper, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std-dati_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: R1_best43, descr: "codici dai dati, nostra migliore, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std-dati_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: R12_paper43, descr: "dati + riavvio, ricetta del paper, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null]}
+  - {id: R12_best43, descr: "dati + riavvio, nostra migliore, seed 43", overrides: [train.seed=43, base_config=runs/mytok-12std-dati-rv_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

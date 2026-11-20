@@ -1,0 +1,38 @@
+[ciclo] 07:50 training V3s43 (2026-11-17_ciclo2-corruzione_V3s43)
+[ciclo] 08:03 valutazione Gen. PPL di V3s43
+-dir .\runs\2026-11-17_ciclo2-corruzione_V3s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_ciclo2-corruzione_V3s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 140.92 ± 3.21 | entropia 3.8948 | 1280 campioni | 68s -> .\runs\2026-11-17_ciclo2-corruzione_V3s43\eval\genppl
+ 
+[ciclo] 08:04 training V4s43 (2026-11-17_ciclo2-corruzione_V4s43)
+[ciclo] 08:15 valutazione Gen. PPL di V4s43
+-dir .\runs\2026-11-17_ciclo2-corruzione_V4s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_ciclo2-corruzione_V4s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 143.01 ± 3.99 | entropia 3.8918 | 1280 campioni | 51s -> .\runs\2026-11-17_ciclo2-corruzione_V4s43\eval\genppl
+ 
+[ciclo] 08:16 training C35 (2026-11-17_ciclo2-corruzione_C35)
+[ciclo] 08:28 valutazione Gen. PPL di C35
+kpoint-dir .\runs\2026-11-17_ciclo2-corruzione_C35\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_ciclo2-corruzione_C35\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 131.31 ± 1.80 | entropia 3.9226 | 1280 campioni | 54s -> .\runs\2026-11-17_ciclo2-corruzione_C35\eval\genppl
+ 
+[ciclo] 08:29 training C65 (2026-11-17_ciclo2-corruzione_C65)
+[ciclo] 08:42 valutazione Gen. PPL di C65
+kpoint-dir .\runs\2026-11-17_ciclo2-corruzione_C65\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_ciclo2-corruzione_C65\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 170.56 ± 2.58 | entropia 3.8497 | 1280 campioni | 54s -> .\runs\2026-11-17_ciclo2-corruzione_C65\eval\genppl
+ 
+[ciclo] 08:43 training R (2026-11-17_ciclo2-corruzione_R)
+[ciclo] 08:56 valutazione Gen. PPL di R
+--checkpoint-dir .\runs\2026-11-17_ciclo2-corruzione_R\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_ciclo2-corruzione_R\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 144.71 ± 3.52 | entropia 3.8888 | 1280 campioni | 57s -> .\runs\2026-11-17_ciclo2-corruzione_R\eval\genppl
+ 
+[ciclo] 08:56 training V3V4 (2026-11-17_ciclo2-corruzione_V3V4)
+[ciclo] 09:07 valutazione Gen. PPL di V3V4
+int-dir .\runs\2026-11-17_ciclo2-corruzione_V3V4\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_ciclo2-corruzione_V3V4\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 131.48 ± 2.57 | entropia 3.8876 | 1280 campioni | 58s -> .\runs\2026-11-17_ciclo2-corruzione_V3V4\eval\genppl
+ 
+[ciclo] 09:08 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_ciclo2-corruzione.md

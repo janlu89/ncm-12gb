@@ -1,0 +1,20 @@
+# Fase 2b dello studio A — batch del tokenizer rifatto guardando il testo generato (la scelta del batch 256 era stata
+# fatta sulla ricostruzione). Tokenizer a 12 livelli, rimedi R12, tutti con le stesse storie viste (1.228.800):
+#   batch 256 × 4.800 passi (già fatto), batch 1.024 × 1.200 passi, batch 4.096 × 300 passi (il batch del paper).
+# Riavvio dei codici inutilizzati sulle prime 307.200 storie in tutti e tre (passo 1.200 / 300 / 75); warmup 5%.
+# Sopra, il generatore standard: 51.200 storie (400 × 128), nostra ricetta migliore, seed 42.
+nome: 2026-11-19_f2b-batch
+riferimento: B256
+rumore: []
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: UFF, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "tokenizer ufficiale (batch 4.096 × 30.000 passi)", overrides: [train.seed=42]}
+  - {id: B256, run: gen-mytok12std-dati-rv-4800x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "nostro, batch 256 × 4.800 passi", overrides: [train.seed=42]}
+  - {id: B4096, descr: "nostro, batch 4.096 × 300 passi", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_1228800_300x4096_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}
+  - {id: B1024, descr: "nostro, batch 1.024 × 1.200 passi", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv_1228800_1200x1024_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

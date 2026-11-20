@@ -1,0 +1,210 @@
+{
+  "micro_batch": 16,
+  "steps": 100,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "torch": "2.14.1+cu126",
+  "data": "2026-11-16 21:29:55",
+  "blocchi_ms": {
+    "encode": 17.51,
+    "input": 9.74,
+    "forward": 89.84,
+    "loss": 0.47,
+    "backward": 210.25,
+    "optimizer_ripartito": 0.1
+  },
+  "blocchi_pct": {
+    "encode": 5.3,
+    "input": 3.0,
+    "forward": 27.4,
+    "loss": 0.1,
+    "backward": 64.1,
+    "optimizer_ripartito": 0.0
+  },
+  "somma_blocchi_ms": 327.91,
+  "kernel_gruppi_pct": {
+    "elementwise/norme/altro": 39.9,
+    "matmul": 25.6,
+    "copie/conversioni": 19.1,
+    "attenzione": 15.1,
+    "softmax/loss": 0.3
+  },
+  "kernel_top25": [
+    {
+      "nome": "forward",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 455.93,
+      "chiamate": 5
+    },
+    {
+      "nome": "_Z49fmha_cutlassB_bf16_aligned_64x64_k64_dropout_sm80N22PyTorchMemEffAttention23AttentionBackwardKernelIN7cutlass4arch4Sm80ENS1_10bfloat16_tELb1ELb1ELb1ELi64ELi",
+      "gruppo": "attenzione",
+      "ms_totali_5_passi": 281.2,
+      "chiamate": 74
+    },
+    {
+      "nome": "_ZN7cutlass7Kernel2I68cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x256_32x3_nt_align8EEvNT_6ParamsE",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 162.56,
+      "chiamate": 222
+    },
+    {
+      "nome": "_ZN2at6native18elementwise_kernelILi128ELi2EZNS0_22gpu_kernel_impl_nocastINS0_13BinaryFunctorIfffNS0_15binary_internal10MulFunctorIfEEEEEEvRNS_18TensorIteratorB",
+      "gruppo": "copie/conversioni",
+      "ms_totali_5_passi": 115.99,
+      "chiamate": 1370
+    },
+    {
+      "nome": "_ZN7cutlass7Kernel2I68cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x256_32x3_nn_align8EEvNT_6ParamsE",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 115.89,
+      "chiamate": 148
+    },
+    {
+      "nome": "_ZN2at6native18elementwise_kernelILi128ELi2EZNS0_22gpu_kernel_impl_nocastINS0_15CUDAFunctor_addIfEEEEvRNS_18TensorIteratorBaseERKT_EUliE_EEviT1_",
+      "gruppo": "copie/conversioni",
+      "ms_totali_5_passi": 80.87,
+      "chiamate": 1020
+    },
+    {
+      "nome": "encode",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 76.81,
+      "chiamate": 5
+    },
+    {
+      "nome": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_relu_f2f_tn",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 67.06,
+      "chiamate": 144
+    },
+    {
+      "nome": "_ZN7cutlass7Kernel2I68cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x256_32x3_tn_align8EEvNT_6ParamsE",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 64.24,
+      "chiamate": 78
+    },
+    {
+      "nome": "_ZN2at6native52_GLOBAL__N__d48c124e_19_UpSampleLinear1d_cu_e2344c6727upsample_linear1d_out_frameIffEEviT0_bN5torch10headeronly6detail27GenericPackedTensorAccess",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 61.01,
+      "chiamate": 120
+    },
+    {
+      "nome": "_ZN2at6native29vectorized_elementwise_kernelILi4EZNS0_25bfloat16_copy_kernel_cudaERNS_18TensorIteratorBaseEEUlfE_St5arrayIPcLy2EELb0EEEviT0_T1_",
+      "gruppo": "copie/conversioni",
+      "ms_totali_5_passi": 60.94,
+      "chiamate": 1740
+    },
+    {
+      "nome": "_Z40fmha_cutlassF_bf16_aligned_64x64_rf_sm80N22PyTorchMemEffAttention15AttentionKernelIN7cutlass10bfloat16_tENS1_4arch4Sm80ELb1ELi64ELi64ELi64ELb1ELb1EE6ParamsE",
+      "gruppo": "attenzione",
+      "ms_totali_5_passi": 58.98,
+      "chiamate": 72
+    },
+    {
+      "nome": "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 53.69,
+      "chiamate": 73
+    },
+    {
+      "nome": "ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 46.38,
+      "chiamate": 72
+    },
+    {
+      "nome": "_ZN2at6native27unrolled_elementwise_kernelIZZZNS0_23direct_copy_kernel_cudaERNS_18TensorIteratorBaseEENKUlvE1_clEvENKUlvE5_clEvEUlfE_St5arrayIPcLy2EELi4E23Trivi",
+      "gruppo": "copie/conversioni",
+      "ms_totali_5_passi": 43.81,
+      "chiamate": 1339
+    },
+    {
+      "nome": "input",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 41.21,
+      "chiamate": 5
+    },
+    {
+      "nome": "_ZN2at6native53_GLOBAL__N__e58679f9_20_layer_norm_kernel_cu_3ff0b71f39layer_norm_grad_input_kernel_vectorizedIffLb0EEEvPKT_S5_PKT0_S8_S5_PS3_i",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 27.19,
+      "chiamate": 154
+    },
+    {
+      "nome": "_ZN2at6native29vectorized_elementwise_kernelILi4ENS0_15CUDAFunctor_addIfEESt5arrayIPcLy3EELb0EEEviT0_T1_",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 22.33,
+      "chiamate": 1537
+    },
+    {
+      "nome": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+      "gruppo": "matmul",
+      "ms_totali_5_passi": 19.4,
+      "chiamate": 98
+    },
+    {
+      "nome": "_ZN2at6native18elementwise_kernelILi128ELi2EZNS0_22gpu_kernel_impl_nocastIZZZNS0_23direct_copy_kernel_cudaERNS_18TensorIteratorBaseEENKUlvE1_clEvENKUlvE5_clEvEU",
+      "gruppo": "copie/conversioni",
+      "ms_totali_5_passi": 18.59,
+      "chiamate": 872
+    },
+    {
+      "nome": "_ZN2at6native29vectorized_elementwise_kernelILi4EZZZNS0_26GeluBackwardCUDAKernelImplERNS_18TensorIteratorBaseENS0_8GeluTypeEENKUlvE0_clEvENKUlvE2_clEvEUlN3c108B",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 18.0,
+      "chiamate": 74
+    },
+    {
+      "nome": "_ZN2at6native29vectorized_elementwise_kernelILi4ENS0_15CUDAFunctor_addIN3c108BFloat16EEESt5arrayIPcLy3EELb0EEEviT0_T1_",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 17.86,
+      "chiamate": 306
+    },
+    {
+      "nome": "_ZN2at6native29vectorized_elementwise_kernelILi4ENS0_13BinaryFunctorIfffNS0_15binary_internal10MulFunctorIfEEEESt5arrayIPcLy3EELb0EEEviT0_T1_",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 17.72,
+      "chiamate": 362
+    },
+    {
+      "nome": "_ZN2at6native13reduce_kernelILi128ELi4ENS0_8ReduceOpIN3c108BFloat16ENS0_14func_wrapper_tIS4_ZNS0_11sum_functorIS4_fS4_EclERNS_14TensorIteratorEEUlffE_EEjS4_Li4E",
+      "gruppo": "elementwise/norme/altro",
+      "ms_totali_5_passi": 17.3,
+      "chiamate": 317
+    },
+    {
+      "nome": "_ZN2at6native29vectorized_elementwise_kernelILi4ENS0_11FillFunctorIfEESt5arrayIPcLy1EELb0EEEviT0_T1_",
+      "gruppo": "copie/conversioni",
+      "ms_totali_5_passi": 16.22,
+      "chiamate": 399
+    }
+  ],
+  "ab": {
+    "base": {
+      "ms_micro_passo": 352.58,
+      "seq_s": 45.4,
+      "picco_gb": 7.51,
+      "guadagno_pct": 0.0
+    },
+    "senza_maschera": {
+      "ms_micro_passo": 332.43,
+      "seq_s": 48.1,
+      "picco_gb": 7.51,
+      "guadagno_pct": 5.7
+    },
+    "codici_pronti": {
+      "ms_micro_passo": 330.41,
+      "seq_s": 48.4,
+      "picco_gb": 7.51,
+      "guadagno_pct": 6.3
+    },
+    "senza_item": {
+      "ms_micro_passo": 319.27,
+      "seq_s": 50.1,
+      "picco_gb": 7.67,
+      "guadagno_pct": 9.4
+    }
+  },
+  "copertura_blocchi_su_base_pct": 93.0
+}

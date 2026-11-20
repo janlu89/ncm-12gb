@@ -1,0 +1,89 @@
+{
+  "creato": "2026-11-18 23:18:55",
+  "comando": [
+    ".\\.venv\\Scripts\\python.exe",
+    ".\\generator\\train_generator.py",
+    "--run",
+    "gen-mytok12std-dati-rv-4800x256_51200_400x128_c50_lr1e-3_flex_s42",
+    "train.steps=400",
+    "train.accum=8",
+    "train.warmup=20",
+    "train.eval_every=200",
+    "train.log_every=10",
+    "train.keep_ckpts=1",
+    "train.seed=42",
+    "base_config=runs/mytok-12std-dati-rv_1228800_4800x256_s42/export/config.yaml",
+    "data.codes_file=null",
+    "corruption.rate_first=0.5",
+    "corruption.rate_last=0.5",
+    "model_overrides.use_flex_attention=true",
+    "model_overrides.flex_block_size=64",
+    "train.lr=1.0e-3",
+    "train.min_lr=1.0e-4"
+  ],
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "torch": "2.14.1+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "driver": "616.64",
+  "ncm_commit": "c70274273f489abc73832b2b98584a8483b6b203",
+  "piattaforma": "Windows-10-10.0.19045-SP0",
+  "config": {
+    "base_config": "runs/mytok-12std-dati-rv_1228800_4800x256_s42/export/config.yaml",
+    "tokenizer_checkpoint": "official",
+    "data": {
+      "dir": "data/raw/tinystories",
+      "length": 128,
+      "seed": 1234,
+      "codes_file": null
+    },
+    "model_overrides": {
+      "use_flex_attention": true,
+      "flex_block_size": 64
+    },
+    "loss": {
+      "alpha": 0.0
+    },
+    "corruption": {
+      "enabled": true,
+      "mode": "linear",
+      "rate_first": 0.5,
+      "rate_last": 0.5,
+      "rate_max": 1.0,
+      "skip_level0": true
+    },
+    "eval": {
+      "n_stories": 4096,
+      "batch": 64
+    },
+    "export": {
+      "level0_sequences": 65536,
+      "samples": 8
+    },
+    "train": {
+      "steps": 400,
+      "micro_batch": 16,
+      "accum": 8,
+      "lr": 0.001,
+      "min_lr": 0.0001,
+      "warmup": 20,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "bf16": true,
+      "seed": 42,
+      "log_every": 10,
+      "eval_every": 200,
+      "ckpt_every_steps": 0,
+      "ckpt_every_minutes": 15,
+      "keep_ckpts": 1,
+      "deterministic": false,
+      "compile": true,
+      "compile_mode": "default",
+      "debug_stop_at_step": null
+    }
+  }
+}

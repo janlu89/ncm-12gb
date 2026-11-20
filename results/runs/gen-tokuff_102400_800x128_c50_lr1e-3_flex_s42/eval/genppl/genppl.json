@@ -1,0 +1,45 @@
+{
+  "genppl_mean": 43.35,
+  "genppl_std": 0.79,
+  "entropy_mean": 3.9513,
+  "per_seed": [
+    {
+      "seed": 42,
+      "genppl": 42.7,
+      "entropy": 3.9459
+    },
+    {
+      "seed": 0,
+      "genppl": 44.28,
+      "entropy": 3.9591
+    },
+    {
+      "seed": 1,
+      "genppl": 43.95,
+      "entropy": 3.9448
+    },
+    {
+      "seed": 2,
+      "genppl": 42.44,
+      "entropy": 3.9461
+    },
+    {
+      "seed": 3,
+      "genppl": 43.39,
+      "entropy": 3.9607
+    }
+  ],
+  "n_samples": 1280,
+  "samples_per_seed": 256,
+  "ref_model": ".\\evaluation\\ref_models\\gpt2-large",
+  "checkpoint_dir": ".\\runs\\2026-11-17_c4a-ricetta800_LR1e-3\\export",
+  "secondi_generazione": 36.7,
+  "secondi_totali": 78.6,
+  "comando": [
+    ".\\.venv\\Scripts\\python.exe",
+    ".\\evaluation\\gen_ppl_run.py",
+    "--run",
+    "2026-11-17_c4a-ricetta800_LR1e-3"
+  ],
+  "data": "2026-11-17 15:22:25"
+}

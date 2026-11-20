@@ -1,0 +1,112 @@
+[ciclo] 09:28 training A42 (2026-11-17_c3a-tenuta800_A42)
+[ciclo] 09:50 valutazione Gen. PPL di A42
+g.yaml --checkpoint-dir .\runs\2026-11-17_c3a-tenuta800_A42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3a-tenuta800_A42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 73.52 ± 1.35 | entropia 3.9228 | 1280 campioni | 51s -> .\runs\2026-11-17_c3a-tenuta800_A42\eval\genppl
+ 
+[ciclo] 09:51 training V3 (2026-11-17_c3a-tenuta800_V3)
+[ciclo] 10:13 valutazione Gen. PPL di V3
+nfig.yaml --checkpoint-dir .\runs\2026-11-17_c3a-tenuta800_V3\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3a-tenuta800_V3\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 70.02 ± 0.84 | entropia 3.9086 | 1280 campioni | 52s -> .\runs\2026-11-17_c3a-tenuta800_V3\eval\genppl
+ 
+[ciclo] 10:14 training V4 (2026-11-17_c3a-tenuta800_V4)
+[ciclo] 10:32 valutazione Gen. PPL di V4
+nfig.yaml --checkpoint-dir .\runs\2026-11-17_c3a-tenuta800_V4\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3a-tenuta800_V4\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 74.51 ± 1.79 | entropia 3.9552 | 1280 campioni | 56s -> .\runs\2026-11-17_c3a-tenuta800_V4\eval\genppl
+ 
+[ciclo] 10:33 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c3a-tenuta800.md
+[ciclo] 10:33 training A42 (2026-11-17_c3b-tenuta200_A42)
+[ciclo] 10:41 valutazione Gen. PPL di A42
+.yaml --checkpoint-dir .\runs\2026-11-17_c3b-tenuta200_A42\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3b-tenuta200_A42\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 353.78 ± 9.03 | entropia 3.8130 | 1280 campioni | 50s -> .\runs\2026-11-17_c3b-tenuta200_A42\eval\genppl
+ 
+[ciclo] 10:42 training V3 (2026-11-17_c3b-tenuta200_V3)
+[ciclo] 10:49 valutazione Gen. PPL di V3
+fig.yaml --checkpoint-dir .\runs\2026-11-17_c3b-tenuta200_V3\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3b-tenuta200_V3\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 318.07 ± 5.52 | entropia 3.8458 | 1280 campioni | 51s -> .\runs\2026-11-17_c3b-tenuta200_V3\eval\genppl
+ 
+[ciclo] 10:50 training V4 (2026-11-17_c3b-tenuta200_V4)
+[ciclo] 10:57 valutazione Gen. PPL di V4
+fig.yaml --checkpoint-dir .\runs\2026-11-17_c3b-tenuta200_V4\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3b-tenuta200_V4\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 343.81 ± 8.60 | entropia 3.8224 | 1280 campioni | 60s -> .\runs\2026-11-17_c3b-tenuta200_V4\eval\genppl
+ 
+[ciclo] 10:58 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c3b-tenuta200.md
+[ciclo] 10:58 training C20 (2026-11-17_c3c-coda-corruzione_C20)
+[ciclo] 11:12 valutazione Gen. PPL di C20
+-dir .\runs\2026-11-17_c3c-coda-corruzione_C20\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3c-coda-corruzione_C20\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 144.61 ± 1.97 | entropia 3.9311 | 1280 campioni | 59s -> .\runs\2026-11-17_c3c-coda-corruzione_C20\eval\genppl
+ 
+[ciclo] 11:13 training C10 (2026-11-17_c3c-coda-corruzione_C10)
+[ciclo] 11:27 valutazione Gen. PPL di C10
+-dir .\runs\2026-11-17_c3c-coda-corruzione_C10\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3c-coda-corruzione_C10\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 173.86 ± 5.71 | entropia 3.9569 | 1280 campioni | 58s -> .\runs\2026-11-17_c3c-coda-corruzione_C10\eval\genppl
+ 
+[ciclo] 11:28 training C00 (2026-11-17_c3c-coda-corruzione_C00)
+[ciclo] 11:41 valutazione Gen. PPL di C00
+-dir .\runs\2026-11-17_c3c-coda-corruzione_C00\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3c-coda-corruzione_C00\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 224.80 ± 4.99 | entropia 3.9648 | 1280 campioni | 67s -> .\runs\2026-11-17_c3c-coda-corruzione_C00\eval\genppl
+ 
+[ciclo] 11:42 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c3c-coda-corruzione.md
+[ciclo] 11:42 training LR1e-4 (2026-11-17_c3d-learning-rate_LR1e-4)
+[ciclo] 11:54 valutazione Gen. PPL di LR1e-4
+ .\runs\2026-11-17_c3d-learning-rate_LR1e-4\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3d-learning-rate_LR1e-4\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 358.09 ± 10.31 | entropia 3.8026 | 1280 campioni | 62s -> .\runs\2026-11-17_c3d-learning-rate_LR1e-4\eval\genppl
+ 
+[ciclo] 11:55 training LR1e-3 (2026-11-17_c3d-learning-rate_LR1e-3)
+[ciclo] 12:06 valutazione Gen. PPL di LR1e-3
+ir .\runs\2026-11-17_c3d-learning-rate_LR1e-3\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3d-learning-rate_LR1e-3\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 65.89 ± 1.27 | entropia 3.9389 | 1280 campioni | 65s -> .\runs\2026-11-17_c3d-learning-rate_LR1e-3\eval\genppl
+ 
+[ciclo] 12:07 training LR3e-3 (2026-11-17_c3d-learning-rate_LR3e-3)
+[ciclo] 12:19 valutazione Gen. PPL di LR3e-3
+ir .\runs\2026-11-17_c3d-learning-rate_LR3e-3\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3d-learning-rate_LR3e-3\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 76.87 ± 0.98 | entropia 3.9709 | 1280 campioni | 63s -> .\runs\2026-11-17_c3d-learning-rate_LR3e-3\eval\genppl
+ 
+[ciclo] 12:20 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c3d-learning-rate.md
+[ciclo] 12:20 training A43_800 (2026-11-17_c3e-conferme_A43_800)
+[ciclo] 12:44 valutazione Gen. PPL di A43_800
+checkpoint-dir .\runs\2026-11-17_c3e-conferme_A43_800\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3e-conferme_A43_800\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 76.11 ± 1.57 | entropia 3.9390 | 1280 campioni | 67s -> .\runs\2026-11-17_c3e-conferme_A43_800\eval\genppl
+ 
+[ciclo] 12:45 training V3s43_800 (2026-11-17_c3e-conferme_V3s43_800)
+[ciclo] 13:09 valutazione Gen. PPL di V3s43_800
+oint-dir .\runs\2026-11-17_c3e-conferme_V3s43_800\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3e-conferme_V3s43_800\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 71.67 ± 1.23 | entropia 3.9171 | 1280 campioni | 64s -> .\runs\2026-11-17_c3e-conferme_V3s43_800\eval\genppl
+ 
+[ciclo] 13:10 training A43_200 (2026-11-17_c3e-conferme_A43_200)
+[ciclo] 13:19 valutazione Gen. PPL di A43_200
+heckpoint-dir .\runs\2026-11-17_c3e-conferme_A43_200\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3e-conferme_A43_200\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 350.15 ± 5.39 | entropia 3.8389 | 1280 campioni | 69s -> .\runs\2026-11-17_c3e-conferme_A43_200\eval\genppl
+ 
+[ciclo] 13:20 training C35s43 (2026-11-17_c3e-conferme_C35s43)
+[ciclo] 13:33 valutazione Gen. PPL di C35s43
+--checkpoint-dir .\runs\2026-11-17_c3e-conferme_C35s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3e-conferme_C35s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 138.28 ± 2.04 | entropia 3.9315 | 1280 campioni | 66s -> .\runs\2026-11-17_c3e-conferme_C35s43\eval\genppl
+ 
+[ciclo] 13:34 training V3V4s43 (2026-11-17_c3e-conferme_V3V4s43)
+[ciclo] 13:46 valutazione Gen. PPL di V3V4s43
+heckpoint-dir .\runs\2026-11-17_c3e-conferme_V3V4s43\export --shard 0 --nshards 1 --n 256 --bs 128 --out .\runs\2026-11-17_c3e-conferme_V3V4s43\eval\genppl\shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 134.74 ± 2.79 | entropia 3.8928 | 1280 campioni | 70s -> .\runs\2026-11-17_c3e-conferme_V3V4s43\eval\genppl
+ 
+[ciclo] 13:47 completato
+[ciclo] tabella: .\runs\_cicli\2026-11-17_c3e-conferme.md

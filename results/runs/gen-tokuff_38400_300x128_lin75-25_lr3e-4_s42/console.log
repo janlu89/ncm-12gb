@@ -1,0 +1,41 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] tasso per livello: [0.0, 0.75, 0.694, 0.639, 0.583, 0.528, 0.472, 0.417, 0.361, 0.306, 0.25, 0.0]
+passo 10/300 loss 7.9251 lr 1.00e-04 gnorm 0.14 53 seq/s GPU 64°C 318.07W
+passo 20/300 loss 7.8850 lr 2.00e-04 gnorm 0.09 50 seq/s GPU 68°C 317.34W
+passo 30/300 loss 7.8241 lr 3.00e-04 gnorm 0.09 51 seq/s GPU 68°C 261.4W
+passo 40/300 loss 7.7365 lr 2.99e-04 gnorm 0.18 53 seq/s GPU 73°C 327.47W
+passo 50/300 loss 7.6331 lr 2.97e-04 gnorm 0.19 54 seq/s GPU 74°C 329.78W
+passo 60/300 loss 7.4952 lr 2.92e-04 gnorm 0.22 58 seq/s GPU 74°C 331.7W
+passo 70/300 loss 7.3849 lr 2.86e-04 gnorm 0.25 58 seq/s GPU 74°C 329.83W
+passo 80/300 loss 7.2656 lr 2.79e-04 gnorm 0.30 57 seq/s GPU 74°C 325.88W
+passo 90/300 loss 7.1048 lr 2.69e-04 gnorm 0.38 57 seq/s GPU 74°C 326.79W
+passo 100/300 loss 6.9890 lr 2.59e-04 gnorm 0.36 57 seq/s GPU 75°C 330.17W
+[eval] passo 100: val_loss=6.472 val_L1=6.946 val_acc_L1=0.01981 val_L6=6.235 val_acc_L6=0.0848 val_L11=5.084 val_acc_L11=0.1564 val_per_livello=[6.9465, 7.5493, 6.9097, 6.4634, 6.3323, 6.2354, 5.434, 7.2522, 7.3043, 7.3488, 5.0842]
+passo 110/300 loss 6.8524 lr 2.47e-04 gnorm 0.42 18 seq/s GPU 73°C 316.88W
+passo 120/300 loss 6.7461 lr 2.34e-04 gnorm 0.42 50 seq/s GPU 73°C 320.57W
+passo 130/300 loss 6.6560 lr 2.20e-04 gnorm 0.42 49 seq/s GPU 73°C 315.68W
+passo 140/300 loss 6.5850 lr 2.05e-04 gnorm 0.47 52 seq/s GPU 74°C 318.29W
+passo 150/300 loss 6.4929 lr 1.90e-04 gnorm 0.49 52 seq/s GPU 74°C 324.16W
+passo 160/300 loss 6.4564 lr 1.74e-04 gnorm 0.48 55 seq/s GPU 75°C 327.18W
+passo 170/300 loss 6.3556 lr 1.59e-04 gnorm 0.51 55 seq/s GPU 75°C 326.23W
+passo 180/300 loss 6.3417 lr 1.43e-04 gnorm 0.62 55 seq/s GPU 74°C 328.67W
+passo 190/300 loss 6.2575 lr 1.28e-04 gnorm 0.51 55 seq/s GPU 75°C 332.45W
+passo 200/300 loss 6.2164 lr 1.13e-04 gnorm 0.53 55 seq/s GPU 74°C 325.5W
+[eval] passo 200: val_loss=5.357 val_L1=6.849 val_acc_L1=0.02048 val_L6=5.558 val_acc_L6=0.1336 val_L11=3.044 val_acc_L11=0.4753 val_per_livello=[6.8488, 7.4716, 6.3224, 5.893, 5.7914, 5.5576, 4.1788, 6.2951, 6.4009, 6.1922, 3.0439]
+passo 210/300 loss 6.1729 lr 9.89e-05 gnorm 0.53 18 seq/s GPU 74°C 326.57W
+passo 220/300 loss 6.1165 lr 8.56e-05 gnorm 0.55 53 seq/s GPU 72°C 324.44W
+passo 230/300 loss 6.1171 lr 7.35e-05 gnorm 0.57 54 seq/s GPU 74°C 327.8W
+passo 240/300 loss 6.0653 lr 6.26e-05 gnorm 0.57 55 seq/s GPU 75°C 324.67W
+passo 250/300 loss 5.9891 lr 5.31e-05 gnorm 0.56 55 seq/s GPU 74°C 330.8W
+passo 260/300 loss 6.0030 lr 4.51e-05 gnorm 0.58 55 seq/s GPU 75°C 323.06W
+passo 270/300 loss 5.9686 lr 3.87e-05 gnorm 0.54 55 seq/s GPU 75°C 330.86W
+passo 280/300 loss 5.9310 lr 3.40e-05 gnorm 0.59 55 seq/s GPU 74°C 322.14W
+passo 290/300 loss 6.0072 lr 3.11e-05 gnorm 0.56 55 seq/s GPU 74°C 327.0W
+passo 300/300 loss 5.9546 lr 3.00e-05 gnorm 0.56 54 seq/s GPU 75°C 329.41W
+[eval] passo 300: val_loss=4.994 val_L1=6.82 val_acc_L1=0.02362 val_L6=5.359 val_acc_L6=0.1503 val_L11=2.506 val_acc_L11=0.578 val_per_livello=[6.8197, 7.4427, 6.1571, 5.7039, 5.6108, 5.3592, 3.8357, 5.8652, 6.0136, 5.7765, 2.5061]
+[checkpoint] passo 300 salvato (fine, 5.0s)
+[export] .\runs\2026-11-16_gen-tokuff_prova300\export: generator.pt, storie_di_prova.txt
+done

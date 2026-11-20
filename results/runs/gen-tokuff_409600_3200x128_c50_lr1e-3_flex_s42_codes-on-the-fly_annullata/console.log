@@ -1,0 +1,15 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+[corruzione] lineare, tasso per livello: [0.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0]
+passo 10/3200 loss 7.9406 lr 6.25e-05 gnorm 0.19 53 seq/s GPU 62°C 323.97W
+passo 20/3200 loss 7.8972 lr 1.25e-04 gnorm 0.11 103 seq/s GPU 66°C 327.08W
+passo 30/3200 loss 7.8491 lr 1.88e-04 gnorm 0.08 103 seq/s GPU 69°C 329.39W
+passo 40/3200 loss 7.7903 lr 2.50e-04 gnorm 0.27 102 seq/s GPU 72°C 331.62W
+passo 50/3200 loss 7.6822 lr 3.13e-04 gnorm 0.31 102 seq/s GPU 73°C 332.3W
+passo 60/3200 loss 7.5303 lr 3.75e-04 gnorm 0.23 102 seq/s GPU 73°C 333.36W
+passo 70/3200 loss 7.4053 lr 4.38e-04 gnorm 0.24 102 seq/s GPU 74°C 333.4W
+[checkpoint] passo 76 salvato (pausa (file STOP), 1.2s)
+[pausa] fermato al passo 76. Per riprendere rilancia lo stesso comando.
+paused

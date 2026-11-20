@@ -1,0 +1,49 @@
+# Stadio 1: tokenizer VQ-VAE nostro. Valori del paper (Tab. 5) dove noti; le scelte nostre sono annotate.
+# Vedi docs/piani/tokenizer-operativo.md
+
+# Iperparametri dell'architettura e vocabolario BPE presi dal config ufficiale TinyStories.
+base_config: artifacts/tinystories/config.yaml
+
+tokenizer:
+  livelli: 12            # numero di livelli K
+  schema: ufficiale      # ufficiale (solo K=12) | lineare | quadratica | esponenziale   (tokenizer/livelli.py)
+  codebook: 4096         # codici per livello
+  norma_livello0: true   # normalizza l'uscita della riduzione appresa del livello 0 (toglie le norme ~1e11 dell'ufficiale)
+  vqvae_overrides: {}    # altre modifiche alla sezione tokenizer.vqvae (es. {dropout: 0.1})
+  rimedi:                # contro il collasso dei codici ai livelli grossolani (Fase 1c dello studio A)
+    init_dati: false           # R1: codebook inizializzati dai dati (k-means) invece che a caso
+    init_storie: 8192
+    riavvio_fino_al_passo: 0   # R2: riavvio dei codici quasi inutilizzati solo fino a questo passo (0 = mai)
+    riavvio_soglia: 0.1        # statistica EMA sotto cui un codice è "quasi inutilizzato"
+
+data:
+  dir: data/raw/tinystories
+  length: 128
+  seed: 1234
+
+eval:
+  n_stories: 4096        # stesse storie del riferimento (prime 4.096 del validation)
+  batch: 256
+
+export:
+  at_steps: []           # copie intermedie del tokenizer (export/passo_XXXXXXXX), per la calibrazione
+
+train:
+  steps: 30000           # paper: 30.000 passi da 4.096 sequenze
+  micro_batch: 256       # massimo misurato in 12 GB con il codice upstream; da rimisurare con il nostro
+  accum: 16              # 256 x 16 = 4.096 sequenze per passo
+  lr: 5.0e-4
+  min_lr: 5.0e-5
+  warmup: 1000
+  weight_decay: 0.01
+  betas: [0.9, 0.95]
+  grad_clip: 1.0
+  bf16: true
+  seed: 42
+  log_every: 10
+  eval_every: 500
+  ckpt_every_steps: 0
+  ckpt_every_minutes: 15
+  keep_ckpts: 2
+  deterministic: false
+  debug_stop_at_step: null
