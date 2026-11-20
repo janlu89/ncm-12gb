@@ -1,7 +1,8 @@
 # Training a Next-Concept Model on a single 12 GB GPU
 
 **Gianluca Meola** · Research note v0.1 · 20 November 2026  
-[Read the paper (PDF)](paper/ncm-12gb.pdf) · [Experiments](EXPERIMENTS.md) · [Reproduce the results](REPRODUCING.md) · [Contact](mailto:gianluca.meola89@gmail.com)
+[Read the paper (PDF)](paper/ncm-12gb.pdf) · [Experiments](EXPERIMENTS.md) · [Reproduce the results](REPRODUCING.md) · [Contact](mailto:gianluca.meola89@gmail.com)  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24408540.svg)](https://doi.org/10.5281/zenodo.24408540) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20weights-janlu89%2Fncm--12gb-yellow)](https://huggingface.co/janlu89/ncm-12gb)
 
 **How far can a Next-Concept Model get on one consumer GPU?** This study trains the tokenizer and generator on TinyStories, tests practical choices at small budgets, and documents the remaining gap to the authors' released tokenizer. The main result is a reproducible account of what helps, with the unsuccessful interventions and raw runs included.
 
@@ -119,7 +120,7 @@ The weights are on Hugging Face: **[huggingface.co/janlu89/ncm-12gb](https://hug
 
 ## Citation, credit and contact
 
-Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.1, research note).
+Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.1, research note). Zenodo. https://doi.org/10.5281/zenodo.24408541
 
 ```bibtex
 @misc{meola2026ncm12gb,
@@ -127,11 +128,12 @@ Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.1, r
   title  = {Training a Next-Concept Model on a single 12 GB GPU},
   year   = {2026},
   note   = {v0.1, work in progress},
+  doi    = {10.5281/zenodo.24408541},
   url    = {https://github.com/janlu89/ncm-12gb}
 }
 ```
 
-[CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
+The DOI above is for v0.1; [10.5281/zenodo.24408540](https://doi.org/10.5281/zenodo.24408540) always points to the latest version. [CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
 
 Built on [HazyResearch/ncm](https://github.com/HazyResearch/ncm) and the [NCM paper](https://arxiv.org/abs/2610.14162), with TinyStories data by Eldan and Li as pre-tokenised by the NCM authors. Upstream attribution and its pinned revision are in [NOTICE](NOTICE) and [third_party/README.md](third_party/README.md). Code is released under [MIT](LICENSE); see the upstream dataset card for data terms.
 
