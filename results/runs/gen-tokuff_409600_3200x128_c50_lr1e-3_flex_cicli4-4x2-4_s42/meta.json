@@ -1,0 +1,102 @@
+{
+  "creato": "2026-11-22 19:50:42",
+  "comando": [
+    "~/venv/ncm/bin/python",
+    "./generator/train_generator.py",
+    "--run",
+    "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s42",
+    "train.steps=3200",
+    "train.accum=8",
+    "train.warmup=160",
+    "train.eval_every=1600",
+    "train.log_every=10",
+    "train.keep_ckpts=1",
+    "train.ckpt_every_minutes=5",
+    "train.seed=42",
+    "data.codes_file=data/processed/tinystories_codes_official_L128.u16",
+    "corruption.rate_first=0.5",
+    "corruption.rate_last=0.5",
+    "model_overrides.use_flex_attention=true",
+    "model_overrides.flex_block_size=64",
+    "train.lr=1.0e-3",
+    "train.min_lr=1.0e-4",
+    "cicli.prima=4",
+    "cicli.blocco=4",
+    "cicli.ripetizioni=2",
+    "cicli.dopo=4"
+  ],
+  "python": "3.10.22 (main, Oct  9 2026, 15:21:30) [Clang 22.1.3 ]",
+  "torch": "2.14.1+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "driver": "595.99.02",
+  "ncm_commit": "c70274273f489abc73832b2b98584a8483b6b203",
+  "piattaforma": "Linux-7.0.0-44-generic-x86_64-with-glibc2.43",
+  "config": {
+    "base_config": "artifacts/tinystories/config.yaml",
+    "tokenizer_checkpoint": "official",
+    "encode_fp64": false,
+    "data": {
+      "dir": "data/raw/tinystories",
+      "length": 128,
+      "seed": 1234,
+      "codes_file": "data/processed/tinystories_codes_official_L128.u16"
+    },
+    "model_overrides": {
+      "use_flex_attention": true,
+      "flex_block_size": 64
+    },
+    "loss": {
+      "alpha": 0.0
+    },
+    "corruption": {
+      "enabled": true,
+      "mode": "linear",
+      "rate_first": 0.5,
+      "rate_last": 0.5,
+      "rate_max": 1.0,
+      "skip_level0": true
+    },
+    "eval": {
+      "n_stories": 4096,
+      "batch": 64
+    },
+    "export": {
+      "level0_sequences": 65536,
+      "samples": 8
+    },
+    "train": {
+      "steps": 3200,
+      "micro_batch": 16,
+      "accum": 8,
+      "lr": 0.001,
+      "min_lr": 0.0001,
+      "warmup": 160,
+      "schedule": "cosine",
+      "decay_steps": 0,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "bf16": true,
+      "seed": 42,
+      "log_every": 10,
+      "eval_every": 1600,
+      "ckpt_every_steps": 0,
+      "ckpt_every_minutes": 5,
+      "keep_ckpts": 1,
+      "deterministic": false,
+      "compile": true,
+      "compile_mode": "default",
+      "debug_stop_at_step": null
+    },
+    "cicli": {
+      "prima": 4,
+      "blocco": 4,
+      "ripetizioni": 2,
+      "dopo": 4
+    }
+  }
+}

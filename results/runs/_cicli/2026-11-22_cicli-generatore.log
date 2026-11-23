@@ -1,0 +1,30 @@
+[ciclo] 16:09 training C4-2x2-4 (gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-2x2-4_s42)
+[ciclo] 16:21 valutazione Gen. PPL di C4-2x2-4
+x2-4_s42/export --shard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-2x2-4_s42/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 64.18 ± 1.33 | entropia 3.9401 | 1280 campioni | 45s -> ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-2x2-4_s42/eval/genppl
+ 
+[ciclo] 16:22 training C4-4x2-4 (gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42)
+[ciclo] 16:38 valutazione Gen. PPL di C4-4x2-4
+mnt/dati/AI/qwen-ncm-distill/runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42/eval/genppl/eval_config.yaml --checkpoint-dir ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42/export --shard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42/eval/genppl/shard_0.pkl
+ generazione fallita (codice 1): vedi ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42/eval/genppl\generazione.log
+
+[ciclo] 16:38 training C4-4x3-4 (gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42)
+[ciclo] 16:56 valutazione Gen. PPL di C4-4x3-4
+mnt/dati/AI/qwen-ncm-distill/runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42/eval/genppl/eval_config.yaml --checkpoint-dir ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42/export --shard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42/eval/genppl/shard_0.pkl
+ generazione fallita (codice 1): vedi ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42/eval/genppl\generazione.log
+
+[ciclo] 16:56 completato
+[ciclo] tabella: ./runs/_cicli/2026-11-22_cicli-generatore.md
+[ciclo] 18:07 valutazione Gen. PPL di C4-4x2-4
+x2-4_s42/export --shard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 64.85 ± 0.33 | entropia 3.9472 | 1280 campioni | 50s -> ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42/eval/genppl
+ 
+[ciclo] 18:08 valutazione Gen. PPL di C4-4x3-4
+x3-4_s42/export --shard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 64.43 ± 1.02 | entropia 3.9364 | 1280 campioni | 53s -> ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42/eval/genppl
+ 
+[ciclo] 18:09 completato
+[ciclo] tabella: ./runs/_cicli/2026-11-22_cicli-generatore.md

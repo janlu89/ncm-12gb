@@ -61,6 +61,14 @@ if not a.official:
     # os.path.join con un percorso assoluto restituisce quello: tokenizer e vocabolario non stanno in export/.
     for key in ("tokenizer", "bpe_vocab", "bpe_merges"):
         cfg.checkpoints[key] = os.path.join(tok_dir, cfg.checkpoints[key])
+# Generatore a cicli (2026-11-22): il checkpoint ha un blocco per ogni strato applicato (i pesi legati sono salvati
+# come copie), quindi si valuta con un generatore normale di prima + blocco x ripetizioni + dopo strati: stessa funzione.
+_rc = None if a.official else os.path.join(ROOT, "runs", a.run, "config.yaml")
+if _rc and os.path.exists(_rc):
+    _c = OmegaConf.load(_rc).get("cicli")
+    if _c and int(_c.get("ripetizioni", 1)) > 1:
+        cfg.model.n_layer = int(_c.prima) + int(_c.blocco) * int(_c.ripetizioni) + int(_c.dopo)
+        print(f"[gen_ppl] generatore a cicli: {cfg.model.n_layer} strati", flush=True)
 cfg.eval.ref_model = REF
 cfg_path = os.path.join(out, "eval_config.yaml")
 OmegaConf.save(cfg, cfg_path)

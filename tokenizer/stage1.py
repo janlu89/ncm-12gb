@@ -59,6 +59,7 @@ def build(config, dev="cuda"):
     # Le opzioni dei rimedi vanno solo al quantizzatore nostro (training), non al config esportato (upstream).
     train_cfg.vector_quantizer_config.riavvio_fino_al_passo = int(rim.get("riavvio_fino_al_passo", 0))
     train_cfg.vector_quantizer_config.riavvio_soglia = float(rim.get("riavvio_soglia", 0.1))
+    train_cfg.vector_quantizer_config.riavvio_soglia_relativa = bool(rim.get("riavvio_soglia_relativa", False))
     torch.manual_seed(int(config.train.seed))
     net = VQVAE(**train_cfg).to(dev)
     vq = net.vq

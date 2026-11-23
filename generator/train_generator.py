@@ -26,6 +26,8 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--run", required=True, help="nome del run: cartella runs/<nome>; \"auto\" = nome standard dalle impostazioni (common/nomi.py)")
 ap.add_argument("--config", default="configs/stage2_generator.yaml")
 ap.add_argument("overrides", nargs="*", help="modifiche alla config, es. train.steps=300")
+ap.add_argument("--estendi", type=int, default=0,
+                help="run esistente con train.schedule=wsd e senza discesa: porta train.steps a questo valore e riprende")
 a = ap.parse_args()
 if a.run == "auto":
     from common.nomi import nome_standard
@@ -39,6 +41,14 @@ saved_cfg = os.path.join(run_dir, "config.yaml")
 if os.path.exists(saved_cfg):
     # Ripresa: si usa la config salvata alla prima partenza, per non cambiare il run a metà.
     config = OmegaConf.load(saved_cfg)
+    if a.estendi:
+        # Allungare una run (2026-11-22): solo con lr costante (wsd senza discesa), altrimenti la curva cambierebbe.
+        assert str(config.train.get("schedule", "cosine")) == "wsd" and int(config.train.get("decay_steps", 0) or 0) == 0, \
+            "--estendi vale solo per run con train.schedule=wsd e train.decay_steps=0"
+        assert a.estendi > int(config.train.steps), f"--estendi deve superare i passi attuali ({config.train.steps})"
+        print(f"[estendi] train.steps {config.train.steps} -> {a.estendi}", flush=True)
+        config.train.steps = int(a.estendi)
+        OmegaConf.save(config, saved_cfg)
     if a.overrides:
         print("[config] run esistente: le modifiche da riga di comando sono ignorate, si usa", saved_cfg)
 else:
@@ -56,14 +66,24 @@ if config.train.get("compile", False):
     # optimizer, checkpoint ed export, così le chiavi dei pesi non prendono il prefisso "_orig_mod.".
     # La valutazione resta non compilata (batch diverso, FP32).
     model_for_loss = torch.compile(s.net, mode=str(config.train.get("compile_mode", "default")))
-loss_fn = lambda model, batch: base_loss(model_for_loss, batch)  # noqa: E731
+_tr = {}
+
+
+def loss_fn(model, batch):
+    if "t" in _tr:                    # generatore che cresce: stato delle ripetizioni dal passo (vale anche alla ripresa)
+        s.crescita(_tr["t"].step)
+    return base_loss(model_for_loss, batch)
+
+
 if codes_file:
     from common.data import TrainCodes
     data = TrainCodes(P(codes_file), int(config.data.seed))
     assert data.length == int(config.data.length), "lunghezza dei codici diversa da data.length"
 else:
     data = TrainStories(P(config.data.dir), int(config.data.length), int(config.data.seed))
-status = Trainer(run_dir, config, s.net, data, loss_fn, s.eval_fn).run()
+_tr["t"] = Trainer(run_dir, config, s.net, data, loss_fn, s.eval_fn, step_hook=s.crescita)
+status = _tr["t"].run()
+s.crescita(_tr["t"].step)   # anche se la ripresa trova il training già finito: export e storie con lo stato giusto
 if status == "done":
     s.export(s.net, run_dir)
 print(status)

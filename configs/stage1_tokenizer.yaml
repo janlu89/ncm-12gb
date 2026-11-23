@@ -15,6 +15,7 @@ tokenizer:
     init_storie: 8192
     riavvio_fino_al_passo: 0   # R2: riavvio dei codici quasi inutilizzati solo fino a questo passo (0 = mai)
     riavvio_soglia: 0.1        # statistica EMA sotto cui un codice è "quasi inutilizzato"
+    riavvio_soglia_relativa: false  # true: soglia = riavvio_soglia x quota media del livello (2026-11-22)
 
 data:
   dir: data/raw/tinystories

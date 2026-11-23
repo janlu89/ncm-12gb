@@ -88,6 +88,16 @@ def nome_generatore(cfg):
         parti.append(f"min{_num(t['min_lr'])}")
     if _g(cfg, "model_overrides.use_flex_attention", False):
         parti.append("flex")
+    if str(_g(cfg, "train.schedule", "cosine")) == "wsd":   # 2026-11-22: lr costante (+ discesa finale), allungabile
+        d = int(_g(cfg, "train.decay_steps", 0) or 0)
+        parti.append(f"wsd{d}" if d else "wsd")
+    c = _g(cfg, "cicli")
+    if c and int(_g(c, "ripetizioni", 1)) > 1:   # 2026-11-22: generatore a cicli, es. cicli4-2x2-4
+        parti.append(f"cicli{int(c['prima'])}-{int(c['blocco'])}x{int(c['ripetizioni'])}-{int(c['dopo'])}")
+        if _g(c, "crescita_ai_passi", None):               # cresce a tappe, es. -cresce1067-2133
+            parti[-1] += "-cresce" + "-".join(str(int(x)) for x in c["crescita_ai_passi"])
+        elif int(_g(c, "crescita_al_passo", 0) or 0) > 0:   # cresce: ripetizioni accese da quel passo
+            parti[-1] += f"-cresce{int(c['crescita_al_passo'])}"
     if _g(cfg, "nome_extra"):          # etichetta libera per run di controllo (es. micro-batch diverso)
         parti.append(str(_g(cfg, "nome_extra")))
     parti.append(f"s{int(t['seed'])}")
@@ -102,6 +112,12 @@ def nome_tokenizer(cfg):
     schema = SCHEMI.get(str(_g(cfg, "tokenizer.schema")), str(_g(cfg, "tokenizer.schema")))
     rim = _g(cfg, "tokenizer.rimedi") or {}
     extra = ("-dati" if _g(rim, "init_dati", False) else "") + ("-rv" if int(_g(rim, "riavvio_fino_al_passo", 0) or 0) > 0 else "")
+    if _g(rim, "riavvio_soglia_relativa", False):   # 2026-11-22: soglia del riavvio relativa alla quota del livello
+        extra += "rel"
+    dec = _g(cfg, "tokenizer.vqvae_overrides.vector_quantizer_config.decay", None)
+    if dec is not None:   # 2026-11-22: decay EMA diverso da quello ufficiale (0,95), es. -d9968
+        dec = [dec] if isinstance(dec, (int, float)) else list(dec)
+        extra += "-d" + "_".join(f"{float(x):.4f}".split(".")[1] for x in dec)
     if _g(cfg, "tokenizer.norma_livello0", True) is False:   # prova B: senza la normalizzazione del livello 0
         extra += "-nonorm"
     return f"{MIO}-{k}{schema}{extra}_{passi * batch}_{passi}x{batch}_s{int(t['seed'])}"  # -dati / -rv = rimedi R1 / R2

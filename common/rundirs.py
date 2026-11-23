@@ -4,6 +4,9 @@ runs/<nome> è una cartella come le altre.
 
 Il disco si sceglie con il file configs/locale.yaml (chiave `disco_run`, es. D:\ncm-runs).
 Senza quel file le run nascono in runs/ come sempre. Le run già esistenti non vengono mai spostate.
+
+Su Linux (dual boot, 2026-11-22) `disco_run` è un percorso Windows e le giunzioni non si creano: le run nuove
+nascono direttamente in runs/<nome>.
 """
 import os
 import subprocess
@@ -29,13 +32,17 @@ def run_dir(name, crea=True):
         return d
     os.makedirs(RUNS, exist_ok=True)
     # Le cartelle che iniziano con "_" (prove automatiche, che poi vengono cancellate) restano locali.
-    disco = None if name.startswith("_") else disco_run()
+    disco = None if name.startswith("_") or os.name != "nt" else disco_run()
     if disco and os.path.isdir(os.path.splitdrive(disco)[0] + os.sep):
         target = os.path.normpath(os.path.join(disco, name))
         os.makedirs(target, exist_ok=True)
-        r = subprocess.run(["cmd", "/c", "mklink", "/J", d, target], capture_output=True, text=True)
-        if r.returncode == 0:
-            return d
-        print(f"[rundirs] giunzione non riuscita ({r.stdout.strip()} {r.stderr.strip()}): uso {d}", flush=True)
+        try:
+            r = subprocess.run(["cmd", "/c", "mklink", "/J", d, target], capture_output=True, text=True)
+            esito = f"{r.stdout.strip()} {r.stderr.strip()}"
+            if r.returncode == 0:
+                return d
+        except OSError as e:
+            esito = str(e)
+        print(f"[rundirs] giunzione non riuscita ({esito}): uso {d}", flush=True)
     os.makedirs(d, exist_ok=True)
     return d

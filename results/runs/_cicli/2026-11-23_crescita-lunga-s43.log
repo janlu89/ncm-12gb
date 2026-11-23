@@ -1,0 +1,21 @@
+[ciclo] 12:02 training C16_409k_s43 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s43)
+[ciclo] 13:34 training C16_409k_s43 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s43)
+[ciclo] 14:04 valutazione Gen. PPL di C16_409k_s43
+_s43/export --shard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s43/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 25.00 ± 0.53 | entropia 3.9506 | 1280 campioni | 50s -> ./runs/gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s43/eval/genppl
+ 
+[ciclo] 14:05 training CRESCE_409k_s43 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce1600_s43)
+[ciclo] 15:20 valutazione Gen. PPL di CRESCE_409k_s43
+--nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce1600_s43/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 24.25 ± 0.41 | entropia 3.9448 | 1280 campioni | 52s -> ./runs/gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce1600_s43/eval/genppl
+ 
+[ciclo] 15:21 training CRESCE3_409k_s43 (gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x3-4-cresce1067-2133_s43)
+[ciclo] 16:46 valutazione Gen. PPL di CRESCE3_409k_s43
+1 --n 256 --bs 128 --out ./runs/gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x3-4-cresce1067-2133_s43/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 23.81 ± 0.35 | entropia 3.9454 | 1280 campioni | 54s -> ./runs/gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x3-4-cresce1067-2133_s43/eval/genppl
+ 
+[ciclo] 16:47 completato
+[ciclo] tabella: ./runs/_cicli/2026-11-23_crescita-lunga-s43.md

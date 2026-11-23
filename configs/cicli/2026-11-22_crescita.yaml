@@ -1,0 +1,18 @@
+# Prova di crescita del generatore (2026-11-22). 4+4x2+4 con la seconda ripetizione spenta fino al
+# passo 200 (il modello calcola come 12 strati), accesa dal 200 (copia esatta del blocco, pesi legati), stesse 51.200 storie.
+# Regola: docs/esperimenti/2026-11-22_crescita.md
+nome: 2026-11-22_crescita
+riferimento: C4-4x2-4
+rumore: [UFF_best42, UFF_best43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: UFF_best42, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42, descr: "12 strati normali (gia fatto)", overrides: [train.seed=42]}
+  - {id: UFF_best43, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43, descr: "12 strati normali, seed 43 (gia fatto)", overrides: [train.seed=43]}
+  - {id: C4-4x2-4, run: gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42, descr: "4+4x2+4 da zero (gia fatto)", overrides: [train.seed=42]}
+  - {id: CRESCE200, descr: "4+4x1+4 fino al passo 200, poi 4+4x2+4", overrides: [train.seed=42, data.codes_file=data/processed/tinystories_codes_official_L128.u16, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4, cicli.prima=4, cicli.blocco=4, cicli.ripetizioni=2, cicli.dopo=4, cicli.crescita_al_passo=200]}

@@ -15,13 +15,13 @@
     "page": 1,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
     "page": 1,
     "x": 547.28,
     "y": 29,
-    "text": "01 / 08"
+    "text": "01 / 11"
   },
   {
     "page": 1,
@@ -57,138 +57,168 @@
     "page": 1,
     "x": 547.28,
     "y": 631.89,
-    "text": "20 November 2026  ·  v0.1  ·  Work in progress"
+    "text": "23 November 2026  ·  v0.2  ·  Work in progress"
+  },
+  {
+    "page": 1,
+    "x": 61,
+    "y": 599.89,
+    "text": "WHAT’S NEW IN v0.2 · 23 NOVEMBER 2026"
+  },
+  {
+    "page": 1,
+    "x": 61,
+    "y": 580.89,
+    "text": "Growing a looped generator in depth during training shows no measurable loss of quality at equal or lower"
+  },
+  {
+    "page": 1,
+    "x": 61,
+    "y": 567.39,
+    "text": "compute (applied layers): 24.52 (12 → 16) and 24.17 (12 → 16 → 20) vs 25.10 for 16 layers from scratch; ties, not an"
+  },
+  {
+    "page": 1,
+    "x": 61,
+    "y": 553.89,
+    "text": "improvement (section 5). Two tokenizer tests failed; the 1.39× gap and all v0.1 conclusions stand. “Official” = the"
+  },
+  {
+    "page": 1,
+    "x": 61,
+    "y": 540.39,
+    "text": "authors’ October 2026 release. History: page 11."
   },
   {
     "page": 1,
     "x": 48,
-    "y": 602.89,
+    "y": 506.89,
     "text": "Abstract"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 577.89,
+    "y": 481.89,
     "text": "Next-Concept Models generate text through a hierarchy of discrete codes. I train both the tokenizer and"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 563.49,
+    "y": 467.49,
     "text": "generator on one RTX 3080 Ti (12 GB), using TinyStories and budgets far below the original paper. Data-based"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 549.09,
+    "y": 453.09,
     "text": "codebook initialisation lowers generative perplexity by 48% in the tested tokenizer comparison. A retuned"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 534.69,
+    "y": 438.69,
     "text": "generator recipe lowers it by 56% on the official tokenizer, with most of the gain coming from the learning rate."
   },
   {
     "page": 1,
     "x": 48,
-    "y": 520.29,
+    "y": 424.29,
     "text": "Longer tokenizer training helps, but a 1.39× gap to the official tokenizer remains. The study reports reproducible"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 505.89,
+    "y": 409.89,
     "text": "runs, unsuccessful interventions and limits on causal interpretation."
   },
   {
     "page": 1,
     "x": 59.0,
-    "y": 464.49,
+    "y": 370.49,
     "text": "−48%"
   },
   {
     "page": 1,
     "x": 59.0,
-    "y": 430.49,
+    "y": 343.49,
     "text": "Data-based codebook init"
   },
   {
     "page": 1,
     "x": 59.0,
-    "y": 414.49,
+    "y": 331.49,
     "text": "222.78 → 115.38"
   },
   {
     "page": 1,
     "x": 228.09,
-    "y": 464.49,
+    "y": 370.49,
     "text": "−56%"
   },
   {
     "page": 1,
     "x": 228.09,
-    "y": 430.49,
+    "y": 343.49,
     "text": "Short-budget recipe"
   },
   {
     "page": 1,
     "x": 228.09,
-    "y": 414.49,
+    "y": 331.49,
     "text": "150.67 → 66.26"
   },
   {
     "page": 1,
     "x": 397.19,
-    "y": 464.49,
+    "y": 370.49,
     "text": "1.39×"
   },
   {
     "page": 1,
     "x": 397.19,
-    "y": 430.49,
+    "y": 343.49,
     "text": "Remaining tokenizer gap"
   },
   {
     "page": 1,
     "x": 397.19,
-    "y": 414.49,
+    "y": 331.49,
     "text": "92.35 / 66.26"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 376.49,
+    "y": 308.49,
     "text": "A large gain, with an unfinished gap"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 139.49,
+    "y": 122.49,
     "text": "Figure 1. Same generator recipe and 51,200-story budget, different tokenizers. Bars show means; white markers are individual"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 127.79,
+    "y": 110.79,
     "text": "training runs. The 38.4k row varies tokenizer seed with generator seed fixed; other paired rows vary generator seed. Gen. PPL is"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 116.09,
+    "y": 99.09,
     "text": "lower-is-better, not a percentage measure of general text quality."
   },
   {
     "page": 1,
     "x": 48,
-    "y": 94.39,
+    "y": 77.39,
     "text": "This is a study of constrained training, not a full reproduction: the longest tokenizer sees 9.83M stories versus 122.88M in the"
   },
   {
     "page": 1,
     "x": 48,
-    "y": 81.59,
+    "y": 64.59,
     "text": "paper; the longest generator sees 0.41M versus 102.4M."
   },
   {
@@ -207,13 +237,13 @@
     "page": 2,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
     "page": 2,
     "x": 547.28,
     "y": 29,
-    "text": "02 / 08"
+    "text": "02 / 11"
   },
   {
     "page": 2,
@@ -309,318 +339,324 @@
     "page": 2,
     "x": 48,
     "y": 592.19,
-    "text": "128-token story [1, 2]. The pass count is not a measured wall-clock speedup in this study."
+    "text": "128-token story [1, 2]. The pass count is not a measured wall-clock speedup in this study. “Official” checkpoints: the authors’ October"
+  },
+  {
+    "page": 2,
+    "x": 48,
+    "y": 580.49,
+    "text": "2026 release (revision d342ce8a), replaced on 23 Nov 2026; the new release was not evaluated."
   },
   {
     "page": 2,
     "x": 55,
-    "y": 560.49,
+    "y": 548.79,
     "text": "Quantity"
   },
   {
     "page": 2,
     "x": 219,
-    "y": 560.49,
+    "y": 548.79,
     "text": "This study"
   },
   {
     "page": 2,
     "x": 387,
-    "y": 560.49,
+    "y": 548.79,
     "text": "Original paper"
   },
   {
     "page": 2,
     "x": 55,
-    "y": 531.49,
+    "y": 519.79,
     "text": "Tokenizer parameters"
   },
   {
     "page": 2,
     "x": 219,
-    "y": 531.49,
+    "y": 519.79,
     "text": "36.4M"
   },
   {
     "page": 2,
     "x": 387,
-    "y": 531.49,
+    "y": 519.79,
     "text": "Same base architecture"
   },
   {
     "page": 2,
     "x": 55,
-    "y": 501.49,
+    "y": 489.79,
     "text": "Generator parameters"
   },
   {
     "page": 2,
     "x": 219,
-    "y": 501.49,
+    "y": 489.79,
     "text": "88.6M at 12 levels"
   },
   {
     "page": 2,
     "x": 387,
-    "y": 501.49,
+    "y": 489.79,
     "text": "Same base architecture"
   },
   {
     "page": 2,
     "x": 55,
-    "y": 471.49,
+    "y": 459.79,
     "text": "Longest tokenizer exposure"
   },
   {
     "page": 2,
     "x": 219,
-    "y": 471.49,
+    "y": 459.79,
     "text": "9,830,400 stories"
   },
   {
     "page": 2,
     "x": 387,
-    "y": 471.49,
+    "y": 459.79,
     "text": "122,880,000 stories"
   },
   {
     "page": 2,
     "x": 55,
-    "y": 441.49,
+    "y": 429.79,
     "text": "Longest generator exposure"
   },
   {
     "page": 2,
     "x": 219,
-    "y": 441.49,
+    "y": 429.79,
     "text": "409,600 stories"
   },
   {
     "page": 2,
     "x": 387,
-    "y": 441.49,
+    "y": 429.79,
     "text": "102,400,000 stories"
   },
   {
     "page": 2,
     "x": 55,
-    "y": 411.49,
+    "y": 399.79,
     "text": "Main generator comparison"
   },
   {
     "page": 2,
     "x": 219,
-    "y": 411.49,
+    "y": 399.79,
     "text": "400 updates × 128 stories"
   },
   {
     "page": 2,
     "x": 387,
-    "y": 411.49,
+    "y": 399.79,
     "text": "Not budget-matched"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 376.49,
+    "y": 364.79,
     "text": "Evaluation protocol"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 351.49,
+    "y": 339.79,
     "text": "Each trained generator produces 1,280 unconditional"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 336.89,
+    "y": 325.19,
     "text": "stories: 256 samples for each sampling seed 42, 0, 1,"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 322.29,
+    "y": 310.59,
     "text": "2 and 3. Temperature is 1, with no top-k or top-p"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 307.69,
+    "y": 295.99,
     "text": "truncation. The authors’ evaluation scripts score the"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 293.09,
+    "y": 281.39,
     "text": "samples with GPT-2 large."
   },
   {
     "page": 2,
     "x": 48,
-    "y": 268.49,
+    "y": 256.79,
     "text": "Generative perplexity (Gen. PPL) is the primary"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 253.89,
+    "y": 242.19,
     "text": "metric. Generated-text entropy must not fall more"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 239.29,
+    "y": 227.59,
     "text": "than 0.1 below the comparison reference; this guards"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 224.69,
+    "y": 212.99,
     "text": "against some repetitive outputs. Validation uses the"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 210.09,
+    "y": 198.39,
     "text": "first 4,096 held-out stories."
   },
   {
     "page": 2,
     "x": 48,
-    "y": 185.49,
+    "y": 173.79,
     "text": "Two different kinds of seeds"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 160.49,
+    "y": 148.79,
     "text": "Training seeds vary initialisation while data order is"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 146.49,
+    "y": 134.79,
     "text": "fixed. Sampling seeds vary the outputs of one trained"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 132.49,
+    "y": 120.79,
     "text": "model. Standard deviations across sampling seeds in"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 118.49,
+    "y": 106.79,
     "text": "the run report are not confidence intervals across"
   },
   {
     "page": 2,
     "x": 48,
-    "y": 104.49,
+    "y": 92.79,
     "text": "training runs."
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 376.49,
+    "y": 364.79,
     "text": "Decision rules and scope"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 351.49,
+    "y": 339.79,
     "text": "Decision rules were written before the corresponding"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 336.89,
+    "y": 325.19,
     "text": "experiments. Later cycles used 6.7% between single"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 322.29,
+    "y": 310.59,
     "text": "runs and 4.7% between two-seed means, based on"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 307.69,
+    "y": 295.99,
     "text": "2.4% training-seed noise measured over five pairs at"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 293.09,
+    "y": 281.39,
     "text": "51,200 stories. Early cycles used a fixed"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 278.49,
+    "y": 266.79,
     "text": "five-PPL-point threshold."
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 253.89,
+    "y": 242.19,
     "text": "These are operational thresholds, not formal"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 239.29,
+    "y": 227.59,
     "text": "confidence intervals or corrections for a search over"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 224.69,
+    "y": 212.99,
     "text": "many recipes. Most tokenizers were trained once;"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 210.09,
+    "y": 198.39,
     "text": "only the longest setting has two tokenizer seeds."
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 185.49,
+    "y": 173.79,
     "text": "Compute and data exposure"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 160.49,
+    "y": 148.79,
     "text": "Stories seen count examples processed, including"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 146.49,
+    "y": 134.79,
     "text": "repeats. Equal exposure does not mean equal optimiser"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 132.49,
+    "y": 120.79,
     "text": "updates or FLOPs. All results concern TinyStories,"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 118.49,
+    "y": 106.79,
     "text": "128-token sequences and the tested model sizes; no"
   },
   {
     "page": 2,
     "x": 309.64,
-    "y": 104.49,
+    "y": 92.79,
     "text": "larger-language-model distillation is used in this study."
   },
   {
@@ -639,13 +675,13 @@
     "page": 3,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
     "page": 3,
     "x": 547.28,
     "y": 29,
-    "text": "03 / 08"
+    "text": "03 / 11"
   },
   {
     "page": 3,
@@ -837,42 +873,48 @@
     "page": 3,
     "x": 309.64,
     "y": 219.49,
-    "text": "Official training code was unavailable in the checked"
+    "text": "The authors have not released training code"
   },
   {
     "page": 3,
     "x": 309.64,
     "y": 204.89,
-    "text": "sources, and the paper omits some training details."
+    "text": "(upstream issue #10, open on 23 Nov 2026), and the"
   },
   {
     "page": 3,
     "x": 309.64,
     "y": 190.29,
-    "text": "The baseline is a reconstruction, not a verified"
+    "text": "paper omits some training details. The baseline is a"
   },
   {
     "page": 3,
     "x": 309.64,
     "y": 175.69,
-    "text": "reproduction of the authors’ run."
+    "text": "reconstruction, not a verified reproduction of the"
+  },
+  {
+    "page": 3,
+    "x": 309.64,
+    "y": 161.09,
+    "text": "authors’ run."
   },
   {
     "page": 3,
     "x": 61,
-    "y": 137.09,
+    "y": 122.49,
     "text": "Equal stories do not imply equal optimisation"
   },
   {
     "page": 3,
     "x": 61,
-    "y": 118.09,
+    "y": 103.49,
     "text": "At the same 51,200 stories, 800 updates × 64 give 83.16 for the baseline, versus 150.67 at 400 × 128. The"
   },
   {
     "page": 3,
     "x": 61,
-    "y": 104.59,
+    "y": 89.99,
     "text": "alternative has one seed: the 56% result belongs to the stated short-budget comparison."
   },
   {
@@ -891,13 +933,13 @@
     "page": 4,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
     "page": 4,
     "x": 547.28,
     "y": 29,
-    "text": "04 / 08"
+    "text": "04 / 11"
   },
   {
     "page": 4,
@@ -1083,13 +1125,13 @@
     "page": 4,
     "x": 48,
     "y": 141.09,
-    "text": "tokenizer, the ratio remains 1.39×. The official tokenizer"
+    "text": "tokenizer, the ratio remains 1.39×. The paper reports"
   },
   {
     "page": 4,
     "x": 48,
     "y": 127.59,
-    "text": "saw 12.5× more stories."
+    "text": "12.5× more stories for its tokenizer."
   },
   {
     "page": 4,
@@ -1149,13 +1191,13 @@
     "page": 5,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
     "page": 5,
     "x": 547.28,
     "y": 29,
-    "text": "05 / 08"
+    "text": "05 / 11"
   },
   {
     "page": 5,
@@ -1185,150 +1227,156 @@
     "page": 5,
     "x": 48,
     "y": 418.19,
-    "text": "one on R12. Separately, the authors’ full-budget model scores 16.58 here versus 15.41 in the paper (+7.6%, unexplained); those are"
+    "text": "one on R12. Separately, the authors’ full-budget model (October 2026 release) scores 16.58 here versus 15.41 in the paper (+7.6%,"
   },
   {
     "page": 5,
     "x": 48,
     "y": 406.49,
-    "text": "not matched-budget results."
+    "text": "not explained here); the authors replaced it on 23 Nov 2026 and report 15.40 for the new release (not remeasured). Not"
   },
   {
     "page": 5,
     "x": 48,
-    "y": 384.79,
+    "y": 394.79,
+    "text": "matched-budget results."
+  },
+  {
+    "page": 5,
+    "x": 48,
+    "y": 373.09,
     "text": "Increasing generator exposure eightfold improves both models: 66.26 to 25.88 on the official tokenizer and"
   },
   {
     "page": 5,
     "x": 48,
-    "y": 370.19,
+    "y": 358.49,
     "text": "108.17 to 42.00 on R12. The ratio is 1.63×, 1.50× and 1.62× across the three budgets. This recipe and exposure"
   },
   {
     "page": 5,
     "x": 48,
-    "y": 355.59,
+    "y": 343.89,
     "text": "range do not close the gap for this tokenizer pair."
   },
   {
     "page": 5,
     "x": 55,
-    "y": 317.99,
+    "y": 306.29,
     "text": "Intervention"
   },
   {
     "page": 5,
     "x": 211,
-    "y": 317.99,
+    "y": 306.29,
     "text": "Observed Gen. PPL"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 317.99,
+    "y": 306.29,
     "text": "What remains uncertain"
   },
   {
     "page": 5,
     "x": 55,
-    "y": 288.99,
+    "y": 277.29,
     "text": "Tokenizer batch, equal 1.23M stories"
   },
   {
     "page": 5,
     "x": 211,
-    "y": 288.99,
+    "y": 277.29,
     "text": "256: 103.61; 1,024: 98.29; 4,096:"
   },
   {
     "page": 5,
     "x": 211,
-    "y": 277.39,
+    "y": 265.69,
     "text": "100.36"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 288.99,
+    "y": 277.29,
     "text": "One seed each; long training with a large batch"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 277.39,
+    "y": 265.69,
     "text": "untested."
   },
   {
     "page": 5,
     "x": 55,
-    "y": 247.79,
+    "y": 236.09,
     "text": "Remove level-0 normalisation"
   },
   {
     "page": 5,
     "x": 211,
-    "y": 247.79,
+    "y": 236.09,
     "text": "115.28 vs 103.61"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 247.79,
+    "y": 236.09,
     "text": "Worse in this setting; other normalisation"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 236.19,
+    "y": 224.49,
     "text": "designs untested."
   },
   {
     "page": 5,
     "x": 55,
-    "y": 206.59,
+    "y": 194.89,
     "text": "Official encoding in fp64"
   },
   {
     "page": 5,
     "x": 211,
-    "y": 206.59,
+    "y": 194.89,
     "text": "66.53 vs 66.26"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 206.59,
+    "y": 194.89,
     "text": "No material effect detected on two seeds at"
   },
   {
     "page": 5,
     "x": 361,
-    "y": 194.99,
+    "y": 183.29,
     "text": "this budget."
   },
   {
     "page": 5,
     "x": 61,
-    "y": 148.39,
+    "y": 136.69,
     "text": "Evidence narrows the search; it does not exclude whole causes"
   },
   {
     "page": 5,
     "x": 61,
-    "y": 129.39,
+    "y": 117.69,
     "text": "The 1.39× gap from the longer tokenizer has not received the same generator-budget sweep. Similar validation"
   },
   {
     "page": 5,
     "x": 61,
-    "y": 115.89,
+    "y": 104.19,
     "text": "cross-entropies across different tokenizers do not establish equal prediction quality, because their target code"
   },
   {
     "page": 5,
     "x": 61,
-    "y": 102.39,
+    "y": 90.69,
     "text": "distributions differ."
   },
   {
@@ -1341,864 +1389,2034 @@
     "page": 6,
     "x": 547.28,
     "y": 815.89,
-    "text": "DIAGNOSTICS"
+    "text": "LOOPED GENERATOR"
   },
   {
     "page": 6,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
     "page": 6,
     "x": 547.28,
     "y": 29,
-    "text": "06 / 08"
+    "text": "06 / 11"
   },
   {
     "page": 6,
     "x": 48,
     "y": 767.89,
-    "text": "5 Level 0: an observation, not a cause"
+    "text": "5 Growing a looped generator"
   },
   {
     "page": 6,
+    "x": 48,
+    "y": 726.89,
+    "text": "New in v0.2. A generator with a shared middle block can be deepened during training without a measurable loss"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 712.89,
+    "text": "of quality, at equal or lower compute counted as applied layers."
+  },
+  {
+    "page": 6,
+    "x": 56.0,
+    "y": 667.89,
+    "text": "4 layers"
+  },
+  {
+    "page": 6,
+    "x": 56.0,
+    "y": 650.89,
+    "text": "Own weights"
+  },
+  {
+    "page": 6,
+    "x": 207.43,
+    "y": 658.89,
+    "text": "→"
+  },
+  {
+    "page": 6,
+    "x": 226.43,
+    "y": 667.89,
+    "text": "Shared block of 4 layers × R"
+  },
+  {
+    "page": 6,
+    "x": 226.43,
+    "y": 650.89,
+    "text": "Same weights at every repetition; R = 1,"
+  },
+  {
+    "page": 6,
+    "x": 226.43,
+    "y": 640.89,
+    "text": "2 or 3"
+  },
+  {
+    "page": 6,
+    "x": 377.85,
+    "y": 658.89,
+    "text": "→"
+  },
+  {
+    "page": 6,
+    "x": 396.85,
+    "y": 667.89,
+    "text": "4 layers"
+  },
+  {
+    "page": 6,
+    "x": 396.85,
+    "y": 650.89,
+    "text": "Own weights"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 612.89,
+    "text": "Growth: training starts with R = 1 (12 applied layers). Each later repetition passes its input through unchanged until its step, then"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 601.19,
+    "text": "switches on as an exact copy of the trained block (tied weights). One cosine learning-rate curve covers the whole run."
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 403.49,
+    "text": "Figure 5. Official tokenizer, constant corruption 0.5 + FlexAttention + lr 1e-3, 409,600 stories (3,200 × 128). Bars are means of training"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 391.79,
+    "text": "seeds 42 and 43; markers show the two runs. Percentages: relative to 16 layers from scratch. \"Layers on average\" counts applied"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 380.09,
+    "text": "layers over the steps: a compute proxy, not measured FLOPs (measured times on page 7)."
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 348.39,
+    "text": "51,200 stories (400 × 128)"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 348.39,
+    "text": "Gen. PPL"
+  },
+  {
+    "page": 6,
+    "x": 399,
+    "y": 348.39,
+    "text": "Seeds"
+  },
+  {
+    "page": 6,
+    "x": 449,
+    "y": 348.39,
+    "text": "Applied layers"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 319.39,
+    "text": "12 layers, standard (88.6M)"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 319.39,
+    "text": "65.89 / 66.62"
+  },
+  {
+    "page": 6,
+    "x": 399,
+    "y": 319.39,
+    "text": "2"
+  },
+  {
+    "page": 6,
+    "x": 449,
+    "y": 319.39,
+    "text": "12"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 289.79,
+    "text": "4 + 2×2 + 4, shared block (74.4M)"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 289.79,
+    "text": "64.18"
+  },
+  {
+    "page": 6,
+    "x": 399,
+    "y": 289.79,
+    "text": "1"
+  },
+  {
+    "page": 6,
+    "x": 449,
+    "y": 289.79,
+    "text": "12"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 260.19,
+    "text": "16 applied from scratch / 20 applied from scratch"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 260.19,
+    "text": "64.85 / 66.25; 64.43"
+  },
+  {
+    "page": 6,
+    "x": 399,
+    "y": 260.19,
+    "text": "2; 1"
+  },
+  {
+    "page": 6,
+    "x": 449,
+    "y": 260.19,
+    "text": "16; 20"
+  },
+  {
+    "page": 6,
+    "x": 55,
+    "y": 230.59,
+    "text": "Grown 12 → 16 at step 200 / 12 → 16 → 20 at 133, 266"
+  },
+  {
+    "page": 6,
+    "x": 281,
+    "y": 230.59,
+    "text": "60.91 / 68.25; 62.46"
+  },
+  {
+    "page": 6,
+    "x": 399,
+    "y": 230.59,
+    "text": "2; 1"
+  },
+  {
+    "page": 6,
+    "x": 449,
+    "y": 230.59,
+    "text": "14; 16 on average"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 195.99,
+    "text": "Reading the result"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 170.99,
+    "text": "By the 4.7% rule for two-seed means, fixed before the"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 158.19,
+    "text": "second-seed runs, both grown models tie with 16 layers"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 145.39,
+    "text": "from scratch (−2.3%, −3.7%); none is worse. Grown 12 to"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 132.59,
+    "text": "16 uses 12.5% fewer applied layers. Each single-seed"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 119.79,
+    "text": "comparison is within the 6.7% threshold; all four favour"
+  },
+  {
+    "page": 6,
+    "x": 48,
+    "y": 106.99,
+    "text": "growth: consistent, not significant."
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 195.99,
+    "text": "Short runs and scope"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 170.99,
+    "text": "At 51,200 stories growth varies strongly between seeds"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 158.19,
+    "text": "(60.91 and 68.25), and three rows have one seed. Grown"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 145.39,
+    "text": "12 to 16 to 20 ends at 20 applied layers; no 20-layer model"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 132.59,
+    "text": "was trained from scratch at 409,600 stories. Confounds"
+  },
+  {
+    "page": 6,
+    "x": 309.64,
+    "y": 119.79,
+    "text": "and prior work: page 7."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 7,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "LOOPED GENERATOR"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
+  },
+  {
+    "page": 7,
+    "x": 547.28,
+    "y": 29,
+    "text": "07 / 11"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 767.89,
+    "text": "5 Growth: limits and prior work"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 726.89,
+    "text": "What the comparison controls, what it does not, and where the idea comes from."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 692.89,
+    "text": "When the rules were fixed"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 667.89,
+    "text": "The 4.7% rule for two-seed means at 409,600 stories was written before the seed-43 runs, but after the seed-42"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 655.09,
+    "text": "results were known. The comparison of grown 12 to 16 to 20 with the 12-layer generator was added at that point,"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 642.29,
+    "text": "when seed 42 had already shown −5.2%; with both seeds it is −6.6%, beyond the threshold but with more compute"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 629.49,
+    "text": "(16 applied layers on average against 12). Against the record table: #3 and #4 against #1 (−5.3% and −6.6%) exceed"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 616.69,
+    "text": "4.7%, both with more compute (14 and 16 against 12)."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 593.89,
+    "text": "Compute and measured training time"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 558.89,
+    "text": "Generator, 409,600 stories"
+  },
+  {
+    "page": 7,
+    "x": 261,
+    "y": 558.89,
+    "text": "Applied layers on"
+  },
+  {
+    "page": 7,
+    "x": 261,
+    "y": 547.89,
+    "text": "average"
+  },
+  {
+    "page": 7,
+    "x": 361,
+    "y": 558.89,
+    "text": "Training time, seed 42 / 43"
+  },
+  {
+    "page": 7,
+    "x": 481,
+    "y": 558.89,
+    "text": "Peak memory"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 518.89,
+    "text": "12 layers, standard (v0.1, Windows 10)"
+  },
+  {
+    "page": 7,
+    "x": 261,
+    "y": 518.89,
+    "text": "12"
+  },
+  {
+    "page": 7,
+    "x": 361,
+    "y": 518.89,
+    "text": "61.5 / 61.2 min"
+  },
+  {
+    "page": 7,
+    "x": 481,
+    "y": 518.89,
+    "text": "7.0 GiB"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 489.29,
+    "text": "16 applied layers from scratch"
+  },
+  {
+    "page": 7,
+    "x": 261,
+    "y": 489.29,
+    "text": "16"
+  },
+  {
+    "page": 7,
+    "x": 361,
+    "y": 489.29,
+    "text": "78.8 / 83.5* min"
+  },
+  {
+    "page": 7,
+    "x": 481,
+    "y": 489.29,
+    "text": "7.0 GiB"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 459.69,
+    "text": "Grown 12 → 16 at step 1,600"
+  },
+  {
+    "page": 7,
+    "x": 261,
+    "y": 459.69,
+    "text": "14"
+  },
+  {
+    "page": 7,
+    "x": 361,
+    "y": 459.69,
+    "text": "76.7* / 72.6 min"
+  },
+  {
+    "page": 7,
+    "x": 481,
+    "y": 459.69,
+    "text": "7.0 GiB"
+  },
+  {
+    "page": 7,
+    "x": 55,
+    "y": 430.09,
+    "text": "Grown 12 → 16 → 20 at steps 1,067, 2,133"
+  },
+  {
+    "page": 7,
+    "x": 261,
+    "y": 430.09,
+    "text": "16"
+  },
+  {
+    "page": 7,
+    "x": 361,
+    "y": 430.09,
+    "text": "80.5 / 81.7 min"
+  },
+  {
+    "page": 7,
+    "x": 481,
+    "y": 430.09,
+    "text": "8.1 GiB"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 395.49,
+    "text": "Training time summed over the logged intervals (stories / measured throughput), excluding pauses and repeated steps. * Resumed"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 383.79,
+    "text": "after an unplanned shutdown (the grown run before its switch step); the 16-from-scratch seed-43 run also shared the CPU with a"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 372.09,
+    "text": "data-preprocessing job. Grown 12 → 16 took 3–13% less time than 16 from scratch in these runs."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 350.39,
+    "text": "Confounds"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 325.39,
+    "text": "• Initialisation. Upstream scales the initial weights of residual projections by the number of layers, and looped models are built"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 313.19,
+    "text": "with the full number of applied layers (16 or 20) even while 12 are active. A grown model before its switch is not identical to"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 300.99,
+    "text": "the standard 12-layer model, and grown 12 → 16 → 20 differs in initialisation from 16 from scratch. The clean comparison is"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 288.79,
+    "text": "grown 12 → 16 against 16 from scratch: identical initial weights, same seed, system and code."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 273.59,
+    "text": "• System. The 12-layer baselines were trained and evaluated on Windows 10 (v0.1); all looped runs on Ubuntu."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 258.39,
+    "text": "• Independence. Seeds change initialisation and corruption and dropout noise; the data order is the same in every run, and"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 246.19,
+    "text": "both grown runs of a seed share one from-scratch reference. The four comparisons are not independent; two seeds probably"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 233.99,
+    "text": "underestimate run-to-run variance."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 218.79,
+    "text": "• Thresholds. 4.7% and 6.7% come from seed noise of standard generators at 51,200 stories and are reused at 409,600."
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 199.59,
+    "text": "Prior work"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 174.59,
+    "text": "Growing a looped transformer by increasing the number of loops during training is prior work: looping “provides a"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 161.79,
+    "text": "mechanism for model growth, by increasing the number of loops during training” [10]; UpLoop grows depth by copying"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 148.99,
+    "text": "learned layers and then loops a shared middle block [11]. Depth growth by stacking goes back to [6, 7]; looped,"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 136.19,
+    "text": "shared-weight transformers to [8]; looping has also been applied to masked diffusion language models [12]. The design"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 123.39,
+    "text": "here was inspired by Dory1.0-4B [9]. The contribution of this section is only the measurement on an NCM generator"
+  },
+  {
+    "page": 7,
+    "x": 48,
+    "y": 110.59,
+    "text": "trained on a 12 GB GPU."
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 8,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "DIAGNOSTICS"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
+  },
+  {
+    "page": 8,
+    "x": 547.28,
+    "y": 29,
+    "text": "08 / 11"
+  },
+  {
+    "page": 8,
+    "x": 48,
+    "y": 767.89,
+    "text": "6 Level 0: an observation, not a cause"
+  },
+  {
+    "page": 8,
     "x": 48,
     "y": 726.89,
     "text": "The coarsest code plays different roles in reconstruction and in the generator’s conditioning."
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 55,
     "y": 682.89,
     "text": "Diagnostic"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 281,
     "y": 682.89,
     "text": "Official tokenizer"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 389,
     "y": 682.89,
     "text": "Tokenizer trained here"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 55,
     "y": 653.89,
     "text": "Decoded tokens changed by an L0 swap"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 281,
     "y": 653.89,
     "text": "0.07%"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 389,
     "y": 653.89,
     "text": "4.0–5.5% in R12 batch-256 tokenizers"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 389,
     "y": 641.89,
     "text": "at 4,800+ steps"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 55,
     "y": 611.89,
     "text": "Generator loss rise after an L0 swap"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 281,
     "y": 611.89,
     "text": "+0.34 to +0.53 nats"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 389,
     "y": 611.89,
     "text": "About +0.25 to +0.29 nats in tested"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 389,
     "y": 599.89,
     "text": "models"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 55,
     "y": 569.89,
     "text": "Extra token errors: 10% corruption, levels 1–11"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 281,
     "y": 569.89,
     "text": "1.04%"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 389,
     "y": 569.89,
     "text": "1.14% at 38,400 steps"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 534.89,
     "text": "The official decoder is nearly insensitive to swapping level 0, yet the generator relies on that code: its loss rises"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 520.29,
     "text": "when level 0 comes from a different story. In several tokenizers trained here, the decoder is more sensitive. This"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 505.69,
     "text": "makes the role of level 0 a useful open question, not a demonstrated explanation of the PPL gap."
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 61,
     "y": 466.09,
     "text": "A counterexample matters"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 61,
     "y": 447.09,
     "text": "The tokenizer trained at batch 4,096 also has an almost inert level 0: only 0.05% of decoded tokens change when"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 61,
     "y": 433.59,
     "text": "it is swapped. Its Gen. PPL is still 100.36. An inert level 0 alone is therefore insufficient to reproduce the official"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 61,
     "y": 420.09,
     "text": "tokenizer’s result."
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 378.59,
     "text": "One held-out story, decoded from progressively more levels"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 353.59,
     "text": "Official tokenizer"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 353.59,
     "text": "R12 · 38,400 steps"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 330.59,
     "text": "LEVEL 0 ONLY  ·  8% tokens correct"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 315.59,
     "text": ".. was. the.. Tim. to...... the said.... the it.... the... . day. the.."
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 303.59,
     "text": "the.... ..... the.... the..... the...…"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 330.59,
     "text": "LEVEL 0 ONLY  ·  16% tokens correct"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 315.59,
     "text": "Once upon a time, in a big, big forest, there was a little bird."
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 303.59,
     "text": "The. loved to to to…"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 277.59,
     "text": "LEVELS 0–5  ·  78% tokens correct"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 262.59,
     "text": "Once upon a time, in a a warm place was there there was a big"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 250.59,
     "text": "pit. A boy named named Tom liked to play near…"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 277.59,
     "text": "LEVELS 0–5  ·  83% tokens correct"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 262.59,
     "text": "Once upon a time, in a warm and and place, there was a big"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 250.59,
     "text": "pit. A little boy named Tom Tom to play near the…"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 224.59,
     "text": "LEVELS 0–11  ·  100% tokens correct"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 209.59,
     "text": "Once upon a time, in a warm and sunny place, there was a big"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 197.59,
     "text": "pit. A little boy named Tom liked to play near…"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 224.59,
     "text": "LEVELS 0–11  ·  100% tokens correct"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 209.59,
     "text": "Once upon a time, in a warm and sunny place, there was a big"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 309.64,
     "y": 197.59,
     "text": "pit. A little boy named Tom liked to play near…"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 171.59,
     "text": "Illustration: validation story index 1, from figures/coarse_to_fine.json. Text excerpts are truncated. This is reconstruction from encoded"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 159.89,
     "text": "reference text, not free generation. Accuracy describes this one example, not an aggregate."
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 138.19,
     "text": "Random code substitutions probe decoder sensitivity; they do not reproduce the generator’s actual error distribution. Similar"
   },
   {
-    "page": 6,
+    "page": 8,
     "x": 48,
     "y": 125.69,
     "text": "aggregate damage at levels 1–11 cannot rule out per-level effects or correlated prediction errors."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 815.89,
     "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 547.28,
     "y": 815.89,
     "text": "DISCUSSION & ARTIFACTS"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 547.28,
     "y": 29,
-    "text": "07 / 08"
+    "text": "09 / 11"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 767.89,
-    "text": "6 What the study supports"
+    "text": "7 What the study supports"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 726.89,
     "text": "A practical training record with measurable gains; the full-budget explanation remains open."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 692.89,
     "text": "Supported conclusions"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 667.89,
     "text": "Data-based codebook initialisation is a strong"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 653.29,
     "text": "improvement in the tested short-budget comparison."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 638.69,
     "text": "The generator learns substantially faster with the"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 624.09,
     "text": "retuned short-run recipe. Extending tokenizer"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 609.49,
     "text": "training improves downstream PPL, but does not"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 594.89,
     "text": "match the official tokenizer."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 570.29,
     "text": "Short generator runs can reveal a large difference"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 555.69,
     "text": "between a fixed pair of tokenizers. They are less"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 541.09,
     "text": "reliable for nearby choices: the 4,800- versus"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 526.49,
     "text": "2,400-step ranking reverses when generator exposure"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 511.89,
     "text": "increases from 51,200 to 102,400 stories, with"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 497.29,
     "text": "differences within the study’s noise thresholds."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 692.89,
     "text": "Limits and next discriminating tests"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 667.89,
     "text": "The evidence covers one small English dataset, short"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 653.29,
     "text": "sequences, few training seeds and one automatic"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 638.69,
     "text": "text-quality metric. It does not establish competitive"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 624.09,
     "text": "general language ability, a new state of the art, or full"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 609.49,
     "text": "reproduction of the original NCM result."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 584.89,
     "text": "The next useful controls are a generator-budget"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 570.29,
     "text": "sweep on the 38,400-step tokenizer, an independent"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 555.69,
     "text": "tokenizer seed for the isolated restart effect, and"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 541.09,
     "text": "longer tokenizer training with matched batch and"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 526.49,
     "text": "schedule choices. A decoder-inert level 0 is a possible"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 309.64,
     "y": 511.89,
     "text": "experiment, not a validated remedy."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
     "y": 470.69,
     "text": "Prepared checkpoints and required pairings"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 55,
     "y": 435.69,
     "text": "Checkpoint"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 291,
     "y": 435.69,
     "text": "Result / pairing"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 55,
     "y": 406.69,
     "text": "R12 tokenizer, 38,400 steps, seed 42"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 291,
     "y": 406.69,
     "text": "91.46 with a 51,200-story generator; that generator is not in the"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 291,
     "y": 394.69,
     "text": "prepared model package."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 55,
     "y": 364.69,
     "text": "R12 tokenizer, 2,400 steps, seed 42"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 291,
     "y": 364.69,
     "text": "Required by the packaged generator on our tokenizer."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 55,
     "y": 334.69,
     "text": "Generator on R12, 409,600 stories, seed 42"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 291,
     "y": 334.69,
     "text": "42.76; pair only with the 2,400-step tokenizer."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 55,
     "y": 304.69,
     "text": "Generator on official tokenizer, same budget"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 291,
     "y": 304.69,
     "text": "26.04; official tokenizer is an upstream dependency."
   },
   {
-    "page": 7,
+    "page": 9,
+    "x": 55,
+    "y": 274.69,
+    "text": "v0.2: six looped generators, same budget"
+  },
+  {
+    "page": 9,
+    "x": 291,
+    "y": 274.69,
+    "text": "16 from scratch, grown 12 → 16, grown 12 → 16 → 20; seeds 42"
+  },
+  {
+    "page": 9,
+    "x": 291,
+    "y": 262.69,
+    "text": "and 43; 23.81–25.20 (on Hugging Face since v0.2)."
+  },
+  {
+    "page": 9,
     "x": 48,
-    "y": 269.69,
+    "y": 227.69,
     "text": "Weights: huggingface.co/janlu89/ncm-12gb. Mean results in the figures must not be confused with individual"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 256.19,
+    "y": 214.19,
     "text": "checkpoint scores. Different tokenizer checkpoints learn different code spaces and are not interchangeable for a fixed"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 242.69,
+    "y": 200.69,
     "text": "generator."
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 216.19,
+    "y": 174.19,
     "text": "Measured resource use"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 191.19,
+    "y": 149.19,
     "text": "On an RTX 3080 Ti, a 51,200-story generator run takes roughly 10–12 minutes and peaks at 7.0 GiB allocated by"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 177.69,
+    "y": 135.69,
     "text": "PyTorch; 409,600 stories take 62–70 minutes. A 38,400-step tokenizer takes about 3 h 15 min. Host: Intel i5-6600K,"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 164.19,
-    "text": "Windows 10, PyTorch 2.14.1 / CUDA 12.6. These are local timings for the specified configurations, not a total"
+    "y": 122.19,
+    "text": "PyTorch 2.14.1 / CUDA 12.6; Windows 10 for v0.1 runs, Ubuntu for v0.2 runs (looped generators at 409,600 stories:"
   },
   {
-    "page": 7,
+    "page": 9,
     "x": 48,
-    "y": 150.69,
-    "text": "project-cost estimate."
+    "y": 108.69,
+    "text": "74–84 min end to end, 7.0–8.1 GiB). Local timings, not a total project-cost estimate."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
     "y": 815.89,
     "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 547.28,
     "y": 815.89,
     "text": "REFERENCES & REPRODUCIBILITY"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
     "y": 29,
-    "text": "Gianluca Meola  ·  Research note v0.1  ·  November 2026"
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 547.28,
     "y": 29,
-    "text": "08 / 08"
+    "text": "10 / 11"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
     "y": 767.89,
-    "text": "7 Reproducibility and references"
+    "text": "8 Reproducibility and references"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
     "y": 726.89,
     "text": "The narrative is a guide to the evidence; configurations, logs and evaluation outputs remain the detailed record."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 55,
     "y": 682.89,
     "text": "Repository artifact"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
     "y": 682.89,
     "text": "Purpose"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 55,
     "y": 653.89,
     "text": "README.md / REPRODUCING.md"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
     "y": 653.89,
     "text": "Research overview; environment, upstream assets and exact"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 641.89,
+    "y": 642.89,
     "text": "training/evaluation commands."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 55,
-    "y": 611.89,
+    "y": 613.89,
     "text": "EXPERIMENTS.md"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 611.89,
-    "text": "Chronological questions, decision rules, results and limitations for"
+    "y": 613.89,
+    "text": "Chronological questions, decision rules, results and limitations for 22"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 599.89,
-    "text": "16 experiments."
+    "y": 602.89,
+    "text": "experiments."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 55,
-    "y": 569.89,
+    "y": 573.89,
     "text": "results/RUNS.md / results/runs_index.csv"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 569.89,
-    "text": "18 tokenizer runs, 77 evaluated generator runs, 5 interrupted or"
+    "y": 573.89,
+    "text": "20 tokenizer runs, 92 evaluated generator runs, 5 interrupted or"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 557.89,
+    "y": 562.89,
     "text": "cancelled runs."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 55,
-    "y": 527.89,
+    "y": 533.89,
     "text": "results/runs/<run>/"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 527.89,
-    "text": "Per-run configuration, logs, evaluation seeds and generated"
+    "y": 533.89,
+    "text": "Per-run configuration, logs, evaluation seeds and generated sample"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 515.89,
-    "text": "sample text."
+    "y": 522.89,
+    "text": "text."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 55,
-    "y": 485.89,
+    "y": 493.89,
     "text": "paper/build_paper.py / figure-data.json"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 281,
-    "y": 485.89,
+    "y": 493.89,
     "text": "Editable PDF source and exact run IDs behind the principal plots."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 450.89,
+    "y": 459.89,
     "text": "Training checkpoints support pause and resume. A deterministic short test matches uninterrupted training exactly; the"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 437.39,
-    "text": "reported research runs use the faster non-deterministic mode. Interrupted run folders are retained. The study does not"
+    "y": 447.69,
+    "text": "reported research runs use the faster non-deterministic mode. Interrupted run folders are retained. Building this document"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 423.89,
-    "text": "rerun or overwrite model weights when building this document."
+    "y": 435.49,
+    "text": "does not rerun or overwrite model weights. Licences and upstream attribution: LICENSE and third_party/."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 396.39,
+    "y": 417.29,
     "text": "Primary references"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 371.39,
+    "y": 392.29,
     "text": "[1] Kumbong, H., et al. (2026). Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation. arXiv:2610.14162."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 355.89,
+    "y": 381.39,
     "text": "arxiv.org/abs/2610.14162"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 334.89,
-    "text": "[2] Hazy Research. NCM: architecture code, evaluation scripts and released checkpoint references. Upstream revision is pinned"
+    "y": 369.79,
+    "text": "[2] Hazy Research. NCM: architecture code, evaluation scripts and released checkpoint references. Upstream revision is pinned in"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 322.39,
-    "text": "in third_party/README.md."
+    "y": 359.39,
+    "text": "third_party/README.md."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 306.89,
+    "y": 348.49,
     "text": "github.com/HazyResearch/ncm"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 285.89,
+    "y": 336.89,
     "text": "[3] HazyResearch/ncm, pull request #27. Prior early-restart stopping proposal and related codebook changes."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 270.39,
+    "y": 325.99,
     "text": "github.com/HazyResearch/ncm/pull/27"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 249.39,
+    "y": 314.39,
     "text": "[4] HazyResearch/ncm, issue #16. Discussion of code restarts and reconstruction versus generation."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 233.89,
+    "y": 303.49,
     "text": "github.com/HazyResearch/ncm/issues/16"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 212.89,
-    "text": "[5] Eldan, R., and Li, Y. (2023). TinyStories: How Small Can Language Models Be and Still Speak Coherent English? Dataset used"
+    "y": 291.89,
+    "text": "[5] Eldan, R., and Li, Y. (2023). TinyStories: How Small Can Language Models Be and Still Speak Coherent English? arXiv:2305.07759. Licence"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 200.39,
-    "text": "here through the NCM authors’ pre-tokenised release."
+    "y": 281.49,
+    "text": "CDLA-Sharing-1.0; used through the NCM authors’ pre-tokenised release."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 184.89,
+    "y": 270.59,
     "text": "huggingface.co/datasets/roneneldan/TinyStories"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 163.89,
-    "text": "Author and publication status"
+    "y": 258.99,
+    "text": "[6] Gong, L., et al. (2019). Efficient Training of BERT by Progressively Stacking. ICML 2019, PMLR 97."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 138.89,
-    "text": "Gianluca Meola · Independent research note · v0.1, 20 November 2026. Repository: github.com/janlu89/ncm-12gb. Code"
+    "y": 248.09,
+    "text": "proceedings.mlr.press/v97/gong19a.html"
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 126.39,
-    "text": "licensing and upstream attribution are recorded in LICENSE and third_party/."
+    "y": 236.49,
+    "text": "[7] Du, W., et al. (2024). Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training. NeurIPS 2024."
   },
   {
-    "page": 8,
+    "page": 10,
     "x": 48,
-    "y": 105.89,
+    "y": 225.59,
+    "text": "arxiv.org/abs/2405.15319"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 213.99,
+    "text": "[8] Dehghani, M., et al. (2019). Universal Transformers. ICLR 2019."
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 203.09,
+    "text": "arxiv.org/abs/1807.03819"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 191.49,
+    "text": "[9] Fishman, M., Sun, S., Acharya, S., Ladhak, F., Chmiel, B., Akle Serano, S., Banner, R., Ginsburg, B., Puvvada, K. C. (2026). Dory1.0-4B: A"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 181.09,
+    "text": "Looped Normalized-GPT. arXiv:2611.03998."
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 170.19,
+    "text": "arxiv.org/abs/2611.03998"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 158.59,
+    "text": "[10] Chen, Z., Vegesna, A., Dahal, S., Wilson, A. G. (2026). How Model Growth, Recursion, and Boundary Operators Influence Scaling"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 148.19,
+    "text": "Exponents. arXiv:2609.19107."
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 137.29,
+    "text": "arxiv.org/abs/2609.19107"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 125.69,
+    "text": "[11] Liang, C., et al. (2026). UpLoop: Training Looped Transformers via Upcycling at No Extra Pretraining Compute. arXiv:2610.41720."
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 114.79,
+    "text": "arxiv.org/abs/2610.41720"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 103.19,
+    "text": "[12] Lee, S., et al. (2026). Looped Diffusion Language Models. arXiv:2605.26106."
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 92.29,
+    "text": "arxiv.org/abs/2605.26106"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 78.69,
+    "text": "Gianluca Meola · Independent research note v0.2, 23 Nov 2026 (v0.1: 20 Nov 2026 UTC) · github.com/janlu89/ncm-12gb"
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 63.29,
     "text": "Contact: gianluca.meola89@gmail.com"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 815.89,
+    "text": "NCM  /  COMPUTE-CONSTRAINED TRAINING"
+  },
+  {
+    "page": 11,
+    "x": 547.28,
+    "y": 815.89,
+    "text": "VERSION HISTORY"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 29,
+    "text": "Gianluca Meola  ·  Research note v0.2  ·  November 2026"
+  },
+  {
+    "page": 11,
+    "x": 547.28,
+    "y": 29,
+    "text": "11 / 11"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 767.89,
+    "text": "9 Version history"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 726.89,
+    "text": "This note is updated as new experiments finish. Each version keeps earlier results unless a correction is listed."
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 682.89,
+    "text": "Version"
+  },
+  {
+    "page": 11,
+    "x": 97,
+    "y": 682.89,
+    "text": "Date"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 682.89,
+    "text": "What’s new"
+  },
+  {
+    "page": 11,
+    "x": 327,
+    "y": 682.89,
+    "text": "Conclusions"
+  },
+  {
+    "page": 11,
+    "x": 327,
+    "y": 671.89,
+    "text": "changed?"
+  },
+  {
+    "page": 11,
+    "x": 411,
+    "y": 682.89,
+    "text": "DOI"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 642.89,
+    "text": "v0.2"
+  },
+  {
+    "page": 11,
+    "x": 97,
+    "y": 642.89,
+    "text": "23 Nov 2026"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 642.89,
+    "text": "Looped generator grown in depth"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 631.29,
+    "text": "(section 5); two negative tokenizer tests;"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 619.69,
+    "text": "WSD and descent-branch tooling, not"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 608.09,
+    "text": "yet used; upstream checkpoint revision"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 596.49,
+    "text": "pinned"
+  },
+  {
+    "page": 11,
+    "x": 327,
+    "y": 642.89,
+    "text": "No; one finding"
+  },
+  {
+    "page": 11,
+    "x": 327,
+    "y": 631.29,
+    "text": "added"
+  },
+  {
+    "page": 11,
+    "x": 411,
+    "y": 642.89,
+    "text": "Assigned on release; all versions"
+  },
+  {
+    "page": 11,
+    "x": 411,
+    "y": 631.29,
+    "text": "10.5281/zenodo.24408540"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 566.89,
+    "text": "v0.1"
+  },
+  {
+    "page": 11,
+    "x": 97,
+    "y": 566.89,
+    "text": "20 Nov 2026"
+  },
+  {
+    "page": 11,
+    "x": 97,
+    "y": 555.29,
+    "text": "(UTC);"
+  },
+  {
+    "page": 11,
+    "x": 97,
+    "y": 543.69,
+    "text": "Zenodo 21"
+  },
+  {
+    "page": 11,
+    "x": 97,
+    "y": 532.09,
+    "text": "Nov"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 566.89,
+    "text": "Initial release: data-initialised"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 555.29,
+    "text": "codebooks, short-budget recipe,"
+  },
+  {
+    "page": 11,
+    "x": 161,
+    "y": 543.69,
+    "text": "remaining 1.39× tokenizer gap"
+  },
+  {
+    "page": 11,
+    "x": 327,
+    "y": 566.89,
+    "text": "—"
+  },
+  {
+    "page": 11,
+    "x": 411,
+    "y": 566.89,
+    "text": "10.5281/zenodo.24408541"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 497.49,
+    "text": "Best generator so far: this study, 409,600 stories, official tokenizer"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 462.49,
+    "text": "#"
+  },
+  {
+    "page": 11,
+    "x": 85,
+    "y": 462.49,
+    "text": "Gen. PPL"
+  },
+  {
+    "page": 11,
+    "x": 155,
+    "y": 462.49,
+    "text": "Change"
+  },
+  {
+    "page": 11,
+    "x": 464.28,
+    "y": 462.49,
+    "text": "Date"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 433.49,
+    "text": "1"
+  },
+  {
+    "page": 11,
+    "x": 85,
+    "y": 433.49,
+    "text": "25.88"
+  },
+  {
+    "page": 11,
+    "x": 155,
+    "y": 433.49,
+    "text": "12-layer standard generator (v0.1)"
+  },
+  {
+    "page": 11,
+    "x": 464.28,
+    "y": 433.49,
+    "text": "20 Nov 2026"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 403.89,
+    "text": "2"
+  },
+  {
+    "page": 11,
+    "x": 85,
+    "y": 403.89,
+    "text": "25.10"
+  },
+  {
+    "page": 11,
+    "x": 155,
+    "y": 403.89,
+    "text": "Looped, 16 applied layers, from scratch (more compute than #1)"
+  },
+  {
+    "page": 11,
+    "x": 464.28,
+    "y": 403.89,
+    "text": "23 Nov 2026"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 374.29,
+    "text": "3"
+  },
+  {
+    "page": 11,
+    "x": 85,
+    "y": 374.29,
+    "text": "24.52"
+  },
+  {
+    "page": 11,
+    "x": 155,
+    "y": 374.29,
+    "text": "Grown 12 → 16 at step 1,600 (12.5% fewer applied layers than #2)"
+  },
+  {
+    "page": 11,
+    "x": 464.28,
+    "y": 374.29,
+    "text": "23 Nov 2026"
+  },
+  {
+    "page": 11,
+    "x": 55,
+    "y": 344.69,
+    "text": "4"
+  },
+  {
+    "page": 11,
+    "x": 85,
+    "y": 344.69,
+    "text": "24.17"
+  },
+  {
+    "page": 11,
+    "x": 155,
+    "y": 344.69,
+    "text": "Grown 12 → 16 → 20 at steps 1,067, 2,133, ending at 20 layers (same average"
+  },
+  {
+    "page": 11,
+    "x": 155,
+    "y": 333.09,
+    "text": "applied layers as #2)"
+  },
+  {
+    "page": 11,
+    "x": 464.28,
+    "y": 344.69,
+    "text": "23 Nov 2026"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 298.49,
+    "text": "Means of two training seeds. Consecutive records differ by less than the 4.7% threshold; #3 and #4 against #1 (−5.3% and −6.6%)"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 286.79,
+    "text": "exceed it, both with more compute (14 and 16 applied layers on average against 12). Short-budget records of this study, not the"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 275.09,
+    "text": "authors’ full-budget model (15.41 in the paper; its October 2026 release scores 16.58 here)."
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 253.39,
+    "text": "Changes in v0.2"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 228.39,
+    "text": "• Added: section 5 and Figure 5 (looped generator grown in depth); experiments 17–22 in EXPERIMENTS.md; 17 run"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 215.39,
+    "text": "folders."
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 198.39,
+    "text": "• Negative: relative dead-code restart threshold (114.90 vs 106.54) and codebook EMA decay 0.9968 (157.80); one seed"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 185.39,
+    "text": "each."
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 168.39,
+    "text": "• Tooling, not yet used in a reported run: warmup-stable-decay schedule, run extension, descent branch, checkpoint"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 155.39,
+    "text": "evaluation; Linux launcher."
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 138.39,
+    "text": "• Upstream: “official” means the authors’ October 2026 release (revision d342ce8a), replaced on 23 Nov 2026; the new"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 125.39,
+    "text": "release was not evaluated."
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 108.39,
+    "text": "• Code fix: evaluation of the official generator (--official) broke while v0.2 was prepared and was fixed before release; no"
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 95.39,
+    "text": "published number affected."
+  },
+  {
+    "page": 11,
+    "x": 48,
+    "y": 78.39,
+    "text": "• Unchanged: all v0.1 results and conclusions; no v0.1 number corrected. Full list: CHANGELOG.md in the repository."
   }
 ]

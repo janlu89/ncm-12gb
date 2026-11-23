@@ -1,0 +1,18 @@
+# Micro-prova del 2026-11-22: memoria dei codici come l'ufficiale.
+# Tokenizer R12 identico a mytok-12std-dati-rv_614400_2400x256_s42 tranne il decay EMA 0,95 -> 0,9968 = 0,95^(256/4096)
+# (stessa memoria in storie dell'ufficiale a batch 4.096). Lanciato a parte, prima di questo ciclo.
+# Generatore standard a 51.200 storie, ricetta migliore, seed 42. Regola: docs/esperimenti/2026-11-22_decay-ema.md.
+nome: 2026-11-22_decay-ema
+riferimento: R12
+rumore: [R12, R12_s43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: R12, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "R12, decay 0,95 (gia fatto)", overrides: [train.seed=42]}
+  - {id: R12_s43, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s43, descr: "R12, decay 0,95, seed 43 (gia fatto)", overrides: [train.seed=43]}
+  - {id: D9968, descr: "R12 con decay 0,9968", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rv-d9968_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

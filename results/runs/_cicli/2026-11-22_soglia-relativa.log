@@ -1,0 +1,71 @@
+[nome] mytok-12std-dati-rvrel_614400_2400x256_s42
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+[tokenizer] 12 livelli (ufficiale), 641 codici per storia, 641 posizioni per il generatore: [1, 8, 16, 24, 32, 40, 52, 64, 76, 92, 108, 128]
+[W1122 15:14:21.650148147 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 956301312 bytes (free: 878575616, total: 12486836224).
+[W1122 15:14:24.324590409 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1610612736 bytes (free: 960364544, total: 12486836224).
+[tokenizer] codebook inizializzati dai dati (8192 storie)
+passo 50/2400 loss 7.7296 lr 2.08e-04 gnorm 1.86 845 seq/s GPU 52°C 280.21W
+passo 100/2400 loss 4.2027 lr 4.17e-04 gnorm 1.21 880 seq/s GPU 56°C 286.52W
+passo 150/2400 loss 2.4197 lr 5.00e-04 gnorm 0.27 891 seq/s GPU 60°C 285.09W
+passo 200/2400 loss 6.2315 lr 4.99e-04 gnorm 1.48 891 seq/s GPU 63°C 287.67W
+passo 250/2400 loss 1.6076 lr 4.96e-04 gnorm 0.30 889 seq/s GPU 67°C 289.06W
+passo 300/2400 loss 5.5487 lr 4.93e-04 gnorm 1.82 890 seq/s GPU 69°C 293.45W
+passo 350/2400 loss 2.7395 lr 4.89e-04 gnorm 0.75 882 seq/s GPU 69°C 287.85W
+passo 400/2400 loss 6.3129 lr 4.84e-04 gnorm 1.00 884 seq/s GPU 70°C 288.72W
+passo 450/2400 loss 6.2463 lr 4.77e-04 gnorm 1.11 885 seq/s GPU 70°C 289.81W
+passo 500/2400 loss 1.1779 lr 4.70e-04 gnorm 0.11 886 seq/s GPU 71°C 291.63W
+passo 550/2400 loss 3.3109 lr 4.62e-04 gnorm 0.59 886 seq/s GPU 71°C 289.05W
+passo 600/2400 loss 1.1404 lr 4.53e-04 gnorm 0.12 886 seq/s GPU 72°C 288.51W
+passo 650/2400 loss 1.1090 lr 4.43e-04 gnorm 0.12 885 seq/s GPU 72°C 287.48W
+passo 700/2400 loss 1.1493 lr 4.32e-04 gnorm 0.14 886 seq/s GPU 72°C 290.83W
+passo 750/2400 loss 1.1265 lr 4.21e-04 gnorm 0.17 887 seq/s GPU 71°C 290.74W
+passo 800/2400 loss 2.0374 lr 4.09e-04 gnorm 0.34 887 seq/s GPU 71°C 292.89W
+[eval] passo 800: val_loss=0.354 acc_token=0.9542 acc_token_senza_pad=0.954 sequenze_perfette=0.0542 norma_codebook_max=19.6 norma_codebook_l0_mediana=19.6 codici_usati_media=0.2961 acc_per_livello=[0.11257, 0.13882, 0.17636, 0.24027, 0.33642, 0.39073, 0.49097, 0.69736, 0.77279, 0.83741, 0.88518, 0.95419] codici_usati_per_livello=[0.0049, 0.0156, 0.0515, 0.1716, 0.342, 0.272, 0.3516, 0.4548, 0.3933, 0.4636, 0.46, 0.5723]
+passo 850/2400 loss 1.0861 lr 3.96e-04 gnorm 0.09 532 seq/s GPU 72°C 299.76W
+passo 900/2400 loss 1.0849 lr 3.82e-04 gnorm 0.10 890 seq/s GPU 72°C 294.85W
+passo 950/2400 loss 1.0959 lr 3.68e-04 gnorm 0.21 889 seq/s GPU 72°C 300.33W
+passo 1000/2400 loss 1.1066 lr 3.54e-04 gnorm 0.10 889 seq/s GPU 73°C 298.27W
+passo 1050/2400 loss 2.3685 lr 3.39e-04 gnorm 0.46 889 seq/s GPU 72°C 297.99W
+passo 1100/2400 loss 2.2792 lr 3.25e-04 gnorm 0.43 889 seq/s GPU 72°C 297.65W
+passo 1150/2400 loss 4.8649 lr 3.09e-04 gnorm 0.49 889 seq/s GPU 73°C 300.5W
+passo 1200/2400 loss 1.1055 lr 2.94e-04 gnorm 0.11 889 seq/s GPU 72°C 294.87W
+passo 1250/2400 loss 1.0818 lr 2.78e-04 gnorm 0.09 898 seq/s GPU 72°C 298.6W
+passo 1300/2400 loss 1.0670 lr 2.63e-04 gnorm 0.08 899 seq/s GPU 72°C 298.07W
+passo 1350/2400 loss 1.0706 lr 2.47e-04 gnorm 0.07 899 seq/s GPU 72°C 298.58W
+passo 1400/2400 loss 3.4290 lr 2.32e-04 gnorm 0.32 899 seq/s GPU 72°C 297.96W
+passo 1450/2400 loss 6.1970 lr 2.17e-04 gnorm 1.22 899 seq/s GPU 73°C 300.15W
+passo 1500/2400 loss 1.0162 lr 2.02e-04 gnorm 0.10 894 seq/s GPU 73°C 297.22W
+passo 1550/2400 loss 1.0023 lr 1.88e-04 gnorm 0.06 893 seq/s GPU 72°C 299.68W
+passo 1600/2400 loss 0.9769 lr 1.74e-04 gnorm 0.07 891 seq/s GPU 73°C 295.04W
+[eval] passo 1600: val_loss=0.2156 acc_token=0.9717 acc_token_senza_pad=0.9716 sequenze_perfette=0.1714 norma_codebook_max=19.59 norma_codebook_l0_mediana=0.001301 codici_usati_media=0.4285 acc_per_livello=[0.13737, 0.16164, 0.19999, 0.26475, 0.36193, 0.42398, 0.52954, 0.73598, 0.80944, 0.87046, 0.912, 0.97171] codici_usati_per_livello=[0.0046, 0.1589, 0.1768, 0.2637, 0.4214, 0.387, 0.4763, 0.6221, 0.5652, 0.6262, 0.6057, 0.834]
+passo 1650/2400 loss 4.7085 lr 1.60e-04 gnorm 0.46 530 seq/s GPU 73°C 294.71W
+passo 1700/2400 loss 0.9895 lr 1.47e-04 gnorm 0.10 889 seq/s GPU 72°C 297.46W
+passo 1750/2400 loss 0.9902 lr 1.35e-04 gnorm 0.07 890 seq/s GPU 72°C 295.47W
+passo 1800/2400 loss 1.6543 lr 1.23e-04 gnorm 0.17 884 seq/s GPU 72°C 296.02W
+passo 1850/2400 loss 5.2803 lr 1.12e-04 gnorm 0.78 894 seq/s GPU 73°C 299.46W
+passo 1900/2400 loss 0.9559 lr 1.02e-04 gnorm 0.08 893 seq/s GPU 72°C 298.04W
+passo 1950/2400 loss 5.8491 lr 9.21e-05 gnorm 0.47 893 seq/s GPU 72°C 295.7W
+passo 2000/2400 loss 0.9398 lr 8.35e-05 gnorm 0.05 881 seq/s GPU 72°C 298.5W
+passo 2050/2400 loss 0.9489 lr 7.58e-05 gnorm 0.06 893 seq/s GPU 73°C 298.18W
+passo 2100/2400 loss 0.9237 lr 6.91e-05 gnorm 0.05 894 seq/s GPU 72°C 298.54W
+passo 2150/2400 loss 0.9503 lr 6.33e-05 gnorm 0.06 895 seq/s GPU 72°C 299.65W
+passo 2200/2400 loss 0.9288 lr 5.86e-05 gnorm 0.05 896 seq/s GPU 73°C 298.85W
+passo 2250/2400 loss 1.8881 lr 5.49e-05 gnorm 0.19 894 seq/s GPU 72°C 297.95W
+passo 2300/2400 loss 3.8298 lr 5.22e-05 gnorm 0.35 896 seq/s GPU 72°C 298.51W
+passo 2350/2400 loss 1.8623 lr 5.06e-05 gnorm 0.23 897 seq/s GPU 72°C 299.92W
+passo 2400/2400 loss 0.9219 lr 5.00e-05 gnorm 0.05 894 seq/s GPU 72°C 295.85W
+[eval] passo 2400: val_loss=0.1317 acc_token=0.9837 acc_token_senza_pad=0.9837 sequenze_perfette=0.3533 norma_codebook_max=19.59 norma_codebook_l0_mediana=1.963e-21 codici_usati_media=0.4636 acc_per_livello=[0.14189, 0.16459, 0.20871, 0.28126, 0.38694, 0.45157, 0.55765, 0.75616, 0.83025, 0.88759, 0.92579, 0.98372] codici_usati_per_livello=[0.0049, 0.0818, 0.188, 0.2656, 0.4412, 0.4163, 0.5168, 0.7256, 0.6406, 0.6963, 0.6555, 0.9304]
+[checkpoint] passo 2400 salvato (fine, 0.5s)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+[export] ./runs/mytok-12std-dati-rvrel_614400_2400x256_s42/export: acc_token 0.98372, sequenze perfette 0.3533, codici uguali a upstream 1.000000, instabili 0.00039
+done
+[ciclo] 15:26 training REL (gen-mytok12std-dati-rvrel-2400x256_51200_400x128_c50_lr1e-3_flex_s42)
+[ciclo] 15:39 valutazione Gen. PPL di REL
+ 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-mytok12std-dati-rvrel-2400x256_51200_400x128_c50_lr1e-3_flex_s42/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 114.90 ± 2.05 | entropia 3.8668 | 1280 campioni | 46s -> ./runs/gen-mytok12std-dati-rvrel-2400x256_51200_400x128_c50_lr1e-3_flex_s42/eval/genppl
+ 
+[ciclo] 15:40 completato
+[ciclo] tabella: ./runs/_cicli/2026-11-22_soglia-relativa.md

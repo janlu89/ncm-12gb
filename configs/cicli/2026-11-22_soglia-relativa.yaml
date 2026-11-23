@@ -1,0 +1,18 @@
+# Micro-prova del 2026-11-22: soglia del riavvio relativa alla quota del livello.
+# Tokenizer R12 identico a mytok-12std-dati-rv_614400_2400x256_s42 tranne tokenizer.rimedi.riavvio_soglia_relativa=true
+# (lanciato a parte, prima di questo ciclo). Sopra, il generatore standard a 51.200 storie, ricetta migliore, seed 42.
+# Regola di lettura in docs/esperimenti/2026-11-22_soglia-riavvio.md.
+nome: 2026-11-22_soglia-relativa
+riferimento: R12
+rumore: [R12, R12_s43]
+base_overrides:
+  - train.steps=400
+  - train.accum=8
+  - train.warmup=20
+  - train.eval_every=200
+  - train.log_every=10
+  - train.keep_ckpts=1
+runs:
+  - {id: R12, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s42, descr: "R12, soglia fissa (gia fatto)", overrides: [train.seed=42]}
+  - {id: R12_s43, run: gen-mytok12std-dati-rv-2400x256_51200_400x128_c50_lr1e-3_flex_s43, descr: "R12, soglia fissa, seed 43 (gia fatto)", overrides: [train.seed=43]}
+  - {id: REL, descr: "R12 con soglia relativa", overrides: [train.seed=42, base_config=runs/mytok-12std-dati-rvrel_614400_2400x256_s42/export/config.yaml, data.codes_file=null, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4]}

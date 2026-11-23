@@ -1,0 +1,45 @@
+{
+  "genppl_mean": 60.91,
+  "genppl_std": 0.85,
+  "entropy_mean": 3.9463,
+  "per_seed": [
+    {
+      "seed": 42,
+      "genppl": 61.05,
+      "entropy": 3.9409
+    },
+    {
+      "seed": 0,
+      "genppl": 60.48,
+      "entropy": 3.9462
+    },
+    {
+      "seed": 1,
+      "genppl": 62.13,
+      "entropy": 3.9531
+    },
+    {
+      "seed": 2,
+      "genppl": 59.84,
+      "entropy": 3.9542
+    },
+    {
+      "seed": 3,
+      "genppl": 61.06,
+      "entropy": 3.9372
+    }
+  ],
+  "n_samples": 1280,
+  "samples_per_seed": 256,
+  "ref_model": "./evaluation/ref_models/gpt2-large",
+  "checkpoint_dir": "./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s42/export",
+  "secondi_generazione": 24.3,
+  "secondi_totali": 48.5,
+  "comando": [
+    "~/venv/ncm/bin/python",
+    "./evaluation/gen_ppl_run.py",
+    "--run",
+    "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s42"
+  ],
+  "data": "2026-11-22 18:25:27"
+}

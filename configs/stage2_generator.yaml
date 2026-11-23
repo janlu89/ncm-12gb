@@ -51,6 +51,8 @@ train:
   lr: 3.0e-4
   min_lr: 3.0e-5
   warmup: 500
+  schedule: cosine       # cosine (come prima) | wsd: lr costante + discesa negli ultimi decay_steps (0 = allungabile, 2026-11-22)
+  decay_steps: 0
   weight_decay: 0.1
   betas: [0.9, 0.95]
   grad_clip: 1.0
@@ -65,3 +67,6 @@ train:
   compile: true         # torch.compile del forward (triton-windows 3.8.0.post29): x1,42 misurato, vedi docs/riferimenti/misure-hardware.md
   compile_mode: default
   debug_stop_at_step: null
+
+# Generatore a cicli (2026-11-22): null = normale; es. {prima: 4, blocco: 2, ripetizioni: 2, dopo: 4}
+cicli: null

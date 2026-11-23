@@ -188,5 +188,109 @@
     "values": [
       "90.27"
     ]
+  },
+  "growth 409600: 12 layers, standard": {
+    "mean_gen_ppl": "25.875",
+    "runs": [
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "26.04",
+      "25.71"
+    ]
+  },
+  "growth 409600: 16 applied, from scratch": {
+    "mean_gen_ppl": "25.1",
+    "runs": [
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s42",
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4_s43"
+    ],
+    "values": [
+      "25.2",
+      "25.0"
+    ]
+  },
+  "growth 409600: Grown 12 \u2192 16": {
+    "mean_gen_ppl": "24.515",
+    "runs": [
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce1600_s42",
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce1600_s43"
+    ],
+    "values": [
+      "24.78",
+      "24.25"
+    ]
+  },
+  "growth 409600: Grown 12 \u2192 16 \u2192 20": {
+    "mean_gen_ppl": "24.17",
+    "runs": [
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x3-4-cresce1067-2133_s42",
+      "gen-tokuff_409600_3200x128_c50_lr1e-3_flex_cicli4-4x3-4-cresce1067-2133_s43"
+    ],
+    "values": [
+      "24.53",
+      "23.81"
+    ]
+  },
+  "growth 51200: 12": {
+    "mean_gen_ppl": "66.255",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s42",
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_s43"
+    ],
+    "values": [
+      "65.89",
+      "66.62"
+    ]
+  },
+  "growth 51200: 4+2x2+4": {
+    "mean_gen_ppl": "64.18",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-2x2-4_s42"
+    ],
+    "values": [
+      "64.18"
+    ]
+  },
+  "growth 51200: 16": {
+    "mean_gen_ppl": "65.55",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s42",
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4_s43"
+    ],
+    "values": [
+      "64.85",
+      "66.25"
+    ]
+  },
+  "growth 51200: 20": {
+    "mean_gen_ppl": "64.43",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4_s42"
+    ],
+    "values": [
+      "64.43"
+    ]
+  },
+  "growth 51200: grow16": {
+    "mean_gen_ppl": "64.58",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s42",
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s43"
+    ],
+    "values": [
+      "60.91",
+      "68.25"
+    ]
+  },
+  "growth 51200: grow20": {
+    "mean_gen_ppl": "62.46",
+    "runs": [
+      "gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x3-4-cresce133-266_s42"
+    ],
+    "values": [
+      "62.46"
+    ]
   }
 }

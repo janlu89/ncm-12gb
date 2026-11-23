@@ -1,7 +1,7 @@
 # Experiment log
 
 *Training a Next-Concept Model on a single 12 GB GPU* — Gianluca Meola. NCM paper: arXiv 2610.14162.
-All experiments of 2026-11-16 to 2026-11-20, in chronological order. Data: `results/runs/<run>/`, `results/runs_index.csv`, cycle tables in `results/runs/_cicli/`.
+All experiments of 2026-11-16 to 2026-11-23, in chronological order (sections 1-16: v0.1; sections 17-22: added in v0.2). Data: `results/runs/<run>/`, `results/runs_index.csv`, cycle tables in `results/runs/_cicli/`.
 
 ## How the experiments were run
 
@@ -11,8 +11,10 @@ All experiments of 2026-11-16 to 2026-11-20, in chronological order. Data: `resu
 - Entropy of the generated text is a guard: not more than 0.1 below the reference, otherwise a low Gen. PPL may just be repetitive text.
 - Thresholds, from the seed noise measured at 51,200 stories (2.4% per run): 6.7% between single runs, 4.7% between means of two seeds. The first cycles used earlier thresholds, given in their sections.
 - "Seed" = model initialisation/training seed (42, 43); the data order is fixed.
+- "Official tokenizer" and "official generator" = the authors' TinyStories release of 14-16 October 2026 (`hazyresearch/ncm-checkpoints`, revision `d342ce8aaea58830eef3b8ad473664673e41f692`), in every section. The authors replaced these files on 23 November 2026; the new release was not evaluated.
+- The verdict line at the bottom of each cycle table in `results/runs/_cicli/` applies an automatic 5% single-run rule against the cycle's reference run (and may compare different seeds); it is a screening aid, not the decision rule. Decisions use the rules stated in each section below.
 - Decision rules were written before looking at the data. Gen. PPL decides; validation loss and reconstruction are reported only, and losses are not comparable across tokenizers.
-- All trainings are short: as reported in the paper (Tables 5-6), the official tokenizer saw about 123 million stories and the official generator 102 million; my longest runs saw 9.8 million and 409,600.
+- All trainings are short: the paper (Tables 5-6) reports training its tokenizer on about 123 million stories and its generator on 102 million (budgets reported in the paper, not stated separately for the released checkpoints); my longest runs saw 9.8 million and 409,600.
 
 ## Glossary
 
@@ -30,14 +32,18 @@ All experiments of 2026-11-16 to 2026-11-20, in chronological order. Data: `resu
 | best recipe (`c50_lr1e-3_flex`) | Constant corruption 0.5 + FlexAttention + lr 1e-3 |
 | `cNN`, `lin25-75`, `unif0-100`, trailing `l0` | Constant corruption 0.NN; linear increasing; one rate per story; level 0 corrupted too |
 | standard generator | 88.6M parameters, 51,200 stories |
+| `cicli<a>-<b>x<r>-<c>` | Looped generator (v0.2): a layers, a block of b layers applied r times with shared weights, c layers; e.g. 4 + 4×2 + 4 = 16 applied layers |
+| `-cresce<k>`, `-cresce<k2>-<k3>` | Grown looped generator: repetitions after the first switched on at step k, or repetition 2 at k2 and 3 at k3 |
+| `-rvrel`, `-d9968` | Tokenizer with dead-code restart threshold relative to each level; with codebook EMA decay 0.9968 |
+| applied layers | Transformer layers evaluated per forward pass; a repeated block counts once per repetition. Averaged over the training steps it is used as a compute proxy, not a FLOP count |
 | `-pNNNN`, `-ts43` | Generator on a tokenizer snapshot at step NNNN; on a tokenizer trained with seed 43 |
 | codes in use | Distinct codes chosen on 4,096 validation stories, out of 4,096 per level (`codici_usati`) |
 | live codes | Codes whose usage statistic in the codebook is at least 0.1 |
 | perfect stories | Perfectly reconstructed validation stories (`sequenze_perfette`) |
 | cycle | Runs compared in one table (`configs/cicli/`); `_interrotta`, `_annullata` = interrupted, cancelled, never used |
-| Italian words in file names | `ciclo` cycle, `catena` chain of cycles, `conferme` confirmations, `tenuta` hold-up, `coda` tail, `ricetta` recipe, `passi` steps, `rimedi` remedies, `calibrazione` calibration, `livelli` levels, `generatore-lungo` long generator, `norma` normalisation, `ufficiale` official |
+| Italian words in file names | `cicli` loops (in run names) or cycles (in folder names), `crescita`/`cresce` growth/grows, `soglia` threshold, `discesa` descent, `ciclo` cycle, `catena` chain of cycles, `conferme` confirmations, `tenuta` hold-up, `coda` tail, `ricetta` recipe, `passi` steps, `rimedi` remedies, `calibrazione` calibration, `livelli` levels, `generatore-lungo` long generator, `norma` normalisation, `ufficiale` official |
 
-**Index:** [1 Reference](#1-reference-measurements-on-the-official-checkpoints) · [2 Resume](#2-pause-and-resume) · [3 First run](#3-first-generator-run-and-gen-ppl-protocol-check) · [4 Cycles 1-2](#4-cycles-1-and-2-input-corruption-and-flexattention) · [5 Cycle 3](#5-cycle-3-budget-low-corruption-rates-learning-rate) · [6 Batch](#6-tokenizer-batch-size-judged-on-reconstruction) · [7 First tokenizer](#7-my-first-tokenizer-against-the-official-one) · [8 Fix](#8-is-my-tokenizer-fix-really-a-fix) · [9 Remedies](#9-remedies-against-code-collapse) · [10 Levels](#10-number-of-levels) · [11 Doubling](#11-tokenizer-training-doubled) · [12 Batch on text](#12-tokenizer-batch-size-judged-on-generated-text) · [13 Test C](#13-test-c-official-tokenizer-with-exact-codes) · [14 Test A](#14-test-a-generator-four-times-longer) · [15 Test B](#15-test-b-two-extremes-on-the-tokenizer) · [16 Fragility](#16-where-are-my-codes-fragile)
+**Index:** [1 Reference](#1-reference-measurements-on-the-official-checkpoints) · [2 Resume](#2-pause-and-resume) · [3 First run](#3-first-generator-run-and-gen-ppl-protocol-check) · [4 Cycles 1-2](#4-cycles-1-and-2-input-corruption-and-flexattention) · [5 Cycle 3](#5-cycle-3-budget-low-corruption-rates-learning-rate) · [6 Batch](#6-tokenizer-batch-size-judged-on-reconstruction) · [7 First tokenizer](#7-my-first-tokenizer-against-the-official-one) · [8 Fix](#8-is-my-tokenizer-fix-really-a-fix) · [9 Remedies](#9-remedies-against-code-collapse) · [10 Levels](#10-number-of-levels) · [11 Doubling](#11-tokenizer-training-doubled) · [12 Batch on text](#12-tokenizer-batch-size-judged-on-generated-text) · [13 Test C](#13-test-c-official-tokenizer-with-exact-codes) · [14 Test A](#14-test-a-generator-four-times-longer) · [15 Test B](#15-test-b-two-extremes-on-the-tokenizer) · [16 Fragility](#16-where-are-my-codes-fragile) · [17 Restart threshold](#17-dead-code-restart-threshold-relative-to-each-level) · [18 EMA decay](#18-codebook-ema-decay-matching-the-official-memory) · [19 Looped generator](#19-a-looped-generator) · [20 Growth](#20-growing-the-looped-generator) · [21 Growth confirmation](#21-growth-second-seed-three-stages-409600-stories) · [22 Growth, second seed](#22-growth-at-409600-stories-second-seed) · [Tooling added in v0.2](#tooling-added-in-v02-not-yet-used-in-an-experiment)
 
 ---
 
@@ -92,7 +98,7 @@ Step-12 loss 8.2682213783 in all three. Stop-file pause on a 400-step run: stopp
 | Official, as reported in the paper | 15.41 | — | 3.98 |
 | 300-step run | 214.07 | 5.24 | 3.890 |
 
-- **Conclusion.** The script learns; fine levels learn much faster than coarse ones (L1, L2 almost flat). The acceptance test passed at its upper edge. The +1.2 from the paper is unexplained (unverified guesses: library version, sampling differences); all later comparisons refer to my 16.58. Sampling-seed noise is about 3% of the value. Nothing can be extrapolated from 300 steps (the learning rate had already reached its minimum). Unverified: with an unweighted per-code loss level 1 is 8/640 of the loss, so coarse levels get little signal.
+- **Conclusion.** The script learns; fine levels learn much faster than coarse ones (L1, L2 almost flat). The acceptance test passed at its upper edge. The +1.2 from the paper is unexplained (unverified guesses: library version, sampling differences); all later comparisons refer to my 16.58. (Added in v0.2: the authors replaced this checkpoint on 23 November 2026 and report 15.40 for the new release in their commit message; not remeasured here.) Sampling-seed noise is about 3% of the value. Nothing can be extrapolated from 300 steps (the learning rate had already reached its minimum). Unverified: with an unweighted per-code loss level 1 is 8/640 of the loss, so coarse levels get little signal.
 
 ## 4. Cycles 1 and 2: input corruption and FlexAttention
 
@@ -353,7 +359,7 @@ Validation loss per level at 409,600 stories (seed 42), official / mine: L1 6.52
 
 Largest code norm: 20 with normalisation, 32,986 without (75 at step 1,600, 10,849 at step 3,200). Generator validation loss: 3.809 (base), 4.020 (no normalisation), 3.954 → 4.033 → 4.015 along the long run; it rises while the text improves.
 
-- **Conclusion.** Removing the normalisation loses (one tokenizer seed): the code scale drifts and level 0 uses 3.4 times more codes, but the text is worse. Longer training wins, confirmed on two tokenizer seeds, but does not close the gap: the ratio goes from 1.57 to 1.39, about a third of the distance (12.2 points of 37.7). I measure no further gain after the 19,200-step snapshot (90.27 and 91.46 are equal within noise); this rests on intermediate snapshots of one run (seed 42) with the learning rate still decaying, so it is not proof of a plateau. The two 38,400-step tokenizers are almost identical internally; the base has one tokenizer seed. Code counts do not decide pairwise: level-0 codes rise from 361 to 500 with no change in the text, and the no-normalisation arm has more codes and worse text. Across all my tokenizers, however, overall code usage does rank them, while reconstruction does not (section 16). A gap of about 1.4× remains: not closed by training up to 38,400 steps (the official tokenizer saw 12.5 times more stories, so tokenizer training remains a possible explanation) while the tested changes to batch size, normalisation and numerical precision did not eliminate the gap. The generator-budget sweep used the shorter 2,400-step tokenizer and therefore does not directly explain this 1.4× residual gap. Unverified candidates: loss weights, codebook update, large batch together with long training.
+- **Conclusion.** Removing the normalisation loses (one tokenizer seed): the code scale drifts and level 0 uses 3.4 times more codes, but the text is worse. Longer training wins, confirmed on two tokenizer seeds, but does not close the gap: the ratio goes from 1.57 to 1.39, about a third of the distance (12.2 points of 37.7). I measure no further gain after the 19,200-step snapshot (90.27 and 91.46 are equal within noise); this rests on intermediate snapshots of one run (seed 42) with the learning rate still decaying, so it is not proof of a plateau. The two 38,400-step tokenizers are almost identical internally; the base has one tokenizer seed. Code counts do not decide pairwise: level-0 codes rise from 361 to 500 with no change in the text, and the no-normalisation arm has more codes and worse text. Across all my tokenizers, however, overall code usage does rank them, while reconstruction does not (section 16). A gap of about 1.4× remains: not closed by training up to 38,400 steps (the paper reports 12.5 times more stories for its tokenizer, so tokenizer training remains a possible explanation) while the tested changes to batch size, normalisation and numerical precision did not eliminate the gap. The generator-budget sweep used the shorter 2,400-step tokenizer and therefore does not directly explain this 1.4× residual gap. Unverified candidates: loss weights, codebook update, large batch together with long training.
 
 ## 16. Where are my codes fragile
 
@@ -398,3 +404,154 @@ Spearman correlation with Gen. PPL (all 11 / my 10): clean reconstruction error 
   4. Reconstruction does not rank tokenizers: the batch-4,096 one gets 6.2% of tokens wrong and generates as well as the 4,800-step one (0.7%). Overall code usage does rank them, with pairwise exceptions such as the arm without level-0 normalisation (more codes in use, worse text). This is a rank correlation over 10 tokenizers, each trained once, two of them snapshots of one run.
 
   Limits: no training; one seed per tokenizer; random errors are not a generator's real errors, so this measures the sensitivity of decoding. Not run: a tokenizer whose level 0 does not contribute to decoding, judged with a generator.
+
+## 17. Dead-code restart threshold relative to each level
+
+*2026-11-22*
+
+- **Question.** The dead-code restart of R12 uses one fixed threshold (usage statistic below 0.1) at every level. At the coarsest levels a code used at the normal, uniform rate may fall below it. Does this keep level 0 nearly empty, and does a threshold relative to each level help the generated text?
+- **Setup.** First a check without training: the EMA usage statistics (`ema_cluster_size_<i>`) of the R12 checkpoint `mytok-12std-dati-rv_614400_2400x256_s42` at step 2,400, read with `evaluation/soglia_riavvio_per_livello.py`, and the per-level code usage in the logs of that run and of the 38,400-step run. Then one tokenizer, `mytok-12std-dati-rvrel_614400_2400x256_s42`: identical to R12 at 2,400 steps except `tokenizer.rimedi.riavvio_soglia_relativa=true` (threshold = 0.1 × vectors seen per step / 4,096 codes: 0.00625 at level 0, 0.05 at level 1, 0.8 at level 11). Judge: standard generator, best recipe, seed 42 (`configs/cicli/2026-11-22_soglia-relativa.yaml`). First training run on Linux; the R12 baseline was trained on Windows 10, so small numerical differences are possible.
+- **Decision rule.** Against R12 seed 42 (106.54), 6.7% between single runs: wins below 99.4, loses above 113.7, no measurable effect in between; entropy guard as usual. Codes in use at levels 0-2 reported, Gen. PPL decides.
+- **Results.** Check without training (R12, batch 256):
+
+| Level | Vectors per step | Mean statistic per code if usage were uniform | Codes below 0.1 |
+|---|---|---|---|
+| 0 | 256 | **0.0625** | 4,078 / 4,096 |
+| 1 | 2,048 | 0.50 | 3,914 |
+| 2 | 4,096 | 1.00 | 3,585 |
+| 3 | 6,144 | 1.50 | 3,148 |
+| 11 | 32,768 | 8.00 | 258 |
+
+Level-0 codes in use in the 2,400-step run: 0.22% at step 800 (restart active), 0.27% at 1,600, 0.54% at 2,400 (restart ended at 1,200). In the 38,400-step run level 0 keeps filling after the restart ends: 2.4% at step 4,800, 12.2% at 38,400.
+
+| Tokenizer | Gen. PPL | Entropy | Codes in use L0 / L1 / L2 at step 2,400 | Perfect stories |
+|---|---|---|---|---|
+| R12, fixed threshold (seed 42 / 43 of the generator) | 106.54 / 109.80 | 3.873 / 3.870 | 0.54% / 9.5% / 19.5% | 39.9% |
+| R12, relative threshold (seed 42) | **114.90** (+7.8%) | 3.867 | 0.49% / 8.2% / 18.8% | 35.3% |
+
+- **Conclusion.** The mechanism is real: at level 0 the fixed threshold is above the uniform share of a code (0.0625 < 0.1), so while the restart is active it is expected to replace all but the most used level-0 codes. Making the threshold relative does not help: it loses by the rule (one tokenizer, one generator seed) and level 0 does not fill. The fixed threshold is therefore not what keeps level 0 nearly empty, and the remaining 1.39× gap stays unexplained. The relative threshold also restarts more codes at the fine levels (threshold 0.8 at level 11), which may explain the small loss; that is not tested separately. The option stays in the code, off by default.
+
+## 18. Codebook EMA decay matching the official memory
+
+*2026-11-22*
+
+- **Question.** With batch 256 and EMA decay 0.95 per step, a code's usage statistic remembers about 16 times fewer stories than in the official tokenizer (batch 4,096, same decay). Does matching that memory (0.95^(256/4,096) ≈ 0.9968) fill the coarse levels and improve the text?
+- **Setup.** `mytok-12std-dati-rv-d9968_614400_2400x256_s42`: identical to R12 at 2,400 steps except `tokenizer.vqvae_overrides.vector_quantizer_config.decay=0.9968` at every level. The restart keeps its fixed threshold and end step; with the slower decay a restarted code needs about 720 steps instead of about 45 to fall below the threshold, a side effect of the same variable. Judge: standard generator, best recipe, seed 42 (`configs/cicli/2026-11-22_decay-ema.yaml`). Trained on Linux.
+- **Decision rule.** Same as section 17: wins below 99.4, loses above 113.7.
+- **Results.**
+
+| Tokenizer | Generator val loss | Gen. PPL | Entropy | Perfect stories |
+|---|---|---|---|---|
+| R12, decay 0.95 (generator seed 42 / 43) | 3.875 / 3.917 | 106.54 / 109.80 | 3.873 / 3.870 | 39.9% |
+| R12, decay 0.9968 (seed 42) | 4.301 | **157.80** (+48%) | 3.796 | 14.4% |
+
+Mean fraction of codes in use: 22% at step 1,600 and 27% at 2,400 (R12: 45% at step 1,600); level 0 at 0.24% at step 1,600.
+
+- **Conclusion.** Loses clearly (one seed, far beyond the noise). With the long memory the codebooks move too slowly for a 2,400-step run; at this budget the short memory of decay 0.95 helps rather than hinders. Matching the official per-story memory is not a remedy for the gap at 2,400 tokenizer steps. Untested: the long memory together with a much longer tokenizer training.
+
+## 19. A looped generator
+
+*2026-11-22*
+
+- **Question.** A generator whose middle block of layers is applied several times with the same weights (a looped or shared-layer transformer; prior work includes the Universal Transformer [Dehghani et al. 2019], looped masked diffusion language models [Lee et al. 2026, arXiv:2605.26106] and NVIDIA's Dory1.0-4B [Fishman et al. 2026, arXiv:2611.03998], of the Nemotron-Labs-Dory family) — does it generate as well as the standard generator at equal stories seen? This is the prerequisite for growing a generator in depth (sections 20-22).
+- **Setup.** New option `cicli: {prima, blocco, ripetizioni, dopo}` in `generator/stage2.py` (`null` = standard generator): `prima` layers, then a block of `blocco` layers applied `ripetizioni` times, then `dopo` layers. Each repetition is a distinct module with its own key-value cache at generation time; its parameters are the same tensors as the first repetition, so the optimiser updates them once. Name suffix `cicli<prima>-<blocco>x<ripetizioni>-<dopo>`. Official tokenizer, best recipe, 51,200 stories, seed 42 (`configs/cicli/2026-11-22_cicli-generatore.yaml`). Variants: 4 + 2×2 + 4 (12 applied layers, equal compute, 10 layers of weights); 4 + 4×2 + 4 (16 applied, +33% compute, same weights as 12 layers); 4 + 4×3 + 4 (20 applied, +67%).
+- **Decision rule.** Against the 12-layer generator seed 42 (65.89), 6.7% between single runs: wins below 61.48, loses above 70.30, tie in between; entropy guard. If only the variants with more compute win, a standard generator of equal compute is needed before crediting the loop.
+- **Results.**
+
+| Generator | Parameters | Applied layers | Val loss | Gen. PPL | Entropy | Sequences/s |
+|---|---|---|---|---|---|---|
+| 12 layers, standard (seed 42 / 43) | 88.6M | 12 | 3.302 / 3.269 | 65.89 / 66.62 | 3.939 / 3.927 | 104 / 111 |
+| 4 + 2×2 + 4 | 74.4M | 12 | 3.360 | 64.18 (−2.6%) | 3.940 | 109 |
+| 4 + 4×2 + 4 | 88.6M | 16 | 3.309 | 64.85 (−1.6%) | 3.947 | 84 |
+| 4 + 4×3 + 4 | 88.6M | 20 | 3.300 | 64.43 (−2.2%) | 3.936 | 68 |
+
+- **Conclusion.** All three tie (one seed). 4 + 2×2 + 4 keeps the quality with 16% fewer parameters and the same compute: the loop does no measurable harm at this budget. More repetitions, and so more compute, give no visible gain at 51,200 stories. The first evaluation of the 16- and 20-layer variants failed because `evaluation/gen_ppl_run.py` built the model with the 12 layers of the official configuration; it now uses `prima + blocco × ripetizioni + dopo` layers. The exported weights have one entry per applied layer (the tied tensors appear under every repetition and share storage in the file), so a standard generator of that depth, loading them, computes the same function. Only those two evaluations were repeated; no training was repeated. Limits: one seed for the looped variants; the 12-layer baselines were trained on Windows 10 (v0.1) and the looped runs on Linux.
+
+## 20. Growing the looped generator
+
+*2026-11-22*
+
+- **Question.** Train 4 + 4×2 + 4 with only the first repetition active (12 applied layers) for half the run, then switch on the second repetition as an exact copy of the trained block. Does it reach the same model trained with 16 applied layers from the start, at equal stories seen?
+- **Setup.** New option `cicli.crescita_al_passo: k` (`generator/stage2.py`, `generator/train_generator.py`): before step k the repetitions after the first return their input unchanged; from step k they apply the shared block. Because the weights are tied, the new repetition starts as an exact copy of the trained block; the switch is not function-preserving. The state follows the trainer's step, including on resume. One cosine learning-rate curve over the 400 steps: no restart or new warm-up at the switch. Name suffix `-cresce<k>`. GPU check before the run: with the repetition switched off the loss equals that of a model with only the 12 blocks (8.357138 = 8.357138); switched on it changes (8.358944). Compute, counted in applied layers averaged over steps: 14 against 16, about 87%. `configs/cicli/2026-11-22_crescita.yaml`, seed 42.
+- **Decision rule.** Against 4 + 4×2 + 4 from scratch (64.85), 6.7%: growth holds below 69.20, is better below about 60.5 (60.51), loses above 69.20; entropy guard; one seed.
+- **Results.**
+
+| Generator | Applied layers on average | Val loss | Gen. PPL | Entropy |
+|---|---|---|---|---|
+| 12 layers, standard (seed 42 / 43) | 12 | 3.302 / 3.269 | 65.89 / 66.62 | 3.939 / 3.927 |
+| 4 + 4×2 + 4 from scratch | 16 | 3.309 | 64.85 | 3.947 |
+| Grown: 12 applied until step 200, then 16 | 14 | 3.283 | **60.91** (−6.1%) | 3.946 |
+
+The training loss, logged every 10 steps, does not jump at the switch: 5.24 at step 200 (before the switch), 5.23 at step 210.
+
+- **Conclusion.** Growth holds and narrowly misses the "better" threshold (one seed). A short run could favour growth as a curriculum (a simpler model learns faster first) and the advantage could vanish with longer training or another seed. Section 21 tests both. Confound: upstream scales the initial standard deviation of residual projections by `n_layer`, and the looped model is built with `n_layer` = 16 even while 12 layers are active, so before the switch it is not identical to the standard 12-layer model; its initial weights are identical to those of 16 from scratch with the same seed.
+
+## 21. Growth: second seed, three stages, 409,600 stories
+
+*2026-11-22 to 2026-11-23*
+
+- **Question.** Does the advantage of section 20 hold with a second seed, with three stages (12 → 16 → 20 applied layers) and with eight times more training?
+- **Setup.** New option `cicli.crescita_ai_passi: [k2, k3]`: repetition 2 switches on at step k2, repetition 3 at k3 (suffix `-cresce<k2>-<k3>`). GPU check: at each stage the loss equals that of the model with only the active blocks (8.359425 and 8.360371). One cosine learning-rate curve over the whole run. Official tokenizer, best recipe. Short chain (51,200 stories, `configs/cicli/2026-11-22_crescita-conferma-corta.yaml`): 16 from scratch seed 43; grown 12 → 16 at step 200 seed 43; grown 12 → 16 → 20 at steps 133 and 266, seed 42. Long chain (409,600 stories = 3,200 × 128, `…_crescita-conferma-lunga.yaml`, seed 42): 16 from scratch; grown 12 → 16 at step 1,600; grown 12 → 16 → 20 at steps 1,067 and 2,133. The 12-layer generators at 409,600 stories come from section 14. An unplanned shutdown stopped the chain during the long grown 12 → 16 run, which had reached step about 430; it was resumed from its checkpoint at step 267 (before its switch step at 1,600) and the repeated steps were recomputed.
+- **Decision rule.** Seed 43: two-seed mean of grown 12 → 16 against two-seed mean of 16 from scratch, 4.7%: better, tie or worse. Three stages (short): against 20 from scratch (64.43), better below 60.11, worse above 68.75. Long: against 16 from scratch at 409,600 stories (unknown at the time), 6.7% either way; same rule for three stages; the 12-layer generator reported as well. Entropy guard throughout. If growth only ties at 409,600 stories, the short-run advantage was a curriculum effect and growth remains useful as "grows without losing quality".
+- **Results.** 51,200 stories:
+
+| Generator | Seed 42 | Seed 43 | Mean |
+|---|---|---|---|
+| 12 layers, standard | 65.89 | 66.62 | 66.26 |
+| 16 from scratch | 64.85 | 66.25 | 65.55 |
+| Grown 12 → 16 at step 200 | 60.91 | **68.25** | 64.58 |
+| 20 from scratch | 64.43 | — | — |
+| Grown 12 → 16 → 20 at steps 133, 266 | 62.46 | — | — |
+
+409,600 stories, seed 42:
+
+| Generator | Gen. PPL | Entropy |
+|---|---|---|
+| 12 layers, standard (seed 42 / 43) | 26.04 / 25.71 | 3.952 / 3.946 |
+| 16 from scratch | 25.20 | 3.964 |
+| Grown 12 → 16 at step 1,600 | 24.78 (−1.7%) | 3.955 |
+| Grown 12 → 16 → 20 at steps 1,067, 2,133 | 24.53 (−2.7%) | 3.952 |
+
+Entropies of the new short runs: 3.933-3.947.
+
+- **Conclusion.** The −6.1% of section 20 is not confirmed: the second seed of the grown model scores 68.25, and the two-seed means tie (−1.5%). At this short budget growth varies much more between seeds (60.91 / 68.25) than the standard models do (65.89 / 66.62). Three stages tie with 20 from scratch (−3.1%, one seed). At 409,600 stories both grown models tie with 16 from scratch by the rule. By the rule written before the runs, the tie at 409,600 stories means the short-run advantage is not supported at the longer budget; the grown models remain slightly ahead, which is consistent but not significant. Grown 12 → 16 → 20 ends at 20 applied layers, but no 20-layer model was trained from scratch at 409,600 stories (at 51,200 stories, one seed: 62.46 against 64.43). The second seed of the long runs is in section 22. Limits and confounds (initialisation scaled by the full number of applied layers, Windows versus Linux baselines, shared data order and references, thresholds from 51,200 stories) apply here too and are listed in section 22.
+
+## 22. Growth at 409,600 stories: second seed
+
+*2026-11-23*
+
+- **Question.** Does the small advantage of growth at 409,600 stories (section 21, seed 42) hold with seed 43? This decides how v0.2 describes the result.
+- **Setup.** `configs/cicli/2026-11-23_crescita-lunga-s43.yaml`: the three long runs of section 21 with `train.seed=43`. An unplanned shutdown stopped the 16-from-scratch run, which had reached step about 2,260; it was resumed from its checkpoint at step 2,141 and the repeated steps were recomputed. That run also shared the CPU with an unrelated data-preprocessing job for part of its training.
+- **Decision rule.** Written before the seed-43 runs, but after the seed-42 results at 409,600 stories (section 21) were known. The comparison of grown 12 → 16 → 20 against the 12-layer generator was added at that point, when seed 42 had already shown −5.2%. Two-seed means, 4.7%: grown 12 → 16 against 16 from scratch; grown 12 → 16 → 20 against 16 from scratch and against the 12-layer generator (25.88): better, tie or worse. "Grows without losing quality" holds if no grown model is worse than the model trained from scratch; "growth improves quality" only if a grown model is better beyond the threshold. Entropy guard.
+- **Results.**
+
+| Generator | Applied layers on average | Seed 42 | Seed 43 | Mean | vs 16 from scratch |
+|---|---|---|---|---|---|
+| 12 layers, standard | 12 | 26.04 | 25.71 | 25.88 | +3.1% |
+| 16 from scratch (4 + 4×2 + 4) | 16 | 25.20 | 25.00 | 25.10 | — |
+| Grown 12 → 16 at step 1,600 | 14 | 24.78 | 24.25 | 24.52 | −2.3% |
+| Grown 12 → 16 → 20 at steps 1,067, 2,133 | 16 | 24.53 | 23.81 | **24.17** | −3.7% |
+
+Entropies 3.945-3.964; generator validation losses 1.890-1.920. Peak memory allocated by PyTorch: 7.0 GiB (12 and 16 applied layers), 8.1 GiB (20). Training time, summed over the logged intervals (stories / measured throughput), excluding pauses and repeated steps:
+
+| Generator | Seed 42 | Seed 43 |
+|---|---|---|
+| 12 layers, standard | 61.5 min | 61.2 min |
+| 16 from scratch | 78.8 min | 83.5 min (shared the CPU; resumed) |
+| Grown 12 → 16 | 76.7 min (resumed) | 72.6 min |
+| Grown 12 → 16 → 20 | 80.5 min | 81.7 min |
+
+End to end, including validation and compilation, uninterrupted looped runs took 74-84 minutes (`results/RUNS.md`; 88 for the resumed 16-from-scratch run).
+
+- **Conclusion.** By the rule: grown 12 → 16 ties with 16 from scratch (−2.3%) with 12.5% fewer applied layers (measured training time 3-13% lower in these runs); grown 12 → 16 → 20 ties with 16 from scratch (−3.7%) with the same average number of applied layers; grown 12 → 16 → 20 is better than the 12-layer generator (−6.6%), but spends more compute (16 applied layers on average against 12) and that comparison was added after seed 42 was known. No grown model is worse, so the supported statement is that **a looped NCM generator can be grown in depth during training without a measurable loss of quality (no difference beyond the 4.7% two-seed threshold), at equal or lower compute counted as applied layers averaged over steps**. "Growth improves quality" at equal compute does not pass the threshold. Both two-seed comparisons with 16 from scratch are ties; each single-seed comparison is within the 6.7% single-run threshold (the largest is seed 43 of grown 12 → 16 → 20, −4.8%); all four favour growth, and the two seeds agree within 0.2-0.7: a consistent observation, not a significant one.
+
+  Limits and confounds: (a) upstream scales the initial standard deviation of residual projections by `n_layer`, and looped models are built with `n_layer` = applied layers at full depth (16 or 20) even while 12 are active; a grown model before its switch is therefore not identical to the standard 12-layer model, and grown 12 → 16 → 20 (`n_layer` 20) differs in initialisation from 16 from scratch (`n_layer` 16). The clean comparison is grown 12 → 16 against 16 from scratch: identical initial weights, same seed, same system and code. (b) The 12-layer baselines were trained and evaluated on Windows 10 in v0.1, all looped runs on Linux. (c) Training seeds change initialisation and corruption and dropout noise, but the data order is identical in every run, and for each seed both grown runs share the same from-scratch reference: the four comparisons are not independent, and the seed spread probably underestimates run-to-run variance. (d) The 4.7% and 6.7% thresholds were derived from the seed noise of standard generators at 51,200 stories and are reused at 409,600. (e) No 20-layer model was trained from scratch at 409,600 stories. (f) One tokenizer (the official October 2026 release), one block size and one set of switch steps; compute counted as applied layers, not measured FLOPs; 409,600 stories is still far below the paper's generator budget.
+
+  Prior work: growing a looped transformer by increasing the number of loops during training is not new; Chen et al. (2026, arXiv:2609.19107) state that looping "provides a mechanism for model growth, by increasing the number of loops during training", and UpLoop (Liang et al. 2026, arXiv:2610.41720) grows depth by copying learned layers and later loops a shared middle block. Depth growth by stacking goes back to Gong et al. (2019) and Du et al. (2024). What is new here is only the measurement on an NCM generator at this budget on a 12 GB GPU.
+
+## Tooling added in v0.2, not yet used in an experiment
+
+- **Warmup-stable-decay schedule** (`train.schedule=wsd`, `train.decay_steps`; `common/trainer.py`): linear warm-up, constant learning rate, then a linear decay to `min_lr` over the last `decay_steps`. The cosine schedule is unchanged and stays the default.
+- **Extending a run** (`generator/train_generator.py --run <name> --estendi <new total steps>`): only for runs with `schedule=wsd` and no decay.
+- **Descent branch** (`scripts/discesa.py`): copies the last checkpoint of a WSD run into a new run, decays the learning rate over D steps, exports and measures Gen. PPL, leaving the main run untouched. **Checkpoint evaluation** (`scripts/valuta_checkpoint.py`): exports and evaluates a paused run's checkpoint.
+- Checked without GPU training: the learning-rate values of both schedules; the creation of a descent branch on a dummy run; a CPU export of the step-400 checkpoint of the grown run of section 20, which gives the same weights as its original export. A real extension and a complete descent branch have not been run on the GPU. No reported result uses these tools.

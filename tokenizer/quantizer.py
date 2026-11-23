@@ -28,7 +28,8 @@ NOME_NOSTRO = "quantizzatore_nostro"
 
 
 class QuantizzatoreNostro(MultiscaleResidualVectorQuantizer):
-    def __init__(self, *args, riavvio_fino_al_passo=0, riavvio_soglia=0.1, riavvio_campioni=4096, **kwargs):
+    def __init__(self, *args, riavvio_fino_al_passo=0, riavvio_soglia=0.1, riavvio_campioni=4096,
+                 riavvio_soglia_relativa=False, **kwargs):
         super().__init__(*args, **kwargs)
         assert self.restart_threshold == 0, "riavvio upstream disattivato: si usa riavvio_fino_al_passo"
         # Rimedio R2 contro il collasso dei codici: fino al passo indicato, i codici quasi inutilizzati
@@ -37,6 +38,11 @@ class QuantizzatoreNostro(MultiscaleResidualVectorQuantizer):
         self.riavvio_fino_al_passo = int(riavvio_fino_al_passo)
         self.riavvio_soglia = float(riavvio_soglia)
         self.riavvio_campioni = int(riavvio_campioni)
+        # Soglia relativa (2026-11-22, esperimenti/2026-11-22_soglia-riavvio.md): soglia = riavvio_soglia x quota media
+        # di un codice al livello (vettori visti nel passo / codici). Con la soglia fissa, al livello 0 la quota media
+        # (0,062 a batch 256) sta sotto 0,1 e il riavvio rimpiazza anche i codici a uso normale.
+        self.riavvio_soglia_relativa = bool(riavvio_soglia_relativa)
+        self._visti = [0.0] * len(self.vqvae_vocab_sizes)
         self.register_buffer("_passo_ema", torch.zeros((), dtype=torch.long), persistent=False)
         self._campioni = [None] * len(self.vqvae_vocab_sizes)
         for i, vs in enumerate(self.vqvae_vocab_sizes):
@@ -144,6 +150,8 @@ class QuantizzatoreNostro(MultiscaleResidualVectorQuantizer):
             n = cs.sum()
             smoothed = (cs + self.epsilon) / (n + vs * self.epsilon) * n
             w.mul_(decay).add_(acc_w, alpha=1 - decay)
+            if self.riavvio_soglia_relativa:
+                self._visti[i] = acc_n.sum()   # vettori del passo (tensore: niente sincronizzazione qui)
             self.embeddings[i].weight.data.copy_(w / smoothed.unsqueeze(1))
             acc_n.zero_()
             acc_w.zero_()
@@ -160,7 +168,8 @@ class QuantizzatoreNostro(MultiscaleResidualVectorQuantizer):
             if x is None:
                 continue
             cs, w = getattr(self, f"ema_cluster_size_{i}"), getattr(self, f"ema_w_{i}")
-            morti = (cs < self.riavvio_soglia).nonzero(as_tuple=True)[0]
+            soglia = self.riavvio_soglia * self._visti[i] / cs.numel() if self.riavvio_soglia_relativa else self.riavvio_soglia
+            morti = (cs < soglia).nonzero(as_tuple=True)[0]
             if morti.numel() == 0:
                 continue
             nuovi = x[torch.randint(0, x.shape[0], (morti.numel(),), device=x.device)].float()

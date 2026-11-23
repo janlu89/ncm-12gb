@@ -36,6 +36,9 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--salta-ripresa", action="store_true")
 a = ap.parse_args()
 dev = "cuda"
+# Stessa numerica su Windows e Linux: con il TF32 di cuDNN (default di PyTorch) T5 dipende dagli algoritmi
+# che cuDNN sceglie su ogni sistema (2026-11-22: su Linux differenza 3,3e-01, senza TF32 6e-07).
+torch.backends.cudnn.allow_tf32 = False
 esiti = []
 
 

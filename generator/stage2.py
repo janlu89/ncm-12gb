@@ -22,6 +22,28 @@ def P(path):
     return path if os.path.isabs(path) else os.path.join(PROJECT_ROOT, path)
 
 
+def _cicli(config):
+    """ Generatore a cicli (2026-11-22, idea da Dory 4B): `cicli: {prima: 4, blocco: 4, ripetizioni: 2, dopo: 4}` =
+    4 strati, poi un blocco di 4 strati applicato 2 volte con gli stessi pesi, poi 4 strati. None = generatore normale. """
+    c = config.get("cicli")
+    if not c or int(c.get("ripetizioni", 1)) <= 1:
+        return None
+    return int(c.prima), int(c.blocco), int(c.ripetizioni), int(c.dopo)
+
+
+def _lega_blocchi(net, prima, blocco, ripetizioni):
+    """ Lega i pesi delle ripetizioni del blocco centrale a quelli della prima ripetizione. Ogni posizione resta un
+    Block distinto (con la sua cache di chiavi e valori in generazione), ma i parametri sono gli stessi oggetti:
+    parameters() li conta una volta sola, l'ottimizzatore li aggiorna una volta sola. """
+    bl = net.transformer.blocks
+    for r in range(1, ripetizioni):
+        for j in range(blocco):
+            src, dst = bl[prima + j], bl[prima + r * blocco + j]
+            for nome, p in list(src.named_parameters()):
+                mod, _, attr = nome.rpartition(".")
+                setattr(dst.get_submodule(mod) if mod else dst, attr, p)
+
+
 def build(config, dev="cuda"):
     s = SimpleNamespace(config=config)
     base = OmegaConf.load(P(config.base_config))
@@ -49,8 +71,48 @@ def build(config, dev="cuda"):
     s.tk, s.vqvae, s.vq, s.levels = tk, vqvae, vq, levels
 
     # ---------- generatore (pesi nuovi; dopo il tokenizer: copia i codebook) ----------
+    cicli = _cicli(config)
+    if cicli:
+        prima, blocco, rip, dopo = cicli
+        base.model.n_layer = prima + blocco * rip + dopo   # strati applicati (calcolo); pesi: prima + blocco + dopo
     torch.manual_seed(int(config.train.seed))
     net = NextConceptTransformer(vqvae_local=vqvae, config=base.model).to(dev)
+    s.crescita = lambda passo: None
+    if cicli:
+        _lega_blocchi(net, prima, blocco, rip)
+        # Crescita (2026-11-22): `crescita_al_passo: k` accende tutte le ripetizioni oltre la prima al passo k;
+        # `crescita_ai_passi: [k2, k3, ...]` accende la ripetizione 2 al passo k2, la 3 al passo k3, ... (tappe).
+        # Prima del suo passo una ripetizione lascia passare l'input invariato; i pesi sono legati, quindi parte come
+        # copia esatta del blocco già allenato.
+        tappe = list(config.cicli.get("crescita_ai_passi", None) or [])
+        k = int(config.cicli.get("crescita_al_passo", 0) or 0)
+        if not tappe and k > 0:
+            tappe = [k] * (rip - 1)
+        if tappe:
+            assert len(tappe) == rip - 1, "crescita_ai_passi: un passo per ogni ripetizione oltre la prima"
+            assert max(int(t) for t in tappe) <= int(config.train.steps), \
+                "crescita oltre train.steps: il modello esportato avrebbe ripetizioni mai allenate"
+            gruppi = []
+            for r in range(1, rip):
+                g = [net.transformer.blocks[prima + r * blocco + j] for j in range(blocco)]
+                for b in g:
+                    b._acceso = False
+                    b._forward_vero = b.forward
+                    b.forward = (lambda bb: (lambda x, *a, **kw: bb._forward_vero(x, *a, **kw) if bb._acceso else x))(b)
+                gruppi.append((int(tappe[r - 1]), r + 1, g))
+
+            def crescita(passo, _g=gruppi):
+                for kk, n, g in _g:
+                    acceso = int(passo) >= kk
+                    if g[0]._acceso != acceso:
+                        for b in g:
+                            b._acceso = acceso
+                        print(f"[crescita] passo {passo}: ripetizione {n} {'accesa' if acceso else 'spenta'}", flush=True)
+            s.crescita = crescita
+            crescita(0)
+        print(f"[generatore] cicli {prima}+{blocco}x{rip}+{dopo}: {base.model.n_layer} strati applicati, "
+              f"{prima + blocco + dopo} con pesi propri, {sum(p.numel() for p in net.parameters()) / 1e6:.1f}M parametri",
+              flush=True)
     Pn = int(base.model.prefix_len)
     assert bool(base.model.raw_token_prefix) and not bool(base.model.predict_level0) \
         and not bool(base.model.query_level0)

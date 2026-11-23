@@ -213,7 +213,10 @@ for r in sorted(toks, key=lambda r: (r["stories_seen"], r["run"])):
 
 A("\n## 2. Generators\n")
 A("Grouped by tokenizer, then by stories seen. A generator on a 12-level tokenizer has 88.6M parameters; "
-  "the count changes with the number of levels (87.4M with 8, 89.8M with 16, 92.8M with 26, 96.9M with 40).\n")
+  "the count changes with the number of levels (87.4M with 8, 89.8M with 16, 92.8M with 26, 96.9M with 40). "
+  "Names containing `cicli<a>-<b>x<r>-<c>` are looped generators: a layers, then a block of b layers applied r times "
+  "with shared weights, then c layers (4+2x2+4: 74.4M parameters; 4+4x2+4 and 4+4x3+4: 88.6M). `-cresce<k>` = the "
+  "repetitions after the first are switched on at step k; `-cresce<k2>-<k3>` = repetition 2 at step k2, 3 at step k3.\n")
 groups = {}
 for r in done:
     groups.setdefault(r["tokenizer"], []).append(r)

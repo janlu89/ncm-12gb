@@ -1,0 +1,8 @@
+[ciclo] 18:11 training CRESCE200 (gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s42)
+[ciclo] 18:24 valutazione Gen. PPL di CRESCE200
+ard 0 --nshards 1 --n 256 --bs 128 --out ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s42/eval/genppl/shard_0.pkl
+[gen_ppl] valutazione con GPT-2 large ...
+[gen_ppl] Gen. PPL 60.91 ± 0.85 | entropia 3.9463 | 1280 campioni | 48s -> ./runs/gen-tokuff_51200_400x128_c50_lr1e-3_flex_cicli4-4x2-4-cresce200_s42/eval/genppl
+ 
+[ciclo] 18:25 completato
+[ciclo] tabella: ./runs/_cicli/2026-11-22_crescita.md

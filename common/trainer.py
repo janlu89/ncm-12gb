@@ -30,8 +30,25 @@ def set_seed(seed):
     torch.cuda.manual_seed_all(seed)
 
 
+def lr_wsd(step, cfg):
+    """ WSD (warmup-stable-decay, 2026-11-22): warmup lineare, poi lr costante, poi discesa lineare fino a min_lr
+    negli ultimi `decay_steps` passi (0 = nessuna discesa: la run si può allungare quanto si vuole con --estendi;
+    la discesa si fa su un ramo, scripts/discesa.py). """
+    if step < cfg.warmup:
+        return cfg.lr * (step + 1) / cfg.warmup
+    d = int(cfg.get("decay_steps", 0) or 0)
+    inizio = int(cfg.steps) - d
+    if d <= 0 or step < inizio:
+        return cfg.lr
+    t = min(1.0, (step - inizio + 1) / d)
+    return cfg.lr + (cfg.min_lr - cfg.lr) * t
+
+
 def lr_at(step, cfg):
-    """Warmup lineare, poi coseno fino a min_lr (la forma del decay non è nel paper: scelta nostra)."""
+    """Warmup lineare, poi coseno fino a min_lr (la forma del decay non è nel paper: scelta nostra).
+    Con `train.schedule: wsd` si usa lr_wsd (default `cosine`: comportamento di prima)."""
+    if str(cfg.get("schedule", "cosine")) == "wsd":
+        return lr_wsd(step, cfg)
     if step < cfg.warmup:
         return cfg.lr * (step + 1) / cfg.warmup
     t = min(1.0, (step - cfg.warmup) / max(1, cfg.steps - cfg.warmup))

@@ -1,0 +1,19 @@
+# Conferma lunga della crescita (2026-11-22): 409.600 storie, una sola curva di learning rate.
+# Regola: docs/esperimenti/2026-11-22_crescita-conferma.md
+nome: 2026-11-22_crescita-conferma-lunga
+riferimento: C16_409k
+rumore: [UFF_409k_s42, UFF_409k_s43]
+base_overrides:
+  - train.steps=3200
+  - train.accum=8
+  - train.warmup=160
+  - train.eval_every=1600
+  - train.log_every=10
+  - train.keep_ckpts=1
+  - train.ckpt_every_minutes=5
+runs:
+  - {id: UFF_409k_s42, run: gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s42, descr: "12 strati normali (gia fatto)", overrides: [train.seed=42]}
+  - {id: UFF_409k_s43, run: gen-tokuff_409600_3200x128_c50_lr1e-3_flex_s43, descr: "12 strati normali, seed 43 (gia fatto)", overrides: [train.seed=43]}
+  - {id: C16_409k, descr: "16 strati da zero", overrides: [train.seed=42, data.codes_file=data/processed/tinystories_codes_official_L128.u16, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4, cicli.prima=4, cicli.blocco=4, cicli.ripetizioni=2, cicli.dopo=4]}
+  - {id: CRESCE_409k, descr: "cresce 12->16 al passo 1600", overrides: [train.seed=42, data.codes_file=data/processed/tinystories_codes_official_L128.u16, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4, cicli.prima=4, cicli.blocco=4, cicli.ripetizioni=2, cicli.dopo=4, cicli.crescita_al_passo=1600]}
+  - {id: CRESCE3_409k, descr: "cresce 12->16->20 ai passi 1067 e 2133", overrides: [train.seed=42, data.codes_file=data/processed/tinystories_codes_official_L128.u16, corruption.rate_first=0.5, corruption.rate_last=0.5, model_overrides.use_flex_attention=true, model_overrides.flex_block_size=64, train.lr=1.0e-3, train.min_lr=1.0e-4, cicli.prima=4, cicli.blocco=4, cicli.ripetizioni=3, cicli.dopo=4, "cicli.crescita_ai_passi=[1067,2133]"]}
