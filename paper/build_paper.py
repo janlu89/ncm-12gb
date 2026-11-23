@@ -581,7 +581,7 @@ with PdfPages(PDF, metadata=metadata) as pdf:
     p=Page(11,'Version history','9  Version history','This note is updated as new experiments finish. Each version keeps earlier results unless a correction is listed.')
     y=p.y
     y=p.table(['Version','Date','What’s new','Conclusions changed?','DOI'],[
-        ['v0.2','23 Nov 2026','Looped generator grown in depth (section 5); two negative tokenizer tests; WSD and descent-branch tooling, not yet used; upstream checkpoint revision pinned','No; one finding added','Assigned on release; all versions 10.5281/zenodo.24408540'],
+        ['v0.2','23 Nov 2026','Looped generator grown in depth (section 5); two negative tokenizer tests; WSD and descent-branch tooling, not yet used; upstream checkpoint revision pinned','No; one finding added','10.5281/zenodo.24478988'],
         ['v0.1','20 Nov 2026 (UTC); Zenodo 21 Nov','Initial release: data-initialised codebooks, short-budget recipe, remaining 1.39× tokenizer gap','—','10.5281/zenodo.24408541'],
     ],[42,64,166,84,CW-356],y,size=8.6,leading=11.6)
     y=p.head('Best generator so far: this study, 409,600 stories, official tokenizer',y,size=11)

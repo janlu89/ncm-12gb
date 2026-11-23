@@ -17,7 +17,7 @@
 
 | Version | Date | What's new | Conclusions changed? | DOI |
 |:---|:---|:---|:---|:---|
-| **v0.2** | 23 Nov 2026 | Looped generator grown in depth; two negative tokenizer tests; WSD and descent-branch tooling (not yet used) | No; one finding added | Assigned by Zenodo on release · all versions: [10.5281/zenodo.24408540](https://doi.org/10.5281/zenodo.24408540) |
+| **v0.2** | 23 Nov 2026 | Looped generator grown in depth; two negative tokenizer tests; WSD and descent-branch tooling (not yet used) | No; one finding added | [10.5281/zenodo.24478988](https://doi.org/10.5281/zenodo.24478988) |
 | [v0.1](https://github.com/janlu89/ncm-12gb/tree/v0.1) | 20 Nov 2026 (UTC), archived on Zenodo 21 Nov | Initial release: data-initialised codebooks, retuned short-budget recipe, remaining 1.39× tokenizer gap | — | [10.5281/zenodo.24408541](https://doi.org/10.5281/zenodo.24408541) |
 
 **How far can a Next-Concept Model get on one consumer GPU?** This study trains the tokenizer and generator on TinyStories, tests practical choices at small budgets, and documents the remaining gap to the authors' released tokenizer. The main result is a reproducible account of what helps, with the unsuccessful interventions and raw runs included. Version 0.2 adds a looped generator that can be grown in depth during training, and two more tokenizer interventions that did not help.
@@ -186,7 +186,7 @@ The weights are on Hugging Face: **[huggingface.co/janlu89/ncm-12gb](https://hug
 
 ## Citation, credit and contact
 
-Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.2, research note). Zenodo. https://doi.org/10.5281/zenodo.24408540
+Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.2, research note). Zenodo. https://doi.org/10.5281/zenodo.24478988
 
 ```bibtex
 @misc{meola2026ncm12gb,
@@ -194,12 +194,12 @@ Meola, G. (2026). *Training a Next-Concept Model on a single 12 GB GPU* (v0.2, r
   title  = {Training a Next-Concept Model on a single 12 GB GPU},
   year   = {2026},
   note   = {v0.2, work in progress},
-  doi    = {10.5281/zenodo.24408540},
+  doi    = {10.5281/zenodo.24478988},
   url    = {https://github.com/janlu89/ncm-12gb}
 }
 ```
 
-The DOI above, [10.5281/zenodo.24408540](https://doi.org/10.5281/zenodo.24408540), always points to the latest version. The version-specific DOI of v0.2 is assigned by Zenodo on release; v0.1 is [10.5281/zenodo.24408541](https://doi.org/10.5281/zenodo.24408541). [CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
+The DOI above is for v0.2; [10.5281/zenodo.24408540](https://doi.org/10.5281/zenodo.24408540) always points to the latest version; v0.1 is [10.5281/zenodo.24408541](https://doi.org/10.5281/zenodo.24408541). [CITATION.cff](CITATION.cff) provides machine-readable citation metadata.
 
 Built on [HazyResearch/ncm](https://github.com/HazyResearch/ncm) and the [NCM paper](https://arxiv.org/abs/2610.14162), with TinyStories data by Eldan and Li ([arXiv:2305.07759](https://arxiv.org/abs/2305.07759); licence CDLA-Sharing-1.0) as pre-tokenised by the NCM authors. Upstream attribution and its pinned revision are in [NOTICE](NOTICE) and [third_party/README.md](third_party/README.md). Code is released under [MIT](LICENSE); see the upstream dataset card for data terms.
 

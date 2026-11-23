@@ -4,7 +4,7 @@ All notable changes to this research note, its results and its code. The format 
 
 ## 0.2 — 2026-11-23
 
-DOI: assigned by Zenodo on release (all versions: [10.5281/zenodo.24408540](https://doi.org/10.5281/zenodo.24408540)).
+DOI: [10.5281/zenodo.24478988](https://doi.org/10.5281/zenodo.24478988) (all versions: [10.5281/zenodo.24408540](https://doi.org/10.5281/zenodo.24408540)).
 
 ### Findings added
 - **A looped generator can be grown in depth during training without a measurable loss of quality (no difference beyond the 4.7% two-seed threshold), at equal or lower compute counted as applied layers averaged over steps** ([README section 4](README.md#4-a-looped-generator-can-be-grown-in-depth--new-in-v02); EXPERIMENTS sections 19-22). Generator: 4 layers + a block of 4 layers applied R times with shared weights + 4 layers. Growth: training starts with one repetition; later repetitions switch on at fixed steps as exact copies of the trained block; one cosine learning-rate curve. Official tokenizer, 409,600 stories, means of two seeds: 12 layers standard 25.88; 16 applied layers from scratch 25.10; grown 12 → 16 24.52 (−2.3%, 12.5% fewer applied layers, measured training time 3–13% lower); grown 12 → 16 → 20, ending at 20 applied layers, 24.17 (−3.7%, same average number of applied layers). Both grown models tie with 16 from scratch under the 4.7% rule for two-seed means, fixed before the second-seed runs (after the seed-42 results); none is worse. No 20-layer model was trained from scratch at this budget.
